@@ -1,0 +1,7 @@
+[color]
+	ui = true
+[user]
+	name = Joshua Estes
+	email = Joshua.Estes@iostudio.com
+[core]
+	editor = vim
