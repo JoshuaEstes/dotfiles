@@ -5,3 +5,6 @@
 	email = Joshua.Estes@iostudio.com
 [core]
 	editor = vim
+	mergeoptions = --no-ff
+[merge]
+	tool = meld
