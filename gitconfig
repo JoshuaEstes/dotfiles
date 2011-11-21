@@ -1,10 +1,25 @@
+[alias]
+  lg = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 [color]
-	ui = true
-[user]
-	name = Joshua Estes
-	email = Joshua.Estes@iostudio.com
+  ui = true
 [core]
-	editor = vim
-	mergeoptions = --no-ff
+;  autocrlf = true
+  editor = vim
+;  excludesfile = $HOME/.git.core.excludesfile
+  mergeoptions = --no-ff
+;  pager = ''
+;  whitespace =
+[commit]
+;  template = $HOME/.git.commit.template
+[diff]
+;  external = diff
+[help]
+;  autocorrect = 1
 [merge]
-	tool = meld
+  tool = meld
+[receive]
+
+[user]
+  email = Joshua.Estes@iostudio.com
+  name = Joshua Estes
+;  signingkey = ''
