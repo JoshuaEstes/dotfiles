@@ -10,7 +10,7 @@
 ;  pager = ''
 ;  whitespace =
 [commit]
-;  template = $HOME/.git.commit.template
+;  template = $HOME/.gitconfig.d/commit.tmpl
 [diff]
 ;  external = diff
 [help]
