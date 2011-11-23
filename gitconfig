@@ -1,3 +1,4 @@
+; ~/.gitconfig
 [alias]
   lg = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 [color]
@@ -5,7 +6,7 @@
 [core]
 ;  autocrlf = true
   editor = vim
-;  excludesfile = $HOME/.git.core.excludesfile
+;  excludesfile = $HOME/.gitconfig.d/excludesfile
   mergeoptions = --no-ff
 ;  pager = ''
 ;  whitespace =
