@@ -1,4 +1,7 @@
 # ~/.bashrc
+
+UNAME=$(uname)
+
 if [ -f $HOME/.bash.d/aliases ]; then
   source $HOME/.bash.d/aliases
 fi
