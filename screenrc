@@ -1,0 +1,12 @@
+# ~/.screenrc
+crlf off
+startup_message off
+defscrollback 1500
+shell bash
+defmonitor on
+activity "<%n>"
+silencewait 30
+defutf8 on
+
+hardstatus alwayslastline
+hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %d/%m %{W}%c %{g}]'

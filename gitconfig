@@ -1,5 +1,26 @@
-[user]
-	name = Joshua Estes
-	email = Joshua.Estes@ScenicCityLabs.com
+; ~/.gitconfig
+[alias]
+  lg = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
 [color]
-	ui = true
+  ui = true
+[core]
+;  autocrlf = true
+  editor = vim
+  excludesfile = $HOME/.gitconfig.d/excludesfile
+  mergeoptions = --no-ff
+;  pager = ''
+;  whitespace =
+[commit]
+;  template = $HOME/.gitconfig.d/commit.tmpl
+[diff]
+;  external = diff
+[help]
+;  autocorrect = 1
+[merge]
+  tool = meld
+[receive]
+
+[user]
+  email = Joshua.Estes@ScenicCityLabs.com
+  name = Joshua Estes
+;  signingkey = ''
