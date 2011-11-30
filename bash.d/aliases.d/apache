@@ -1,0 +1,11 @@
+# apache aliases
+
+# restart apache
+alias a2restart="sudo /etc/init.d/apache2 restart"
+
+# stop apache
+alias a2stop="sudo /etc/init.d/apache2 stop"
+
+# start apache
+alias a2start="sudo /etc/init.d/apache2 start"
+
