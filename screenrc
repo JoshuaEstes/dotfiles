@@ -1,11 +1,19 @@
 # ~/.screenrc
+
 crlf off
 startup_message off
-defscrollback 1500
+defscrollback 15000
 shell bash
+shelltitle ""
 defmonitor on
 activity "<%n>"
 silencewait 30
+bell_msg "DING! (%n)"
+vbell_msg "DING! (%n)"
+vbell on
+nethack off
+pow_detach_msg "Screen session of \$LOGNAME \$:cr:\$:nl:ended."
+autodetach on
 defutf8 on
 
 hardstatus alwayslastline
