@@ -1,15 +1,21 @@
 # ~/.bashrc
-if [ -f ~/.bash/aliases ]; then
-  source ~/.bash/aliases
+
+UNAME=$(uname)
+
+if [ -f $HOME/.bash.d/aliases ]; then
+  source $HOME/.bash.d/aliases
 fi
-if [ -e ~/.bash/completions/symfony2 ]; then
-  . ~/.bash/completions/symfony2
+if [ -f $HOME/.bash.d/completions ]; then
+  source $HOME/.bash.d/completions
 fi
-if [ -f ~/.bash/paths ]; then
-  source ~/.bash/paths
+if [ -f $HOME/.bash.d/paths ]; then
+  source $HOME/.bash/paths
 fi
-if [ -f ~/.bash/config ]; then
-  source ~/.bash/config
+if [ -f $HOME/.bash.d/config ]; then
+  source $HOME/.bash.d/config
+fi
+if [ -f $HOME/.bash.d/functions ]; then
+  source $HOME/.bash.d/functions
 fi
 
 # Used for git stuff

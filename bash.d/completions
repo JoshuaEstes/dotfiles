@@ -1,0 +1,5 @@
+# ~/.bash.d/completions
+
+if [ -f $HOME/.bash.d/completions.d/git ]; then
+  source $HOME/.bash.d/completions.d/git
+fi
