@@ -1,5 +1,7 @@
 # ~/.bashrc
 
+unset MAILCHECK
+
 UNAME=$(uname)
 
 if [ -f $HOME/.bash.d/aliases ]; then
