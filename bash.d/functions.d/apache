@@ -1,4 +1,24 @@
 # ~/.bash.d/functions.d/apache
+APACHECTL=$(whereis apachectl)
 
 # Apache Functions
+function a2restart {
+  sudo $APACHECTL -k restart
+}
+
+function a2start {
+  sudo $APACHE -k start
+}
+
+function a2stop {
+  sudo $APACHECTL -k stop
+}
+
+function a2graceful {
+  sudo $APACHECTL -k graceful
+}
+
+function a2graceful-stop {
+  sudo $APACHECTL -k graceful-stop
+}
 
