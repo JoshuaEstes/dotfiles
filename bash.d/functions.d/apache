@@ -22,3 +22,6 @@ function a2graceful-stop {
   sudo $APACHECTL -k graceful-stop
 }
 
+function a2configtest {
+  sudo $APACHECTL configtest
+}
