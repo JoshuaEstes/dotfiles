@@ -1,4 +1,1 @@
-# Bash aliases
-if [ -f $HOME/.bash.d/aliases.d/apache ]; then
-  source $HOME/.bash.d/aliases.d/apache
-fi
+alias ls="ls -hF --color"
