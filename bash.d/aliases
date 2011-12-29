@@ -1,1 +1,5 @@
-alias ls="ls -hF --color"
+if [ $UNAME == "Linux" ]; then
+  alias ls="ls -hF --color"
+else
+  alias ls="ls -hFG"
+fi
