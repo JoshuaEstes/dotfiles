@@ -99,5 +99,5 @@ parse_git_branch () {
   git symbolic-ref HEAD 2> /dev/null | sed -e 's/\^0$//' | sed 's#refs\/heads\/\(.*\)#\1#'
 }
 
-export PS1="$White\u@\h:$Green\w $BRed\$(parse_git_branch)$White \$ "
+export PS1="\[$White\]\u@\h:\[$Green\]\w \[$BRed\]\$(parse_git_branch)\[$White\] \$ "
 
