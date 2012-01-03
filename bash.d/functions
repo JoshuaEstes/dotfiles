@@ -3,3 +3,20 @@
 if [ -f $HOME/.bash.d/functions.d/apache ]; then
   source $HOME/.bash.d/functions.d/apache
 fi
+
+
+
+
+
+
+# add a host to /etc/hosts
+function addhost
+{
+  if [ -z "$1" -o -z "$2" ]; then
+    echo "Usage: addhost 127.0.0.1 example.local"
+    return;
+  fi
+
+  echo "$1 $2" | sudo tee -a /etc/hosts >/dev/null
+  echo "Added $2 to /etc/hosts"
+}
