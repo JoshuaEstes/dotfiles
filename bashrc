@@ -78,23 +78,20 @@ On_IPurple='\e[10;95m'  # Purple
 On_ICyan='\e[0;106m'    # Cyan
 On_IWhite='\e[0;107m'   # White
 
-if [ -f $HOME/.bash.d/aliases ]; then
-  source $HOME/.bash.d/aliases
-fi
-if [ -f $HOME/.bash.d/completions ]; then
-  source $HOME/.bash.d/completions
-fi
-if [ -f $HOME/.bash.d/paths ]; then
-  source $HOME/.bash/paths
-fi
-if [ -f $HOME/.bash.d/config ]; then
-  source $HOME/.bash.d/config
-fi
+# include functions before aliases so aliases can use them
 if [ -f $HOME/.bash.d/functions ]; then
   source $HOME/.bash.d/functions
 fi
 
-# Used for git stuff
+if [ -f $HOME/.bash.d/aliases ]; then
+  source $HOME/.bash.d/aliases
+fi
+
+if [ -f $HOME/.bash.d/completions ]; then
+  source $HOME/.bash.d/completions
+fi
+
+# Used in PS1
 parse_git_branch () {
   git symbolic-ref HEAD 2> /dev/null | sed -e 's/\^0$//' | sed 's#refs\/heads\/\(.*\)#\1#'
 }
