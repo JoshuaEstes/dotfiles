@@ -4,4 +4,6 @@ else
   alias ls="ls -hFG"
 fi
 
-alias df='df -h'
+alias df="df -h"
+
+alias reload="source $HOME/.bashrc"
