@@ -6,4 +6,4 @@ fi
 
 alias df="df -h"
 
-alias reloadbashrc="source $HOME/.bashrc"
+alias updatesource="source $HOME/.bashrc"
