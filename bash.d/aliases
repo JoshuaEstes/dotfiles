@@ -3,3 +3,5 @@ if [ $UNAME == "Linux" ]; then
 else
   alias ls="ls -hFG"
 fi
+
+alias df='df -h'

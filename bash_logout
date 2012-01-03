@@ -6,6 +6,5 @@ if [ "$SHLVL" = 1 ]; then
 fi
 
 # Remove history
-if [ -f $HOME/.bash_history ]; then
-  rm $HOME/.bash_history; touch $HOME/.bash_history
-fi
+history -c
+clear
