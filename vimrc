@@ -42,3 +42,9 @@ set tabstop=4
 set expandtab
 set nosmarttab
 set smartcase
+
+
+
+call pathogen#infect()
+syntax on
+filetype plugin indent on
