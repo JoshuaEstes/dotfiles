@@ -4,6 +4,11 @@ unset MAILCHECK
 
 UNAME=$(uname)
 
+# This is also set in the gitconfig file. When you first do a git init
+# on a directory, this will use the contents of this directory as a template
+# so we can place hooks we want to always include here
+GIT_TEMPLATE_DIR=$HOME/.gitconfig.d/git-core/templates
+
 # @see https://wiki.archlinux.org/index.php/Color_Bash_Prompt
 # Reset
 Color_Off='\e[0m'       # Text Reset

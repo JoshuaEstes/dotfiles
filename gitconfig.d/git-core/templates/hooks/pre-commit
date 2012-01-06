@@ -1,0 +1,19 @@
+#!/bin/sh
+if git rev-parse --verify HEAD >/dev/null 2>&1
+then
+	against=HEAD
+else
+	# Initial commit: diff against an empty tree object
+	against=4b825dc642cb6eb9a060e54bf8d69288fbee4904
+fi
+
+# There is prolly an easier way to do this, but if the file has
+# a php extension, then let's run a few tests on it to make sure
+# we don't commit crappy code
+for FILE in $(git diff-index --name-only HEAD); do
+  if [ $(echo "$FILE" | awk -F . '{print $NF}') = "php" ]; then
+    phpcs $FILE
+    php -l $FILE
+  fi
+done
+
