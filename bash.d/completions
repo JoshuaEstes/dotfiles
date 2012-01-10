@@ -1,5 +1,10 @@
 # ~/.bash.d/completions
 
+# If there is a default file, then load that one first
+if [ -f /etc/bash_completion ]; then
+  source /etc/bash_completion
+fi
+
 # git bash completions
 if [ -f $HOME/.bash.d/completions.d/git ]; then
   source $HOME/.bash.d/completions.d/git

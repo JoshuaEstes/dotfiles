@@ -1,8 +1,14 @@
 # ~/.bashrc
 
+# If any default stuff is found, let's use that stuff first
+if [ -f /etc/bash.bashrc ]; then
+  source /etc/bash.bashrc
+fi
+
 unset MAILCHECK
 
-UNAME=$(uname)
+EDITOR=vim
+
 
 # This is also set in the gitconfig file. When you first do a git init
 # on a directory, this will use the contents of this directory as a template
@@ -74,7 +80,7 @@ BICyan='\e[1;96m'       # Cyan
 BIWhite='\e[1;97m'      # White
 
 # High Intensty backgrounds
-On_IBlack='\e[0;100m'   # Black
+On_IBack='\e[0;100m'   # Black
 On_IRed='\e[0;101m'     # Red
 On_IGreen='\e[0;102m'   # Green
 On_IYellow='\e[0;103m'  # Yellow
@@ -101,5 +107,15 @@ parse_git_branch () {
   git symbolic-ref HEAD 2> /dev/null | sed -e 's/\^0$//' | sed 's#refs\/heads\/\(.*\)#\1#'
 }
 
-export PS1="\[$White\]\u@\h:\[$Green\]\w \[$BRed\]\$(parse_git_branch)\[$White\] \$ "
+# Still playing around with title bars
+case $TERM in
+  xterm)
+    TITLE_BAR="\[\e]0;\u:\w\a\]"
+  ;;
+esac
+# Display the title bar and the prompt
+PS1="$TITLE_BAR\[$White\]\u@\h:\[$Green\]\w \[$BRed\]\$(parse_git_branch)\[$White\] \$ "
+
+
+
 
