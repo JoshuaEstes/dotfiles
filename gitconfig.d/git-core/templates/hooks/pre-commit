@@ -119,4 +119,4 @@ if [ $RETVAL -ne 0 ]; then
     echo "$OUTPUT" | less
 fi
 
-exit $RETVAL
+#exit $RETVAL
