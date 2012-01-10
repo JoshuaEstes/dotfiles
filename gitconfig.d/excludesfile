@@ -1,42 +1,58 @@
 # This is a global .gitignore file, it will not be commited with your project
 # 
 # @see http://help.github.com/ignore-files
+# @see https://github.com/github/gitignore/tree/master/Global
 
-
-# Compiled source #
-###################
-*.com
-*.class
-*.dll
-*.exe
-*.o
-*.so
-*.pyc
-
-# Packages #
-############
-# it's better to unpack these files and commit the raw source
-# git has its own built in compression methods
+#################
+# Archive Files #
+#################
+# It's better to unpack these files and commit the raw source because
+# git has its own built in compression methods.
 *.7z
-*.dmg
-*.gz
-*.iso
 *.jar
 *.rar
-*.tar
 *.zip
+*.gz
+*.bzip
+*.xz
+*.lzma
 
-# Logs and databases #
-######################
-*.log
+#packing-only formats
+*.iso
+*.tar
 
-# Sometimes there are sql files that I need =(
-#*.sql
-*.sqlite
+#package management formats
+*.dmg
+*.xpi
+*.gem
+*.egg
+*.deb
+*.rpm
 
-# OS generated files #
-######################
-.DS_Store*
-ehthumbs.db
-Icon?
-Thumbs.db
+#########
+# Linux #
+#########
+.*
+!.gitignore
+*~
+
+# KDE
+.directory
+
+############
+# Netbeans #
+############
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+
+#######
+# Vim #
+#######
+.*.sw[a-z]
+*.un~
+Session.vim
