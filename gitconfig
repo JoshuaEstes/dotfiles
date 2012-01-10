@@ -6,19 +6,19 @@
 [core]
 ;  autocrlf = true
   editor = vim
-  excludesfile = $HOME/.gitconfig.d/excludesfile
+  excludesfile = ~/.gitconfig.d/excludesfile
   mergeoptions = --no-ff
 ;  pager = ''
 ;  whitespace =
 [commit]
-;  template = $HOME/.gitconfig.d/commit.tmpl
+;  template = ~/.gitconfig.d/commit.tmpl
 [diff]
 ;  external = diff
 [help]
 ;  autocorrect = 1
 [init]
 ; This is used when you git init a directory
-  templatedir = $HOME/.gitconfig.d/git-core/templates
+  templatedir = ~/.gitconfig.d/git-core/templates
 [merge]
   tool = meld
 [receive]

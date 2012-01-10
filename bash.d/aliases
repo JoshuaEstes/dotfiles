@@ -1,9 +1,15 @@
+# ~/.bash.d/aliases
+
+# This will print directories with pretty colors
 if [ $UNAME == "Linux" ]; then
   alias ls="ls -hF --color"
 else
+# Should be Darwin
   alias ls="ls -hFG"
 fi
 
+# Make this human readable
 alias df="df -h"
 
+# reload the bashrc file, I use this a lot =)
 alias reloadbashrc="source $HOME/.bashrc"

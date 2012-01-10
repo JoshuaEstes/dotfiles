@@ -1,13 +1,16 @@
 # ~/.bash.d/completions
 
+# git bash completions
 if [ -f $HOME/.bash.d/completions.d/git ]; then
   source $HOME/.bash.d/completions.d/git
 fi
 
+# fabric completions
 if [ -f $HOME/.bash.d/completions.d/fab ]; then
   source $HOME/.bash.d/completions.d/fab
 fi
 
+# capistrano completions
 if [ -f $HOME/.bash.d/completions.d/cap ]; then
   source $HOME/.bash.d/completions.d/cap
 fi

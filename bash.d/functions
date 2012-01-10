@@ -1,5 +1,6 @@
 # ~/.bash.d/functions
 
+# apache2 functions
 if [ -f $HOME/.bash.d/functions.d/apache ]; then
   source $HOME/.bash.d/functions.d/apache
 fi
