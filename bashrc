@@ -109,7 +109,7 @@ parse_git_branch () {
 
 # Still playing around with title bars
 case $TERM in
-  xterm)
+  xterm | xterm-color)
     TITLE_BAR="\[\e]0;\u:\w\a\]"
   ;;
 esac
