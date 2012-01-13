@@ -40,8 +40,11 @@ set smartcase
 " Highlight search
 "set hlsearch
 
-set laststatus=2
+" always show tab pages
+set showtabline=2
+
 " Format the statusline
+set laststatus=2
 hi StatusLine ctermfg=cyan 
 hi StatusLineNC cterm=none
 set statusline=%F%m%r%y\ %w\ %=Line:\ %l/%L:%c
