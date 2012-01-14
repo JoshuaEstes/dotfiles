@@ -3,15 +3,14 @@
 # If any default stuff is found, let's use that stuff first
 if [ -f /etc/bash.bashrc ]; then
   source /etc/bash.bashrc
+elif [ -f /etc/bashrc ]; then
+  source /etc/bashrc
 fi
 
 unset MAILCHECK
 
 # Make sure we use VIM =D
 EDITOR=vim
-
-# Set our path to include a few extras
-#export PATH=$HOME/bin:$PATH
 
 # This is also set in the gitconfig file. When you first do a git init
 # on a directory, this will use the contents of this directory as a template
@@ -113,7 +112,7 @@ parse_git_branch () {
 # Still playing around with title bars
 case $TERM in
   xterm | xterm-color)
-    TITLE_BAR="\[\e]0;\u:\w\a\]"
+    TITLE_BAR="\[\e]0;\w\a\]"
   ;;
 esac
 # Display the title bar and the prompt
