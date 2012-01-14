@@ -1,11 +1,11 @@
 #!/bin/bash
 
-#for FILENAME in $( ls | grep -v README | grep -v install.sh | grep -v web_install.sh ); do echo "installing $FILENAME"; ln -bis "$(pwd)/$FILENAME" "$HOME/.$FILENAME"; done
-
-
+# Update submodules
 git submodule update --init --recursive
 
-
+# Loop through all the files
+# and create symlinks/backup previous
+# files
 for name in *; do
   target="$HOME/.$name"
   if [ -e "$target" ]; then
@@ -19,3 +19,4 @@ for name in *; do
     fi
   fi
 done
+
