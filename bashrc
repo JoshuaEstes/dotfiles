@@ -7,8 +7,11 @@ fi
 
 unset MAILCHECK
 
+# Make sure we use VIM =D
 EDITOR=vim
 
+# Set our path to include a few extras
+#export PATH=$HOME/bin:$PATH
 
 # This is also set in the gitconfig file. When you first do a git init
 # on a directory, this will use the contents of this directory as a template
