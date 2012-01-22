@@ -23,4 +23,4 @@ fi
 # This is for when you are trying to ssh into a server, you can use autocompelete,
 # which will check your bash_history file and try to use that, very useful if you
 # ssh into a lot of different machines =)
-complete -W "$(echo $(grep '^ssh ' .bash_history | sort -u | sed 's/^ssh //'))" ssh
+complete -W "$(echo $(grep '^ssh ' $HOME/.bash_history | sort -u | sed 's/^ssh //'))" ssh
