@@ -5,7 +5,10 @@ if [ -f $HOME/.bash.d/functions.d/apache ]; then
   source $HOME/.bash.d/functions.d/apache
 fi
 
-
+# mysql functions
+if [ -f $HOME/.bash.d/functions.d/mysql ]; then
+  source $HOME/.bash.d/functions.d/mysql
+fi
 
 
 

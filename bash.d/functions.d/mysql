@@ -1,0 +1,51 @@
+# ~/.bash.d/functions.d/mysql
+MYSQL=$(which mysql)
+
+#
+# Create a new user in the mysql database
+#
+function mysql_create_user {
+  echo "Type the USERNAME, then press enter"
+  read USERNAME
+  
+  echo "Type the HOST, then press enter"
+  read HOST
+
+  echo "Type the PASSWORD"
+  read PASSWORD
+
+  echo "Enter mysql root password"
+  echo "CREATE USER '$USERNAME'@'$HOST' IDENTIFIED BY '$PASSWORD';" | mysql -u root -p
+}
+
+#
+# Display a list of current mysql users with the host
+#
+function mysql_list_users {
+  echo "SELECT User,Host FROM mysql.user;" | mysql -u root -p | awk '{ printf "%-20s %s\n", $1, $2 }'
+}
+
+#
+# Grant permission to a user in the database
+#
+function mysql_grant_permission {
+  echo "Enter the PERMISSIONS, or enter ALL for all permissions and press enter"
+  read PERMISSIONS
+
+  echo "Enter the DATABASE name then press enter"
+  read DATABASE
+
+  echo "Enter the TABLE name or * for all tables"
+  read TABLE
+
+  echo "Enter the USERNAME and press enter"
+  read USERNAME
+
+  echo "Enter the HOST, ie localhost, then press enter"
+  read HOST
+
+  echo "Executing: GRANT $PERMISSIONS ON $DATABASE.$TABLE TO '$USERNAME'@'$HOST';"
+
+  echo "Please enter the mysql root user's password"
+  echo "GRANT $PERMISSIONS ON $DATABASE.$TABLE TO '$USERNAME'@'$HOST';" | mysql -u root -p
+}
