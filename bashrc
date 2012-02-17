@@ -11,6 +11,7 @@ unset MAILCHECK
 
 # Make sure we use VIM =D
 EDITOR=vim
+SVN_EDITOR=vim
 
 # This is also set in the gitconfig file. When you first do a git init
 # on a directory, this will use the contents of this directory as a template
