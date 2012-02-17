@@ -7,7 +7,7 @@ function a2restart {
 }
 
 function a2start {
-  sudo $APACHE -k start
+  sudo $APACHECTL -k start
 }
 
 function a2stop {
