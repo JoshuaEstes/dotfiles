@@ -1,5 +1,7 @@
 # ~/.bash.d/functions.d/apache
 APACHECTL=$(which apachectl)
+SITES_AVA="/etc/apache2/sites-available"
+SITES_ENA="/etc/apache2/sites-enabled"
 
 # Apache Functions
 function a2restart {
@@ -25,3 +27,23 @@ function a2graceful-stop {
 function a2configtest {
   sudo $APACHECTL configtest
 }
+
+function mkvhost {
+  if [ -z "$1" -o -z "$2" ]; then
+    echo "USAGE: mkvhost example.local /var/www/example.local/web"
+    echo "               ServerName    DocumentRoot"
+    return
+  fi
+  if [ -e $SITES_AVA/$1 ]; then
+    echo "$1 already exists in $SITES_AVA"
+    return
+  elif [ -e $SITES_ENA/$1 ]; then
+    echo "$1 alread exists in $SITES_ENA"
+    return
+  fi
+  sudo cp $HOME/.templates/apache2/default.http $SITES_AVA/$1
+  sudo sed -i "s#%server_name%#$1#g" $SITES_AVA/$1
+  sudo sed -i "s#%document_root%#$2#g" $SITES_AVA/$1
+  sudo cat $SITES_AVA/$1
+}
+
