@@ -1,0 +1,9 @@
+# ~/.bash.d/functions.d/nagios
+
+function nagios_restart {
+  sudo /opt/local/var/nagios/nagios.init restart
+}
+
+function nagios_start {
+  sudo /opt/local/var/nagios/nagios.init start
+}

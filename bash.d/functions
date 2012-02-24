@@ -10,6 +10,10 @@ if [ -f $HOME/.bash.d/functions.d/mysql ]; then
   source $HOME/.bash.d/functions.d/mysql
 fi
 
+# nagios function
+if [ -f $HOME/.bash.d/functions.d/nagios ]; then
+  source $HOME/.bash.d/functions.d/nagios
+fi
 
 
 
