@@ -11,5 +11,57 @@ fi
 # Make this human readable
 alias df="df -h"
 
-# reload the bashrc file, I use this a lot =)
-alias reloadbashrc="source $HOME/.bashrc"
+# make sure our directories exist
+if [ ! -d $HOME/.bash.d/aliases.d/available ]; then
+  mkdir -p $HOME/.bash.d/aliases.d/available
+fi
+if [ ! -d $HOME/.bash.d/aliases.d/enabled ]; then
+  mkdir -p $HOME/.bash.d/aliases.d/enabled
+fi
+for FILE in $HOME/.bash.d/aliases.d/enabled/*; do
+  if [ -f $FILE ]; then
+    source $FILE;
+  fi
+done
+
+alias reload="source $HOME/.bash_profile"
+
+# enable aliases
+function alias-enable
+{
+  if [ -z "$1" ]; then
+    echo "Usage: alias-enable alias"
+    return;
+  fi
+
+  if [ -e $HOME/.bash.d/aliases.d/enabled/$1 ]; then
+    echo "This alias \"$1\" is already enabled"
+  elif [ -e $HOME/.bash.d/aliases.d/available/$1 ]; then
+    ln -s $HOME/.bash.d/aliases.d/available/$1 $HOME/.bash.d/aliases.d/enabled/$1
+    source $HOME/.bash.d/aliases.d/enabled/$1
+    echo "The alias \"$1\" is now enabled"
+  else
+    echo "The alias \"$1\" could not be found"
+  fi
+
+  return;
+}
+
+function alias-disable
+{
+  if [ -z "$1" ]; then
+    echo "Usage: alias-disable alias"
+    return;
+  fi
+
+  if [ ! -e $HOME/.bash.d/aliases.d/enabled/$1 ]; then
+    echo "The alias \"$1\" has not been enabled"
+  elif [ -e $HOME/.bash.d/aliases.d/enabled/$1 ]; then
+    rm $HOME/.bash.d/aliases.d/enabled/$1
+    echo "The alias \"$1\" has been disabled, you will need to restart your terminal for it to take effect."
+  else
+    echo "The alias \"$1\" could not be found"
+  fi
+
+  return;
+}
