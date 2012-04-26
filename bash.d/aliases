@@ -8,9 +8,6 @@ else
   alias ls="ls -hFG"
 fi
 
-# Make this human readable
-alias df="df -h"
-
 # make sure our directories exist
 if [ ! -d $HOME/.bash.d/aliases.d/available ]; then
   mkdir -p $HOME/.bash.d/aliases.d/available
@@ -27,10 +24,10 @@ done
 alias reload="source $HOME/.bash_profile"
 
 # enable aliases
-function alias-enable
+function alen
 {
   if [ -z "$1" ]; then
-    echo "Usage: alias-enable alias"
+    echo "Usage: alen alias"
     return;
   fi
 
@@ -47,10 +44,21 @@ function alias-enable
   return;
 }
 
-function alias-disable
+# Bash Completion for alen function
+function _alias_enable
+{
+  local cur
+  COMPREPLY=()
+  cur="${COMP_WORDS[COMP_CWORD]}"
+  COMPREPLY=($(compgen -W "$(for x in $HOME/.bash.d/aliases.d/available/*; do echo $(basename ${x}); done)" -- $cur))
+}
+complete -F _alias_enable alen
+
+# Disable aliases
+function aldis
 {
   if [ -z "$1" ]; then
-    echo "Usage: alias-disable alias"
+    echo "Usage: aldis alias"
     return;
   fi
 
@@ -65,3 +73,13 @@ function alias-disable
 
   return;
 }
+
+# Bash Completion for aldis function
+function _alias_disable
+{
+  local cur
+  COMPREPLY=()
+  cur="${COMP_WORDS[COMP_CWORD]}"
+  COMPREPLY=($(compgen -W "$(for x in $HOME/.bash.d/aliases.d/enabled/*; do echo $(basename ${x}); done)" -- $cur))
+}
+complete -F _alias_disable aldis

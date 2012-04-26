@@ -15,8 +15,6 @@ if [ -f $HOME/.bash.d/functions.d/nagios ]; then
   source $HOME/.bash.d/functions.d/nagios
 fi
 
-
-
 # add a host to /etc/hosts
 function addhost
 {
@@ -28,3 +26,11 @@ function addhost
   echo "$1 $2" | sudo tee -a /etc/hosts >/dev/null
   echo "Added $2 to /etc/hosts"
 }
+
+if [ -d $HOME/.bash.d/functions.d/enabled ]; then
+  for FILE in $HOME/.bash.d/functions.d/enabled/*; do
+    if [ -f $FILE ]; then
+      source $FILE;
+    fi
+  done
+fi
