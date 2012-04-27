@@ -2,7 +2,43 @@
 [advice]
   statusHints = false
 [alias]
+  ; Add
+  a = add
+
+  ; Commit
+  c = commit -m
+  ca = commit -am
+
+  ; Checkout
+  co = checkout
+  cb = checkout -b
+
+  ; Diff
+  d = diff
+
+  ; Log
   lg = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+
+  ; Pull
+  pl = pull
+
+  ; Push
+  ps = push
+  
+  ; Remote
+  r = remote -v
+
+  ; Stash
+  ss = stash
+  sl = stash list
+  sa = stash apply
+  sd = stash drop
+
+  ; Status
+  s = status
+
+  ; Tag
+  t = tag -n
 [apply]
   whitespace = nowarn
 [branch]
