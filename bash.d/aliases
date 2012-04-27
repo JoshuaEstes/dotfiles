@@ -1,6 +1,8 @@
 # ~/.bash.d/aliases
 
+ALIAS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 alias reload="source $HOME/.bash_profile"
+alias usage="cat $ALIAS_DIR/../help.txt | less"
 
 # make sure our directories exist
 if [ ! -d $HOME/.bash.d/aliases.d/available ]; then
