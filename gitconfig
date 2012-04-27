@@ -1,17 +1,32 @@
 ; ~/.gitconfig
+[advice]
+  statusHints = false
 [alias]
   lg = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+[apply]
+  whitespace = nowarn
+[branch]
+  autosetupmerge = true
 [color]
   ui = true
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+[commit]
+;  template = ~/.gitconfig.d/commit.tmpl
 [core]
-;  autocrlf = true
+  autocrlf = true
   editor = vim
   excludesfile = ~/.gitconfig.d/excludesfile
   mergeoptions = --no-ff
 ;  pager = ''
 ;  whitespace =
-[commit]
-;  template = ~/.gitconfig.d/commit.tmpl
 [diff]
 ;  external = diff
 [help]
@@ -21,8 +36,12 @@
 ;  templatedir = ~/.gitconfig.d/git-core/templates
 [merge]
   tool = meld
-[receive]
-
+  summary = true
+  verbosity = 1
+[push]
+  default = tracking
+[rerere]
+  enabled = true
 [user]
   email = Joshua.Estes@ScenicCityLabs.com
   name = Joshua Estes
