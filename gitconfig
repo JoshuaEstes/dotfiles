@@ -21,7 +21,7 @@
 [commit]
 ;  template = ~/.gitconfig.d/commit.tmpl
 [core]
-  autocrlf = true
+  autocrlf = false
   editor = vim
   excludesfile = ~/.gitconfig.d/excludesfile
   mergeoptions = --no-ff
