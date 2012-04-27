@@ -1,12 +1,6 @@
 # ~/.bash.d/aliases
 
-# This will print directories with pretty colors
-if [ $(uname) == "Linux" ]; then
-  alias ls="ls -hF --color"
-else
-# Should be Darwin
-  alias ls="ls -hFG"
-fi
+alias reload="source $HOME/.bash_profile"
 
 # make sure our directories exist
 if [ ! -d $HOME/.bash.d/aliases.d/available ]; then
@@ -20,8 +14,6 @@ for FILE in $HOME/.bash.d/aliases.d/enabled/*; do
     source $FILE;
   fi
 done
-
-alias reload="source $HOME/.bash_profile"
 
 # enable aliases
 function alen
