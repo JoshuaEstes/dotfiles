@@ -1,0 +1,10 @@
+# gerneral aliases
+
+
+# This will print directories with pretty colors
+if [ $(uname) == "Linux" ]; then
+  alias ls="ls -hF --color"
+else
+# Should be Darwin
+  alias ls="ls -hFG"
+fi
