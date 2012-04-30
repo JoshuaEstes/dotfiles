@@ -23,6 +23,7 @@ alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 
 # Remove those pesky .DS_STORE files
 alias cleanup-ds_store="find . -type f -name '*.DS_Store' -ls -delete"
+alias cleanup-svn="find . -type d -name '*.svn' -ls -delete"
 
 
 

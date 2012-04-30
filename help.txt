@@ -38,6 +38,7 @@ gt  = git tag -n
 Cleanup Aliases
 ===============
 cleanup-ds_store = find . -type f -name '*.DS_Store' -ls -delete
+cleanup-svn = find . -type d -name '*.svn' -ls -delete
 
 OSX Specific Aliases
 ===================
