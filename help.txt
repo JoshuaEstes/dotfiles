@@ -7,6 +7,12 @@ q   = exit
 -   = cd -
 ~   = cd ~
 h   = history
+v   = vim
+ip  = dig +short myip.opendns.com @resolver1.opendns.com
+      This will display your external IP address.
+
+Command Line Git Aliases
+========================
 g   = git
 gcl = git clone
 ga  = git add
@@ -28,7 +34,6 @@ gsa = git stath apply
 gsd = git stash drop
 gs  = git status
 gt  = git tag -n
-v   = vim
 
 Cleanup Aliases
 ===============
