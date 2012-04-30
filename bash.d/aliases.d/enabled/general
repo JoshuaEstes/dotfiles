@@ -1,0 +1,28 @@
+# gerneral aliases
+
+
+# This will print directories with pretty colors
+if [ $(uname) == "Linux" ]; then
+  alias ls="ls -hF --color"
+else
+# Should be Darwin
+  alias ls="ls -hFG"
+fi
+
+alias _="sudo"
+alias q="exit"
+alias ..="cd .."
+alias -- -="cd -"
+alias ~="cd ~"
+alias h="history"
+alias v="vim"
+
+# Show your IP address
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+
+
+# Remove those pesky .DS_STORE files
+alias cleanup-ds_store="find . -type f -name '*.DS_Store' -ls -delete"
+
+
+
