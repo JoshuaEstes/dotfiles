@@ -12,6 +12,7 @@ fi
 alias _="sudo"
 alias q="exit"
 alias ..="cd .."
+alias ....="cd .."
 alias -- -="cd -"
 alias ~="cd ~"
 alias h="history"

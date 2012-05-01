@@ -1,15 +1,16 @@
 Command Line Aliases
 ====================
-ls  = ls -hF --color
-_   = sudo
-q   = exit
-..  = cd ..
--   = cd -
-~   = cd ~
-h   = history
-v   = vim
-ip  = dig +short myip.opendns.com @resolver1.opendns.com
-      This will display your external IP address.
+ls    = ls -hF --color
+_     = sudo
+q     = exit
+..    = cd ..
+....  = cd ..
+-     = cd -
+~     = cd ~
+h     = history
+v     = vim
+ip    = dig +short myip.opendns.com @resolver1.opendns.com
+        This will display your external IP address.
 
 Command Line Git Aliases
 ========================

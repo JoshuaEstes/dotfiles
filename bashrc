@@ -8,6 +8,7 @@ elif [ -f /etc/bashrc ]; then
 fi
 
 unset MAILCHECK
+shopt -s extglob
 
 # Make sure we use VIM =D
 EDITOR=vim
