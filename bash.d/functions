@@ -1,19 +1,18 @@
 # ~/.bash.d/functions
 
-# apache2 functions
-if [ -f $HOME/.bash.d/functions.d/apache ]; then
-  source $HOME/.bash.d/functions.d/apache
-fi
 
-# mysql functions
-if [ -f $HOME/.bash.d/functions.d/mysql ]; then
-  source $HOME/.bash.d/functions.d/mysql
+# make sure our directories exist
+if [ ! -d $HOME/.bash.d/functions.d/available ]; then
+  mkdir -p $HOME/.bash.d/functions.d/available
 fi
-
-# nagios function
-if [ -f $HOME/.bash.d/functions.d/nagios ]; then
-  source $HOME/.bash.d/functions.d/nagios
+if [ ! -d $HOME/.bash.d/functions.d/enabled ]; then
+  mkdir -p $HOME/.bash.d/functions.d/enabled
 fi
+for FILE in $HOME/.bash.d/functions.d/enabled/*; do
+  if [ -f $FILE ]; then
+    source $FILE;
+  fi
+done
 
 # add a host to /etc/hosts
 function addhost

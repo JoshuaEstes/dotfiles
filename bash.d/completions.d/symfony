@@ -1,0 +1,35 @@
+_console()
+{
+    local cur prev opts cmd
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    prev="${COMP_WORDS[COMP_CWORD-1]}"
+    cmd="${COMP_WORDS[0]}"
+    PHP='
+    if (file_exists(getcwd()."/symfony")){
+      $ret = shell_exec("php ".getcwd()."/symfony");
+    }
+    else {
+      echo "WTF";
+      return;
+    }
+
+$ret = preg_replace("/^.*Available commands:\n/s", "", $ret);
+$ret = explode("\n", $ret);
+
+$comps = array();
+foreach ($ret as $line) {
+    if (preg_match("@^  ([^ ]+) @", $line, $m)) {
+        $comps[] = $m[1];
+    }
+}
+
+echo implode("\n", $comps);
+'
+    possible=$($(which php) -r "$PHP" $COMP_WORDS);
+    COMPREPLY=( $(compgen -W "${possible}" -- ${cur}) )
+    return 0
+}
+
+complete -F _console sf
+COMP_WORDBREAKS=${COMP_WORDBREAKS//:}
