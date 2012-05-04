@@ -1,0 +1,9 @@
+#!/usr/bin/env php
+<?php
+
+define('DOTFILE_ROOT',realpath(dirname(__FILE__) . '/..'));
+define('PHP_CWD',getcwd());
+define('HOME',trim(`echo \$HOME`));
+
+// Might be a better way to do this?
+system(sprintf('cd %s; git pull origin master; cd %s',DOTFILE_ROOT,PHP_CWD));
