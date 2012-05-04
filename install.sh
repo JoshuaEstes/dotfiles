@@ -13,7 +13,7 @@ for name in *; do
     mv "$target" "$target-$(date +'%s')"
     ln -sf "$PWD/$name" "$target"
   else
-    if [ "$name" != "install.sh" -a "$name" != "README" -a "$name" != "web_install.sh"  -a "$name" != "help.txt" ]; then
+    if [ "$name" != "install.sh" -a "$name" != "README.md" -a "$name" != "web_install.sh"  -a "$name" != "help.txt" ]; then
       echo "Creating $target"
       ln -sf "$PWD/$name" "$target"
     fi

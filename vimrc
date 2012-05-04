@@ -60,3 +60,6 @@ filetype plugin indent on
 " When vimrc is edited, reload it
 autocmd! bufwritepost vimrc source ~/.vimrc
 
+" Color scheme stuff
+set background=dark
+colorscheme solarized
