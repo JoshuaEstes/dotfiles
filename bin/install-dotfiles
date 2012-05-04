@@ -1,0 +1,94 @@
+#!/usr/bin/env php
+<?php
+/**
+ * dotfile installer
+ *
+ */
+define('DOTFILE_ROOT',realpath(dirname(__FILE__) . '/..'));
+define('PHP_CWD',getcwd());
+define('HOME',trim(`echo \$HOME`));
+
+//var_dump(DOTFILE_ROOT,PHP_CWD,HOME);
+
+// Install git submodules
+system(sprintf('cd %s; git submodule update --init --recursive; cd %s',DOTFILE_ROOT,PHP_CWD));
+
+// These are the files that I want to install into the $HOME directory as a .file
+$files = array(
+  'bash_logout',
+  'bash_profile',
+  'bashrc',
+  'dir_colors',
+  'gitconfig',
+  'screenrc',
+  'vimrc',
+);
+
+foreach ($files as $file) {
+  $home_file = HOME . '/.' . $file;
+  if (is_file($home_file) && !is_link($home_file)) {
+    // A file is already there and is not a symlink
+    // make a backup and symlink the file
+    backup($home_file);
+    make_symlink((DOTFILE_ROOT . '/' . $file),$home_file);
+  } elseif (!is_file($home_file)) {
+    // This file does not exist, make a symlink
+    make_symlink((DOTFILE_ROOT . '/' . $file),$home_file);
+  } else {
+    // there is a file here and it is symlinked, let's assume that it's
+    // symlinked to our dot files =)
+  }
+}
+
+// Folders I want to install as dot files
+$directories = array(
+  'bash.d',
+  'gitconfig.d',
+);
+
+foreach ($directories as $directory) {
+  $home_directory = HOME . '/.' . $directory;
+  if (is_dir($home_directory) && !is_link($home_directory)) {
+    backup($home_directory);
+    make_symlink((DOTFILE_ROOT . '/' . $directory),$home_directory);
+  } elseif (!is_dir($home_directory)) {
+    make_symlink((DOTFILE_ROOT . '/' . $directory),$home_directory);
+  }
+}
+
+// Last let's make our own private bin/etc folders
+$public_directories = array(
+  'bin',
+//  'etc',
+);
+
+foreach ($public_directories as $directory) {
+  $home_directory = HOME . '/' . $directory;
+  if (is_dir($home_directory) && !is_link($home_directory)) {
+    backup($home_directory);
+    make_symlink((DOTFILE_ROOT . '/' . $directory),$home_directory);
+  } elseif (!is_dir($home_directory)) {
+    make_symlink((DOTFILE_ROOT . '/' . $directory),$home_directory);
+  }
+}
+
+/**
+ * Backup a file/directory
+ *
+ * @param string $source
+ */
+function backup($source) {
+  echo "Backing up\n",$source,"\n";
+  system(sprintf('mv %s %s~',$source,$source));
+}
+
+/**
+ * Creates a symlink for a file/folder
+ *
+ * @param string $source
+ * @param string $dest
+ */
+function make_symlink($source,$dest) {
+  echo "Making symlink\n",$source," => ",$dest,"\n";
+  symlink($source,$dest);
+}
