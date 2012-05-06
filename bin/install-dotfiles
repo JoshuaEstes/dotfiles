@@ -21,6 +21,7 @@ $files = array(
   'dir_colors',
   'gitconfig',
   'screenrc',
+  'tmux.conf',
   'vimrc',
 );
 
