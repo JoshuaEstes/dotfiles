@@ -19,6 +19,7 @@ $files = array(
   'dir_colors',
   'gemrc',
   'gitconfig',
+  'inputrc',
   'osx',
   'screenrc',
   'tmux.conf',
