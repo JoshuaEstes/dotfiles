@@ -8,8 +8,6 @@ define('DOTFILE_ROOT',realpath(dirname(__FILE__) . '/..'));
 define('PHP_CWD',getcwd());
 define('HOME',trim(`echo \$HOME`));
 
-//var_dump(DOTFILE_ROOT,PHP_CWD,HOME);
-
 // Install git submodules
 system(sprintf('cd %s; git submodule update --init --recursive; cd %s',DOTFILE_ROOT,PHP_CWD));
 
@@ -19,7 +17,9 @@ $files = array(
   'bash_profile',
   'bashrc',
   'dir_colors',
+  'gemrc',
   'gitconfig',
+  'osx',
   'screenrc',
   'tmux.conf',
   'vimrc',
