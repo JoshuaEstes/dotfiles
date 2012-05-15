@@ -26,5 +26,6 @@ alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias cleanup-ds_store="find . -type f -name '*.DS_Store' -ls -delete"
 alias cleanup-svn="find . -type d -name '*.svn' -ls -delete"
 
-
+# Got python? Run a simple http server in the current directory
+alias simple-server="python -m SimpleHTTPServer"
 

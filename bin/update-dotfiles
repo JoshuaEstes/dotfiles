@@ -6,4 +6,5 @@ define('PHP_CWD',getcwd());
 define('HOME',trim(`echo \$HOME`));
 
 // Might be a better way to do this?
-system(sprintf('cd %s; git pull origin master; cd %s',DOTFILE_ROOT,PHP_CWD));
+system(sprintf('cd %s; git pull origin master; git submodule update --init --recursive; cd %s',DOTFILE_ROOT,PHP_CWD));
+system('install-dotfiles');
