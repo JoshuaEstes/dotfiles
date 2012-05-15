@@ -1,1 +1,4 @@
+bin/st
+bin/composer.phar
 bash.d/aliases.d/enabled/*
+
