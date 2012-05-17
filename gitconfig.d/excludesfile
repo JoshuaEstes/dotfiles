@@ -44,6 +44,7 @@
 ############
 # Netbeans #
 ############
+nbprojeect/
 nbproject/private/
 #build/
 nbbuild/
