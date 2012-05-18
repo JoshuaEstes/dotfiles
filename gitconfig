@@ -82,3 +82,13 @@
   email = Joshua.Estes@ScenicCityLabs.com
   name = Joshua Estes
 ;  signingkey = ''
+
+; These allow you to just do a git pull and it will pull
+; from remote origin and merge into you local master
+; branch, same for develop =)
+[branch "master"]
+  remote = origin
+  merge = refs/heads/master
+[branch "develop"]
+  remote = origin
+  merge = refs/heads/develop
