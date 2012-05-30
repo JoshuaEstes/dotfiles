@@ -7,17 +7,16 @@ elif [ -f /etc/bashrc ]; then
   source /etc/bashrc
 fi
 
+if [ -f $HOME/.bash.local ]; then
+  source $HOME/.bash.local
+fi
+
 unset MAILCHECK
 shopt -s extglob
 
 # Make sure we use VIM =D
 EDITOR=vim
 SVN_EDITOR=vim
-
-# This is also set in the gitconfig file. When you first do a git init
-# on a directory, this will use the contents of this directory as a template
-# so we can place hooks we want to always include here
-GIT_TEMPLATE_DIR=$HOME/.gitconfig.d/git-core/templates
 
 # @see https://wiki.archlinux.org/index.php/Color_Bash_Prompt
 # Reset

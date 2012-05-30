@@ -79,8 +79,9 @@
 [rerere]
   enabled = true
 [user]
-  email = Joshua.Estes@ScenicCityLabs.com
-  name = Joshua Estes
+; See the bash.local.example file
+;  email = Joshua.Estes@ScenicCityLabs.com
+;  name = Joshua Estes
 ;  signingkey = ''
 
 ; These allow you to just do a git pull and it will pull
