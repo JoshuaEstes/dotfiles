@@ -87,3 +87,10 @@ source ~/.vim/plugin/php-doc.vim
 inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i 
 nnoremap <C-P> :call PhpDocSingle()<CR> 
 vnoremap <C-P> :call PhpDocRange()<CR> 
+
+nnoremap <silent> <F8> :NERDTreeToggle<CR>
+
+" TagList Options
+nnoremap <silent> <F9> :TlistToggle<CR>
+let g:Tlist_Use_Right_Window=1
+" End Taglist Options
