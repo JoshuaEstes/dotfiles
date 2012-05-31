@@ -66,11 +66,22 @@ filetype plugin indent on
 " When vimrc is edited, reload it
 autocmd! bufwritepost vimrc source ~/.vimrc
 
+" Solarized options
+let g:solarized_termcolors=16
+let g:solarized_termtrans=0
+let g:solarized_bold=1
+let g:solarized_underline=1
+let g:solarized_italic=1
+let g:solarized_contrast='normal'
+let g:solarized_visiblity='normal'
+" End Solarized Options
 " Color scheme stuff
 set background=dark
+"set background=light
+colorscheme solarized
+" End color scheme
 
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-colorscheme solarized
 
 source ~/.vim/plugin/php-doc.vim 
 inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i 

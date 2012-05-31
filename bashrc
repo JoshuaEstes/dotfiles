@@ -11,6 +11,8 @@ if [ -f $HOME/.bash.local ]; then
   source $HOME/.bash.local
 fi
 
+eval `dircolors $HOME/.dir_colors`
+
 unset MAILCHECK
 shopt -s extglob
 
