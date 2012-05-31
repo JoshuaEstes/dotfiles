@@ -1,6 +1,8 @@
 " ~/.vimrc
 
+set spell
 set nocompatible
+set backspace=start,indent,eol
 " How many lines of history to remember
 set history=1000
 set cf
@@ -18,17 +20,18 @@ set noswapfile
 set backupcopy=yes
 " Always show current position
 set ruler
-set noshowcmd
+set showcmd
 set nolazyredraw
-set number
 " shows matching brackets
 set showmatch
+set wrapscan
 " Incremental search, starts search the file as you enter the search term
 set incsearch
 " Ignore case when searching
 set ignorecase
 set visualbell
 set autoindent
+set cindent
 set smartindent
 set nowrap
 set softtabstop=2
@@ -37,6 +40,8 @@ set tabstop=4
 set expandtab
 set nosmarttab
 set smartcase
+set number
+"set t_Co=256
 " Highlight search
 "set hlsearch
 
@@ -55,6 +60,7 @@ set statusline=%F%m%r%y\ %w\ %=Line:\ %l/%L:%c
 call pathogen#infect()
 " Enable syntax highlighting
 syntax on
+filetype on
 filetype plugin indent on
 
 " When vimrc is edited, reload it
@@ -62,4 +68,11 @@ autocmd! bufwritepost vimrc source ~/.vimrc
 
 " Color scheme stuff
 set background=dark
+
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 colorscheme solarized
+
+source ~/.vim/plugin/php-doc.vim 
+inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i 
+nnoremap <C-P> :call PhpDocSingle()<CR> 
+vnoremap <C-P> :call PhpDocRange()<CR> 
