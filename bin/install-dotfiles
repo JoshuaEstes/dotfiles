@@ -20,6 +20,7 @@ $files = array(
   'gemrc',
   'gitconfig',
   'inputrc',
+  'ircrc',
   'osx',
   'screenrc',
   'tmux.conf',
