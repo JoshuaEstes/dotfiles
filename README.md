@@ -22,5 +22,5 @@ various parts of my dot files.
 Extras
 ------
 
-* https://github.com/msanders/snipmate.vim
-* https://github.com/scrooloose/nerdtree
+* [Wiki](https://github.com/JoshuaEstes/dotfiles/wiki)
+* [Cheat Sheets](https://gist.github.com/2627607)
