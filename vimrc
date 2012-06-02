@@ -1,52 +1,54 @@
 " ~/.vimrc
+" References
+" https://github.com/scrooloose/vimfiles/blob/master/vimrc
 
-set spell
 set nocompatible
+call pathogen#infect()
+
+set autoindent
 set backspace=start,indent,eol
-" How many lines of history to remember
-set history=1000
-set cf
-set ffs=unix,dos,mac
-set modeline
-set tabpagemax=50
-" The commandbar height
-set cmdheight=1
-" Don't keep backups
-set nobackup
-set nowritebackup
-set noswapfile
-" Directory where backups are kept
+"set backupcopy=yes
 "set backupdir=~/.vim.d/backup
-set backupcopy=yes
-" Always show current position
+set cf
+set cmdheight=1
+set cindent
+set expandtab
+set ffs=unix,dos,mac
+set foldmethod=indent
+set foldnestmax=3
+set nofoldenable
+set spell
+set history=1000
+"set hlsearch
+set incsearch
+set ignorecase
+set linebreak
+"set list
+"set listchars=tab:▷⋅,trail:⋅,nbsp:⋅
+set modeline
+set nowritebackup
+set nobackup
+set nolazyredraw
+set noswapfile
+set nowrap
+set number
+set nosmarttab
 set ruler
 set showcmd
-set nolazyredraw
-" shows matching brackets
+set showmode
 set showmatch
-set wrapscan
-" Incremental search, starts search the file as you enter the search term
-set incsearch
-" Ignore case when searching
-set ignorecase
-set visualbell
-set autoindent
-set cindent
-set smartindent
-set nowrap
-set softtabstop=2
-set shiftwidth=2
-set tabstop=4
-set expandtab
-set nosmarttab
 set smartcase
-set number
-"set t_Co=256
-" Highlight search
-"set hlsearch
-
-" always show tab pages
+set smartindent
+set softtabstop=4
+set shiftwidth=4
 set showtabline=2
+set t_Co=256
+set tabpagemax=50
+set tabstop=4
+set wrap
+set wrapscan
+set visualbell
+
 
 " Format the statusline
 set laststatus=2
@@ -56,15 +58,14 @@ set statusline=%F%m%r%y\ %w\ %=Line:\ %l/%L:%c
 "set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\%{strftime(\"%d/%m/%y\ -\ %H:%M\")}
 "set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
 
-" Using pathogen to manage plugins, allows us to keep them as git submodule
-call pathogen#infect()
+" When vimrc is edited, reload it
+autocmd! bufwritepost vimrc source ~/.vimrc
+
 " Enable syntax highlighting
 syntax on
 filetype on
 filetype plugin indent on
 
-" When vimrc is edited, reload it
-autocmd! bufwritepost vimrc source ~/.vimrc
 
 " Solarized options
 let g:solarized_termcolors=16
@@ -75,6 +76,7 @@ let g:solarized_italic=1
 let g:solarized_contrast='normal'
 let g:solarized_visiblity='normal'
 " End Solarized Options
+
 " Color scheme stuff
 set background=dark
 "set background=light
@@ -88,9 +90,16 @@ inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i
 nnoremap <C-P> :call PhpDocSingle()<CR> 
 vnoremap <C-P> :call PhpDocRange()<CR> 
 
+" NERDTree settings
 nnoremap <silent> <F8> :NERDTreeToggle<CR>
+" End NERDTree settings
 
 " TagList Options
 nnoremap <silent> <F9> :TlistToggle<CR>
 let g:Tlist_Use_Right_Window=1
 " End Taglist Options
+
+
+" Remap keys
+nnoremap <C-L> :nohls<CR><C-L>
+inoremap <C-L> <C-O>:nohls<CR>
