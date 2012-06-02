@@ -19,7 +19,7 @@ set foldnestmax=3
 set nofoldenable
 set spell
 set history=1000
-"set hlsearch
+set hlsearch
 set incsearch
 set ignorecase
 set linebreak
