@@ -94,10 +94,9 @@ vnoremap <C-P> :call PhpDocRange()<CR>
 nnoremap <silent> <F8> :NERDTreeToggle<CR>
 " End NERDTree settings
 
-" TagList Options
-nnoremap <silent> <F9> :TlistToggle<CR>
-let g:Tlist_Use_Right_Window=1
-" End Taglist Options
+" Tagbar settings
+nnoremap <silent> <F9> :TagbarToggle<CR>
+" End Tagbar settings
 
 
 " Remap keys
