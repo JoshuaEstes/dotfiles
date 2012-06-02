@@ -11,7 +11,11 @@ if [ -f $HOME/.bash.local ]; then
   source $HOME/.bash.local
 fi
 
-eval `dircolors $HOME/.dir_colors`
+if [ $(uname) == 'Linux' ]; then
+  eval `dircolors $HOME/.dir_colors`
+elif [ $(uname) == 'Darwin' ]; then
+  eval `gdircolors $HOME/.dir_colors`
+fi
 
 unset MAILCHECK
 shopt -s extglob
