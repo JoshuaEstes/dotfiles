@@ -116,6 +116,7 @@ nnoremap <silent> <F2> :TagbarToggle<CR>
 " End Tagbar settings
 
 " ultisnips settings
+let g:UltiSnipsListSnippets="<F3>"
 " end ultisnips settings
 
 " Remap keys

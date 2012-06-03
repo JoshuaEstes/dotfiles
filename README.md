@@ -34,3 +34,5 @@ Vim Bundles
 ** [help](https://raw.github.com/majutsushi/tagbar/master/doc/tagbar.txt)
 * [ultisnips](https://github.com/SirVer/ultisnips)
 ** [help](https://raw.github.com/SirVer/ultisnips/master/doc/UltiSnips.txt)
+** [List of snippets](https://github.com/SirVer/ultisnips/tree/master/UltiSnips)
+
