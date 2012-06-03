@@ -11,16 +11,10 @@ Installation
     cd dotfiles
     ./bin/install-dotfiles
 
-
-Usage
------
-
-I use a few different computers all with a different OS. With that, there
-are some dotfiles for OSX and Linux. Also I set this up so I can enable/disable
-various parts of my dot files.
-
 Extras
 ------
 
 * [Wiki](https://github.com/JoshuaEstes/dotfiles/wiki)
+** The wiki contains info on how some of these dotfiles work
 * [Cheat Sheets](https://gist.github.com/2627607)
+** Cheat sheets for bash, tmux, vim

@@ -7,4 +7,6 @@ bash.d/completions.d/enabled/*
 bash.d/functions.d/enabled/*
 !bash.d/functions.d/enabled/general
 
+# Compiled my own =)
+bin/vim
 
