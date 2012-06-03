@@ -54,9 +54,16 @@ set visualbell
 set laststatus=2
 hi StatusLine ctermfg=cyan 
 hi StatusLineNC cterm=none
-set statusline=%F%m%r%y\ %w\ %=Line:\ %l/%L:%c
-"set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\%{strftime(\"%d/%m/%y\ -\ %H:%M\")}
-"set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
+set statusline=%{fugitive#statusline()}    " Display current bracn
+set statusline+=\ %F                       " Full filename
+set statusline+=%m                         " modified
+set statusline+=%r                         " Read only
+set statusline+=%y                         " File type
+set statusline+=%{&paste?'[paste]':''}     " Let me know if we are in paste mode
+set statusline+=%=Line:
+set statusline+=\ %l                       " current line
+set statusline+=/%L                        " total lines
+set statusline+=:%c                        " current column
 
 " When vimrc is edited, reload it
 autocmd! bufwritepost vimrc source ~/.vimrc
@@ -91,7 +98,9 @@ nnoremap <C-P> :call PhpDocSingle()<CR>
 vnoremap <C-P> :call PhpDocRange()<CR> 
 
 " NERDTree settings
-nnoremap <silent> <F8> :NERDTreeToggle<CR>
+let g:NERDTreeMouseMode=2
+let g:NERDTreeWinSize=40
+nnoremap <silent> <F1> :NERDTreeToggle<CR>
 " End NERDTree settings
 
 " Syntastic settings
@@ -100,10 +109,10 @@ let g:syntastic_auto_loc_list=2
 " End syntastic settings
 
 " Tagbar settings
-nnoremap <silent> <F9> :TagbarToggle<CR>
+nnoremap <silent> <F2> :TagbarToggle<CR>
 " End Tagbar settings
 
 
 " Remap keys
-nnoremap <C-L> :nohls<CR><C-L>
+nnoremap <C-L> :nohls<CR><C-L>   " ctrl + l will clear the highlighted search results
 inoremap <C-L> <C-O>:nohls<CR>
