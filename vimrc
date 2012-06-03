@@ -49,6 +49,9 @@ set wrap
 set wrapscan
 set visualbell
 
+if exists('&relativenumber')
+  set relativenumber
+endif
 
 " Format the statusline
 set laststatus=2
@@ -112,6 +115,8 @@ let g:syntastic_auto_loc_list=2
 nnoremap <silent> <F2> :TagbarToggle<CR>
 " End Tagbar settings
 
+" ultisnips settings
+" end ultisnips settings
 
 " Remap keys
 nnoremap <C-L> :nohls<CR><C-L>   " ctrl + l will clear the highlighted search results
