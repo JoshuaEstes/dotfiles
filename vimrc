@@ -94,6 +94,11 @@ vnoremap <C-P> :call PhpDocRange()<CR>
 nnoremap <silent> <F8> :NERDTreeToggle<CR>
 " End NERDTree settings
 
+" Syntastic settings
+let g:syntastic_check_on_open=1
+let g:syntastic_auto_loc_list=2
+" End syntastic settings
+
 " Tagbar settings
 nnoremap <silent> <F9> :TagbarToggle<CR>
 " End Tagbar settings
