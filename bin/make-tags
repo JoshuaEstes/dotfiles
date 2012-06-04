@@ -1,5 +1,18 @@
 #!/usr/bin/env bash
-ctags-exuberant -f tags \
+CTAGS=''
+if [[ -x $(which ctags-exuberant) ]]; then
+  CTAGS=$(which ctags-exuberant)
+elif [[ -x $(which ctags)  ]]; then
+  # if using osx, make sure port install py26-ctags is installed
+  CTAGS=$(which ctags)
+fi
+
+if [[ -z "$CTAGS" ]]; then
+  echo "ctags-exuberant or ctags cannot be found"
+  exit;
+fi
+
+$CTAGS -f tags \
     -h ".php" \
     -R \
     --exclude="/(\.svn/|\.git/)/" \
