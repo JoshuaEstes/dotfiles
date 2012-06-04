@@ -1,19 +1,21 @@
 Command Line Aliases
 ====================
-ls    = ls -hF --color
-_     = sudo
-q     = exit
-..    = cd ..
-....  = cd ..
--     = cd -
-~     = cd ~
-h     = history
-v     = vim
-ip    = dig +short myip.opendns.com @resolver1.opendns.com
-        This will display your external IP address.
+ls            = ls -hF --color
+_             = sudo
+q             = exit
+..            = cd ..
+....          = cd ..
+-             = cd -
+~             = cd ~
+h             = history
+v             = vim
+ip            = This will display your external IP address.
+simple-server = Start a web server in the path you are current in (http://localhost:8000)
 
 Command Line Git Aliases
 ========================
+Must move git from the available directory to the enabled directory
+
 g   = git
 gcl = git clone
 ga  = git add
@@ -39,10 +41,7 @@ gt  = git tag -n
 Cleanup Aliases
 ===============
 cleanup-ds_store = find . -type f -name '*.DS_Store' -ls -delete
-cleanup-svn = find . -type d -name '*.svn' -ls -delete
-
-OSX Specific Aliases
-===================
+cleanup-svn      = find . -type d -name '*.svn' -ls -delete
 
 Git Alias
 =========
@@ -64,5 +63,15 @@ git t  = git tag -n
 
 Command Line Functions
 ======================
+genpass [length] = Generates a password, first argument is the length. Default length is 16 characters
+
+VIM Plugins
+===========
+
+F1       = Open NERDTree
+F2       = Open Tagbar
+F3       = List snippets (must be in insert mode)
+ctrl + l = Clear highlighted search results
+ctrl + p = Insert phpDoc block
 
 
