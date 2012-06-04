@@ -122,3 +122,6 @@ let g:UltiSnipsListSnippets="<F4>"
 " Remap keys
 nnoremap <C-L> :nohls<CR><C-L>   " ctrl + l will clear the highlighted search results
 inoremap <C-L> <C-O>:nohls<CR>
+
+" Generate ctags for this project
+nnoremap <F5> :!make-tags<CR>
