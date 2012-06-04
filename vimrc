@@ -39,12 +39,12 @@ set showmode
 set showmatch
 set smartcase
 set smartindent
-set softtabstop=4
-set shiftwidth=4
+set softtabstop=2
+set shiftwidth=2
 set showtabline=2
 set t_Co=256
 set tabpagemax=50
-set tabstop=4
+set tabstop=2
 set wrap
 set wrapscan
 set visualbell
@@ -63,6 +63,7 @@ set statusline+=%m                         " modified
 set statusline+=%r                         " Read only
 set statusline+=%y                         " File type
 set statusline+=%{&paste?'[paste]':''}     " Let me know if we are in paste mode
+set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%=Line:
 set statusline+=\ %l                       " current line
 set statusline+=/%L                        " total lines
@@ -109,6 +110,7 @@ nnoremap <silent> <F2> :NERDTreeToggle<CR>
 " Syntastic settings
 let g:syntastic_check_on_open=1
 let g:syntastic_auto_loc_list=2
+let g:syntastic_phpcs_conf="--standard=$HOME/.vim/standards/php.xmla"
 " End syntastic settings
 
 " Tagbar settings

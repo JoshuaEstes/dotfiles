@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<ruleset name="PHP Coding Standards">
+  <description>
+    This is a custom PHP coding standards ruleset that is used for vim.
+    syntastic must be installed and you must place:
+      let g:syntastic_phpcs_conf="--standard=$HOME/.vim/standards/php.xml"
+    in your vimrc.
+  </description>
+  <rule ref="Generic.ControlStructures.InlineControlStructure" />
+  <rule ref="Generic.Formatting.SpaceAfterCast" />
+  <rule ref="Generic.Functions.CallTimePassByReference" />
+  <rule ref="Generic.NamingConventions.UpperCaseConstantName" />
+  <rule ref="Generic.PHP.LowerCaseConstant" />
+  <rule ref="Squiz.Arrays.ArrayBracketSpacing" />
+  <rule ref="Squiz.ControlStructures.ControlSignature" />
+  <rule ref="Squiz.ControlStructures.ForEachLoopDeclaration" />
+  <rule ref="Squiz.ControlStructures.ForLoopDeclaration" />
+  <rule ref="Squiz.ControlStructres.LowercaseDeclaration" />
+  <rule ref="Squiz.PHP.LowercasePHPFunctions" />
+  <rule ref="Squiz.Scpoe.MemberVarScope" />
+  <rule ref="PEAR.Commenting.InlineComment" />
+  <rule ref="Zend">
+    <exclude name="Zend.Debug.CodeAnalyzer" />
+    <exclude name="PEAR.ControlStructures.ControlSignature" />
+    <exclude name="PEAR.Commenting.FunctionComment.SpacingBeforeTags" />
+    <exclude name="Generic.Files.LineLength" />
+  </rule>
+  <rule ref="Zend.NamingConventions.ValidVariableName.PrivateNoUnderscore">
+    <severity>0</severity>
+  </rule>
+  <rule ref="Zend.NamingConventions.ValidVariableName.ContainsNumbers">
+    <severity>0</severity>
+  </rule>
+  <rule ref="PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket">
+    <severity>0</severity>
+  </rule>
+  <rule ref="PEAR.Functions.FunctionCallSignature.CloseBracketLine">
+    <severity>0</severity>
+  </rule>
+</ruleset>
