@@ -3,6 +3,9 @@ ctags-exuberant -f tags \
     -h ".php" \
     -R \
     --exclude="/(\.svn/|\.git/)/" \
+    --exclude="*/cache/*" \
+    --exclude="*/logs/*" \
+    --exclude="*/*.phar" \
     --totals=yes \
     --tag-relative=yes \
     --PHP-kinds=+cfidv \
