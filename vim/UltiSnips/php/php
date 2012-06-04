@@ -1,0 +1,7 @@
+snippet php "Creates a php header"
+<?php
+
+/**
+ *
+ */
+endsnippet
