@@ -68,9 +68,9 @@ genpass [length] = Generates a password, first argument is the length. Default l
 VIM Plugins
 ===========
 
-F1       = Open NERDTree
-F2       = Open Tagbar
-F3       = List snippets (must be in insert mode)
+F2       = Open NERDTree
+F3       = Open Tagbar
+F4       = List snippets (must be in insert mode)
 ctrl + l = Clear highlighted search results
 ctrl + p = Insert phpDoc block
 

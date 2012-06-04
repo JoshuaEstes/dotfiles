@@ -103,7 +103,7 @@ vnoremap <C-P> :call PhpDocRange()<CR>
 " NERDTree settings
 let g:NERDTreeMouseMode=2
 let g:NERDTreeWinSize=40
-nnoremap <silent> <F1> :NERDTreeToggle<CR>
+nnoremap <silent> <F2> :NERDTreeToggle<CR>
 " End NERDTree settings
 
 " Syntastic settings
@@ -112,11 +112,11 @@ let g:syntastic_auto_loc_list=2
 " End syntastic settings
 
 " Tagbar settings
-nnoremap <silent> <F2> :TagbarToggle<CR>
+nnoremap <silent> <F3> :TagbarToggle<CR>
 " End Tagbar settings
 
 " ultisnips settings
-let g:UltiSnipsListSnippets="<F3>"
+let g:UltiSnipsListSnippets="<F4>"
 " end ultisnips settings
 
 " Remap keys
