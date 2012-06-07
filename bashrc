@@ -123,7 +123,7 @@ case $TERM in
   ;;
 esac
 # Display the title bar and the prompt
-PS1="\[\033[G\]$TITLE_BAR\[$White\]\u@\h:\[$Green\]\w \[$BRed\]\$(parse_git_branch)\[$White\] \$ "
+PS1="\[\033[G\]$TITLE_BAR\[$White\]\u@\h:\[$Green\]\w \[$BRed\]\$(parse_git_branch)\[$White\]\n\$ "
 
 
 

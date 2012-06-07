@@ -19,6 +19,9 @@ $CTAGS -f tags \
     --exclude="*/cache/*" \
     --exclude="*/logs/*" \
     --exclude="*/*.phar" \
+    --exclude="*/tests/*" \
+    --exclude="*/Test/*" \
+    --exclude="*/test-suite/*" \
     --totals=yes \
     --tag-relative=yes \
     --PHP-kinds=+cfidv \
