@@ -1,6 +1,5 @@
 # ~/.bash.d/functions
 
-
 # make sure our directories exist
 if [ ! -d $HOME/.bash.d/functions.d/available ]; then
   mkdir -p $HOME/.bash.d/functions.d/available
@@ -14,22 +13,3 @@ for FILE in $HOME/.bash.d/functions.d/enabled/*; do
   fi
 done
 
-# add a host to /etc/hosts
-function addhost
-{
-  if [ -z "$1" -o -z "$2" ]; then
-    echo "Usage: addhost 127.0.0.1 example.local"
-    return;
-  fi
-
-  echo "$1 $2" | sudo tee -a /etc/hosts >/dev/null
-  echo "Added $2 to /etc/hosts"
-}
-
-if [ -d $HOME/.bash.d/functions.d/enabled ]; then
-  for FILE in $HOME/.bash.d/functions.d/enabled/*; do
-    if [ -f $FILE ]; then
-      source $FILE;
-    fi
-  done
-fi

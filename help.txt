@@ -11,6 +11,7 @@ h             = history
 v             = vim
 ip            = This will display your external IP address.
 simple-server = Start a web server in the path you are current in (http://localhost:8000)
+mkcd          = mkdir -p $1 && cd $1
 
 Command Line Git Aliases
 ========================
