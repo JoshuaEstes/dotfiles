@@ -45,7 +45,7 @@ set showtabline=2
 set t_Co=256
 set tabpagemax=50
 set tabstop=2
-set wrap
+"set wrap
 set wrapscan
 set visualbell
 
