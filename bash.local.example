@@ -1,7 +1,9 @@
 # Copy this file to $HOME/.bash.local
 export EMAIL="Joshua.Estes@ScenicCityLabs.com"
 export GIT_AUTHOR_EMAIL="Joshua.Estes@ScenicCityLabs.com"
+export GIT_COMMITTER_EMAIL="Joshua.Estes@ScenicCityLabs.com"
 export GIT_AUTHOR_NAME="Joshua Estes"
+export GIT_COMMITTER_NAME="Joshua Estes"
 
 export IRCNICK="IRCNick"
 export IRCNAME="First Last"

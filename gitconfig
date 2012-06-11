@@ -45,15 +45,24 @@
   autosetupmerge = true
 [color]
   ui = true
+  branch = auto
+  diff = auto
+  status = auto
 [color "branch"]
   current = yellow reverse
   local = yellow
   remote = green
 [color "diff"]
-  meta = yellow bold
-  frag = magenta bold
-  old = red bold
-  new = green bold
+  commit = yellow
+  meta = yellow
+  frag = magenta
+  old = red
+  new = green
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+  updated = green
 [commit]
 ;  template = ~/.gitconfig.d/commit.tmpl
 [core]
