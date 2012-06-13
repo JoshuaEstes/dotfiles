@@ -129,6 +129,5 @@ inoremap <C-L> <C-O>:nohls<CR>
 " Generate ctags for this project ( see the make-tags script in the bin
 " directory)
 nnoremap <F5> :!make-tags<CR>
-nnoremap <silent> <S-F12> :BufExplorer<CR> " Shift + F12 = Open BuffExplorer
 nnoremap <silent> <F11> :bn<CR> " Next Buffer
 nnoremap <silent> <F12> :bp<CR> " Previous Buffer
