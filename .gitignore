@@ -1,12 +1,8 @@
-bin/st
-bin/composer.phar
 bash.d/aliases.d/enabled/*
 !bash.d/aliases.d/enabled/general
 bash.d/completions.d/enabled/*
 !bash.d/completions.d/enabled/general
+!bash.d/completions.d/enabled/git-completion.bash
 bash.d/functions.d/enabled/*
 !bash.d/functions.d/enabled/general
-
-# Compiled my own =)
-bin/vim
 
