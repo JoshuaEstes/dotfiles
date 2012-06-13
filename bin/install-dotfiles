@@ -76,6 +76,10 @@ foreach ($public_directories as $directory) {
   }
 }
 
+// reload bash_profile
+$reload = '$(which bash) -c "source ' . HOME . '/.bash_profile"';
+shell_exec($reload);
+
 /**
  * Backup a file/directory
  *
