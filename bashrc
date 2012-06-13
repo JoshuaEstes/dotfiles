@@ -112,11 +112,6 @@ if [ -f $HOME/.bash.d/completions ]; then
   source $HOME/.bash.d/completions
 fi
 
-# Used in PS1
-parse_git_branch () {
-  git symbolic-ref HEAD 2> /dev/null | sed -e 's/\^0$//' | sed 's#refs\/heads\/\(.*\)#\1#'
-}
-
 # Still playing around with title bars
 case $TERM in
   xterm | xterm-color)
@@ -124,7 +119,7 @@ case $TERM in
   ;;
 esac
 # Display the title bar and the prompt
-PS1="\[\033[G\]$TITLE_BAR\[$White\]\u@\h:\[$Green\]\w \[$BRed\]\$(parse_git_branch)\[$White\]\n\$ "
+PS1="\[\033[G\]$TITLE_BAR\[$White\]\u@\h:\[$Green\]\w \[$BRed\]\$(__git_ps1)\[$White\]\n\$ "
 
 
 
