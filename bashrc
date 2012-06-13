@@ -119,5 +119,5 @@ case $TERM in
   ;;
 esac
 # Display the title bar and the prompt
-PS1="\[\033[G\]$TITLE_BAR\[$White\]\u@\h:\[$Green\]\w\[$BRed\]\$(__git_ps1)\[$White\]\n\$ "
+PS1="\[\033[G\]$TITLE_BAR\[$White\]\u@\h:\[$Green\]\w\[$BRed\] \$(__git_ps1 "%s")\[$White\]\n\$ "
 
