@@ -131,3 +131,6 @@ inoremap <C-L> <C-O>:nohls<CR>
 nnoremap <F5> :!make-tags<CR>
 nnoremap <silent> <F11> :bn<CR> " Next Buffer
 nnoremap <silent> <F12> :bp<CR> " Previous Buffer
+nnoremap <silent> <S-F11> :tabn<CR> " Next Tab
+nnoremap <silent> <S-F12> :tabp<CR> " Previous Tab
+
