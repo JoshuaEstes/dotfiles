@@ -94,7 +94,14 @@ set background=dark
 colorscheme solarized
 " End color scheme
 
+" Autocompletion for different languages
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+autocmd FileType c set omnifunc=ccomplete#Complete
 
 source ~/.vim/plugin/php-doc.vim 
 inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i 
