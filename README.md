@@ -15,9 +15,9 @@ Extras
 ------
 
 * [Wiki](https://github.com/JoshuaEstes/dotfiles/wiki)
-** The wiki contains info on how some of these dotfiles work
+ * The wiki contains info on how some of these dotfiles work
 * [Cheat Sheets](https://gist.github.com/2627607)
-** Cheat sheets for bash, tmux, vim
+ * Cheat sheets for bash, tmux, vim, etc
 
 Vim Bundles
 -----------
