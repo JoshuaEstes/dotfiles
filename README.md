@@ -8,8 +8,12 @@ Installation
 
     cd $HOME
     git clone git://github.com/JoshuaEstes/dotfiles.git
-    cd dotfiles
-    ./bin/install-dotfiles
+    ./dotfiles/bin/install-dotfiles
+
+Updating
+--------
+
+    update-dotfiles
 
 Extras
 ------
@@ -18,6 +22,11 @@ Extras
  * The wiki contains info on how some of these dotfiles work
 * [Cheat Sheets](https://gist.github.com/2627607)
  * Cheat sheets for bash, tmux, vim, etc
+
+Bash
+----
+
+@todo put bash info here
 
 Vim Bundles
 -----------
@@ -39,4 +48,45 @@ Vim Bundles
 * [ultisnips](https://github.com/SirVer/ultisnips)
  * [help](https://raw.github.com/SirVer/ultisnips/master/doc/UltiSnips.txt)
  * [List of snippets](https://github.com/SirVer/ultisnips/tree/master/UltiSnips)
+
+Vim Usage
+---------
+
+There are a lot of customized settings included, to check them out, see the vimrc
+file. You may also want to checkout my [Cheat Sheets](https://gist.github.com/2627607).
+
+Below you will also find some basic information about some of the plugins. This is
+not meant to be a complete list, but some of the commands I use most often.
+
+### Key Mappings
+
+    F2            Toggle NerdTree
+    F3            Toggle Tagbar
+    F4            Show snips that can be inserted into the file
+    F5            Rebuild tags file
+    F11           Previous buffer
+    F12           Next buffer
+    shift + F11   Previous tab
+    shift + F12   Next tab
+
+### bufexplorer usage
+
+    \be           Normal open
+    \bs           Horizontal split (q quits)
+    \bv           Vertical split (q quits)
+
+With bufexplorer open
+
+    enter        Open buffer
+    t            Open buffer in new tab
+    D            Close buffer
+
+### NERD Tree
+
+    o            Open
+    go           Open but leave cursor in NERDTree
+    t            Open in new tab
+    q            Close NERDTree window
+
+
 
