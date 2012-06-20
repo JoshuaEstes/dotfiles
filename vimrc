@@ -39,12 +39,12 @@ set showmode
 set showmatch
 set smartcase
 set smartindent
-set softtabstop=2
-set shiftwidth=2
-set showtabline=2
+set softtabstop=4
+set shiftwidth=4
+set showtabline=4
 set t_Co=256
 set tabpagemax=50
-set tabstop=2
+set tabstop=4
 "set wrap
 set wrapscan
 set visualbell
