@@ -22,6 +22,3 @@
 [submodule "vim/bundle/tabular"]
 	path = vim/bundle/tabular
 	url = git://github.com/godlygeek/tabular.git
-[submodule "vim/bundle/DBGp-client"]
-	path = vim/bundle/DBGp-client
-	url = git://github.com/vim-scripts/DBGp-client.git
