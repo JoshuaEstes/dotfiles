@@ -10,6 +10,7 @@ set backspace=start,indent,eol
 "set backupcopy=yes
 "set backupdir=~/.vim.d/backup
 set cf
+set cm=blowfish
 set cmdheight=1
 set cindent
 set expandtab
