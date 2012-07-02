@@ -77,6 +77,7 @@ autocmd! bufwritepost vimrc source ~/.vimrc
 syntax on
 filetype on
 filetype plugin indent on
+au BufNewFile,BufRead *.html.twig set filetype=html
 
 
 " Solarized options
