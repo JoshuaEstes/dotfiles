@@ -73,6 +73,9 @@ set statusline+=:%c                        " current column
 " When vimrc is edited, reload it
 autocmd! bufwritepost vimrc source ~/.vimrc
 
+" Open NERDTree if no files are selected
+autocmd vimenter * if !argc() | NERDTree | endif
+
 " Enable syntax highlighting
 syntax on
 filetype on
