@@ -10,6 +10,7 @@
 # git has its own built in compression methods.
 *.7z
 *.jar
+!yui*.jar
 *.rar
 *.zip
 *.gz
