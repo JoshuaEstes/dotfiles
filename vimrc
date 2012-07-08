@@ -80,7 +80,7 @@ autocmd vimenter * if !argc() | NERDTree | endif
 syntax on
 filetype on
 filetype plugin indent on
-au BufNewFile,BufRead *.html.twig set filetype=html
+au BufNewFile,BufRead *.twig set filetype=twig
 
 
 " Solarized options
