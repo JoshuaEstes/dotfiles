@@ -71,7 +71,7 @@
   excludesfile = ~/.gitconfig.d/excludesfile
   mergeoptions = --no-ff
 ;  pager = ''
-;  whitespace =
+  whitespace = trailing-space,space-before-tab
 [diff]
 ;  external = diff
 [help]
