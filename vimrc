@@ -133,6 +133,10 @@ nnoremap <silent> <F3> :TagbarToggle<CR>
 let g:UltiSnipsListSnippets="<F4>"
 " end ultisnips settings
 
+" vimwiki settings
+let g:vimwiki_list = [{'path': '~/.vimwiki/', 'template_path': '~/.vimwiki/templates'}]
+" end vimwiki settings
+
 " Remap keys
 nnoremap <C-L> :nohls<CR><C-L>   " ctrl + l will clear the highlighted search results
 inoremap <C-L> <C-O>:nohls<CR>
