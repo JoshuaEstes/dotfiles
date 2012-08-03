@@ -134,7 +134,7 @@ let g:UltiSnipsListSnippets="<F4>"
 " end ultisnips settings
 
 " vimwiki settings
-let g:vimwiki_list = [{'path': '~/.vimwiki/', 'template_path': '~/.vimwiki/templates'}]
+let g:vimwiki_list = [{'path': '~/.vimwiki/', 'template_path': '~/.vimwiki/templates', 'path_html': '~/.vimwiki_html'}]
 " end vimwiki settings
 
 " Remap keys
