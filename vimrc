@@ -145,8 +145,11 @@ inoremap <C-L> <C-O>:nohls<CR>
 " Generate ctags for this project ( see the make-tags script in the bin
 " directory)
 nnoremap <F5> :!make-tags<CR>
-nnoremap <silent> <F11> :bn<CR> " Next Buffer
-nnoremap <silent> <F12> :bp<CR> " Previous Buffer
-nnoremap <silent> <S-F11> :tabn<CR> " Next Tab
-nnoremap <silent> <S-F12> :tabp<CR> " Previous Tab
+nnoremap <silent> <F11> :bp<CR> " Previous Buffer
+nnoremap <silent> <F12> :bn<CR> " Next Buffer
+nnoremap <silent> <S-F11> :tabp<CR> " Previous Tab
+nnoremap <silent> <S-F12> :tabn<CR> " Next Tab
+
+" vim-repeat
+silent! call repeat#set("\surround.vim", v:count)
 
