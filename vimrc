@@ -80,8 +80,17 @@ autocmd vimenter * if !argc() | NERDTree | endif
 syntax on
 filetype on
 filetype plugin indent on
-au BufNewFile,BufRead *.twig set filetype=twig
+au BufNewFile,BufRead *.twig set filetype=htmljinja
 
+" neocomplecache options
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_camel_case_completion = 1
+let g:neocomplcache_enable_smart_case = 1
+let g:neocomplcache_enable_underbar_completion = 1
+let g:neocomplcache_min_syntax_length = 3
+let g:neocomplcache_enable_auto_delimiter = 1
+let g:neocomplcache_enable_auto_select = 0
+" end neocomplcache
 
 " Solarized options
 let g:solarized_termcolors=16
@@ -106,12 +115,6 @@ autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-autocmd FileType c set omnifunc=ccomplete#Complete
-
-source ~/.vim/plugin/php-doc.vim 
-inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i 
-nnoremap <C-P> :call PhpDocSingle()<CR> 
-vnoremap <C-P> :call PhpDocRange()<CR> 
 
 " NERDTree settings
 let g:NERDTreeMouseMode=2
