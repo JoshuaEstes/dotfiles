@@ -58,17 +58,17 @@ endif
 set laststatus=2
 hi StatusLine ctermfg=cyan 
 hi StatusLineNC cterm=none
-set statusline=%{fugitive#statusline()}    " Display current bracn
-set statusline+=\ %F                       " Full filename
-set statusline+=%m                         " modified
-set statusline+=%r                         " Read only
-set statusline+=%y                         " File type
-set statusline+=%{&paste?'[paste]':''}     " Let me know if we are in paste mode
-set statusline+=%{SyntasticStatuslineFlag()}
+set statusline=%{fugitive#statusline()}                     " Display current bracn
+set statusline+=\ %F                                        " Full filename
+set statusline+=%m                                          " modified
+set statusline+=%r                                          " Read only
+set statusline+=%y                                          " File type
+set statusline+=%{&paste?'[paste]':''}                      " Let me know if we are in paste mode
+set statusline+=%#warningmsg#%{SyntasticStatuslineFlag()}%* " File Errors/Warnings
 set statusline+=%=Line:
-set statusline+=\ %l                       " current line
-set statusline+=/%L                        " total lines
-set statusline+=:%c                        " current column
+set statusline+=\ %l                                        " current line
+set statusline+=/%L                                         " total lines
+set statusline+=:%c                                         " current column
 
 " When vimrc is edited, reload it
 autocmd! bufwritepost vimrc source ~/.vimrc
@@ -94,9 +94,9 @@ autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_enable_camel_case_completion = 1
 let g:neocomplcache_enable_smart_case = 1
-let g:neocomplcache_min_syntax_length = 3
-let g:neocomplcache_enable_auto_delimiter = 1
-let g:neocomplcache_enable_auto_select = 0
+"let g:neocomplcache_min_syntax_length = 3
+"let g:neocomplcache_enable_auto_delimiter = 1
+"let g:neocomplcache_enable_auto_select = 0
 if !exists('g:neocomplcache_omni_patterns')
     let g:neocomplcache_omni_patterns = {}
 endif
@@ -131,7 +131,7 @@ nnoremap <silent> <F2> :NERDTreeToggle<CR>
 " Syntastic settings
 let g:syntastic_check_on_open=1
 let g:syntastic_auto_loc_list=2
-let g:syntastic_phpcs_conf="--standard=$HOME/.vim/standards/php.xmla"
+let g:syntastic_phpcs_conf="--standard=$HOME/.vim/standards/php.xml"
 " End syntastic settings
 
 " Tagbar settings
@@ -162,3 +162,16 @@ nnoremap <silent> <S-F12> :tabn<CR> " Next Tab
 " vim-repeat
 silent! call repeat#set("\surround.vim", v:count)
 
+" Disable up, down, left, right keys
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+nnoremap j gj
+nnoremap k gk
+
+" Tabularize key mappings
+nnoremap <Leader>a= :Tabularize /=
+nnoremap <Leader>a> :Tabularize /=>
+" end Tabularize key mappings
+"
