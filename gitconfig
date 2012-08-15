@@ -70,7 +70,7 @@
   editor = vim
   excludesfile = ~/.gitconfig.d/excludesfile
   mergeoptions = --no-ff
-;  pager = ''
+  pager = view -
   whitespace = trailing-space,space-before-tab
 [diff]
 ;  external = diff
