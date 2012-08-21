@@ -42,7 +42,10 @@ set smartcase
 set smartindent
 set softtabstop=4
 set shiftwidth=4
-set showtabline=4
+" 0: Never
+" 1: Only if there are two or more tabs
+" 2: Always
+set showtabline=2
 set t_Co=256
 set tabpagemax=50
 set tabstop=4
@@ -78,7 +81,6 @@ autocmd vimenter * if !argc() | NERDTree | endif
 
 " Enable syntax highlighting
 syntax on
-filetype on
 filetype plugin indent on
 au BufNewFile,BufRead *.twig set filetype=htmljinja
 
@@ -139,6 +141,7 @@ nnoremap <silent> <F3> :TagbarToggle<CR>
 " End Tagbar settings
 
 " ultisnips settings
+let g:UltiSnipsUsePythonVersion = 2
 let g:UltiSnipsListSnippets="<F4>"
 " end ultisnips settings
 
@@ -171,7 +174,8 @@ nnoremap j gj
 nnoremap k gk
 
 " Tabularize key mappings
-nnoremap <Leader>a= :Tabularize /=
-nnoremap <Leader>a> :Tabularize /=>
+nnoremap <Leader>a= :Tabularize /=<CR>
+nnoremap <Leader>a> :Tabularize /=><CR>
+nnoremap <Leader>a: :Tabularize /:\zs<CR>
 " end Tabularize key mappings
 "
