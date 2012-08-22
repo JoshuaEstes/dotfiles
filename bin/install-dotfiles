@@ -101,5 +101,8 @@ function backup($source)
 function make_symlink($source, $dest)
 {
     echo "Making symlink\n",$source," => ",$dest,"\n";
+    if (!is_dir($source)) {
+        mkdir($source);
+    }
     symlink($source,$dest);
 }
