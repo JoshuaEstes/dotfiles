@@ -4,6 +4,9 @@ snippet block "block" b
 {% endblock $1 %}
 endsnippet
 
+snippet parent "parent" b
+{{ parent() }}
+endsnippet
 
 snippet {{ "variable" b
 {{ $1 }}
@@ -193,6 +196,7 @@ endsnippet
 snippet indent "indent" w
 indent(width=${1:4}, indentfirst=${2:False})
 endsnippet
+
 
 
 # vim:ft=snippets:
