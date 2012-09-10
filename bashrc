@@ -20,6 +20,9 @@ fi
 unset MAILCHECK
 shopt -s extglob
 
+# default is emacs
+set -o vi
+
 # Make sure we use VIM =D
 EDITOR=vim
 SVN_EDITOR=vim
