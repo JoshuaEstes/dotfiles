@@ -47,6 +47,7 @@ foreach ($files as $file) {
 $directories = array(
     'bash.d',
     'gitconfig.d',
+    'irssi',
     'vim',
     'vimwiki',
 );
