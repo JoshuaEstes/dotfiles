@@ -29,3 +29,5 @@ alias cleanup-svn="find . -type d -name '*.svn' -ls -delete"
 # Got python? Run a simple http server in the current directory
 alias simple-server="python -m SimpleHTTPServer"
 
+# Shortcut for composer.phar install
+alias getcomposer="curl -s https://getcomposer.org/installer | php"
