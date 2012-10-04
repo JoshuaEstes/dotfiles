@@ -14,9 +14,9 @@ alias q="exit"
 alias ..="cd .."
 alias ....="cd ../.."
 alias -- -="cd -"
-alias ~="cd ~"
 alias h="history"
 alias v="vim"
+alias c="composer.phar"
 
 # Show your IP address
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"

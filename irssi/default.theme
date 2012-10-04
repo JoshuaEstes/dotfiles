@@ -169,7 +169,7 @@ abstracts = {
   ##
 
   # used internally by this theme
-  action_core = "%W $*:%n%g";
+  action_core = "%W $*%n%g";
 
   # generic one that's used by most actions
   action = "{action_core $*} ";
