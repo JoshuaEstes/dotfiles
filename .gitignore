@@ -6,3 +6,4 @@ bash.d/completions.d/enabled/*
 bash.d/functions.d/enabled/*
 !bash.d/functions.d/enabled/general
 
+vendor
