@@ -1,3 +1,4 @@
+alias gf="git flow"
 alias g="git"
 alias gcl="git clone"
 alias ga="git add"
