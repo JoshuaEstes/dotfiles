@@ -27,7 +27,7 @@ alias cleanup-ds_store="find . -type f -name '*.DS_Store' -ls -delete"
 alias cleanup-svn="find . -type d -name '*.svn' -ls -delete"
 
 # Got python? Run a simple http server in the current directory
-alias simple-server="python -m SimpleHTTPServer"
+alias simple-server="php -S 0.0.0.0:8000"
 
 # Shortcut for composer.phar install
 alias getcomposer="curl -s https://getcomposer.org/installer | php"

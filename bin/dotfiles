@@ -14,6 +14,9 @@ COMMANDS
     alias
         Manage aliases
 
+    reload
+        Reloads all the dot files
+
 EOF
 }
 
@@ -22,6 +25,9 @@ if [[ "$#" -le "0" || "help" == "${args[0]}" ]]; then
     exit 0
 fi
 
+#
+# Alias functions
+#
 if [[ "alias" == "${args[0]}" ]]; then
     if [[ "enable" == "${args[1]}" ]]; then
         if [[ "$#" -ne 3 || "help" == "${args[2]}" ]]; then
@@ -59,6 +65,14 @@ EOF
         else
             echo "The alias \"${args[2]}\" could not be found"
         fi
+    elif [[ "list" == "${args[1]}" ]]; then
+        echo 'List of available aliases'
+        echo ''
+        for f in $HOME/.bash.d/aliases.d/available/*; do
+            echo ${f##*/}
+        done
+        echo ''
+        echo 'To enable, run "dotfiles alias enable <filename>"'
     else
         cat <<EOF
 
@@ -66,9 +80,18 @@ Commands
 
     enable
     disable
+    list
 
 EOF
     fi
+elif [[ "reload" == "${args[0]}" ]]; then
+#
+# Reload
+#
+    echo 'Reloading dotfile'
+    bash -c "source $HOME/.bash_profile"
+    echo 'Reloading dotfiles complete'
 fi
+
 
 exit
