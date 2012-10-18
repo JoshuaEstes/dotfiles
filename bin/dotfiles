@@ -25,10 +25,10 @@ if [[ "$#" -le "0" || "help" == "${args[0]}" ]]; then
     exit 0
 fi
 
+if [[ "alias" == "${args[0]}" ]]; then
 #
 # Alias functions
 #
-if [[ "alias" == "${args[0]}" ]]; then
     if [[ "enable" == "${args[1]}" ]]; then
         if [[ "$#" -ne 3 || "help" == "${args[2]}" ]]; then
             cat <<EOF
