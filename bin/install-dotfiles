@@ -13,6 +13,7 @@ system(sprintf('cd %s; git submodule update --init --recursive; cd %s', DOTFILE_
 
 // These are the files that I want to install into the $HOME directory as a .file
 $files = array(
+    'ackrc',
     'bash_logout',
     'bash_profile',
     'bashrc',
