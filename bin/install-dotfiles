@@ -49,7 +49,7 @@ $directories = array(
     'gitconfig.d',
     'irssi',
     'vim',
-    'vimwiki',
+//    'vimwiki',
 );
 
 foreach ($directories as $directory) {

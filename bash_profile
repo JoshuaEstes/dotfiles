@@ -1,6 +1,6 @@
 # ~/.bash_profile
 
-export PATH=$HOME/bin.local:$HOME/bin:/usr/local/bin:/opt/local/bin:$PATH
+export PATH=$HOME/bin.local:$HOME/bin:/usr/local/bin:/usr/local/sbin:/opt/local/bin:$PATH
 
 if [ -f $HOME/.bashrc ]; then
   source $HOME/.bashrc
