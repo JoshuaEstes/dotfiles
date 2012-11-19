@@ -18,6 +18,7 @@ alias h="history"
 alias v="vim"
 alias c="composer.phar"
 alias ll="ls -alh"
+alias diff="diff -y"
 
 # Show your IP address
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
@@ -27,7 +28,7 @@ alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias cleanup-ds_store="find . -type f -name '*.DS_Store' -ls -delete"
 alias cleanup-svn="find . -type d -name '*.svn' -ls -delete"
 
-# Got python? Run a simple http server in the current directory
+# spin up a php server in the current directory
 alias simple-server="php -S 0.0.0.0:8000"
 
 # Shortcut for composer.phar install
