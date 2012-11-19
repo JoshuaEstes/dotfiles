@@ -17,6 +17,7 @@ alias -- -="cd -"
 alias h="history"
 alias v="vim"
 alias c="composer.phar"
+alias ll="ls -alh"
 
 # Show your IP address
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"

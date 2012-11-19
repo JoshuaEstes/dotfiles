@@ -91,6 +91,7 @@ autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+set completeopt-=preview
 
 " neocomplecache options
 let g:neocomplcache_enable_at_startup = 1
@@ -174,4 +175,4 @@ nnoremap <Leader>a= :Tabularize /=<CR>
 nnoremap <Leader>a> :Tabularize /=><CR>
 nnoremap <Leader>a: :Tabularize /:\zs<CR>
 " end Tabularize key mappings
-"
+
