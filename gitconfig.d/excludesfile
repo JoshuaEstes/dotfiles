@@ -37,6 +37,7 @@
 !.htaccess
 !.gitignore
 !.gitkeep
+!.gitattributes
 *~
 
 # KDE
