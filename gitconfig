@@ -66,7 +66,7 @@
 [commit]
 ;  template = ~/.gitconfig.d/commit.tmpl
 [core]
-	autocrlf = input
+;autocrlf = input
   editor = vim
   excludesfile = ~/.gitconfig.d/excludesfile
   mergeoptions = --no-ff
