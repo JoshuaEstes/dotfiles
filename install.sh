@@ -2,7 +2,7 @@
 DOTFILES_HOME="$HOME/.dotfiles"
 
 # Install git submodules
-git submodule update --init
+git submodule update --init --recursive
 
 # Copy to new directory
 mkdir -p $DOTFILES_HOME
