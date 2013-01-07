@@ -18,8 +18,8 @@ unset MAILCHECK
 alias reload="source $HOME/bash_profile"
 
 # Load some defaults
-source $DOTFILES_HOME/bash.d/config.bash
 source $DOTFILES_HOME/bash.d/colors.bash
+source $DOTFILES_HOME/bash.d/config.bash
 source $DOTFILES_HOME/bash.d/base.bash
 
 # Default functions
