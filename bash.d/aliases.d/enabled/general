@@ -19,6 +19,7 @@ alias v="vim"
 alias c="composer.phar"
 alias ll="ls -alh"
 alias diff="diff -y"
+alias j="jobs"
 
 # Show your IP address
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
