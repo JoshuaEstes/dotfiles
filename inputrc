@@ -3,6 +3,10 @@
 # Make Tab autocomplete regardless of filename case
 set completion-ignore-case on
 
+# The length in characters of the common prefix of a list of possible
+# completions that is displayed without modification.
+set completion-prefix-display-length 3
+
 # Don’t prompt unless there are over 500 possible completions
 set completion-query-items 500
 
