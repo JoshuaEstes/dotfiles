@@ -1,4 +1,5 @@
-#!/usr/bin/env bash # ~/.bash_profile 
+#!/usr/bin/env bash
+# The personal initialization file, executed for login shells
 export PATH=$HOME/bin.local:$HOME/bin:/usr/local/bin:/usr/local/sbin:/opt/local/bin:$PATH
 
 if [[ -d /Applications/SenchaSDKTools-2.0.0-beta3 ]]; then

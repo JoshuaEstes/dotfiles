@@ -1,4 +1,5 @@
 # ~/.bash_logout
+# The individual login shell cleanup file, executed when a login shell exits
 
 # when leaving the console clear the screen to increase privacy
 if [ "$SHLVL" = 1 ]; then
