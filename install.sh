@@ -35,4 +35,5 @@ ln -s $DOTFILES_HOME/osx $HOME/.osx
 ln -s $DOTFILES_HOME/tmux.conf $HOME/.tmux.conf
 ln -s $DOTFILES_HOME/vimrc $HOME/.vimrc
 
+# Reload
 source $HOME/.bash_profile
