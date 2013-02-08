@@ -7,7 +7,7 @@ git submodule update --init --recursive
 # Copy to new directory
 rm -rf $DOTFILES_HOME
 mkdir -p $DOTFILES_HOME
-cp -R $PWD/* $DOTFILES_HOME/
+cp -vR $PWD/* $DOTFILES_HOME/
 
 # Backup files
 mv $HOME/.ackrc $HOME/.ackrc~
@@ -30,10 +30,10 @@ ln -s $DOTFILES_HOME/bashrc $HOME/.bashrc
 ln -s $DOTFILES_HOME/gemrc $HOME/.gemrc
 ln -s $DOTFILES_HOME/gitconfig $HOME/.gitconfig
 ln -s $DOTFILES_HOME/inputrc $HOME/.inputrc
-ln -s $DOTFILES_HOME/ircrc $HOME/.ircrc
+#ln -s $DOTFILES_HOME/ircrc $HOME/.ircrc
 ln -s $DOTFILES_HOME/osx $HOME/.osx
 ln -s $DOTFILES_HOME/tmux.conf $HOME/.tmux.conf
 ln -s $DOTFILES_HOME/vimrc $HOME/.vimrc
 
 # Reload
-source $HOME/.bash_profile
+. $HOME/.bashrc

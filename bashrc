@@ -46,9 +46,6 @@ if [ -f $DOTFILES_HOME/bash.d/functions ]; then
 fi
 
 # Default aliases
-alias reload="source $HOME/bashrc"
-
-# Default aliases
 if [ -f $DOTFILES_HOME/bash.d/aliases ]; then
   source $DOTFILES_HOME/bash.d/aliases
 fi
