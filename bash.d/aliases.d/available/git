@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 alias gf="git flow"
 alias g="git"
 alias gcl="git clone"
