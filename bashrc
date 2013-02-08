@@ -15,15 +15,25 @@ if [ -d /Applications/SenchaSDKTools-2.0.0-beta3 ]; then
     export PATH=/Applications/SenchaSDKTools-2.0.0-beta3:$PATH
     export SENCHA_SDK_TOOLS_2_0_0_BETA3="/Applications/SenchaSDKTools-2.0.0-beta3"
 fi
-####
+#### PATH ####
 
+####
+#
+# Edit some variables
+#
 DOTFILES_HOME=$HOME/.dotfiles
 export EDITOR="vim"
 export GIT_EDITOR="vim"
 export SVN_EDITOR=vim
 export BROWSER=chromium-browser
 export IRC_CLIENT="irssi"
+# Don't check for mail
 unset MAILCHECK
+# Put a space before a command to exclude it from the history file
+export HISTCONTROL="ignorespace"
+# These will be ignored and not place in the HISTFILE
+export HISTIGNORE="pwd:exit:history"
+#### variables ####
 
 # Load some defaults
 source $DOTFILES_HOME/bash.d/colors.bash
