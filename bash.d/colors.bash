@@ -59,7 +59,6 @@ function __crossed {
   echo "${out:+${out};}8"
 }
 
-
 function __color_normal_fg {
   echo "3$1"
 }
@@ -132,7 +131,6 @@ function __color {
   echo "$(__color_${mode}_${side} $(__color_${color} $rgb))${out:+;${out}}"
 }
 
-
 function __black   {
   echo "$(__color black $@)"
 }
@@ -169,7 +167,6 @@ function __rgb {
   echo "$(__color rgb $@)"
 }
 
-
 function __color_parse {
   next=$1 && shift
   echo "$(__$next $@)"
@@ -182,7 +179,6 @@ function color {
 function echo_color {
   echo "$(__color_parse make_echo $@)"
 }
-
 
 black="$(color reset black)"
 red="$(color reset red)"
