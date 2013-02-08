@@ -34,3 +34,5 @@ ln -s $DOTFILES_HOME/ircrc $HOME/.ircrc
 ln -s $DOTFILES_HOME/osx $HOME/.osx
 ln -s $DOTFILES_HOME/tmux.conf $HOME/.tmux.conf
 ln -s $DOTFILES_HOME/vimrc $HOME/.vimrc
+
+source $HOME/.bash_profile
