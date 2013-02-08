@@ -17,7 +17,7 @@ mv $HOME/.bashrc $HOME/.bashrc~
 mv $HOME/.gemrc $HOME/.gemrc~
 mv $HOME/.gitconfig $HOME/.gitconfig~
 mv $HOME/.inputrc $HOME/.inputrc~
-mv $HOME/.ircrc $HOME/.ircrc~
+#mv $HOME/.ircrc $HOME/.ircrc~
 mv $HOME/.osx $HOME/.osx~
 mv $HOME/.tmux.conf $HOME/.tmux.conf~
 mv $HOME/.vimrc $HOME/.vimrc~
