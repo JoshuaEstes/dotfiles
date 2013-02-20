@@ -35,3 +35,8 @@ alias simple-server="php -S 0.0.0.0:8000"
 
 # Shortcut for composer.phar install
 alias getcomposer="curl -s https://getcomposer.org/installer | php"
+
+# Python Oneliners
+# http://www.vurt.ru/2013/02/python-command-line-oneliners/
+alias fake-smtp="python -m smtpd -n -c DebuggingServer localhost:25"
+
