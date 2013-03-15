@@ -5,6 +5,7 @@ DOTFILES_HOME="$HOME/.dotfiles"
 git submodule update --init --recursive
 
 # Copy to new directory
+rm -rf $DOTFILES_HOME
 mkdir -p $DOTFILES_HOME
 cp -R $PWD/* $DOTFILES_HOME/
 
