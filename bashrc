@@ -35,6 +35,15 @@ export HISTCONTROL="ignorespace"
 export HISTIGNORE="pwd:exit:history"
 #### variables ####
 
+####
+#
+# Source the bash.local if there is one
+#
+if [ -f "$HOME/.bash.local" ]; then
+    source $HOME/.bash.local
+fi
+######
+
 # Load some defaults
 source $DOTFILES_HOME/bash.d/colors.bash
 source $DOTFILES_HOME/bash.d/config.bash
