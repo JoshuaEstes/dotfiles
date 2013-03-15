@@ -8,12 +8,14 @@ Installation
 
     cd $HOME
     git clone git://github.com/JoshuaEstes/dotfiles.git
-    ./dotfiles/bin/install-dotfiles
+    cd dotfiles
+    ./install.sh
 
 Updating
 --------
 
-    update-dotfiles
+Just pull down and run `install.sh` again and it will update
+everything
 
 Extras
 ------
