@@ -1,7 +1,9 @@
 JoshuaEstes/dotfiles
 ====================
 
-These are my dotfiles, enjoy
+This is my dotfile. There are many others like it, but this one is mine. My
+dotfile is my best friend. It is my life. I must master it as I must master
+my life. Without me, my dotfile is useless. Without my dotfile, I am useless.
 
 Installation
 ------------
@@ -20,15 +22,8 @@ everything
 Extras
 ------
 
-* [Wiki](https://github.com/JoshuaEstes/dotfiles/wiki)
- * The wiki contains info on how some of these dotfiles work
 * [Cheat Sheets](https://gist.github.com/2627607)
  * Cheat sheets for bash, tmux, vim, etc
-
-Bash
-----
-
-@todo put bash info here
 
 Vim Bundles
 -----------
