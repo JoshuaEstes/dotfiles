@@ -1,3 +1,5 @@
+# Individual readline initialization file
+
 #set editing-mode vi
 
 # Make Tab autocomplete regardless of filename case
