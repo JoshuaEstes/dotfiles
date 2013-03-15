@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+####
+#
+# This will install the dotfiles
+#
 DOTFILES_HOME="$HOME/.dotfiles"
 
 # Install git submodules
@@ -17,7 +21,6 @@ mv $HOME/.bashrc $HOME/.bashrc~
 mv $HOME/.gemrc $HOME/.gemrc~
 mv $HOME/.gitconfig $HOME/.gitconfig~
 mv $HOME/.inputrc $HOME/.inputrc~
-#mv $HOME/.ircrc $HOME/.ircrc~
 mv $HOME/.osx $HOME/.osx~
 mv $HOME/.tmux.conf $HOME/.tmux.conf~
 mv $HOME/.vimrc $HOME/.vimrc~
@@ -30,7 +33,6 @@ ln -s $DOTFILES_HOME/bashrc $HOME/.bashrc
 ln -s $DOTFILES_HOME/gemrc $HOME/.gemrc
 ln -s $DOTFILES_HOME/gitconfig $HOME/.gitconfig
 ln -s $DOTFILES_HOME/inputrc $HOME/.inputrc
-#ln -s $DOTFILES_HOME/ircrc $HOME/.ircrc
 ln -s $DOTFILES_HOME/osx $HOME/.osx
 ln -s $DOTFILES_HOME/tmux.conf $HOME/.tmux.conf
 ln -s $DOTFILES_HOME/vimrc $HOME/.vimrc
