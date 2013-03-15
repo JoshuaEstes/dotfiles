@@ -54,4 +54,3 @@ fi
 if [ -f $DOTFILES_HOME/bash.d/completions ]; then
   source $DOTFILES_HOME/bash.d/completions
 fi
-
