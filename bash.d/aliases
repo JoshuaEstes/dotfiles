@@ -1,79 +1,21 @@
-# ~/.bash.d/aliases
+#!/usr/bin/env bash
 
-ALIAS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-alias reload="source $HOME/.bash_profile"
-alias usage="cat $ALIAS_DIR/../help.txt | less"
+# Default aliases
+alias reload="source $HOME/.bashrc"
 
-# make sure our directories exist
+# make sure our directories exist first
 if [ ! -d $HOME/.bash.d/aliases.d/available ]; then
   mkdir -p $HOME/.bash.d/aliases.d/available
 fi
 if [ ! -d $HOME/.bash.d/aliases.d/enabled ]; then
   mkdir -p $HOME/.bash.d/aliases.d/enabled
 fi
+
+# Load all the aliases in the enabled folder
 for FILE in $HOME/.bash.d/aliases.d/enabled/*; do
   if [ -f $FILE ]; then
+    #echo "Sourcing $FILE"
     source $FILE;
   fi
 done
 
-# enable aliases
-#function alen
-#{
-#  if [ -z "$1" ]; then
-#    echo "Usage: alen alias"
-#    return;
-#  fi
-#
-#  if [ -e $HOME/.bash.d/aliases.d/enabled/$1 ]; then
-#    echo "This alias \"$1\" is already enabled"
-#  elif [ -e $HOME/.bash.d/aliases.d/available/$1 ]; then
-#    ln -s $HOME/.bash.d/aliases.d/available/$1 $HOME/.bash.d/aliases.d/enabled/$1
-#    source $HOME/.bash.d/aliases.d/enabled/$1
-#    echo "The alias \"$1\" is now enabled"
-#  else
-#    echo "The alias \"$1\" could not be found"
-#  fi
-#
-#  return;
-#}
-
-# Bash Completion for alen function
-#function _alias_enable
-#{
-#  local cur
-#  COMPREPLY=()
-#  cur="${COMP_WORDS[COMP_CWORD]}"
-#  COMPREPLY=($(compgen -W "$(for x in $HOME/.bash.d/aliases.d/available/*; do echo $(basename ${x}); done)" -- $cur))
-#}
-#complete -F _alias_enable alen
-
-# Disable aliases
-#function aldis
-#{
-#  if [ -z "$1" ]; then
-#    echo "Usage: aldis alias"
-#    return;
-#  fi
-#
-#  if [ ! -e $HOME/.bash.d/aliases.d/enabled/$1 ]; then
-#    echo "The alias \"$1\" has not been enabled"
-#  elif [ -e $HOME/.bash.d/aliases.d/enabled/$1 ]; then
-#    rm $HOME/.bash.d/aliases.d/enabled/$1
-#    echo "The alias \"$1\" has been disabled, you will need to restart your terminal for it to take effect."
-#  else
-#    echo "The alias \"$1\" could not be found"
-#  fi
-#
-#  return;
-#}
-
-# Bash Completion for aldis function
-#function _alias_disable
-#{
-#  local cur
-#  COMPREPLY=()
-#  cur="${COMP_WORDS[COMP_CWORD]}"
-#  COMPREPLY=($(compgen -W "$(for x in $HOME/.bash.d/aliases.d/enabled/*; do echo $(basename ${x}); done)" -- $cur))
-#}
-#complete -F _alias_disable aldis

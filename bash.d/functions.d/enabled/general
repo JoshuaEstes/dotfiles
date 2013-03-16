@@ -1,8 +1,10 @@
-# ~/.bash.d/functions.d/enabled
+#!/usr/bin/env bash
 
 # Generate a random password, if you include a number afterwards, the length of the password will
 # be that long
-function genpass { if [[ $1 > 0 ]]; then l=$1; else l=16; fi; < /dev/urandom tr -dc "[:graph:]" | head -c${1:-$l};echo; }
+#function genpass { if [[ $1 > 0 ]]; then l=$1; else l=16; fi; < /dev/urandom tr -dc "[:graph:]" | head -c${1:-$l};echo; }
+# REPLACED BY pwgen
+# @see http://linux.die.net/man/1/pwgen
 
 # Make a directory then cd into it
 function mkcd() { mkdir -p "$1" && cd "$1"; }

@@ -1,12 +1,5 @@
-# ~/.bash_profile
+#!/usr/bin/env bash
+# The personal initialization file, executed for login shells ie, non interactive
 
-export PATH=$HOME/bin.local:$HOME/bin:/usr/local/bin:/usr/local/sbin:/opt/local/bin:$PATH
-
-if [ -f $HOME/.bashrc ]; then
-  source $HOME/.bashrc
-fi
-
-
-export PATH=/Applications/SenchaSDKTools-2.0.0-beta3:$PATH
-
-export SENCHA_SDK_TOOLS_2_0_0_BETA3="/Applications/SenchaSDKTools-2.0.0-beta3"
+echo "DEBUG::bash_profile"
+if [ -f $HOME/.bashrc ]; then . $HOME/.bashrc; fi

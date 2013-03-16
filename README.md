@@ -1,35 +1,28 @@
 JoshuaEstes/dotfiles
 ====================
 
-These are my dotfiles, enjoy
+This is my dotfile. There are many others like it, but this one is mine. My
+dotfile is my best friend. It is my life. I must master it as I must master
+my life. Without me, my dotfile is useless. Without my dotfile, I am useless.
 
-Installation
-------------
+# Installation
 
     cd $HOME
     git clone git://github.com/JoshuaEstes/dotfiles.git
-    ./dotfiles/bin/install-dotfiles
+    cd dotfiles
+    ./install.sh
 
-Updating
---------
+# Updating
 
-    update-dotfiles
+Just pull down and run `install.sh` again and it will update
+everything
 
-Extras
-------
+# Extras
 
-* [Wiki](https://github.com/JoshuaEstes/dotfiles/wiki)
- * The wiki contains info on how some of these dotfiles work
 * [Cheat Sheets](https://gist.github.com/2627607)
  * Cheat sheets for bash, tmux, vim, etc
 
-Bash
-----
-
-@todo put bash info here
-
-Vim Bundles
------------
+# Vim Bundles
 
 * [bufexplorer](https://github.com/vim-scripts/bufexplorer.zip)
  * [help](https://raw.github.com/vim-scripts/bufexplorer.zip/master/doc/bufexplorer.txt)
@@ -49,8 +42,7 @@ Vim Bundles
  * [help](https://raw.github.com/SirVer/ultisnips/master/doc/UltiSnips.txt)
  * [List of snippets](https://github.com/SirVer/ultisnips/tree/master/UltiSnips)
 
-Vim Usage
----------
+# Vim Usage
 
 There are a lot of customized settings included, to check them out, see the vimrc
 file. You may also want to checkout my [Cheat Sheets](https://gist.github.com/2627607).
@@ -58,7 +50,7 @@ file. You may also want to checkout my [Cheat Sheets](https://gist.github.com/26
 Below you will also find some basic information about some of the plugins. This is
 not meant to be a complete list, but some of the commands I use most often.
 
-### Key Mappings
+## Key Mappings
 
     F2            Toggle NerdTree
     F3            Toggle Tagbar
@@ -69,7 +61,7 @@ not meant to be a complete list, but some of the commands I use most often.
     shift + F11   Previous tab
     shift + F12   Next tab
 
-### bufexplorer usage
+## bufexplorer usage
 
     \be           Normal open
     \bs           Horizontal split (q quits)
@@ -81,7 +73,7 @@ With bufexplorer open
     t            Open buffer in new tab
     D            Close buffer
 
-### NERD Tree
+## NERD Tree
 
     o            Open
     go           Open but leave cursor in NERDTree

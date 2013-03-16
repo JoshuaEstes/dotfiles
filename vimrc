@@ -91,6 +91,7 @@ autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+set completeopt-=preview
 
 " neocomplecache options
 let g:neocomplcache_enable_at_startup = 1
@@ -145,10 +146,6 @@ let g:UltiSnipsUsePythonVersion = 2
 let g:UltiSnipsListSnippets="<F4>"
 " end ultisnips settings
 
-" vimwiki settings
-let g:vimwiki_list = [{'path': '~/.vimwiki/', 'template_path': '~/.vimwiki/templates', 'path_html': '~/.vimwiki_html'}]
-" end vimwiki settings
-
 " Remap keys
 nnoremap <C-L> :nohls<CR><C-L>   " ctrl + l will clear the highlighted search results
 inoremap <C-L> <C-O>:nohls<CR>
@@ -178,4 +175,4 @@ nnoremap <Leader>a= :Tabularize /=<CR>
 nnoremap <Leader>a> :Tabularize /=><CR>
 nnoremap <Leader>a: :Tabularize /:\zs<CR>
 " end Tabularize key mappings
-"
+

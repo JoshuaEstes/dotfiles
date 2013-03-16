@@ -1,0 +1,97 @@
+#!/usr/bin/env bash
+
+args=("$@")
+#echo ${args[0]} ${args[1]} ${args[2]}
+
+function dotfiles_help()
+{
+    cat <<EOF
+
+USAGE: dotfiles <command> [arg1, arg2, ...argN]
+
+COMMANDS
+    
+    alias
+        Manage aliases
+
+    reload
+        Reloads all the dot files
+
+EOF
+}
+
+if [[ "$#" -le "0" || "help" == "${args[0]}" ]]; then
+    dotfiles_help
+    exit 0
+fi
+
+if [[ "alias" == "${args[0]}" ]]; then
+#
+# Alias functions
+#
+    if [[ "enable" == "${args[1]}" ]]; then
+        if [[ "$#" -ne 3 || "help" == "${args[2]}" ]]; then
+            cat <<EOF
+
+Usage: dotfiles alias enable <filename>
+
+EOF
+            exit 1
+        fi
+        echo "Enable ${args[2]}"
+        if [ -e $HOME/.bash.d/aliases.d/enabled/${args[2]} ]; then
+            echo "This alias \"${args[2]}\" is already enabled"
+        elif [ -e $HOME/.bash.d/aliases.d/available/${args[2]} ]; then
+            ln -s $HOME/.bash.d/aliases.d/available/${args[2]} $HOME/.bash.d/aliases.d/enabled/${args[2]}
+            source $HOME/.bash.d/aliases.d/enabled/${args[2]}
+            echo "The alias file \"${args[2]}\" is now enabled"
+        else
+            echo "The alias file \"${args[2]}\" could not be found"
+        fi
+    elif [[ "disable" == "${args[1]}" ]]; then
+        if [[ "$#" -ne 3 || "help" == "${args[2]}" ]]; then
+            cat <<EOF
+
+Usage: dotfiles alias disable <filename>
+
+EOF
+            exit 1
+        fi
+        if [ ! -e $HOME/.bash.d/aliases.d/enabled/${args[2]} ]; then
+            echo "The alias \"${args[2]}\" has not been enabled"
+        elif [ -e $HOME/.bash.d/aliases.d/enabled/${args[2]} ]; then
+            rm $HOME/.bash.d/aliases.d/enabled/${args[2]}
+            echo "The alias \"${args[2]}\" has been disabled, you will need to restart your terminal for it to take effect."
+        else
+            echo "The alias \"${args[2]}\" could not be found"
+        fi
+    elif [[ "list" == "${args[1]}" ]]; then
+        echo 'List of available aliases'
+        echo ''
+        for f in $HOME/.bash.d/aliases.d/available/*; do
+            echo ${f##*/}
+        done
+        echo ''
+        echo 'To enable, run "dotfiles alias enable <filename>"'
+    else
+        cat <<EOF
+
+Commands
+
+    enable
+    disable
+    list
+
+EOF
+    fi
+elif [[ "reload" == "${args[0]}" ]]; then
+#
+# Reload
+#
+    echo 'Reloading dotfile'
+    bash -c "source $HOME/.bash_profile"
+    echo 'Reloading dotfiles complete'
+fi
+
+
+exit

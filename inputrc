@@ -1,7 +1,13 @@
+# Individual readline initialization file
+
 #set editing-mode vi
 
 # Make Tab autocomplete regardless of filename case
 set completion-ignore-case on
+
+# The length in characters of the common prefix of a list of possible
+# completions that is displayed without modification.
+set completion-prefix-display-length 3
 
 # Don’t prompt unless there are over 500 possible completions
 set completion-query-items 500
@@ -22,9 +28,6 @@ set match-hidden-files off
 
 # Show all autocomplete results at once
 set page-completions off
-
-# If there are more than 200 possible completions for a word, ask to show them all
-set completion-query-items 200
 
 # Show extra file information when completing, like `ls -F` does
 set visible-stats on
