@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # The individual per-interactive-shell startup file
 
+echo "DEBUG::basrc"
 if [ -e /etc/bash.bashrc ]; then
     # system wide bashrc file
     source /etc/bash.bashrc
@@ -32,7 +33,7 @@ unset MAILCHECK
 # Put a space before a command to exclude it from the history file
 export HISTCONTROL="ignorespace"
 # These will be ignored and not place in the HISTFILE
-export HISTIGNORE="pwd:exit:history"
+export HISTIGNORE="pwd:clear:exit:history"
 #### variables ####
 
 ####
@@ -44,22 +45,23 @@ if [ -f "$HOME/.bash.local" ]; then
 fi
 ######
 
-# Load some defaults
-source $DOTFILES_HOME/bash.d/colors.bash
-source $DOTFILES_HOME/bash.d/config.bash
-source $DOTFILES_HOME/bash.d/base.bash
-
 # Default functions
 if [ -f $DOTFILES_HOME/bash.d/functions ]; then
   source $DOTFILES_HOME/bash.d/functions
-fi
-
-# Default aliases
-if [ -f $DOTFILES_HOME/bash.d/aliases ]; then
-  source $DOTFILES_HOME/bash.d/aliases
 fi
 
 # Default completions
 if [ -f $DOTFILES_HOME/bash.d/completions ]; then
   source $DOTFILES_HOME/bash.d/completions
 fi
+
+# Load some defaults
+source $DOTFILES_HOME/bash.d/colors.bash
+source $DOTFILES_HOME/bash.d/config.bash
+source $DOTFILES_HOME/bash.d/base.bash
+
+# Default aliases
+if [ -f $DOTFILES_HOME/bash.d/aliases ]; then
+  source $DOTFILES_HOME/bash.d/aliases
+fi
+
