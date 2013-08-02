@@ -90,6 +90,8 @@
   whitespace = trailing-space,space-before-tab
 [diff]
 ;  external = diff
+[gc]
+  auto=1
 [help]
 ;  autocorrect = 1
 [init]
