@@ -25,16 +25,17 @@ function backup_dotfile()
 
     if [ -f "$HOME/.$1" ]; then
         echo "DEBUG::mv $HOME/.$1 $HOME/.$1~"
-        mv $HOME/.$1 $HOME/.$1~
+        mv -v $HOME/.$1 $HOME/.$1~
+        return 0;
     fi
 
     if [ -d "$HOME/.$1" ]; then
         echo "DEBUG::mv $HOME/.$1 $HOME/.$1~"
-        mv $HOME/.$1 $HOME/.$1~
+        mv -v $HOME/.$1 $HOME/.$1~
         return 0
     fi
 
-    echo "DEBUG::$HOME/.$1 not found"
+    echo "DEBUG::backup::$HOME/.$1 not found"
 
     return 0
 }
@@ -122,4 +123,3 @@ symlink_dotfile "zsh.d"
 # Reload
 echo "DEBUG::source $HOME/.bashrc"
 . $HOME/.bashrc
-
