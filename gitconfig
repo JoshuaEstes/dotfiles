@@ -24,6 +24,7 @@
 
   ; Diff
   d  = diff
+  dc = diff --cached
   cr = diff --no-prefix HEAD~..HEAD
 
   ; Log
