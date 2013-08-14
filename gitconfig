@@ -104,6 +104,7 @@
   verbosity = 1
 [push]
   default = tracking
+; @see http://git-scm.com/2010/03/08/rerere.html
 [rerere]
   enabled = true
 [user]
