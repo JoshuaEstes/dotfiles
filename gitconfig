@@ -107,6 +107,7 @@
 ; @see http://git-scm.com/2010/03/08/rerere.html
 [rerere]
   enabled = true
+  autoupdate = true
 [user]
 ; See the bash.local.example file
 ;  email = Joshua.Estes@ScenicCityLabs.com
