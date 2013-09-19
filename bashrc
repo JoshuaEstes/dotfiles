@@ -6,6 +6,10 @@ if [ -e /etc/bash.bashrc ]; then
     # system wide bashrc file
     source /etc/bash.bashrc
 fi
+if [ -e /etc/bashrc ]; then
+    # system wide bashrc file
+    source /etc/bashrc
+fi
 
 ####
 #
