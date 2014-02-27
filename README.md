@@ -11,11 +11,16 @@ my life. Without me, my dotfile is useless. Without my dotfile, I am useless.
     git clone git://github.com/JoshuaEstes/dotfiles.git
     cd dotfiles
     ./install.sh
+    
+This will create a ~/.dotfiles directory with the correct files in it.
 
 # Updating
 
-Just pull down and run `install.sh` again and it will update
-everything
+    cd ~/dotfiles
+    git pull origin master
+    ./install.sh
+
+Updating should be pretty easy and straight forward.
 
 # Extras
 
