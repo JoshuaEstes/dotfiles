@@ -25,10 +25,19 @@ function backup_dotfile()
 
     if [ -f "$HOME/.$1" ]; then
         echo "DEBUG::mv $HOME/.$1 $HOME/.$1~"
-        mv $HOME/.$1 $HOME/.$1~
-    else
-        echo "DEBUG::$HOME/.$1 not found"
+        mv -v $HOME/.$1 $HOME/.$1~
+        return 0;
     fi
+
+    if [ -d "$HOME/.$1" ]; then
+        echo "DEBUG::mv $HOME/.$1 $HOME/.$1~"
+        mv -v $HOME/.$1 $HOME/.$1~
+        return 0
+    fi
+
+    echo "DEBUG::backup::$HOME/.$1 not found"
+
+    return 0
 }
 
 ####
@@ -78,6 +87,15 @@ if [ "$(uname)" == "Darwin" ]; then
 fi
 backup_dotfile "tmux.conf"
 backup_dotfile "vimrc"
+backup_dotfile "zlogin"
+backup_dotfile "zlogout"
+backup_dotfile "zprofile"
+backup_dotfile "zshenv"
+backup_dotfile "zshrc"
+backup_dotfile "vim"
+backup_dotfile "bash.d"
+backup_dotfile "gitconfig.d"
+backup_dotfile "zsh.d"
 
 # Create symlinks
 symlink_dotfile "ackrc"
@@ -92,8 +110,16 @@ if [ "$(uname)" == "Darwin" ]; then
 fi
 symlink_dotfile "tmux.conf"
 symlink_dotfile "vimrc"
+symlink_dotfile "zlogin"
+symlink_dotfile "zlogout"
+symlink_dotfile "zprofile"
+symlink_dotfile "zshenv"
+symlink_dotfile "zshrc"
+symlink_dotfile "vim"
+symlink_dotfile "bash.d"
+symlink_dotfile "gitconfig.d"
+symlink_dotfile "zsh.d"
 
 # Reload
 echo "DEBUG::source $HOME/.bashrc"
 . $HOME/.bashrc
-

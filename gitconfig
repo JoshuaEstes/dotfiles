@@ -24,6 +24,7 @@
 
   ; Diff
   d  = diff
+  dc = diff --cached
   cr = diff --no-prefix HEAD~..HEAD
 
   ; Log
@@ -90,6 +91,8 @@
   whitespace = trailing-space,space-before-tab
 [diff]
 ;  external = diff
+[gc]
+  auto=1
 [help]
 ;  autocorrect = 1
 [init]
@@ -101,8 +104,10 @@
   verbosity = 1
 [push]
   default = tracking
+; @see http://git-scm.com/2010/03/08/rerere.html
 [rerere]
   enabled = true
+  autoupdate = true
 [user]
 ; See the bash.local.example file
 ;  email = Joshua.Estes@ScenicCityLabs.com
