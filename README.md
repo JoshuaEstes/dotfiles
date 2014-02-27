@@ -86,4 +86,8 @@ With bufexplorer open
     q            Close NERDTree window
 
 
+# File Naming Standards
 
+All files the use the extension `.bash` are used be bash for some reason. These
+are typically pulled in using `source`. Files with the extension `.sh` are scripts
+that can be ran and should require anything else.
