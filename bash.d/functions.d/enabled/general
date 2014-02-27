@@ -8,3 +8,14 @@
 
 # Make a directory then cd into it
 function mkcd() { mkdir -p "$1" && cd "$1"; }
+
+####
+#
+# This will echo out log messages
+#
+function log()
+{
+    if [ $DEBUG_ENABLED ]; then
+        echo "DEBUG::${1}"
+    fi
+}
