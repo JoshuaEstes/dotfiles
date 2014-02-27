@@ -1,23 +1,31 @@
 #!/usr/bin/env bash
-alias gf="git flow"
+
+####
+#
+# Various aliases that are used with git. Some of these
+# are shorthand aliases found in the global gitconfig file
+#
 alias g="git"
-alias gcl="git clone"
 alias ga="git add"
 alias ga.="git add ."
 alias gb="git branch"
 alias gba="git branch -a"
 alias gc="git commit -m"
 alias gca="git commit -am"
-alias gco="git checkout"
 alias gcb="git checkout - b"
+alias gci="git commit --interactive"
+alias gcl="git clone"
+alias gco="git checkout"
+alias gcp="git cherry-pick"
 alias gd="git diff"
-alias gpl="git pull"
+alias gm="git merge"
 alias gp="git push"
+alias gpl="git pull"
 alias gpo="git push origin"
 alias gr="git remote -v"
-alias gss="git stash"
-alias gsl="git stash list"
+alias gs="git status"
 alias gsa="git stath apply"
 alias gsd="git stash drop"
-alias gs="git status"
+alias gsl="git stash list"
+alias gss="git stash"
 alias gt="git tag -n"

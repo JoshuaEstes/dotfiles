@@ -3,13 +3,13 @@
 
 # Specific for platform
 if [ $(uname) == "Linux" ]; then
-  alias ls="ls -hF --color"
-  alias apt-get="sudo apt-get"
-  # Should have similar command for OSX
-  alias up="sudo apt-get update && sudo apt-get upgrade"
+    alias ls="ls -hF --color"
+    alias apt-get="sudo apt-get"
+    # Should have similar command for OSX
+    alias up="sudo apt-get update && sudo apt-get upgrade"
 else
-# Should be Darwin
-  alias ls="ls -hFG"
+    # Should be Darwin
+    alias ls="ls -hFG"
 fi
 
 alias _="sudo"
@@ -39,4 +39,3 @@ alias getcomposer="curl -s https://getcomposer.org/installer | php"
 # Python Oneliners
 # http://www.vurt.ru/2013/02/python-command-line-oneliners/
 alias fake-smtp="python -m smtpd -n -c DebuggingServer localhost:25"
-
