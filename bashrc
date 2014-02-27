@@ -32,10 +32,13 @@ export GIT_EDITOR="vim"
 export SVN_EDITOR=vim
 export BROWSER=chromium-browser
 export IRC_CLIENT="irssi"
+
 # Don't check for mail
 unset MAILCHECK
+
 # Put a space before a command to exclude it from the history file
 export HISTCONTROL="ignorespace"
+
 # These will be ignored and not place in the HISTFILE
 export HISTIGNORE="pwd:clear:exit:history"
 #### variables ####
