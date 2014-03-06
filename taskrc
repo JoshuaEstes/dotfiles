@@ -1,0 +1,21 @@
+####
+#
+# TaskWarrior configuration
+#
+
+# This is the default value
+data.location=~/.task
+
+# Create a jira field
+uda.jira.type=string
+uda.jira.label=Jira Issue
+
+# The default report to run
+default.command=jira
+
+# Configure the jira report
+report.jira.description=Tasks based on issue number in jira
+report.jira.columns=jira,id,project,description
+report.jira.filter=status:pending
+report.jira.labels=Jira Issue,ID,Project,Description
+report.jira.sort=jira+
