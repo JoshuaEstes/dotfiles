@@ -103,7 +103,7 @@
   summary = true
   verbosity = 1
 [push]
-  default = simple
+  default = current
 ; @see http://git-scm.com/2010/03/08/rerere.html
 [rerere]
   enabled = true
