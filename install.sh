@@ -62,6 +62,11 @@ function symlink_dotfile()
 # Install git submodules
 git submodule update --init --recursive
 
+# Compile YouCompleteMe
+cd vim/bundle/YouCompleteMe
+./install.sh
+cd -
+
 # Copy to new directory
 if [ -d $DOTFILES_HOME ]; then
     echo "DEBUG::rm -rf $DOTFILES_HOME"
