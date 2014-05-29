@@ -6,7 +6,7 @@ set nocompatible
 call pathogen#infect()
 
 set autoindent
-set backspace=start,indent,eol
+set backspace=start,indent,eol "allow backspacing over everything in insert mode
 "set backupcopy=yes
 "set backupdir=~/.vim.d/backup
 set cf
@@ -15,13 +15,14 @@ set cmdheight=1
 set cindent
 set expandtab
 set ffs=unix,dos,mac
-set foldmethod=indent
-set foldnestmax=3
-set nofoldenable
+set foldmethod=indent "fold based on indent
+set foldnestmax=3 "deepest fold is 3 levels
+set nofoldenable "dont fold by default
 set spell
-set history=1000
-set hlsearch
-set incsearch
+set hidden "hide buffers when not displayed
+set history=1000 "store lots of :cmdline history
+set hlsearch "hilight searches by default
+set incsearch "find the next match as we type the search
 set ignorecase
 set linebreak
 "set list
@@ -31,12 +32,12 @@ set nowritebackup
 set nobackup
 set nolazyredraw
 set noswapfile
-set nowrap
-set number
+set nowrap "never wrap lines
+set number "show line numbers
 set nosmarttab
 set ruler
-set showcmd
-set showmode
+set showcmd "show incomplete cmds down the bottom
+set showmode "show current mode down the bottom
 set showmatch
 set smartcase
 set smartindent
@@ -46,12 +47,15 @@ set shiftwidth=4
 " 1: Only if there are two or more tabs
 " 2: Always
 set showtabline=2
-set t_Co=256
+set t_Co=256 "tell the term has 256 colors
 set tabpagemax=50
 set tabstop=4
 "set wrap
 set wrapscan
 set visualbell
+set wildmode=list:longest   "make cmdline tab completion similar to bash
+set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
+set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
 
 if exists('&relativenumber')
   set relativenumber
@@ -76,38 +80,22 @@ set statusline+=:%c                                         " current column
 " When vimrc is edited, reload it
 autocmd! bufwritepost vimrc source ~/.vimrc
 
-" Open NERDTree if no files are selected
-autocmd vimenter * if !argc() | NERDTree | endif
 
 " Enable syntax highlighting
 syntax on
-filetype plugin indent on
+filetype plugin on
+filetype indent on
 au BufNewFile,BufRead *.twig set filetype=htmljinja
 
 " Autocompletion for different languages
+"set omnifunc=syntaxcomplete#Complete
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-set completeopt-=preview
-
-" neocomplecache options
-"let g:neocomplcache_enable_at_startup = 1
-"let g:neocomplcache_enable_camel_case_completion = 1
-"let g:neocomplcache_enable_smart_case = 1
-"let g:neocomplcache_min_syntax_length = 3
-"let g:neocomplcache_enable_auto_delimiter = 1
-"let g:neocomplcache_enable_auto_select = 0
-"if !exists('g:neocomplcache_omni_patterns')
-"    let g:neocomplcache_omni_patterns = {}
-"endif
-"let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
-"let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-"let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
-"let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
-" end neocomplcache
+"set completeopt-=preview
 
 " Solarized options
 let g:solarized_termcolors=16
@@ -125,7 +113,13 @@ set background=dark
 colorscheme solarized
 " End color scheme
 
+" BuffExplorer
+nnoremap <f1> :BufExplorer<cr>
+" end
+
 " NERDTree settings
+" Open NERDTree if no files are selected
+autocmd vimenter * if !argc() | NERDTree | endif
 let g:NERDTreeMouseMode=2
 let g:NERDTreeWinSize=40
 nnoremap <silent> <F2> :NERDTreeToggle<CR>
@@ -146,14 +140,22 @@ let g:UltiSnipsUsePythonVersion = 2
 let g:UltiSnipsListSnippets="<F4>"
 " end ultisnips settings
 
+" Tabularize key mappings
+nnoremap <Leader>a= :Tabularize /=<CR>
+nnoremap <Leader>a> :Tabularize /=><CR>
+nnoremap <Leader>a: :Tabularize /:\zs<CR>
+" end Tabularize key mappings
+
+" YouCompleteMe
+"let g:ycm_server_keep_logfiles = 1
+"let g:ycm_server_log_level = 'debug'
+" end YouCompleteMe
+
 " Remap keys
 nnoremap <C-L> :nohls<CR><C-L>   " ctrl + l will clear the highlighted search results
 inoremap <C-L> <C-O>:nohls<CR>
 
 " MAP THOSE F KEYS!
-" Generate ctags for this project ( see the make-tags script in the bin
-" directory)
-nnoremap <F5> :!make-tags<CR>
 nnoremap <silent> <F11> :bp<CR> " Previous Buffer
 nnoremap <silent> <F12> :bn<CR> " Next Buffer
 nnoremap <silent> <S-F11> :tabp<CR> " Previous Tab
@@ -169,10 +171,3 @@ nnoremap <left> <nop>
 nnoremap <right> <nop>
 nnoremap j gj
 nnoremap k gk
-
-" Tabularize key mappings
-nnoremap <Leader>a= :Tabularize /=<CR>
-nnoremap <Leader>a> :Tabularize /=><CR>
-nnoremap <Leader>a: :Tabularize /:\zs<CR>
-" end Tabularize key mappings
-
