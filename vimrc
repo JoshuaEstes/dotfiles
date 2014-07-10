@@ -14,7 +14,7 @@ set cm=blowfish
 set cmdheight=1
 set cindent
 set expandtab
-set ffs=unix,dos,mac
+set ffs=unix,mac,dos
 set foldmethod=indent "fold based on indent
 set foldnestmax=3 "deepest fold is 3 levels
 set nofoldenable "dont fold by default
