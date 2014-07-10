@@ -5,6 +5,13 @@ if [ -f /etc/bash_completion ]; then
   source /etc/bash_completion
 fi
 
+# If brew is installed
+if [ $(command -v brew) ]; then
+    if [ -f $(brew --prefix)/etc/bash_completion ]; then
+        source $(brew --prefix)/etc/bash_completion
+    fi
+fi
+
 # make sure our directories exist first
 if [ ! -d $HOME/.bash.d/completions.d/available ]; then
   mkdir -p $HOME/.bash.d/completions.d/available
