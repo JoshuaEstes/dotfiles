@@ -1,5 +1,6 @@
 {
     "require": {
-        "fabpot/php-cs-fixer": "dev-master"
+        "fabpot/php-cs-fixer": "*",
+        "squizlabs/php_codesniffer": "*"
     }
 }
