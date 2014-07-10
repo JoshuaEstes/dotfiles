@@ -1,0 +1,5 @@
+{
+    "require": {
+        "fabpot/php-cs-fixer": "dev-master"
+    }
+}
