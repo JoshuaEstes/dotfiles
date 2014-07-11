@@ -1,6 +1,8 @@
 {
     "require": {
         "fabpot/php-cs-fixer": "*",
-        "squizlabs/php_codesniffer": "*"
+        "squizlabs/php_codesniffer": "*",
+        "phing/phing": "*",
+        "phpunit/phpunit": "*"
     }
 }
