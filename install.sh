@@ -68,7 +68,7 @@ if [ $(command -v php) ]; then
     else
         curl -sS https://getcomposer.org/installer | $PHP_BIN -- --install-dir=$HOME/bin
     fi
-    $PHP_BIN $HOME/bin/composer.phar global install
+    $PHP_BIN $HOME/bin/composer.phar global update
 fi
 
 # Reload
