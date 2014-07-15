@@ -127,3 +127,4 @@
 ;  merge = refs/heads/develop
 [hooks "phpcs"]
 	enabled = yes
+    options = --ignore=*.dist --standard=PSR1,PSR2 -n
