@@ -128,7 +128,8 @@ nnoremap <silent> <F2> :NERDTreeToggle<CR>
 " Syntastic settings
 let g:syntastic_check_on_open=1
 let g:syntastic_auto_loc_list=2
-let g:syntastic_phpcs_conf="--standard=$HOME/.vim/standards/php.xml"
+let g:syntastic_php_checkers = ['php', 'phpmd', 'phpcs']
+let g:syntastic_php_phpcs_args="--standard=PSR1,PSR2"
 " End syntastic settings
 
 " Tagbar settings
