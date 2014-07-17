@@ -18,4 +18,3 @@ for FILE in $HOME/.bash.d/aliases.d/enabled/*; do
     source $FILE;
   fi
 done
-

@@ -12,4 +12,3 @@ for FILE in $HOME/.bash.d/functions.d/enabled/*; do
     source $FILE;
   fi
 done
-
