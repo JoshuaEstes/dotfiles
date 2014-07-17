@@ -9,3 +9,5 @@ bash.d/completions.d/enabled/*
 !bash.d/completions.d/enabled/vagrant
 bash.d/functions.d/enabled/*
 !bash.d/functions.d/enabled/general
+vim/bundle/
+!vim/bundle/Vundle.vim

@@ -3,7 +3,22 @@
 " https://github.com/scrooloose/vimfiles/blob/master/vimrc
 
 set nocompatible
-call pathogen#infect()
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
+Plugin 'https://github.com/scrooloose/nerdtree.git', {'name': 'nerdtree'}
+Plugin 'https://github.com/Valloric/YouCompleteMe.git', {'name': 'YouCompleteMe'}
+Plugin 'https://github.com/jlanzarotta/bufexplorer.git', {'name': 'bufexplorer'}
+Plugin 'https://github.com/scrooloose/nerdcommenter.git', {'name': 'nerdcommenter'}
+Plugin 'https://github.com/scrooloose/syntastic', {'name': 'syntastic'}
+Plugin 'https://github.com/godlygeek/tabular.git', {'name': 'tabular'}
+Plugin 'https://github.com/SirVer/ultisnips.git', {'name': 'ultisnips'}
+Plugin 'https://github.com/altercation/vim-colors-solarized.git', {'name': 'vim-colors-solarized'}
+Plugin 'https://github.com/tpope/vim-fugitive.git', {'name': 'vim-fugitive'}
+call vundle#end()
+filetype plugin indent on
 
 set autoindent
 set backspace=start,indent,eol "allow backspacing over everything in insert mode
@@ -83,19 +98,17 @@ autocmd! bufwritepost vimrc source ~/.vimrc
 
 " Enable syntax highlighting
 syntax on
-filetype plugin on
-filetype indent on
 au BufNewFile,BufRead *.twig set filetype=htmljinja
 
 " Autocompletion for different languages
-"set omnifunc=syntaxcomplete#Complete
+set omnifunc=syntaxcomplete#Complete
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-"set completeopt-=preview
+set completeopt-=preview
 
 " Solarized options
 let g:solarized_termcolors=16
@@ -132,10 +145,6 @@ let g:syntastic_php_checkers = ['php', 'phpmd', 'phpcs']
 let g:syntastic_php_phpcs_args="--standard=PSR1,PSR2"
 " End syntastic settings
 
-" Tagbar settings
-nnoremap <silent> <F3> :TagbarToggle<CR>
-" End Tagbar settings
-
 " ultisnips settings
 let g:UltiSnipsUsePythonVersion = 2
 let g:UltiSnipsListSnippets="<F4>"
@@ -148,8 +157,8 @@ nnoremap <Leader>a: :Tabularize /:\zs<CR>
 " end Tabularize key mappings
 
 " YouCompleteMe
-"let g:ycm_server_keep_logfiles = 1
-"let g:ycm_server_log_level = 'debug'
+let g:ycm_server_keep_logfiles = 1
+let g:ycm_server_log_level = 'debug'
 " end YouCompleteMe
 
 " Remap keys
@@ -161,9 +170,6 @@ nnoremap <silent> <F11> :bp<CR> " Previous Buffer
 nnoremap <silent> <F12> :bn<CR> " Next Buffer
 nnoremap <silent> <S-F11> :tabp<CR> " Previous Tab
 nnoremap <silent> <S-F12> :tabn<CR> " Next Tab
-
-" vim-repeat
-silent! call repeat#set("\surround.vim", v:count)
 
 " Disable up, down, left, right keys
 nnoremap <up> <nop>
