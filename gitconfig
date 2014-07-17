@@ -24,6 +24,7 @@
 
   ; Diff
   d  = diff
+  dc = diff --cached
   cr = diff --no-prefix HEAD~..HEAD
 
   ; Log
@@ -90,31 +91,40 @@
   whitespace = trailing-space,space-before-tab
 [diff]
 ;  external = diff
+[gc]
+  auto=1
 [help]
 ;  autocorrect = 1
 [init]
 ; This is used when you git init a directory
-;  templatedir = ~/.gitconfig.d/git-core/templates
+  templatedir = ~/.gitconfig.d/templates
 [merge]
   tool = meld
   summary = true
   verbosity = 1
 [push]
-  default = tracking
+  default = current
+; @see http://git-scm.com/2010/03/08/rerere.html
 [rerere]
   enabled = true
+  autoupdate = true
 [user]
 ; See the bash.local.example file
+;  Can be overridden by the GIT_AUTHOR_EMAIL, GIT_COMMITTER_EMAIL, and EMAIL environment variables.
 ;  email = Joshua.Estes@ScenicCityLabs.com
+;  Can be overridden by the GIT_AUTHOR_NAME and GIT_COMMITTER_NAME environment variables.
 ;  name = Joshua Estes
 ;  signingkey = ''
 
 ; These allow you to just do a git pull and it will pull
 ; from remote origin and merge into you local master
 ; branch, same for develop =)
-[branch "master"]
-  remote = origin
-  merge = refs/heads/master
-[branch "develop"]
-  remote = origin
-  merge = refs/heads/develop
+;[branch "master"]
+;  remote = origin
+;  merge = refs/heads/master
+;[branch "develop"]
+;  remote = origin
+;  merge = refs/heads/develop
+[hooks "phpcs"]
+	enabled = yes
+    options = --ignore=*.dist --standard=PSR1,PSR2 -n

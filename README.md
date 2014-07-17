@@ -79,6 +79,3 @@ With bufexplorer open
     go           Open but leave cursor in NERDTree
     t            Open in new tab
     q            Close NERDTree window
-
-
-

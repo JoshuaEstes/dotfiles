@@ -10,19 +10,39 @@ fi
 ####
 #
 # PATH configuration
+# 
+# Highest priority at the top, if the directory
+# does not exist then it will not be included in
+# the PATH env variable
 #
-export PATH=$HOME/bin.local:$HOME/bin:/usr/local/bin:/usr/local/sbin:/opt/local/bin:$PATH
-if [ -d /Applications/SenchaSDKTools-2.0.0-beta3 ]; then
-    export PATH=/Applications/SenchaSDKTools-2.0.0-beta3:$PATH
-    export SENCHA_SDK_TOOLS_2_0_0_BETA3="/Applications/SenchaSDKTools-2.0.0-beta3"
-fi
+PATH_ARRAY=(
+    $HOME/bin.local
+    $HOME/bin
+    $HOME/.composer/vendor/bin
+    /usr/local/bin
+    /opt/local/bin
+    /usr/local/sbin
+    /usr/bin
+    /bin
+    /usr/sbin
+    /sbin
+    /usr/local/MacGPG2/bin
+)
+PATH=""
+for p in ${PATH_ARRAY[*]}; do
+    if [ -d $p ]; then
+        PATH=$PATH:$p
+    fi
+done
+PATH="${PATH:1:${#PATH}}"
+export PATH
 #### PATH ####
 
 ####
 #
 # Edit some variables
 #
-DOTFILES_HOME=$HOME/.dotfiles
+DOTFILES_HOME=$HOME/dotfiles
 export EDITOR="vim"
 export GIT_EDITOR="vim"
 export SVN_EDITOR=vim
