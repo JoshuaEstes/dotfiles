@@ -17,6 +17,7 @@ Plugin 'https://github.com/godlygeek/tabular.git', {'name': 'tabular'}
 Plugin 'https://github.com/SirVer/ultisnips.git', {'name': 'ultisnips'}
 Plugin 'https://github.com/altercation/vim-colors-solarized.git', {'name': 'vim-colors-solarized'}
 Plugin 'https://github.com/tpope/vim-fugitive.git', {'name': 'vim-fugitive'}
+Plugin 'https://github.com/bling/vim-airline.git', {'name': 'vim-airline'}
 call vundle#end()
 filetype plugin indent on
 
@@ -78,23 +79,23 @@ endif
 
 " Format the statusline
 set laststatus=2
-hi StatusLine ctermfg=cyan 
-hi StatusLineNC cterm=none
-set statusline=%{fugitive#statusline()}                     " Display current bracn
-set statusline+=\ %F                                        " Full filename
-set statusline+=%m                                          " modified
-set statusline+=%r                                          " Read only
-set statusline+=%y                                          " File type
-set statusline+=%{&paste?'[paste]':''}                      " Let me know if we are in paste mode
-set statusline+=%#warningmsg#%{SyntasticStatuslineFlag()}%* " File Errors/Warnings
-set statusline+=%=Line:
-set statusline+=\ %l                                        " current line
-set statusline+=/%L                                         " total lines
-set statusline+=:%c                                         " current column
+"hi StatusLine ctermfg=cyan 
+"hi StatusLineNC cterm=none
+"set statusline=%{fugitive#statusline()}                     " Display current bracn
+"set statusline+=\ %F                                        " Full filename
+"set statusline+=%m                                          " modified
+"set statusline+=%r                                          " Read only
+"set statusline+=%y                                          " File type
+"set statusline+=%{&paste?'[paste]':''}                      " Let me know if we are in paste mode
+"set statusline+=%#warningmsg#%{SyntasticStatuslineFlag()}%* " File Errors/Warnings
+"set statusline+=%=Line:
+"set statusline+=\ %l                                        " current line
+"set statusline+=/%L                                         " total lines
+"set statusline+=:%c                                         " current column
+let g:airline#extensions#tabline#enabled = 1
 
 " When vimrc is edited, reload it
 autocmd! bufwritepost vimrc source ~/.vimrc
-
 
 " Enable syntax highlighting
 syntax on
