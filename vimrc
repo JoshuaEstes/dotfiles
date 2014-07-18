@@ -18,6 +18,7 @@ Plugin 'https://github.com/SirVer/ultisnips.git', {'name': 'ultisnips'}
 Plugin 'https://github.com/altercation/vim-colors-solarized.git', {'name': 'vim-colors-solarized'}
 Plugin 'https://github.com/tpope/vim-fugitive.git', {'name': 'vim-fugitive'}
 Plugin 'https://github.com/bling/vim-airline.git', {'name': 'vim-airline'}
+Plugin 'https://github.com/rodjek/vim-puppet.git', {'name': 'vim-puppet'}
 call vundle#end()
 filetype plugin indent on
 
