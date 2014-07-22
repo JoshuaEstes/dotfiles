@@ -19,14 +19,15 @@ PATH_ARRAY=(
     $HOME/bin.local
     $HOME/bin
     $HOME/.composer/vendor/bin
-    /usr/local/bin
     /opt/local/bin
+    /usr/local/bin
     /usr/local/sbin
+    /usr/local/MacGPG2/bin
+    /usr/local/opt/coreutils/libexec/gnubin
     /usr/bin
     /bin
     /usr/sbin
     /sbin
-    /usr/local/MacGPG2/bin
 )
 PATH=""
 for p in ${PATH_ARRAY[*]}; do
