@@ -11,4 +11,4 @@ case $TERM in
 esac
 
 # Display the title bar and the prompt
-PS1="$TITLE_BAR${white}\u@\h: ${green}\w${bold_red} \$(__git_ps1 "%s")$white\n\$${white} "
+PS1="$TITLE_BAR${white}\u@\h: ${green}\w${bold_red} \$(__git_ps1 "%s")$white\n\$\[\e[0m\] "

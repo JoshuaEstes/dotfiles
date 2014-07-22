@@ -84,4 +84,3 @@ source $DOTFILES_HOME/bash.d/base.bash
 if [ -f $DOTFILES_HOME/bash.d/aliases ]; then
   source $DOTFILES_HOME/bash.d/aliases
 fi
-

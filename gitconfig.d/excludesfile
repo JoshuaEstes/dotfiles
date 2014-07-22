@@ -40,6 +40,7 @@
 !.gitattributes
 !.travis.yml
 !.scrutinizer.yml
+!.placeholder
 *~
 
 # KDE
