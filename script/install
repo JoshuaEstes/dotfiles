@@ -8,12 +8,13 @@
 
 # Location where the dotfiles will live
 DOTFILES_HOME="$HOME/dotfiles"
+source $DOTFILES_HOME/lib/colours
 
 ####
 # Symlink a dotfile from the ~/.dotfiles directory to where
 # it needs to go in the home directory
 #
-# Usage: symlink "bashrc"
+# Usage: symlink_dotfile "bashrc"
 #
 # @param string $1 Filename to symlink
 #
