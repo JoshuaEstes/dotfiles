@@ -76,7 +76,7 @@ if [ -f $DOTFILES_HOME/bash.d/completions ]; then
 fi
 
 # Load some defaults
-source $DOTFILES_HOME/bash.d/colors.bash
+source $DOTFILES_HOME/lib/colours
 source $DOTFILES_HOME/bash.d/config.bash
 source $DOTFILES_HOME/bash.d/base.bash
 
