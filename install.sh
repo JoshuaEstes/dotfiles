@@ -57,6 +57,7 @@ symlink_dotfile "bash.d"
 mkdir $HOME/.composer
 symlink_dotfile "composer/composer.json"
 symlink_dotfile "gitconfig.d"
+symlink_dotfile "mutt"
 symlink_dotfile "vim"
 symlink_dotfile "zsh.d"
 
