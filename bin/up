@@ -4,7 +4,6 @@
 #
 # Used to update a box
 #
-
 if [ $(uname) == "Linux" ]; then
     if [ $(command -v apt-get) ]; then
         sudo apt-get update
@@ -17,5 +16,5 @@ else
     fi
 fi
 if [ $(command -v vim) ]; then
-    vim +PluginInstall +qall
+    vim +PluginUpdate +qall
 fi
