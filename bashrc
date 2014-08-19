@@ -19,6 +19,7 @@ PATH_ARRAY=(
     $HOME/bin.local
     $HOME/bin
     $HOME/.composer/vendor/bin
+    /usr/loval/heroku/bin
     /opt/local/bin
     /usr/local/bin
     /usr/local/sbin

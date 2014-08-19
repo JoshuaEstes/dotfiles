@@ -25,7 +25,7 @@ function symlink_dotfile()
         return 1
     fi
 
-    ln -hFvs $DOTFILES_HOME/$1 $HOME/.$1
+    #ln -Fvs $DOTFILES_HOME/$1 $HOME/.$1
 }
 
 # Install git submodules
@@ -33,7 +33,7 @@ git submodule update --init --recursive
 
 vim +PluginInstall +qall
 cd vim/bundle/YouCompleteMe
-./install.sh
+#./install.sh
 cd -
 
 # Create symlinks
@@ -54,13 +54,16 @@ symlink_dotfile "zlogout"
 symlink_dotfile "zprofile"
 symlink_dotfile "zshenv"
 symlink_dotfile "zshrc"
-symlink_dotfile "bash.d"
-mkdir $HOME/.composer
+symlink_dotfile "bash.d/"
+ln -Fvs $DOTFILES_HOME/bin $HOME/bin
+if [ ! -d $HOME/.composer ]; then
+    mkdir $HOME/.composer
+fi
 symlink_dotfile "composer/composer.json"
-symlink_dotfile "gitconfig.d"
-symlink_dotfile "mutt"
-symlink_dotfile "vim"
-symlink_dotfile "zsh.d"
+symlink_dotfile "gitconfig.d/"
+symlink_dotfile "mutt/"
+symlink_dotfile "vim/"
+symlink_dotfile "zsh.d/"
 
 if [ $(command -v php) ]; then
     PHP_BIN=$(command -v php)
