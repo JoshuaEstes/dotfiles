@@ -1,5 +1,6 @@
 {
     "require": {
+        "psy/psysh": "*",
         "fabpot/php-cs-fixer": "*",
         "squizlabs/php_codesniffer": "*",
         "phing/phing": "*",
