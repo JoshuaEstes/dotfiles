@@ -101,6 +101,7 @@ autocmd! bufwritepost vimrc source ~/.vimrc
 " Enable syntax highlighting
 syntax on
 au BufNewFile,BufRead *.twig set filetype=htmljinja
+au BufNewFile,BufRead *.md set filetype=markdown
 
 " Autocompletion for different languages
 set omnifunc=syntaxcomplete#Complete
