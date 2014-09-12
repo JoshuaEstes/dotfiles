@@ -2,7 +2,7 @@
 # @see https://raw.github.com/revans/bash-it/master/themes/colors.theme.bash
 
 if [ $(command -v dircolors) ]; then
-    eval "$(dircolors $DOTFILES_HOME/lib/dircolors)"
+    eval "$(dircolors $DOTFILES_HOME/lib/dircolors/dircolors.256dark)"
 fi
 
 function __ {
