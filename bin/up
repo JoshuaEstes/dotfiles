@@ -27,4 +27,7 @@ fi
 if [ $(command -v composer.phar) ]; then
     echo 'Updating composer.phar'
     composer.phar selfupdate
+
+    echo 'Updating composer global dependencies'
+    composer.phar global update
 fi
