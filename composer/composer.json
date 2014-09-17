@@ -5,6 +5,7 @@
         "squizlabs/php_codesniffer": "*",
         "phing/phing": "*",
         "phpunit/phpunit": "*",
-        "phpunit/phpunit-skeleton-generator": "*"
+        "phpunit/phpunit-skeleton-generator": "*",
+        "daedalus/daedalus": "~1.0"
     }
 }
