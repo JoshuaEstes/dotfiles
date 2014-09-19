@@ -13,7 +13,6 @@ if [ ! $(git config --bool hooks.phpcs.enabled) ]; then
 fi
 
 echo "Starting PHP Code Style"
-echo $GIT_DIR
 if git rev-parse --verify HEAD >/dev/null 2>&1
 then
         against=HEAD
