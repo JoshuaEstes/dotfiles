@@ -25,7 +25,12 @@ function symlink_dotfile()
         return 1
     fi
 
-    #ln -Fvs $DOTFILES_HOME/$1 $HOME/.$1
+    # Not not a symlink, link it
+    if [ ! -h $HOME/.$1 ]; then
+        ln -Fvs $DOTFILES_HOME/$1 $HOME/.$1
+    else
+        echo "Could not symlink $HOME/.$1"
+    fi
 }
 
 # Install git submodules
@@ -33,7 +38,7 @@ git submodule update --init --recursive
 
 vim +PluginInstall +qall
 cd vim/bundle/YouCompleteMe
-#./install.sh
+./install.sh
 cd -
 
 # Create symlinks
@@ -47,6 +52,7 @@ symlink_dotfile "inputrc"
 if [ "$(uname)" == "Darwin" ]; then
     symlink_dotfile "osx"
 fi
+symlink_dotfile "taskrc"
 symlink_dotfile "tmux.conf"
 symlink_dotfile "vimrc"
 symlink_dotfile "zlogin"
@@ -54,16 +60,20 @@ symlink_dotfile "zlogout"
 symlink_dotfile "zprofile"
 symlink_dotfile "zshenv"
 symlink_dotfile "zshrc"
-symlink_dotfile "bash.d/"
-ln -Fvs $DOTFILES_HOME/bin $HOME/bin
+symlink_dotfile "bash.d"
+
+if [ ! -h $HOME/bin ]; then
+    ln -Fvs $DOTFILES_HOME/bin $HOME/bin
+fi
+
 if [ ! -d $HOME/.composer ]; then
     mkdir $HOME/.composer
 fi
 symlink_dotfile "composer/composer.json"
-symlink_dotfile "gitconfig.d/"
-symlink_dotfile "mutt/"
-symlink_dotfile "vim/"
-symlink_dotfile "zsh.d/"
+symlink_dotfile "gitconfig.d"
+symlink_dotfile "mutt"
+symlink_dotfile "vim"
+symlink_dotfile "zsh.d"
 
 if [ $(command -v php) ]; then
     PHP_BIN=$(command -v php)
