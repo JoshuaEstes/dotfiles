@@ -29,5 +29,3 @@ for f in $FILES; do
         exit 1
     fi
 done
-
-exit $?

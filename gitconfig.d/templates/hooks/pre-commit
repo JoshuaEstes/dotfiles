@@ -7,3 +7,5 @@ hook_dir="$(dirname "$0")"
 
 source $hook_dir/phpcs
 source $hook_dir/phpmd
+
+exit $?
