@@ -4,6 +4,10 @@
 if [ -f /etc/bash_completion ]; then
   source /etc/bash_completion
 fi
+if [ -f /usr/local/etc/bash_completion ]; then
+    source /usr/local/etc/bash_completion
+fi
+
 
 # If brew is installed
 if [ $(command -v brew) ]; then
@@ -23,14 +27,10 @@ fi
 # All the completion scripts that are enabled will get sourced
 for FILE in $HOME/.bash.d/completions.d/enabled/*; do
   if [ -f $FILE ]; then
+    echo "DEBUG::completes.bash::source $FILE"
     source $FILE;
   fi
 done
-
-# global
-if [ -f /usr/local/etc/bash_completion ]; then
-    source /usr/local/etc/bash_completion
-fi
 
 # This is for when you are trying to ssh into a server, you can use autocompelete,
 # which will check your bash_history file and try to use that, very useful if you

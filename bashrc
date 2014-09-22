@@ -83,21 +83,21 @@ fi
 ######
 
 # Default functions
-if [ -f $DOTFILES_HOME/bash.d/functions ]; then
-  source $DOTFILES_HOME/bash.d/functions
+if [ -f $DOTFILES_HOME/bash.d/functions.bash ]; then
+  source $DOTFILES_HOME/bash.d/functions.bash
 fi
 
 # Default completions
-if [ -f $DOTFILES_HOME/bash.d/completions ]; then
-  source $DOTFILES_HOME/bash.d/completions
+if [ -f $DOTFILES_HOME/bash.d/completions.bash ]; then
+  source $DOTFILES_HOME/bash.d/completions.bash
+fi
+
+# Default aliases
+if [ -f $DOTFILES_HOME/bash.d/aliases.bash ]; then
+  source $DOTFILES_HOME/bash.d/aliases.bash
 fi
 
 # Load some defaults
 source $DOTFILES_HOME/lib/colours
 source $DOTFILES_HOME/bash.d/config.bash
 source $DOTFILES_HOME/bash.d/base.bash
-
-# Default aliases
-if [ -f $DOTFILES_HOME/bash.d/aliases ]; then
-  source $DOTFILES_HOME/bash.d/aliases
-fi
