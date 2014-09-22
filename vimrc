@@ -3,10 +3,27 @@
 " https://github.com/scrooloose/vimfiles/blob/master/vimrc
 
 set nocompatible
-call pathogen#infect()
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
+Plugin 'https://github.com/scrooloose/nerdtree.git', {'name': 'nerdtree'}
+Plugin 'https://github.com/Valloric/YouCompleteMe.git', {'name': 'YouCompleteMe'}
+Plugin 'https://github.com/jlanzarotta/bufexplorer.git', {'name': 'bufexplorer'}
+Plugin 'https://github.com/scrooloose/nerdcommenter.git', {'name': 'nerdcommenter'}
+Plugin 'https://github.com/scrooloose/syntastic', {'name': 'syntastic'}
+Plugin 'https://github.com/godlygeek/tabular.git', {'name': 'tabular'}
+Plugin 'https://github.com/SirVer/ultisnips.git', {'name': 'ultisnips'}
+Plugin 'https://github.com/altercation/vim-colors-solarized.git', {'name': 'vim-colors-solarized'}
+Plugin 'https://github.com/tpope/vim-fugitive.git', {'name': 'vim-fugitive'}
+Plugin 'https://github.com/bling/vim-airline.git', {'name': 'vim-airline'}
+Plugin 'https://github.com/rodjek/vim-puppet.git', {'name': 'vim-puppet'}
+call vundle#end()
+filetype plugin indent on
 
 set autoindent
-set backspace=start,indent,eol
+set backspace=start,indent,eol "allow backspacing over everything in insert mode
 "set backupcopy=yes
 "set backupdir=~/.vim.d/backup
 set cf
@@ -14,14 +31,15 @@ set cm=blowfish
 set cmdheight=1
 set cindent
 set expandtab
-set ffs=unix,dos,mac
-set foldmethod=indent
-set foldnestmax=3
-set nofoldenable
+set ffs=unix,mac,dos
+set foldmethod=indent "fold based on indent
+set foldnestmax=3 "deepest fold is 3 levels
+set nofoldenable "dont fold by default
 set spell
-set history=1000
-set hlsearch
-set incsearch
+set hidden "hide buffers when not displayed
+set history=1000 "store lots of :cmdline history
+set hlsearch "hilight searches by default
+set incsearch "find the next match as we type the search
 set ignorecase
 set linebreak
 "set list
@@ -31,12 +49,12 @@ set nowritebackup
 set nobackup
 set nolazyredraw
 set noswapfile
-set nowrap
-set number
+set nowrap "never wrap lines
+set number "show line numbers
 set nosmarttab
 set ruler
-set showcmd
-set showmode
+set showcmd "show incomplete cmds down the bottom
+set showmode "show current mode down the bottom
 set showmatch
 set smartcase
 set smartindent
@@ -46,12 +64,15 @@ set shiftwidth=4
 " 1: Only if there are two or more tabs
 " 2: Always
 set showtabline=2
-set t_Co=256
+set t_Co=256 "tell the term has 256 colors
 set tabpagemax=50
 set tabstop=4
 "set wrap
 set wrapscan
 set visualbell
+set wildmode=list:longest   "make cmdline tab completion similar to bash
+set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
+set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
 
 if exists('&relativenumber')
   set relativenumber
@@ -59,32 +80,32 @@ endif
 
 " Format the statusline
 set laststatus=2
-hi StatusLine ctermfg=cyan 
-hi StatusLineNC cterm=none
-set statusline=%{fugitive#statusline()}                     " Display current bracn
-set statusline+=\ %F                                        " Full filename
-set statusline+=%m                                          " modified
-set statusline+=%r                                          " Read only
-set statusline+=%y                                          " File type
-set statusline+=%{&paste?'[paste]':''}                      " Let me know if we are in paste mode
-set statusline+=%#warningmsg#%{SyntasticStatuslineFlag()}%* " File Errors/Warnings
-set statusline+=%=Line:
-set statusline+=\ %l                                        " current line
-set statusline+=/%L                                         " total lines
-set statusline+=:%c                                         " current column
+"hi StatusLine ctermfg=cyan 
+"hi StatusLineNC cterm=none
+"set statusline=%{fugitive#statusline()}                     " Display current bracn
+"set statusline+=\ %F                                        " Full filename
+"set statusline+=%m                                          " modified
+"set statusline+=%r                                          " Read only
+"set statusline+=%y                                          " File type
+"set statusline+=%{&paste?'[paste]':''}                      " Let me know if we are in paste mode
+"set statusline+=%#warningmsg#%{SyntasticStatuslineFlag()}%* " File Errors/Warnings
+"set statusline+=%=Line:
+"set statusline+=\ %l                                        " current line
+"set statusline+=/%L                                         " total lines
+"set statusline+=:%c                                         " current column
+let g:airline#extensions#tabline#enabled = 1
 
 " When vimrc is edited, reload it
 autocmd! bufwritepost vimrc source ~/.vimrc
 
-" Open NERDTree if no files are selected
-autocmd vimenter * if !argc() | NERDTree | endif
-
 " Enable syntax highlighting
 syntax on
-filetype plugin indent on
+au BufNewFile,BufRead *.xml.dist set filetype=xml
 au BufNewFile,BufRead *.twig set filetype=htmljinja
+au BufNewFile,BufRead *.md set filetype=markdown
 
 " Autocompletion for different languages
+set omnifunc=syntaxcomplete#Complete
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
@@ -92,22 +113,6 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 set completeopt-=preview
-
-" neocomplecache options
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_camel_case_completion = 1
-let g:neocomplcache_enable_smart_case = 1
-"let g:neocomplcache_min_syntax_length = 3
-"let g:neocomplcache_enable_auto_delimiter = 1
-"let g:neocomplcache_enable_auto_select = 0
-if !exists('g:neocomplcache_omni_patterns')
-    let g:neocomplcache_omni_patterns = {}
-endif
-let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
-let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
-let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
-" end neocomplcache
 
 " Solarized options
 let g:solarized_termcolors=16
@@ -125,7 +130,13 @@ set background=dark
 colorscheme solarized
 " End color scheme
 
+" BuffExplorer
+nnoremap <f1> :BufExplorer<cr>
+" end
+
 " NERDTree settings
+" Open NERDTree if no files are selected
+autocmd vimenter * if !argc() | NERDTree | endif
 let g:NERDTreeMouseMode=2
 let g:NERDTreeWinSize=40
 nnoremap <silent> <F2> :NERDTreeToggle<CR>
@@ -134,33 +145,35 @@ nnoremap <silent> <F2> :NERDTreeToggle<CR>
 " Syntastic settings
 let g:syntastic_check_on_open=1
 let g:syntastic_auto_loc_list=2
-let g:syntastic_phpcs_conf="--standard=$HOME/.vim/standards/php.xml"
+let g:syntastic_php_checkers = ['php', 'phpmd', 'phpcs']
+let g:syntastic_php_phpcs_args="--standard=PSR1,PSR2"
 " End syntastic settings
-
-" Tagbar settings
-nnoremap <silent> <F3> :TagbarToggle<CR>
-" End Tagbar settings
 
 " ultisnips settings
 let g:UltiSnipsUsePythonVersion = 2
 let g:UltiSnipsListSnippets="<F4>"
 " end ultisnips settings
 
+" Tabularize key mappings
+nnoremap <Leader>a= :Tabularize /=<CR>
+nnoremap <Leader>a> :Tabularize /=><CR>
+nnoremap <Leader>a: :Tabularize /:\zs<CR>
+" end Tabularize key mappings
+
+" YouCompleteMe
+let g:ycm_server_keep_logfiles = 1
+let g:ycm_server_log_level = 'debug'
+" end YouCompleteMe
+
 " Remap keys
 nnoremap <C-L> :nohls<CR><C-L>   " ctrl + l will clear the highlighted search results
 inoremap <C-L> <C-O>:nohls<CR>
 
 " MAP THOSE F KEYS!
-" Generate ctags for this project ( see the make-tags script in the bin
-" directory)
-nnoremap <F5> :!make-tags<CR>
 nnoremap <silent> <F11> :bp<CR> " Previous Buffer
 nnoremap <silent> <F12> :bn<CR> " Next Buffer
 nnoremap <silent> <S-F11> :tabp<CR> " Previous Tab
 nnoremap <silent> <S-F12> :tabn<CR> " Next Tab
-
-" vim-repeat
-silent! call repeat#set("\surround.vim", v:count)
 
 " Disable up, down, left, right keys
 nnoremap <up> <nop>
@@ -169,10 +182,3 @@ nnoremap <left> <nop>
 nnoremap <right> <nop>
 nnoremap j gj
 nnoremap k gk
-
-" Tabularize key mappings
-nnoremap <Leader>a= :Tabularize /=<CR>
-nnoremap <Leader>a> :Tabularize /=><CR>
-nnoremap <Leader>a: :Tabularize /:\zs<CR>
-" end Tabularize key mappings
-

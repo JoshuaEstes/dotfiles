@@ -1,0 +1,8 @@
+#!/bin/sh
+###
+#
+# Runs various scripts to check the quality of code being checked in
+#
+hook_dir="$(dirname "$0")"
+
+source $hook_dir/phpcs

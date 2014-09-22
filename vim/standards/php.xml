@@ -6,6 +6,7 @@
       let g:syntastic_phpcs_conf="--standard=$HOME/.vim/standards/php.xml"
     in your vimrc.
   </description>
+  <!--
   <rule ref="Generic.ControlStructures.InlineControlStructure" />
   <rule ref="Generic.Formatting.SpaceAfterCast" />
   <rule ref="Generic.Functions.CallTimePassByReference" />
@@ -37,4 +38,5 @@
   <rule ref="PEAR.Functions.FunctionCallSignature.CloseBracketLine">
     <severity>0</severity>
   </rule>
+  -->
 </ruleset>

@@ -20,16 +20,41 @@ fi
 ####
 #
 # PATH configuration
+# 
+# Highest priority at the top, if the directory
+# does not exist then it will not be included in
+# the PATH env variable
 #
-export PATH=$HOME/bin.local:$HOME/bin:/usr/local/bin:/opt/local/bin:/bin:/usr/bin:/usr/sbin:/sbin:/usr/local/sbin
+PATH_ARRAY=(
+    $HOME/bin.local
+    $HOME/bin
+    $HOME/.composer/vendor/bin
+    /usr/loval/heroku/bin
+    /opt/local/bin
+    /usr/local/bin
+    /usr/local/sbin
+    /usr/local/MacGPG2/bin
+    /usr/local/opt/coreutils/libexec/gnubin
+    /usr/bin
+    /bin
+    /usr/sbin
+    /sbin
+)
+PATH=""
+for p in ${PATH_ARRAY[*]}; do
+    if [ -d $p ]; then
+        PATH=$PATH:$p
+    fi
+done
+PATH="${PATH:1:${#PATH}}"
+export PATH
 #### PATH ####
 
 ####
 #
 # Edit some variables
 #
-DOTFILES_HOME=$HOME/.dotfiles
-
+DOTFILES_HOME=$HOME/dotfiles
 export EDITOR="vim"
 export GIT_EDITOR="vim"
 export SVN_EDITOR=vim
@@ -57,10 +82,22 @@ if [ -f "$HOME/.bash.local" ]; then
 fi
 ######
 
-# Load some default files
-source $DOTFILES_HOME/bash.d/functions.bash
-source $DOTFILES_HOME/bash.d/completions.bash
-source $DOTFILES_HOME/bash.d/colors.bash
+# Default functions
+if [ -f $DOTFILES_HOME/bash.d/functions ]; then
+  source $DOTFILES_HOME/bash.d/functions
+fi
+
+# Default completions
+if [ -f $DOTFILES_HOME/bash.d/completions ]; then
+  source $DOTFILES_HOME/bash.d/completions
+fi
+
+# Load some defaults
+source $DOTFILES_HOME/lib/colours
 source $DOTFILES_HOME/bash.d/config.bash
 source $DOTFILES_HOME/bash.d/base.bash
-source $DOTFILES_HOME/bash.d/aliases.bash
+
+# Default aliases
+if [ -f $DOTFILES_HOME/bash.d/aliases ]; then
+  source $DOTFILES_HOME/bash.d/aliases
+fi

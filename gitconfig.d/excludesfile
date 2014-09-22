@@ -38,6 +38,10 @@
 !.gitignore
 !.gitkeep
 !.gitattributes
+!.travis.yml
+!.scrutinizer.yml
+!.placeholder
+!.npmrc
 *~
 
 # KDE

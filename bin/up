@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+# vim: set ft=sh
+####
+#
+# Used to update a box
+#
+if [ $(uname) == "Linux" ]; then
+    if [ $(command -v apt-get) ]; then
+        echo 'Running apt-get update and upgrade'
+        sudo apt-get update
+        sudo apt-get upgrade
+    fi
+else
+    if [ $(command -v brew) ]; then
+        echo 'Running brew update'
+        brew update
+        echo 'Running brew upgrade'
+        brew upgrade
+    fi
+fi
+
+if [ $(command -v vim) ]; then
+    echo 'Updating Vundle bundles'
+    vim +PluginUpdate +qall
+fi
+
+if [ $(command -v composer.phar) ]; then
+    echo 'Updating composer.phar'
+    composer.phar selfupdate
+
+    echo 'Updating composer global dependencies'
+    composer.phar global update
+fi

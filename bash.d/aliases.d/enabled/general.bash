@@ -9,7 +9,9 @@ if [ $(uname) == "Linux" ]; then
     alias up="sudo apt-get update && sudo apt-get upgrade"
 else
     # Should be Darwin
-    alias ls="ls -hFG"
+    #alias ls="ls -hFG"
+    alias ls="ls -hFG --color"
+    alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl"
 fi
 
 alias _="sudo"

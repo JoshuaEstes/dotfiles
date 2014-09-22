@@ -1,0 +1,12 @@
+{
+    "minimum-stability": "dev",
+    "require": {
+        "psy/psysh": "*",
+        "fabpot/php-cs-fixer": "*",
+        "squizlabs/php_codesniffer": "*",
+        "phing/phing": "*",
+        "phpunit/phpunit": "*",
+        "phpunit/phpunit-skeleton-generator": "*",
+        "daedalus/daedalus": "~1.0"
+    }
+}

@@ -5,6 +5,13 @@ if [ -f /etc/bash_completion ]; then
   source /etc/bash_completion
 fi
 
+# If brew is installed
+if [ $(command -v brew) ]; then
+    if [ -f $(brew --prefix)/etc/bash_completion ]; then
+        source $(brew --prefix)/etc/bash_completion
+    fi
+fi
+
 # make sure our directories exist first
 if [ ! -d $HOME/.bash.d/completions.d/available ]; then
   mkdir -p $HOME/.bash.d/completions.d/available
@@ -19,6 +26,11 @@ for FILE in $HOME/.bash.d/completions.d/enabled/*; do
     source $FILE;
   fi
 done
+
+# global
+if [ -f /usr/local/etc/bash_completion ]; then
+    source /usr/local/etc/bash_completion
+fi
 
 # This is for when you are trying to ssh into a server, you can use autocompelete,
 # which will check your bash_history file and try to use that, very useful if you
