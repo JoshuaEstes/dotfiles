@@ -128,3 +128,7 @@
 [hooks "phpcs"]
 	enabled = yes
     options = --ignore=*.dist --standard=PSR1,PSR2 -n
+[hooks "phpmd"]
+    enabled = yes
+    report = text
+    ruleset = cleancode,codesize,controversial,design,naming,unusedcode
