@@ -85,7 +85,6 @@ With bufexplorer open
     t            Open in new tab
     q            Close NERDTree window
 
-
 # File Naming Standards
 
 All files the use the extension `.bash` are used be bash for some reason. These
