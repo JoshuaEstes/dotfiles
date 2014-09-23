@@ -8,7 +8,7 @@ if [ ! $PHPMD_BIN ]; then
     exit 0
 fi
 
-if [ ! $(git config --bool hooks.phpmd) ]; then
+if [ ! $(git config --bool hooks.phpmd.enabled) ]; then
     exit 0;
 fi
 
@@ -29,3 +29,4 @@ for f in $FILES; do
         exit 1
     fi
 done
+echo "PHP Mess Detection Complete"
