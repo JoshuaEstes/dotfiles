@@ -7,11 +7,9 @@ PHPCS_BIN=$(command -v phpcs)
 if [ ! $PHPCS_BIN ]; then
     exit 0
 fi
-
 if [ ! $(git config --bool hooks.phpcs.enabled) ]; then
     exit 0;
 fi
-
 echo "Starting PHP Code Style"
 if git rev-parse --verify HEAD >/dev/null 2>&1
 then
@@ -21,11 +19,10 @@ else
         against=4b825dc642cb6eb9a060e54bf8d69288fbee4904
 fi
 FILES=$(git diff --cached --name-only --diff-filter=ACMR $against | grep \.php)
-
 for f in $FILES; do
     $PHPCS_BIN $(git config hooks.phpcs.options) $f
     if [ $? != 0 ]; then
-        echo "Fix the file"
-        exit 1
+        GIT_HOOK_FOUND_ERRORS=1
     fi
 done
+echo "Done with PHP Code Style"

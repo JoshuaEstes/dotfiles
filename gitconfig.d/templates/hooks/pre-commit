@@ -3,9 +3,14 @@
 #
 # Runs various scripts to check the quality of code being checked in
 #
-hook_dir="$(dirname "$0")"
+GIT_HOOK_DIR="$(dirname "$0")"
+GIT_HOOK_FOUND_ERRORS=0
 
-source $hook_dir/phpcs
-source $hook_dir/phpmd
+# Scripts go here
+source $GIT_HOOK_DIR/phpcs
+source $GIT_HOOK_DIR/phpmd
 
-exit $?
+# If errors were found, no commit!
+if [ $GIT_HOOK_FOUND_ERRORS ]; then
+    exit 1
+fi
