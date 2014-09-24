@@ -17,5 +17,3 @@ shopt -s histappend
 
 # try to preform hostname completion
 shopt -s hostcomplete
-
-

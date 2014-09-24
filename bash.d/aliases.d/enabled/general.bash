@@ -1,12 +1,16 @@
 #!/usr/bin/env bash
-# gerneral aliases
+####
+#
+# General aliases are aliases that are not specific to any one app
+#
+
+# Reload bashrc file
+alias reload="source ~/.bashrc"
 
 # Specific for platform
 if [ $(uname) == "Linux" ]; then
     alias ls="ls -hF --color"
     alias apt-get="sudo apt-get"
-    # Should have similar command for OSX
-    alias up="sudo apt-get update && sudo apt-get upgrade"
 else
     # Should be Darwin
     #alias ls="ls -hFG"
