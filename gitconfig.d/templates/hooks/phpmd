@@ -8,7 +8,7 @@ if [ ! $PHPMD_BIN ]; then
     exit 0
 fi
 if [ ! $(git config --bool hooks.phpmd.enabled) ]; then
-    exit 0;
+    exit 0
 fi
 echo "Starting PHP Mess Detector"
 if git rev-parse --verify HEAD >/dev/null 2>&1

@@ -11,6 +11,6 @@ source $GIT_HOOK_DIR/phpcs
 source $GIT_HOOK_DIR/phpmd
 
 # If errors were found, no commit!
-if [ $GIT_HOOK_FOUND_ERRORS ]; then
+if [ 1 == $GIT_HOOK_FOUND_ERRORS ]; then
     exit 1
 fi

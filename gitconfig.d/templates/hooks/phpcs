@@ -8,7 +8,7 @@ if [ ! $PHPCS_BIN ]; then
     exit 0
 fi
 if [ ! $(git config --bool hooks.phpcs.enabled) ]; then
-    exit 0;
+    exit 0
 fi
 echo "Starting PHP Code Style"
 if git rev-parse --verify HEAD >/dev/null 2>&1
