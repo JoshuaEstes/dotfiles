@@ -131,4 +131,4 @@
 [hooks "phpmd"]
     enabled = yes
     report = text
-    ruleset = cleancode,codesize,controversial,design,naming,unusedcode
+    ruleset = cleancode,codesize,design,naming,unusedcode
