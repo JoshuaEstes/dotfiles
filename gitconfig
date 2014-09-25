@@ -42,7 +42,7 @@
 
   ; Push
   ps = push
-  
+
   ; Remote
   r = remote -v
 
