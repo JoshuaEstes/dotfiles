@@ -101,7 +101,8 @@ autocmd! bufwritepost vimrc source ~/.vimrc
 " Enable syntax highlighting
 syntax on
 au BufNewFile,BufRead *.xml.dist set filetype=xml
-au BufNewFile,BufRead *.twig set filetype=htmljinja
+au BufNewFile,BufRead *.twig set filetype=twig
+"au BufNewFile,BufRead *.twig set filetype=htmljinja
 au BufNewFile,BufRead *.md set filetype=markdown
 
 " Autocompletion for different languages
@@ -146,7 +147,7 @@ nnoremap <silent> <F2> :NERDTreeToggle<CR>
 let g:syntastic_check_on_open=1
 let g:syntastic_auto_loc_list=2
 let g:syntastic_php_checkers = ['php', 'phpmd', 'phpcs']
-let g:syntastic_php_phpcs_args="--standard=PSR1,PSR2"
+let g:syntastic_php_phpcs_args="-n --standard=PSR1,PSR2 --report=full"
 let g:syntastic_php_phpmd_post_args="text cleancode,codesize,controversial,design,naming,unusedcode"
 " End syntastic settings
 

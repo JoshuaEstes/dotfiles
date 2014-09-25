@@ -1,6 +1,7 @@
 {
     "minimum-stability": "dev",
     "require": {
+        "asm89/twig-lint": "*",
         "psy/psysh": "*",
         "fabpot/php-cs-fixer": "*",
         "squizlabs/php_codesniffer": "*",
