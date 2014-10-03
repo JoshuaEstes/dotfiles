@@ -31,3 +31,8 @@ if [ $(command -v composer.phar) ]; then
     echo 'Updating composer global dependencies'
     composer.phar global update
 fi
+
+if [ $(command -v n98-magerun.phar) ]; then
+    echo "Updating magerun"
+    n98-magerun.phar self-update
+fi
