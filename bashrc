@@ -56,6 +56,7 @@ export PATH
 # Edit some variables
 #
 DOTFILES_HOME=$HOME/dotfiles
+export ARCHFLAGS="-arch x86_64"
 export EDITOR="vim"
 export GIT_EDITOR="vim"
 export SVN_EDITOR=vim
@@ -72,6 +73,9 @@ export HISTCONTROL="ignoreboth:erasedups"
 
 # These will be ignored and not place in the HISTFILE
 export HISTIGNORE="pwd:clear:exit:history"
+
+export PIP_REQUIRE_VIRTUALENV=true
+export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 #### variables ####
 
 ####

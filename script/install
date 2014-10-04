@@ -114,9 +114,20 @@ if [ "$(uname)" == "Darwin" ]; then
     brew install ack
     brew install hub
     brew install git
+    brew install bash-completion
+    brew install ssh-copy-id
+    brew install wget
+    brew install python3
     brew cleanup
 fi
 
+if [ $(command -v pip) ]; then
+    pip install virtualenv
+fi
+
+mkdir -p $HOME/Projects
+mkdir -p $HOME/Virtualenvs
+
 # Reload
 echo "DEBUG::source $HOME/.bashrc"
-. $HOME/.bashrc
+source $HOME/.bashrc

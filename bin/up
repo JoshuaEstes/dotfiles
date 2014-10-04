@@ -18,6 +18,8 @@ else
         brew upgrade
         echo 'Cleaning up after self'
         brew cleanup
+        echo 'Running brew prune'
+        brew prune
     fi
 fi
 
