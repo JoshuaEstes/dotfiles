@@ -36,10 +36,10 @@ function symlink_dotfile()
 # Install git submodules
 git submodule update --init --recursive
 
-vim +PluginInstall +qall
-cd vim/bundle/YouCompleteMe
-./install.sh
-cd -
+#vim +PluginInstall +qall
+#cd vim/bundle/YouCompleteMe
+#./install.sh
+#cd -
 
 # Create symlinks
 symlink_dotfile "ackrc"
@@ -75,6 +75,7 @@ symlink_dotfile "mutt"
 symlink_dotfile "vim"
 symlink_dotfile "zsh.d"
 
+# Install php stuff
 if [ $(command -v php) ]; then
     PHP_BIN=$(command -v php)
     # PHP is installed. Install composer and
@@ -85,6 +86,35 @@ if [ $(command -v php) ]; then
         curl -sS https://getcomposer.org/installer | $PHP_BIN -- --install-dir=$HOME/bin
     fi
     $PHP_BIN $HOME/bin/composer.phar global update
+fi
+
+# Install OSX stuff
+if [ "$(uname)" == "Darwin" ]; then
+    if [ ! $(command -v brew) ]; then
+        echo "Installing homebrew"
+        ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    fi
+
+    brew update
+    brew install coreutils
+    brew install findutils
+    brew install bash
+    brew tap homebrew/dupes
+    brew install homebrew/dupes/grep
+    brew install graphicsmagick
+    brew install webkit2png
+    brew install rename
+    brew install zopfli
+    brew install ffmpeg
+    brew install python
+    brew install sshfs
+    brew install trash
+    brew install node
+    brew install tree
+    brew install ack
+    brew install hub
+    brew install git
+    brew cleanup
 fi
 
 # Reload

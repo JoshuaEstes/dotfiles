@@ -29,7 +29,7 @@ PATH_ARRAY=(
     $HOME/bin.local
     $HOME/bin
     $HOME/.composer/vendor/bin
-    /usr/loval/heroku/bin
+    /usr/local/heroku/bin
     /opt/local/bin
     /usr/local/bin
     /usr/local/sbin
@@ -37,6 +37,7 @@ PATH_ARRAY=(
     /usr/local/opt/coreutils/libexec/gnubin
     /usr/bin
     /bin
+    /usr/X11/bin
     /usr/sbin
     /sbin
 )

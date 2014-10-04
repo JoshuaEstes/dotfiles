@@ -1,6 +1,7 @@
 {
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "require": {
+        "phploc/phploc": "*",
         "sebastian/phpdcd": "*",
         "asm89/twig-lint": "*",
         "psy/psysh": "*",
@@ -9,7 +10,7 @@
         "phing/phing": "*",
         "phpunit/phpunit": "*",
         "phpunit/phpunit-skeleton-generator": "*",
-        "daedalus/daedalus": "~1.0",
+        "daedalus/daedalus": "~1.0@dev",
         "phpmd/phpmd": "*"
     }
 }

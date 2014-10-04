@@ -16,6 +16,8 @@ else
         brew update
         echo 'Running brew upgrade'
         brew upgrade
+        echo 'Cleaning up after self'
+        brew cleanup
     fi
 fi
 

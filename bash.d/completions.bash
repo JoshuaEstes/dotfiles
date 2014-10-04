@@ -4,10 +4,18 @@
 if [ -f /etc/bash_completion ]; then
   source /etc/bash_completion
 fi
+
 if [ -f /usr/local/etc/bash_completion ]; then
+    echo "source: /usr/local/etc/bash_completion"
     source /usr/local/etc/bash_completion
 fi
 
+#if [ -d "/usr/local/etc/bash_completion.d" ]; then
+#    for FILE in /usr/local/etc/bash_completion.d/*; do
+#        echo "DEBUG::completes.bash::source $FILE"
+#        source $FILE
+#    done
+#fi
 
 # If brew is installed
 if [ $(command -v brew) ]; then
@@ -26,10 +34,8 @@ fi
 
 # All the completion scripts that are enabled will get sourced
 for FILE in $HOME/.bash.d/completions.d/enabled/*; do
-  if [ -f $FILE ]; then
     echo "DEBUG::completes.bash::source $FILE"
-    source $FILE;
-  fi
+    source $FILE
 done
 
 # This is for when you are trying to ssh into a server, you can use autocompelete,
