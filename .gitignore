@@ -10,6 +10,7 @@ bash.d/completions.d/enabled/*
 bash.d/functions.d/enabled/*
 !bash.d/functions.d/enabled/general
 /bin/composer.phar
+/bin/n98-magerun.phar
 /mutt/aliases
 /mutt/cache
 /mutt/certificates
