@@ -23,11 +23,20 @@ else
     fi
 fi
 
+####
+#
+# Vim
+#
 if [ $(command -v vim) ]; then
     echo 'Updating Vundle bundles'
     vim +PluginUpdate +qall
 fi
+#### end vim ####
 
+####
+#
+# PHP
+#
 if [ $(command -v composer.phar) ]; then
     echo 'Updating composer.phar'
     composer.phar selfupdate
@@ -36,7 +45,23 @@ if [ $(command -v composer.phar) ]; then
     composer.phar global update
 fi
 
+# Magento
 if [ $(command -v n98-magerun.phar) ]; then
     echo "Updating magerun"
     n98-magerun.phar self-update
 fi
+#### end php ####
+
+####
+#
+# Ruby
+#
+if [ $(command -v gem) ]; then
+    echo "Updating gem version, administrator password required"
+    sudo gem update --system
+    echo "Running gem update, administrator password may be required"
+    sudo gem update
+    echo "Running gem cleanup"
+    gem cleanup
+fi
+#### end ruby ####
