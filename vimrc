@@ -31,6 +31,8 @@ set cf
 set cm=blowfish
 set cmdheight=1
 set cindent
+set encoding=utf-8
+set fileencodings=utf-8
 set expandtab
 set ffs=unix,mac,dos
 set foldmethod=indent "fold based on indent
