@@ -2,7 +2,7 @@
 # vim: set ft=sh
 ####
 #
-# Used to update a box
+# First figure out what box it is and run the main dependency managers
 #
 if [ $(uname) == "Linux" ]; then
     if [ $(command -v apt-get) ]; then
@@ -21,6 +21,15 @@ else
         echo 'Running brew prune'
         brew prune
     fi
+fi
+
+###
+#
+# Python Stuff
+#
+if [ $(command -v pip3) ]; then
+    echo "Upgrading pip"
+    pip3 install --upgrade pip
 fi
 
 ####
