@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 ####
 #
-# This will install the dotfiles into ~/.dotfiles directory
-# which will allow us to blow away that directory to install
-# updated code
+# install dotfiles
 #
 
 # Location where the dotfiles will live
@@ -33,13 +31,11 @@ function symlink_dotfile()
     fi
 }
 
+mkdir -p $HOME/Projects
+mkdir -p $HOME/Virtualenvs
+
 # Install git submodules
 git submodule update --init --recursive
-
-#vim +PluginInstall +qall
-#cd vim/bundle/YouCompleteMe
-#./install.sh
-#cd -
 
 # Create symlinks
 symlink_dotfile "ackrc"
@@ -121,12 +117,51 @@ if [ "$(uname)" == "Darwin" ]; then
     brew cleanup
 fi
 
+####
+#
+# install stuff with pip
+#
 if [ $(command -v pip) ]; then
+    echo "Installing virtualenv"
     pip install virtualenv
+    # Used to check python files to make sure then conform to the language
+    # standards
+    echo "Installing pep8"
+    pip install pep8
 fi
 
-mkdir -p $HOME/Projects
-mkdir -p $HOME/Virtualenvs
+####
+#
+# install stuff with npm
+#
+if [ $(command -v npm) ]; then
+    # Used in git pre-commit hook to lint javascript files
+    echo "Installing jshint"
+    npm install -g jshint
+    echo "Installing grunt-cli"
+    npm install -g grunt-cli
+fi
+
+####
+#
+# Install stuff with gem
+#
+if [ $(command -v gem) ]; then
+    # Used in git pre-commit hook to lint puppet files
+    echo "Installing puppet-lint, administrator password may be required"
+    sudo gem install puppet-lint
+    echo "Installing scss-lint, administrator password may be required"
+    sudo gem install scss-lint
+    echo "Installing rubocop, administrator password may be required"
+    sudo gem install rubocop
+fi
+
+# Once all the dependencies are install this should run since it runs
+# a compile script
+vim +PluginInstall +qall
+cd vim/bundle/YouCompleteMe
+./install.sh
+cd -
 
 # Reload
 echo "DEBUG::source $HOME/.bashrc"
