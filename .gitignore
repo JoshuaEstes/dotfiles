@@ -14,5 +14,6 @@ bash.d/functions.d/enabled/*
 /mutt/aliases
 /mutt/cache
 /mutt/certificates
-vim/bundle/
+/node_modules/
+/vim/bundle/
 !vim/bundle/Vundle.vim

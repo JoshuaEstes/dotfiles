@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/JoshuaEstes/dotfiles/issues"
   },
-  "homepage": "https://github.com/JoshuaEstes/dotfiles"
+  "homepage": "https://github.com/JoshuaEstes/dotfiles",
+  "devDependencies": {
+    "grunt": "~0.4.5"
+  }
 }
