@@ -65,3 +65,13 @@ if [ $(command -v gem) ]; then
     sudo gem cleanup
 fi
 #### end ruby ####
+
+####
+#
+# Node
+#
+if [ $(command -v npm) ]; then
+    echo "Updating npm, administrator password may be required"
+    sudo npm update -g npm
+fi
+#### end node ####
