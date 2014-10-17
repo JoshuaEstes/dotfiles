@@ -1,6 +1,7 @@
 {
     "minimum-stability": "stable",
     "require": {
+        "wp-cli/wp-cli": "*",
         "phploc/phploc": "*",
         "sebastian/phpdcd": "*",
         "asm89/twig-lint": "*",
