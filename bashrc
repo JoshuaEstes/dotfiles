@@ -1,18 +1,18 @@
 #!/usr/bin/env bash
 # The individual per-interactive-shell startup file
 
-echo "DEBUG::basrc"
+#echo "DEBUG::basrc"
 ####
 #
 # include system wide bashrc files
 #
 if [ -e /etc/bash.bashrc ]; then
-    echo "DEBUG::source /etc/bash.bashrc"
+    #echo "DEBUG::source /etc/bash.bashrc"
     # system wide bashrc file
     source /etc/bash.bashrc
 fi
 if [ -e /etc/bashrc ]; then
-    echo "DEBUG::srouce /etc/bashrc"
+    #echo "DEBUG::srouce /etc/bashrc"
     # system wide bashrc file
     source /etc/bashrc
 fi
@@ -56,6 +56,7 @@ export PATH
 # Edit some variables
 #
 DOTFILES_HOME=$HOME/dotfiles
+export DEBUG=0
 export ARCHFLAGS="-arch x86_64"
 export EDITOR="vim"
 export GIT_EDITOR="vim"

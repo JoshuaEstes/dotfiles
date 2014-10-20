@@ -11,6 +11,7 @@ bash.d/functions.d/enabled/*
 !bash.d/functions.d/enabled/general
 /bin/composer.phar
 /bin/n98-magerun.phar
+/bin/virtphp.phar
 /mutt/aliases
 /mutt/cache
 /mutt/certificates

@@ -6,7 +6,7 @@ if [ -f /etc/bash_completion ]; then
 fi
 
 if [ -f /usr/local/etc/bash_completion ]; then
-    echo "source: /usr/local/etc/bash_completion"
+    #echo "source: /usr/local/etc/bash_completion"
     source /usr/local/etc/bash_completion
 fi
 
@@ -34,7 +34,7 @@ fi
 
 # All the completion scripts that are enabled will get sourced
 for FILE in $HOME/.bash.d/completions.d/enabled/*; do
-    echo "DEBUG::completes.bash::source $FILE"
+    #echo "DEBUG::completes.bash::source $FILE"
     source $FILE
 done
 
