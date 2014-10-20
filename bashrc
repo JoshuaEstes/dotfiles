@@ -16,6 +16,10 @@ if [ -e /etc/bashrc ]; then
     # system wide bashrc file
     source /etc/bashrc
 fi
+if [ -e $HOME/.phpbrew/bashrc ]; then
+    PHPBREW_SET_PROMPT=1
+    source $HOME/.phpbrew/bashrc
+fi
 
 ####
 #
