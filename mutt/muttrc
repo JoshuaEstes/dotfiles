@@ -2,4 +2,10 @@
 #
 # Mutt configuration file
 #
+
 set realname='Joshua Estes'
+set folder="$HOME/Mail"
+set spoolfile="+inbox"
+set record="+sent"
+set mbox="+mbox"
+set postponed="+postponed"

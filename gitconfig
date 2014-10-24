@@ -111,7 +111,7 @@
 [user]
 ; See the bash.local.example file
 ;  Can be overridden by the GIT_AUTHOR_EMAIL, GIT_COMMITTER_EMAIL, and EMAIL environment variables.
-  email = Joshua@Estes.in
+  email = JoshuaEstes@users.noreply.github.com
 ;  Can be overridden by the GIT_AUTHOR_NAME and GIT_COMMITTER_NAME environment variables.
   name = Joshua Estes
 ;  signingkey = ''

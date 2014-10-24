@@ -75,12 +75,9 @@ fi
 # Ruby
 #
 if [ $(command -v gem) ]; then
-    echo "Updating gem version, administrator password required"
-    sudo gem update --system
-    echo "Running gem update, administrator password may be required"
-    sudo gem update
-    echo "Running gem cleanup, administrator password may be required"
-    sudo gem cleanup
+    gem update --system
+    gem update
+    gem cleanup
 fi
 #### end ruby ####
 
@@ -89,7 +86,7 @@ fi
 # Node
 #
 if [ $(command -v npm) ]; then
-    echo "Updating npm, administrator password may be required"
-    sudo npm update -g npm
+    npm update -g npm
+    npm update -g
 fi
 #### end node ####

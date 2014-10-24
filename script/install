@@ -92,29 +92,33 @@ if [ "$(uname)" == "Darwin" ]; then
     fi
 
     brew update
+    brew tap homebrew/dupes
     brew install coreutils
     brew install findutils
     brew install bash
-    brew tap homebrew/dupes
-    brew install homebrew/dupes/grep
-    brew install graphicsmagick
+    brew install grep
+    #brew install graphicsmagick
     brew install webkit2png
-    brew install rename
-    brew install zopfli
-    brew install ffmpeg
+    #brew install rename
+    #brew install zopfli
+    #brew install ffmpeg --with-openssl
     #brew install python
-    brew install sshfs
-    brew install trash
+    #brew install sshfs
+    #brew install trash
     brew install node
     brew install tree
     brew install ack
-    brew install hub
+    #brew install hub
     brew install git
     brew install bash-completion
     brew install ssh-copy-id
     brew install wget
     brew install python3
     brew install ruby
+    brew install irssi --with-openssl
+    brew install mutt
+    brew install fetchmail
+    brew install vim --with-python3 --with-lua # I dig the lua
     brew linkapps
     brew cleanup
 fi
@@ -131,18 +135,18 @@ if [ $(command -v pip) ]; then
     echo "Installing pep8"
     pip install pep8
 fi
+#### end python ####
 
 ####
 #
 # install stuff with npm
 #
 if [ $(command -v npm) ]; then
-    # Used in git pre-commit hook to lint javascript files
-    echo "Installing jshint"
     npm install -g jshint
-    echo "Installing grunt-cli"
     npm install -g grunt-cli
+    npm install -g gulp
 fi
+#### end nodejs ####
 
 ####
 #
@@ -150,13 +154,12 @@ fi
 #
 if [ $(command -v gem) ]; then
     # Used in git pre-commit hook to lint puppet files
-    echo "Installing puppet-lint, administrator password may be required"
-    sudo gem install puppet-lint
-    echo "Installing scss-lint, administrator password may be required"
-    sudo gem install scss-lint
-    echo "Installing rubocop, administrator password may be required"
-    sudo gem install rubocop
+    gem install puppet-lint
+    gem install scss-lint
+    gem install rubocop
+    gem install compass
 fi
+#### end ruby ####
 
 # Once all the dependencies are install this should run since it runs
 # a compile script
