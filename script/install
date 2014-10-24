@@ -145,6 +145,8 @@ if [ $(command -v npm) ]; then
     npm install -g jshint
     npm install -g grunt-cli
     npm install -g gulp
+    npm install -g keybase-installer
+    keybase-installer
 fi
 #### end nodejs ####
 
