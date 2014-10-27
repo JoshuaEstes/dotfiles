@@ -118,7 +118,7 @@ if [ "$(uname)" == "Darwin" ]; then
     brew install irssi --with-openssl
     brew install mutt
     brew install fetchmail
-    brew install vim --with-python3 --with-lua # I dig the lua
+    brew install vim --with-lua # I dig the lua
     brew linkapps
     brew cleanup
 fi

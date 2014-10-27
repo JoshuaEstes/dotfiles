@@ -155,8 +155,8 @@ let g:syntastic_php_phpmd_post_args="text cleancode,codesize,design,naming,unuse
 " End syntastic settings
 
 " ultisnips settings
-let g:UltiSnipsUsePythonVersion = 2
-let g:UltiSnipsListSnippets="<F4>"
+"let g:UltiSnipsUsePythonVersion = 2
+"let g:UltiSnipsListSnippets="<F4>"
 " end ultisnips settings
 
 " Tabularize key mappings
