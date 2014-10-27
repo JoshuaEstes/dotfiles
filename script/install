@@ -67,6 +67,7 @@ if [ ! -d $HOME/.composer ]; then
 fi
 symlink_dotfile "composer/composer.json"
 symlink_dotfile "gitconfig.d"
+symlink_dotfile "irssi"
 symlink_dotfile "mutt"
 symlink_dotfile "vim"
 symlink_dotfile "zsh.d"
