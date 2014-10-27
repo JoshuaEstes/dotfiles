@@ -120,6 +120,7 @@ if [ "$(uname)" == "Darwin" ]; then
     brew install mutt
     brew install fetchmail
     brew install vim --with-lua # I dig the lua
+    brew install php56 --with-gmp
     brew linkapps
     brew cleanup
 fi
