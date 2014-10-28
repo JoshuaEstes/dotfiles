@@ -119,6 +119,7 @@ if [ "$(uname)" == "Darwin" ]; then
     brew install mutt
     brew install fetchmail
     brew install vim --with-python3 --with-lua # I dig the lua
+    brew install autoenv
     brew linkapps
     brew cleanup
 fi

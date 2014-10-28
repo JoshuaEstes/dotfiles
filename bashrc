@@ -92,6 +92,10 @@ if [ -f "$HOME/.bash.local" ]; then
 fi
 ######
 
+if [ -f /usr/local/opt/autoenv/activate.sh ]; then
+    source /usr/local/opt/autoenv/activate.sh
+fi
+
 # Default functions
 if [ -f $DOTFILES_HOME/bash.d/functions.bash ]; then
   source $DOTFILES_HOME/bash.d/functions.bash
