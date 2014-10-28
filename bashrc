@@ -33,6 +33,7 @@ PATH_ARRAY=(
     $HOME/bin.local
     $HOME/bin
     $HOME/.composer/vendor/bin
+    $(brew --prefix homebrew/php/php56)/bin
     /usr/local/heroku/bin
     /opt/local/bin
     /usr/local/bin

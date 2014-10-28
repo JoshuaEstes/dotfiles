@@ -45,3 +45,6 @@ alias getcomposer="curl -s https://getcomposer.org/installer | php"
 # Python Oneliners
 # http://www.vurt.ru/2013/02/python-command-line-oneliners/
 alias fake-smtp="python -m smtpd -n -c DebuggingServer localhost:25"
+
+# Aliases for node and npm
+alias n="npm"

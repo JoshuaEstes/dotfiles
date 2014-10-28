@@ -67,6 +67,7 @@ if [ ! -d $HOME/.composer ]; then
 fi
 symlink_dotfile "composer/composer.json"
 symlink_dotfile "gitconfig.d"
+symlink_dotfile "irssi"
 symlink_dotfile "mutt"
 symlink_dotfile "vim"
 symlink_dotfile "zsh.d"
@@ -118,8 +119,12 @@ if [ "$(uname)" == "Darwin" ]; then
     brew install irssi --with-openssl
     brew install mutt
     brew install fetchmail
-    brew install vim --with-python3 --with-lua # I dig the lua
     brew install autoenv
+    brew install vim --with-lua # I dig the lua
+    brew install lbzip2
+    brew install php56 --with-gmp
+    brew install php56-mcrypt
+    brew install colordiff
     brew linkapps
     brew cleanup
 fi
