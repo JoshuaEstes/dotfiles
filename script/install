@@ -124,6 +124,7 @@ if [ "$(uname)" == "Darwin" ]; then
     brew install lbzip2
     brew install php56 --with-gmp
     brew install php56-mcrypt
+    brew install php56-xdebug
     brew install colordiff
     brew install mu
     brew linkapps
