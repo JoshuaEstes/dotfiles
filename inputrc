@@ -1,6 +1,15 @@
 # Individual readline initialization file
 
-#set editing-mode vi
+# Dig the vim
+set editing-mode vi
+
+$if mode=vi
+#set keymap vi-command
+"\C-l": clear-screen
+TAB: complete
+$endif
+
+"\C-x\C-r": re-read-init-file
 
 # Make Tab autocomplete regardless of filename case
 set completion-ignore-case on

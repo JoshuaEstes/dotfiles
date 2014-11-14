@@ -7,6 +7,9 @@
 # Reload bashrc file
 alias reload="source ~/.bashrc"
 
+# Clear the screen
+alias cl="clear"
+
 # Specific for platform
 if [ $(uname) == "Linux" ]; then
     alias ls="ls -hF --color"

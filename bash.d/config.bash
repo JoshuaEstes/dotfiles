@@ -17,3 +17,6 @@ shopt -s histappend
 
 # try to preform hostname completion
 shopt -s hostcomplete
+
+# Dig the vim
+set -o vi
