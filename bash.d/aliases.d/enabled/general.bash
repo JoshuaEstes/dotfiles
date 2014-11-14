@@ -5,7 +5,7 @@
 #
 
 # Reload bashrc file
-alias reload="source ~/.bashrc"
+alias reload="source ~/.bashrc && bind -f ~/.inputrc"
 
 # Clear the screen
 alias cl="clear"
