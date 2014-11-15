@@ -86,7 +86,7 @@ fi
 # Node
 #
 if [ $(command -v npm) ]; then
-    npm update -g npm
+    npm install -g npm@latest
     npm update -g
 fi
 #### end node ####
