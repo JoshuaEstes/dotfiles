@@ -31,6 +31,7 @@ function symlink_dotfile()
     fi
 }
 
+mkdir -p $HOME/Mail/{sent,postponed,mbox,inbox}
 mkdir -p $HOME/Projects
 mkdir -p $HOME/Virtualenvs
 
