@@ -3,14 +3,19 @@
 # Mutt configuration file
 #
 
-set realname='Joshua Estes'
-set folder="$HOME/Mail"
-set spoolfile="+inbox"
-set record="+sent"
-set mbox="+mbox"
-set postponed="+postponed"
-set header_cache="+cache/header"
-set message_cachedir="+cache/message"
+set realname         = 'Joshua Estes'
+set folder           = "$HOME/Mail"
+set spoolfile        = "+inbox"
+set record           = "+sent"
+set mbox             = "+mbox"
+set postponed        = "+postponed"
+set header_cache     = "$HOME/.mutt/cache/headers"
+set message_cachedir = "$HOME/.mutt/cache/messages"
+set certificate_file = "$HOME/.mutt/certificates"
+set alias_file       = "$HOME/.mutt/alias"
+set mailcap_path     = "$HOME/.mutt/mailcap"
+set tmpdir           = "$HOME/.mutt/tmp"
+set signature        = "$HOME/.mutt/signature"
 
 # Source various files for different email accounts
 source `FILE=$HOME/.mutt/accounts/bitpay; if [ ! -s "$FILE" ]; then FILE=/dev/null; fi; echo "$FILE"`
