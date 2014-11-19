@@ -9,6 +9,8 @@ set spoolfile="+inbox"
 set record="+sent"
 set mbox="+mbox"
 set postponed="+postponed"
+set header_cache="+cache/header"
+set message_cachedir="+cache/message"
 
 # Source various files for different email accounts
 source `FILE=$HOME/.mutt/accounts/bitpay; if [ ! -s "$FILE" ]; then FILE=/dev/null; fi; echo "$FILE"`
