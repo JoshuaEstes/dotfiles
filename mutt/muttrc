@@ -5,10 +5,6 @@
 
 set realname         = 'Joshua Estes'
 set folder           = "$HOME/Mail"
-set spoolfile        = "+inbox"
-set record           = "+sent"
-set mbox             = "+mbox"
-set postponed        = "+postponed"
 set header_cache     = "$HOME/.mutt/cache/headers"
 set message_cachedir = "$HOME/.mutt/cache/messages"
 set certificate_file = "$HOME/.mutt/certificates"
@@ -19,3 +15,40 @@ set signature        = "$HOME/.mutt/signature"
 
 # Source various files for different email accounts
 source `FILE=$HOME/.mutt/accounts/bitpay; if [ ! -s "$FILE" ]; then FILE=/dev/null; fi; echo "$FILE"`
+
+set wait_key=no
+set mbox_type=Maildir
+set timeout=3
+set mail_check=0
+unset move
+set delete
+unset confirmappend
+set quit
+unset mark_old
+set beep_new
+set pipe_decode
+set thorough_search
+
+set status_chars="*%A"
+set status_format="--[ Folder: %f ]--[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]--%>--%?p?( %p postponed )?--"
+
+ignore *
+unignore from: to: cc: date: subject:
+unhdr_order *
+hdr_order from: to: cc: data: subject:
+
+set spoolfile = "+josh@bitpay.com/INBOX"
+set mbox      = "+josh@bitpay.com/archive"
+set postponed = "+josh@bitpay.com/drafts"
+set record    = "+josh@bitpay.com/sent"
+
+set date_format   = "%m/%d"
+set index_format  = "[%Z] %D %-20.20F %s"
+set sort          = threads
+set sort_aux      = reverse-last-date-received
+#set reply_regexp = ""
+set uncollapse_jump
+set sort_re
+
+bind index gg first-entry
+bind index G last-entry
