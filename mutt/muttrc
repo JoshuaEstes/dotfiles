@@ -11,18 +11,20 @@ set certificate_file = "$HOME/.mutt/certificates"
 set alias_file       = "$HOME/.mutt/alias"
 set mailcap_path     = "$HOME/.mutt/mailcap"
 set tmpdir           = "$HOME/.mutt/tmp"
-set signature        = "$HOME/.mutt/signature"
+set spoolfile        = "+josh\@bitpay.com/INBOX"
+set signature        = "$HOME/.mutt/signatures/default"
+set editor           = "vim"
 
 ####
 #
 # Mutt does not seem to be able to create directories, so this is a little
 # hack to get around that
 #
-source `mkdir -p $HOME/.mutt/{cache/messages,tmp}; touch $HOME/.mutt/{signature,alias,certificates}; echo /dev/null`
+#source `mkdir -p $HOME/.mutt/{cache/messages,tmp}; touch $HOME/.mutt/{signature,alias,certificates}; echo /dev/null`
 ####
 
 # Source various files for different email accounts
-source `FILE=$HOME/.mutt/accounts/bitpay; if [ ! -s "$FILE" ]; then FILE=/dev/null; fi; echo "$FILE"`
+#source `FILE=$HOME/.mutt/accounts/bitpay; if [ ! -s "$FILE" ]; then FILE=/dev/null; fi; echo "$FILE"`
 ### end accounts ###
 
 set   wait_key   = no
@@ -46,12 +48,7 @@ unignore from: to: cc: date: subject:
 unhdr_order *
 hdr_order from: to: cc: data: subject:
 
-set spoolfile = "+josh@bitpay.com/INBOX"
-set mbox      = "+josh@bitpay.com/archive"
-set postponed = "+josh@bitpay.com/drafts"
-set record    = "+josh@bitpay.com/sent"
-
-set date_format   = "%m/%d"
+set date_format   = "%m/%d/%Y"
 set index_format  = "[%Z] %D %-20.20F %s"
 set sort          = threads
 set sort_aux      = reverse-last-date-received
@@ -59,5 +56,20 @@ set sort_aux      = reverse-last-date-received
 set uncollapse_jump
 set sort_re
 
+set pager_index_lines = 10
+set pager_context     = 3
+set pager_stop
+set tilde
+unset markers
+
+bind pager k  previous-line
+bind pager j  next-line
+bind pager gg top
+bind pager G  bottom
+
 bind index gg first-entry
 bind index G  last-entry
+
+source "$HOME/.mutt/colors"
+folder-hook "josh@bitpay.com/*" source "$HOME/.mutt/accounts/bitpay"
+folder-hook "joshua@dspacelabs.com/*" source "$HOME/.mutt/accounts/dspacelabs"
