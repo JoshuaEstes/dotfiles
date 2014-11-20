@@ -47,7 +47,9 @@ symlink_dotfile "bashrc"
 symlink_dotfile "gemrc"
 symlink_dotfile "gitconfig"
 symlink_dotfile "inputrc"
+symlink_dotfile "msmtprc"
 symlink_dotfile "offlineimaprc"
+symlink_dotfile "offlineimap.py"
 if [ "$(uname)" == "Darwin" ]; then
     symlink_dotfile "osx"
 fi
@@ -131,6 +133,7 @@ if [ "$(uname)" == "Darwin" ]; then
     brew install colordiff
     brew install mu
     brew install offlineimap
+    brew install msmtp
     brew linkapps
     brew cleanup
 fi

@@ -1,9 +1,11 @@
-;vim: set ft=dosini:
+; vi: set ft=dosini :
 [general]
 accounts    = BitPay
 ;ui          = Basic
+;ui          = TTYUI
 fsync       = False
 socktimeout = 30
+pythonfile  = ~/.offlineimap.py
 
 [Account BitPay]
 localrepository  = BitPay-Local
@@ -25,7 +27,7 @@ type           = Gmail
 ssl            = True
 sslcacertfile  = /usr/local/etc/openssl/cert.pem
 remoteuser     = josh@bitpay.com
-;remotepass    = TopSecret
+remotepasseval = fetch_password('josh@bitpay.com', 'imap.gmail.com')
 realdelete     = no
 readonly       = False
 folderfilter   = lambda folder: folder not in ['[Gmail]/Spam', '[Gmail]/Trash']

@@ -1,7 +1,16 @@
-# vim: filetype=muttrc
-
+# vi: set ft=muttrc :
 set spoolfile = "+josh@bitpay.com/INBOX"
 set mbox      = "+josh@bitpay.com/archive"
 set postponed = "+josh@bitpay.com/drafts"
 set record    = "+josh@bitpay.com/sent"
 set signature = "$HOME/.mutt/signatures/bitpay"
+
+set   realname      = 'Joshua Estes'
+set   from          = 'josh@bitpay.com'
+set   sendmail      = 'msmtp -a BitPay'
+set   sendmail_wait = 0
+unset record
+
+set pgp_sign_as              = A79F5E01
+set pgp_encrypt_only_command = "pgpewrap gpg --batch --quiet --no-verbose --output - --encrypt --textmode --armor --always-trust --encrypt-to A79F5E01 -- -r %r -- %f"
+set pgp_encrypt_sign_command = "pgpewrap gpg --passphrase-fd 0 --batch --quiet --no-verbose --textmode --output - --encrypt --sign %?a?-u %a? --armor --always-trust --encrypt-to A79F5E01 -- -r %r -- %f"

@@ -2,7 +2,6 @@
 #
 # Mutt configuration file
 #
-
 set realname         = 'Joshua Estes'
 set folder           = "$HOME/Mail"
 set header_cache     = "$HOME/.mutt/cache/headers"
@@ -31,14 +30,14 @@ set   wait_key   = no
 set   mbox_type  = Maildir
 set   timeout    = 3
 set   mail_check = 0
-unset move
 set   delete
-unset confirmappend
 set   quit
-unset mark_old
 set   beep_new
 set   pipe_decode
 set   thorough_search
+unset move
+unset confirmappend
+unset mark_old
 
 set status_chars="*%A"
 set status_format="--[ Folder: %f ]--[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]--%>--%?p?( %p postponed )?--"
@@ -56,12 +55,53 @@ set sort_aux      = reverse-last-date-received
 set uncollapse_jump
 set sort_re
 
-set pager_index_lines = 10
-set pager_context     = 3
-set pager_stop
-set tilde
+set   pager_index_lines = 10
+set   pager_context     = 3
+set   pager_stop
+set   tilde
 unset markers
 
+set   forward_format = "Fwd: %s"
+set   attribution    = "On %d, %n wrote:"
+set   envelope_from
+set   sig_dashes
+set   edit_headers
+set   fast_reply
+#set   askcc
+set   fcc_attach
+set   forward_decode
+set   reply_to
+set   reverse_name
+set   include
+set   forward_quote
+unset mime_forward
+
+####
+#
+# Crypto, more crypto configuration settings are in the accounts directory
+# for each account.
+#
+set pgp_use_gpg_agent        = yes
+set pgp_timeout              = 1800
+set crypt_autosign           = yes
+set crypt_replyencrypt       = yes
+set pgp_decode_command       = "gpg %?p?--passphrase-fd 0? --no-verbose --batch --output - %f"
+set pgp_verify_command       = "gpg --no-verbose --batch --output - --verify %s %f"
+set pgp_decrypt_command      = "gpg --passphrase-fd 0 --no-verbose --batch --output - %f"
+set pgp_sign_command         = "gpg --no-verbose --batch --output - --passphrase-fd 0 --armor --detach-sign --textmode %?a?-u %a? %f"
+set pgp_clearsign_command    = "gpg --no-verbose --batch --output - --passphrase-fd 0 --armor --textmode --clearsign %?a?-u %a? %f"
+set pgp_import_command       = "gpg --no-verbose --import -v %f"
+set pgp_export_command       = "gpg --no-verbose --export --armor %r"
+set pgp_verify_key_command   = "gpg --no-verbose --batch --fingerprint --check-sigs %r"
+set pgp_list_pubring_command = "gpg --no-verbose --batch --with-colons --list-keys %r"
+set pgp_list_secring_command = "gpg --no-verbose --batch --with-colons --list-secret-keys %r"
+set pgp_good_sign            = "^gpg: Good signature from"
+#### end crypto ####
+
+####
+#
+# Key Bindings
+#
 bind pager k  previous-line
 bind pager j  next-line
 bind pager gg top
@@ -69,7 +109,15 @@ bind pager G  bottom
 
 bind index gg first-entry
 bind index G  last-entry
+#### end key bindings ####
 
 source "$HOME/.mutt/colors"
+
+####
+#
+# Folder hooks, when changing to a new folder, this will change some of the
+# mutt configuration to use the correct settings
+#
 folder-hook "josh@bitpay.com/*" source "$HOME/.mutt/accounts/bitpay"
 folder-hook "joshua@dspacelabs.com/*" source "$HOME/.mutt/accounts/dspacelabs"
+#### end folder-hook ####
