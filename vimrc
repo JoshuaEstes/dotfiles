@@ -174,6 +174,11 @@ let g:ycm_server_log_level = 'debug'
 " GnuPG
 let g:GPGPreferArmor=1
 let g:GPGPreferSign=1
+autocmd User GnuPG set updatetime=60000 " milliseconds
+autocmd User GnuPG set foldmethod=marker
+autocmd User GnuPG set foldclose=all
+autocmd User GnuPG set foldopen=insert
+"autocmd CursorHold *.\(gpg\) quit
 " end GnuPG
 
 " Remap keys
