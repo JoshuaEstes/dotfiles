@@ -13,21 +13,30 @@ set mailcap_path     = "$HOME/.mutt/mailcap"
 set tmpdir           = "$HOME/.mutt/tmp"
 set signature        = "$HOME/.mutt/signature"
 
+####
+#
+# Mutt does not seem to be able to create directories, so this is a little
+# hack to get around that
+#
+source `mkdir -p $HOME/.mutt/{cache/messages,tmp}; touch $HOME/.mutt/{signature,alias,certificates}; echo /dev/null`
+####
+
 # Source various files for different email accounts
 source `FILE=$HOME/.mutt/accounts/bitpay; if [ ! -s "$FILE" ]; then FILE=/dev/null; fi; echo "$FILE"`
+### end accounts ###
 
-set wait_key=no
-set mbox_type=Maildir
-set timeout=3
-set mail_check=0
+set   wait_key   = no
+set   mbox_type  = Maildir
+set   timeout    = 3
+set   mail_check = 0
 unset move
-set delete
+set   delete
 unset confirmappend
-set quit
+set   quit
 unset mark_old
-set beep_new
-set pipe_decode
-set thorough_search
+set   beep_new
+set   pipe_decode
+set   thorough_search
 
 set status_chars="*%A"
 set status_format="--[ Folder: %f ]--[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]--%>--%?p?( %p postponed )?--"
@@ -51,4 +60,4 @@ set uncollapse_jump
 set sort_re
 
 bind index gg first-entry
-bind index G last-entry
+bind index G  last-entry

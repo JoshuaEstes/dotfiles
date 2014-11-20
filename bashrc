@@ -16,15 +16,13 @@ if [ -e /etc/bashrc ]; then
     # system wide bashrc file
     source /etc/bashrc
 fi
-if [ -e $HOME/.phpbrew/bashrc ]; then
-    PHPBREW_SET_PROMPT=1
-    source $HOME/.phpbrew/bashrc
-fi
+#### end system bashrc files ####
+
 
 ####
 #
 # PATH configuration
-# 
+#
 # Highest priority at the top, if the directory
 # does not exist then it will not be included in
 # the PATH env variable
@@ -54,7 +52,8 @@ for p in ${PATH_ARRAY[*]}; do
 done
 PATH="${PATH:1:${#PATH}}"
 export PATH
-#### PATH ####
+unset PATH_ARRAY
+#### end PATH ####
 
 ####
 #
@@ -65,8 +64,8 @@ export DEBUG=0
 export ARCHFLAGS="-arch x86_64"
 export EDITOR="vim"
 export GIT_EDITOR="vim"
-export SVN_EDITOR=vim
-export BROWSER=chromium-browser
+export SVN_EDITOR="vim"
+export BROWSER="chromium-browser"
 export IRC_CLIENT="irssi"
 
 # Don't check for mail
@@ -80,10 +79,6 @@ export HISTCONTROL="ignoreboth:erasedups"
 # These will be ignored and not place in the HISTFILE
 export HISTIGNORE="pwd:clear:exit:history"
 
-export PIP_REQUIRE_VIRTUALENV=true
-export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
-#### variables ####
-
 ####
 #
 # Source the bash.local if there is one
@@ -91,7 +86,26 @@ export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 if [ -f "$HOME/.bash.local" ]; then
     source $HOME/.bash.local
 fi
-######
+#### end bash.local ####
+
+####
+#
+# Programing Languages - various tools for development, some need there
+# own configuration settings or some have settings that provide extra
+# features or functionality
+#
+####
+#### php ####
+if [ -e $HOME/.phpbrew/bashrc ]; then
+    PHPBREW_SET_PROMPT=1
+    source $HOME/.phpbrew/bashrc
+fi
+#### end php ####
+#### python ####
+export PIP_REQUIRE_VIRTUALENV=false
+export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
+#### end python ####
+#### end languages ####
 
 if [ -f /usr/local/opt/autoenv/activate.sh ]; then
     source /usr/local/opt/autoenv/activate.sh
@@ -116,3 +130,14 @@ fi
 source $DOTFILES_HOME/lib/colours
 source $DOTFILES_HOME/bash.d/config.bash
 source $DOTFILES_HOME/bash.d/base.bash
+#### end ####
+
+#### gpg ####
+GPG_TTY=$(tty)
+export GPG_TTY
+if [ -f "${HOME}/.gpg-agent-info" ]; then
+    source "${HOME}/.gpg-agent-info"
+    export GPG_AGENT_INFO
+    export SSH_AUTH_SOCK
+fi
+#### end gpg ####

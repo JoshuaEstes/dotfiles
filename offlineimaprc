@@ -1,0 +1,37 @@
+;vim: set ft=dosini:
+[general]
+accounts    = BitPay
+;ui          = Basic
+fsync       = False
+socktimeout = 30
+
+[Account BitPay]
+localrepository  = BitPay-Local
+remoterepository = BitPay-Remote
+
+[Repository BitPay-Local]
+type         = Maildir
+localfolders = ~/Mail/josh@bitpay.com
+nametrans    = lambda folder: {
+    'archive':   '[Gmail]/All Mail',
+    'drafts':    '[Gmail]/Drafts',
+    'important': '[Gmail]/Important',
+    'sent':      '[Gmail]/Sent Mail',
+    'starred':   '[Gmail]/Starred', }.get(folder, folder)
+
+[Repository BitPay-Remote]
+maxconnections = 1
+type           = Gmail
+ssl            = True
+sslcacertfile  = /usr/local/etc/openssl/cert.pem
+remoteuser     = josh@bitpay.com
+;remotepass    = TopSecret
+realdelete     = no
+readonly       = False
+folderfilter   = lambda folder: folder not in ['[Gmail]/Spam', '[Gmail]/Trash']
+nametrans      = lambda folder: {
+    '[Gmail]/All Mail':  'archive',
+    '[Gmail]/Drafts':    'drafts',
+    '[Gmail]/Important': 'important',
+    '[Gmail]/Sent Mail': 'sent',
+    '[Gmail]/Starred':   'starred', }.get(folder, folder)

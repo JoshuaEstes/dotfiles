@@ -31,7 +31,8 @@ function symlink_dotfile()
     fi
 }
 
-mkdir -p $HOME/Mail/{sent,postponed,mbox,inbox}
+# Need to make all the mail and mutt directories and files
+mkdir -p $HOME/Mail/
 mkdir -p $HOME/Projects
 mkdir -p $HOME/Virtualenvs
 

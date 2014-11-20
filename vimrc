@@ -20,6 +20,7 @@ Plugin 'https://github.com/tpope/vim-fugitive.git', {'name': 'vim-fugitive'}
 Plugin 'https://github.com/bling/vim-airline.git', {'name': 'vim-airline'}
 Plugin 'https://github.com/rodjek/vim-puppet.git', {'name': 'vim-puppet'}
 Plugin 'https://github.com/evidens/vim-twig.git', {'name': 'vim-twig'}
+Plugin 'https://github.com/jamessan/vim-gnupg.git', {'name': 'vim-gnupg'}
 call vundle#end()
 filetype plugin indent on
 
@@ -169,6 +170,11 @@ nnoremap <Leader>a: :Tabularize /:\zs<CR>
 let g:ycm_server_keep_logfiles = 1
 let g:ycm_server_log_level = 'debug'
 " end YouCompleteMe
+
+" GnuPG
+let g:GPGPreferArmor=1
+let g:GPGPreferSign=1
+" end GnuPG
 
 " Remap keys
 nnoremap <C-L> :nohls<CR><C-L>   " ctrl + l will clear the highlighted search results
