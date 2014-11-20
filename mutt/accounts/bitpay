@@ -1,0 +1,7 @@
+# vim: filetype=muttrc
+
+set spoolfile = "+josh@bitpay.com/INBOX"
+set mbox      = "+josh@bitpay.com/archive"
+set postponed = "+josh@bitpay.com/drafts"
+set record    = "+josh@bitpay.com/sent"
+set signature = "$HOME/.mutt/signatures/bitpay"
