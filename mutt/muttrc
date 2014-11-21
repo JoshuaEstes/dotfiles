@@ -13,7 +13,7 @@ set message_cachedir = "$HOME/.mutt/cache/messages"
 set certificate_file = "$HOME/.mutt/certificates"
 set alias_file       = "$HOME/.mutt/alias"
 set mailcap_path     = "$HOME/.mutt/mailcap"
-set tmpdir           = "$HOME/.mutt/tmp"
+#set tmpdir           = "$HOME/.mutt/tmp"
 set spoolfile        = "+josh\@bitpay.com/INBOX"
 set signature        = "$HOME/.mutt/signatures/default"
 set editor           = "vim"
@@ -22,6 +22,7 @@ set   mail_check = 0
 set   mbox_type  = Maildir
 set   timeout    = 3
 set   wait_key   = no
+set   wrap       = 80
 set   arrow_cursor
 set   beep_new
 set   delete
@@ -117,6 +118,8 @@ bind index <space> collapse-thread
 # Macros
 #
 
+# Press ~ to run offlineimap to sync down email
+macro index ~ "<shell-escape>offlineimap<enter>"
 #### end macros ####
 
 ####

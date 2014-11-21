@@ -48,6 +48,7 @@ symlink_dotfile "gemrc"
 symlink_dotfile "gitconfig"
 symlink_dotfile "inputrc"
 symlink_dotfile "msmtprc"
+chmod 0600 ~/.msmtprc # Fails to run unless has this permission
 symlink_dotfile "offlineimaprc"
 symlink_dotfile "offlineimap.py"
 if [ "$(uname)" == "Darwin" ]; then
