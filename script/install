@@ -123,7 +123,7 @@ if [ "$(uname)" == "Darwin" ]; then
     brew install ruby
     brew install irssi --with-openssl
     brew install mutt
-    brew install fetchmail
+    #brew install fetchmail
     brew install autoenv
     brew install vim --with-lua # I dig the lua
     brew install lbzip2
@@ -134,6 +134,7 @@ if [ "$(uname)" == "Darwin" ]; then
     brew install mu
     brew install offlineimap
     brew install msmtp
+    brew install ispell
     brew linkapps
     brew cleanup
 fi

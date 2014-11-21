@@ -2,7 +2,11 @@
 #
 # Mutt configuration file
 #
-set realname         = 'Joshua Estes'
+
+# Colors
+source "$HOME/.mutt/colors"
+alternative_order text/plain text/enriched text/html
+
 set folder           = "$HOME/Mail"
 set header_cache     = "$HOME/.mutt/cache/headers"
 set message_cachedir = "$HOME/.mutt/cache/messages"
@@ -14,33 +18,24 @@ set spoolfile        = "+josh\@bitpay.com/INBOX"
 set signature        = "$HOME/.mutt/signatures/default"
 set editor           = "vim"
 
-####
-#
-# Mutt does not seem to be able to create directories, so this is a little
-# hack to get around that
-#
-#source `mkdir -p $HOME/.mutt/{cache/messages,tmp}; touch $HOME/.mutt/{signature,alias,certificates}; echo /dev/null`
-####
-
-# Source various files for different email accounts
-#source `FILE=$HOME/.mutt/accounts/bitpay; if [ ! -s "$FILE" ]; then FILE=/dev/null; fi; echo "$FILE"`
-### end accounts ###
-
-set   wait_key   = no
+set   mail_check = 0
 set   mbox_type  = Maildir
 set   timeout    = 3
-set   mail_check = 0
-set   delete
-set   quit
+set   wait_key   = no
+set   arrow_cursor
 set   beep_new
+set   delete
+set   narrow_tree
 set   pipe_decode
+set   quit
+set   status_on_top
 set   thorough_search
-unset move
 unset confirmappend
 unset mark_old
+unset move
 
-set status_chars="*%A"
-set status_format="--[ Folder: %f ]--[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]--%>--%?p?( %p postponed )?--"
+set status_chars  = "*%A"
+set status_format = "--[ Folder: %f ]--[ %r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]--%>--%?p?( %p postponed )?--"
 
 ignore *
 unignore from: to: cc: date: subject:
@@ -83,10 +78,10 @@ unset mime_forward
 # Crypto, more crypto configuration settings are in the accounts directory
 # for each account.
 #
-set pgp_use_gpg_agent        = yes
-set pgp_timeout              = 1800
 set crypt_autosign           = yes
 set crypt_replyencrypt       = yes
+set pgp_use_gpg_agent        = yes
+set pgp_timeout              = 1800
 set pgp_decode_command       = "gpg %?p?--passphrase-fd 0? --no-verbose --batch --output - %f"
 set pgp_verify_command       = "gpg --no-verbose --batch --output - --verify %s %f"
 set pgp_decrypt_command      = "gpg --passphrase-fd 0 --no-verbose --batch --output - %f"
@@ -111,9 +106,18 @@ bind pager G  bottom
 
 bind index gg first-entry
 bind index G  last-entry
+bind index R  group-reply
+
+bind index <tab>   sync-mailbox
+bind index <space> collapse-thread
 #### end key bindings ####
 
-source "$HOME/.mutt/colors"
+####
+#
+# Macros
+#
+
+#### end macros ####
 
 ####
 #
@@ -122,4 +126,5 @@ source "$HOME/.mutt/colors"
 #
 folder-hook "josh@bitpay.com/*" source "$HOME/.mutt/accounts/bitpay"
 folder-hook "joshua@dspacelabs.com/*" source "$HOME/.mutt/accounts/dspacelabs"
+folder-hook "f1gm3nt@gmail.com/*" source "$HOME/.mutt/accounts/personal"
 #### end folder-hook ####
