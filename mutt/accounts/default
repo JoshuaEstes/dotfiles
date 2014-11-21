@@ -1,0 +1,31 @@
+# vi: set ft=muttrc :
+####
+#
+# This is the default account settings, this needs to be modified
+# for it to work
+#
+
+# Configures the directories where mail is stored, these settings should be
+# updated to anything you want. I prefer to use the email address that is
+# used, but you should be able to change this to your liking
+set spoolfile = "+email@example.com/INBOX"
+set mbox      = "+email@example.com/archive"
+set postponed = "+email@example.com/drafts"
+set record    = "+email@example.com/sent"
+
+# Change the configuration for the signature
+set signature = "$HOME/.mutt/signatures/default"
+
+# Change this information to reflect your name and the email address to be used
+set realname = 'Joshua Estes'
+set from     = 'email@example.com'
+
+# You will need to update `AccountName` to reflect the account in the msmtp
+# configuration, see ~/.msmtp file for info on this
+set sendmail = 'msmtp -a AccountName'
+
+# You will need to update these settings to be able to encrypt and sign
+# email messages
+set pgp_sign_as              = A79F5E01
+set pgp_encrypt_only_command = "pgpewrap gpg --batch --quiet --no-verbose --output - --encrypt --textmode --armor --always-trust --encrypt-to A79F5E01 -- -r %r -- %f"
+set pgp_encrypt_sign_command = "pgpewrap gpg --passphrase-fd 0 --batch --quiet --no-verbose --textmode --output - --encrypt --sign %?a?-u %a? --armor --always-trust --encrypt-to A79F5E01 -- -r %r -- %f"

@@ -63,6 +63,7 @@ unset markers
 
 set   forward_format = "Fwd: %s"
 set   attribution    = "On %d, %n wrote:"
+set   sendmail_wait  = 0
 set   envelope_from
 set   sig_dashes
 set   edit_headers
@@ -74,6 +75,7 @@ set   reply_to
 set   reverse_name
 set   include
 set   forward_quote
+unset record
 unset mime_forward
 
 ####

@@ -7,6 +7,68 @@ fsync       = False
 socktimeout = 30
 pythonfile  = ~/.offlineimap.py
 
+[Account Personal]
+localrepository  = Personal-Local
+remoterepository = Personal-Remote
+
+[Repository Personal-Local]
+type         = Maildir
+localfolders = ~/Mail/f1gm3nt@gmail.com
+nametrans    = lambda folder: {
+    'archive':   '[Gmail]/All Mail',
+    'drafts':    '[Gmail]/Drafts',
+    'important': '[Gmail]/Important',
+    'sent':      '[Gmail]/Sent Mail',
+    'starred':   '[Gmail]/Starred', }.get(folder, folder)
+
+[Repository Personal-Remote]
+maxconnections = 1
+type           = Gmail
+ssl            = True
+sslcacertfile  = /usr/local/etc/openssl/cert.pem
+remoteuser     = f1gm3nt@gmail.com
+remotepasseval = fetch_password('f1gm3nt@gmail.com', 'imap.gmail.com')
+realdelete     = no
+readonly       = False
+folderfilter   = lambda folder: folder not in ['[Gmail]/Spam', '[Gmail]/Trash']
+nametrans      = lambda folder: {
+    '[Gmail]/All Mail':  'archive',
+    '[Gmail]/Drafts':    'drafts',
+    '[Gmail]/Important': 'important',
+    '[Gmail]/Sent Mail': 'sent',
+    '[Gmail]/Starred':   'starred', }.get(folder, folder)
+
+[Account dSpaceLabs]
+localrepository  = dSpaceLabs-Local
+remoterepository = dSpaceLabs-Remote
+
+[Repository dSpaceLabs-Local]
+type         = Maildir
+localfolders = ~/Mail/joshua@dspacelabs.com
+nametrans    = lambda folder: {
+    'archive':   '[Gmail]/All Mail',
+    'drafts':    '[Gmail]/Drafts',
+    'important': '[Gmail]/Important',
+    'sent':      '[Gmail]/Sent Mail',
+    'starred':   '[Gmail]/Starred', }.get(folder, folder)
+
+[Repository dSpaceLabs-Remote]
+maxconnections = 1
+type           = Gmail
+ssl            = True
+sslcacertfile  = /usr/local/etc/openssl/cert.pem
+remoteuser     = joshua@dspacelabs.com
+remotepasseval = fetch_password('joshua@dspacelabs.com', 'imap.gmail.com')
+realdelete     = no
+readonly       = False
+folderfilter   = lambda folder: folder not in ['[Gmail]/Spam', '[Gmail]/Trash']
+nametrans      = lambda folder: {
+    '[Gmail]/All Mail':  'archive',
+    '[Gmail]/Drafts':    'drafts',
+    '[Gmail]/Important': 'important',
+    '[Gmail]/Sent Mail': 'sent',
+    '[Gmail]/Starred':   'starred', }.get(folder, folder)
+
 [Account BitPay]
 localrepository  = BitPay-Local
 remoterepository = BitPay-Remote
