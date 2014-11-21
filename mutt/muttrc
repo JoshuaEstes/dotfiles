@@ -5,8 +5,22 @@
 
 # Colors
 source "$HOME/.mutt/colors"
-alternative_order text/plain text/enriched text/html
 
+####
+#
+#
+#
+ignore *
+unignore from: to: cc: date: subject:
+unhdr_order *
+hdr_order from: to: cc: data: subject:
+alternative_order text/plain text/enriched text/html
+####
+
+####
+#
+# Directories and defaults
+#
 set folder           = "$HOME/Mail"
 set header_cache     = "$HOME/.mutt/cache/headers"
 set message_cachedir = "$HOME/.mutt/cache/messages"
@@ -16,71 +30,82 @@ set mailcap_path     = "$HOME/.mutt/mailcap"
 #set tmpdir           = "$HOME/.mutt/tmp"
 set spoolfile        = "+josh\@bitpay.com/INBOX"
 set signature        = "$HOME/.mutt/signatures/default"
-set editor           = "vim"
 
-set   mail_check = 0
-set   mbox_type  = Maildir
-set   timeout    = 3
-set   wait_key   = no
-set   wrap       = 80
-set   arrow_cursor
-set   beep_new
-set   delete
-set   narrow_tree
-set   pipe_decode
-set   quit
-set   status_on_top
-set   thorough_search
-unset confirmappend
-unset mark_old
-unset move
+####
+#
+# Configuration Settings
+#
+set abort_nosubject   = no
+set editor            = "vim"
+set mail_check        = 0
+set mbox_type         = Maildir
+set pager_context     = 3
+set pager_index_lines = 10
+set sendmail_wait     = 0
+set sort              = threads
+set sort_aux          = reverse-last-date-received
+set timeout           = 3
+set wait_key          = no
+set wrap              = 80
 
-set status_chars  = "*%A"
-set status_format = "--[ Folder: %f ]--[ %r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]--%>--%?p?( %p postponed )?--"
-
-ignore *
-unignore from: to: cc: date: subject:
-unhdr_order *
-hdr_order from: to: cc: data: subject:
-
-set date_format   = "%m/%d/%Y"
-set index_format  = "[%Z] %D %-20.20F %s"
-set sort          = threads
-set sort_aux      = reverse-last-date-received
-#set reply_regexp = ""
-set uncollapse_jump
+set arrow_cursor
+set beep_new
+set delete
+set edit_headers
+set envelope_from
+set fast_reply
+set fcc_attach
+set forward_decode
+set forward_quote
+set include
+set narrow_tree
+set pager_stop
+set pipe_decode
+set quit
+set reply_to
+set reverse_name
+set sig_dashes
 set sort_re
+set status_on_top
+set thorough_search
+set tilde
+set uncollapse_jump
 
-set   pager_index_lines = 10
-set   pager_context     = 3
-set   pager_stop
-set   tilde
+unset confirmappend
+unset help
+unset mark_old
 unset markers
-
-set   forward_format = "Fwd: %s"
-set   attribution    = "On %d, %n wrote:"
-set   sendmail_wait  = 0
-set   envelope_from
-set   sig_dashes
-set   edit_headers
-set   fast_reply
-#set   askcc
-set   fcc_attach
-set   forward_decode
-set   reply_to
-set   reverse_name
-set   include
-set   forward_quote
-unset record
 unset mime_forward
+unset move
+unset record
+#### end
+
+####
+#
+# Change the way things look
+#
+set alias_format   = "%4n %2f %t %-10a   %r"
+set attach_format  = "%u%D%I %t%4n %T%.40d%> [%.7m/%.10M, %.6e%?C?, %C?, %s]"
+set attribution    = "On %d, %n wrote:"
+set compose_format = "-- Compose  [Approx. msg size: %l   Atts: %a]%>-"
+set date_format    = "%m/%d/%Y"
+set folder_format  = "%2C %f %t %N"
+set forward_format = "Fwd: %s"
+set index_format   = "[%Z] %D %-20.20F %s"
+set status_chars   = "*%A"
+set status_format  = "--[ Folder: %f ]--[ %r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]--%>--%?p?( %p postponed )?--"
+#### end visual configuration ####
 
 ####
 #
 # Crypto, more crypto configuration settings are in the accounts directory
 # for each account.
 #
+#set crypt_autoencrypt        = yes
 set crypt_autosign           = yes
 set crypt_replyencrypt       = yes
+set crypt_replysign          = yes
+set crypt_replysignencrypted = yes
 set pgp_use_gpg_agent        = yes
 set pgp_timeout              = 1800
 set pgp_decode_command       = "gpg %?p?--passphrase-fd 0? --no-verbose --batch --output - %f"
@@ -100,17 +125,23 @@ set pgp_good_sign            = "^gpg: Good signature from"
 #
 # Key Bindings
 #
-bind pager k  previous-line
-bind pager j  next-line
-bind pager gg top
-bind pager G  bottom
-
 bind index gg first-entry
 bind index G  last-entry
-bind index R  group-reply
+#bind index R  group-reply
 
-bind index <tab>   sync-mailbox
-bind index <space> collapse-thread
+# use $ to sync mailboxes
+#bind index <tab>   sync-mailbox
+# Previously mapped to <esc> + v
+#bind index <space> collapse-thread
+
+# Previously mapped to none
+bind pager k previous-line
+# Previously mapped to <return>
+bind pager j next-line
+# Previously mapped to ^
+bind pager gg top
+# Previously mapped to none
+bind pager G bottom
 #### end key bindings ####
 
 ####
@@ -118,7 +149,7 @@ bind index <space> collapse-thread
 # Macros
 #
 
-# Press ~ to run offlineimap to sync down email
+# Press ~ to run offlineimap to sync email
 macro index ~ "<shell-escape>clear; offlineimap<enter>"
 #### end macros ####
 
