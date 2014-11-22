@@ -9,6 +9,6 @@ set realname  = 'Joshua Estes'
 set from      = 'joshua@dspacelabs.com'
 set sendmail  = 'msmtp -a dSpaceLabs'
 
-set pgp_sign_as              = A79F5E01
-set pgp_encrypt_only_command = "pgpewrap gpg --batch --quiet --no-verbose --output - --encrypt --textmode --armor --always-trust --encrypt-to A79F5E01 -- -r %r -- %f"
-set pgp_encrypt_sign_command = "pgpewrap gpg --passphrase-fd 0 --batch --quiet --no-verbose --textmode --output - --encrypt --sign %?a?-u %a? --armor --always-trust --encrypt-to A79F5E01 -- -r %r -- %f"
+set pgp_sign_as              = 479BDD6A
+set pgp_encrypt_only_command = "pgpewrap gpg --batch --quiet --no-verbose --output - --encrypt --textmode --armor --always-trust --encrypt-to 479BDD6A -- -r %r -- %f"
+set pgp_encrypt_sign_command = "pgpewrap gpg --passphrase-fd 0 --batch --quiet --no-verbose --textmode --output - --encrypt --sign %?a?-u %a? --armor --always-trust --encrypt-to 479BDD6A -- -r %r -- %f"

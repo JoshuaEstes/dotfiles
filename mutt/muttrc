@@ -158,7 +158,7 @@ macro index ~ "<shell-escape>clear; offlineimap<enter>"
 # Folder hooks, when changing to a new folder, this will change some of the
 # mutt configuration to use the correct settings
 #
-folder-hook "josh@bitpay.com/*" source "$HOME/.mutt/accounts/bitpay"
-folder-hook "joshua@dspacelabs.com/*" source "$HOME/.mutt/accounts/dspacelabs"
 folder-hook "f1gm3nt@gmail.com/*" source "$HOME/.mutt/accounts/personal"
+folder-hook "joshua@dspacelabs.com/*" source "$HOME/.mutt/accounts/dspacelabs"
+folder-hook "josh@bitpay.com/*" source "$HOME/.mutt/accounts/bitpay"
 #### end folder-hook ####

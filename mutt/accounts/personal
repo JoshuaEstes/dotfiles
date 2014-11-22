@@ -9,6 +9,6 @@ set realname  = 'Joshua Estes'
 set from      = 'f1gm3nt@gmail.com'
 set sendmail  = 'msmtp -a Personal'
 
-set pgp_sign_as              = A79F5E01
-set pgp_encrypt_only_command = "pgpewrap gpg --batch --quiet --no-verbose --output - --encrypt --textmode --armor --always-trust --encrypt-to A79F5E01 -- -r %r -- %f"
-set pgp_encrypt_sign_command = "pgpewrap gpg --passphrase-fd 0 --batch --quiet --no-verbose --textmode --output - --encrypt --sign %?a?-u %a? --armor --always-trust --encrypt-to A79F5E01 -- -r %r -- %f"
+set pgp_sign_as              = 7D66AAB0
+set pgp_encrypt_only_command = "pgpewrap gpg --batch --quiet --no-verbose --output - --encrypt --textmode --armor --always-trust --encrypt-to 7D66AAB0 -- -r %r -- %f"
+set pgp_encrypt_sign_command = "pgpewrap gpg --passphrase-fd 0 --batch --quiet --no-verbose --textmode --output - --encrypt --sign %?a?-u %a? --armor --always-trust --encrypt-to 7D66AAB0 -- -r %r -- %f"

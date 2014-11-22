@@ -1,6 +1,7 @@
 ; vi: set ft=dosini :
 [general]
-accounts    = BitPay
+;accounts    = Personal, dSpaceLabs, BitPay
+accounts    = Personal
 ;ui          = Basic
 ;ui          = TTYUI
 fsync       = False
