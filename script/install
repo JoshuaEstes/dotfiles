@@ -9,6 +9,69 @@ DOTFILES_HOME="$HOME/dotfiles"
 source $DOTFILES_HOME/lib/colours
 
 ####
+#
+# Ask user yes/no question
+#
+function _ask_yes_no()
+{
+    local answer
+
+    read -r -p "$1 [Y/n]: " -n 1 answer
+    echo
+
+    if [[ $answer = [nN] ]]; then
+        return 1
+    fi
+
+    return 0
+}
+
+echo "This install script may override some files that you already have in place."
+if  ! _ask_yes_no "Do you want to continue?"; then
+    exit 1
+fi
+
+####
+#
+# Ask user to make directory
+#
+function _mkdir()
+{
+    if [ -d $1 ]; then
+        echo "Directory \"$1\" has already been created."
+        return 0
+    fi
+
+    if _ask_yes_no "Make Directory: \"$1\"?"; then
+        mkdir -vp $1
+    fi
+}
+
+####
+#
+# Asks user if they want to symlink a dotfile if not already symlinked
+#
+# Usage: _symlink "bashrc"
+#
+function _symlink()
+{
+    if [ -h $HOME/.$1 ]; then
+        echo "\"$1\" has already been symlinked"
+        return 1
+    fi
+
+    if _ask_yes_no "Symlink: \"$1\"?"; then
+        ln -fvs $DOTFILES_HOME/$1 $HOME/.$1
+    fi
+}
+
+function _chmod()
+{
+    echo "$1 = mode"
+    echo "$2 = file/directory"
+}
+
+####
 # Symlink a dotfile from the ~/.dotfiles directory to where
 # it needs to go in the home directory
 #
@@ -31,13 +94,14 @@ function symlink_dotfile()
     fi
 }
 
-# Need to make all the mail and mutt directories and files
-mkdir -p $HOME/Mail/
-mkdir -p $HOME/Projects
-mkdir -p $HOME/Virtualenvs
-
 # Install git submodules
 git submodule update --init --recursive
+
+_mkdir $HOME/Mail/        # Mutt
+_mkdir $HOME/Projects/    # Where projects are stored
+_mkdir $HOME/Virtualenvs/ # Python
+_mkdir $HOME/.composer/   # PHP
+_mkdir $HOME/.pw/         # Location where I keep encrypted passwords
 
 # Create symlinks
 symlink_dotfile "ackrc"
@@ -68,9 +132,6 @@ if [ ! -h $HOME/bin ]; then
     ln -Fvs $DOTFILES_HOME/bin $HOME/bin
 fi
 
-if [ ! -d $HOME/.composer ]; then
-    mkdir $HOME/.composer
-fi
 symlink_dotfile "composer/composer.json"
 symlink_dotfile "gitconfig.d"
 symlink_dotfile "irssi"
