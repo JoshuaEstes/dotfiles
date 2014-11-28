@@ -72,7 +72,7 @@ set tilde
 set uncollapse_jump
 
 unset confirmappend
-unset help
+#unset help
 unset mark_old
 unset markers
 unset mime_forward

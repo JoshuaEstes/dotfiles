@@ -18,7 +18,6 @@ localfolders = ~/Mail/f1gm3nt@gmail.com
 nametrans    = lambda folder: {
     'archive':   '[Gmail]/All Mail',
     'drafts':    '[Gmail]/Drafts',
-    'important': '[Gmail]/Important',
     'sent':      '[Gmail]/Sent Mail',
     'starred':   '[Gmail]/Starred', }.get(folder, folder)
 
@@ -31,11 +30,10 @@ remoteuser     = f1gm3nt@gmail.com
 remotepasseval = fetch_password('f1gm3nt@gmail.com', 'imap.gmail.com')
 realdelete     = no
 readonly       = False
-folderfilter   = lambda folder: folder not in ['[Gmail]/Spam', '[Gmail]/Trash']
+folderfilter   = lambda folder: folder not in ['[Gmail]/Important', '[Gmail]/Spam', '[Gmail]/Trash']
 nametrans      = lambda folder: {
     '[Gmail]/All Mail':  'archive',
     '[Gmail]/Drafts':    'drafts',
-    '[Gmail]/Important': 'important',
     '[Gmail]/Sent Mail': 'sent',
     '[Gmail]/Starred':   'starred', }.get(folder, folder)
 
@@ -49,7 +47,6 @@ localfolders = ~/Mail/joshua@dspacelabs.com
 nametrans    = lambda folder: {
     'archive':   '[Gmail]/All Mail',
     'drafts':    '[Gmail]/Drafts',
-    'important': '[Gmail]/Important',
     'sent':      '[Gmail]/Sent Mail',
     'starred':   '[Gmail]/Starred', }.get(folder, folder)
 
@@ -62,11 +59,10 @@ remoteuser     = joshua@dspacelabs.com
 remotepasseval = fetch_password('joshua@dspacelabs.com', 'imap.gmail.com')
 realdelete     = no
 readonly       = False
-folderfilter   = lambda folder: folder not in ['[Gmail]/Spam', '[Gmail]/Trash']
+folderfilter   = lambda folder: folder not in ['[Gmail]/Important', '[Gmail]/Spam', '[Gmail]/Trash']
 nametrans      = lambda folder: {
     '[Gmail]/All Mail':  'archive',
     '[Gmail]/Drafts':    'drafts',
-    '[Gmail]/Important': 'important',
     '[Gmail]/Sent Mail': 'sent',
     '[Gmail]/Starred':   'starred', }.get(folder, folder)
 
@@ -80,7 +76,6 @@ localfolders = ~/Mail/josh@bitpay.com
 nametrans    = lambda folder: {
     'archive':   '[Gmail]/All Mail',
     'drafts':    '[Gmail]/Drafts',
-    'important': '[Gmail]/Important',
     'sent':      '[Gmail]/Sent Mail',
     'starred':   '[Gmail]/Starred', }.get(folder, folder)
 
@@ -93,10 +88,9 @@ remoteuser     = josh@bitpay.com
 remotepasseval = fetch_password('josh@bitpay.com', 'imap.gmail.com')
 realdelete     = no
 readonly       = False
-folderfilter   = lambda folder: folder not in ['[Gmail]/Spam', '[Gmail]/Trash']
+folderfilter   = lambda folder: folder not in ['[Gmail]/Important', '[Gmail]/Spam', '[Gmail]/Trash']
 nametrans      = lambda folder: {
     '[Gmail]/All Mail':  'archive',
     '[Gmail]/Drafts':    'drafts',
-    '[Gmail]/Important': 'important',
     '[Gmail]/Sent Mail': 'sent',
     '[Gmail]/Starred':   'starred', }.get(folder, folder)
