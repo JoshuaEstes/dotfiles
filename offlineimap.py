@@ -19,7 +19,18 @@ def fetch_password(account, server, algo='ripemd160'):
     h = hashlib.new(algo)
     h.update(bytearray(account + server, 'utf-8'))
     filename = os.path.expanduser(password_storage_path) + '/' + h.hexdigest() + '.gpg'
-    command = 'gpg --no-verbose --output - --use-agent --quiet --batch -d ' + filename
-    output = subprocess.check_output(command, stderr=subprocess.STDOUT, shell=True).strip()
+    command  = 'gpg --no-verbose --output - --use-agent --quiet --batch --decrypt ' + filename
+    output   = subprocess.check_output(command, stderr=subprocess.STDOUT, shell=True).strip()
+
+    return output.decode('utf-8')
+
+def retrieve_password(filename, user_id):
+    """
+    filename is the filename located in `password_storage_path` minus `.gpg` and user_id
+    is the GPG user id to use for decryption
+    """
+    filename = os.path.expanduser(password_storage_path) + '/' + filename + '.gpg'
+    command  = 'gpg --local-user ' + user_id + ' --no-verbose --output - --use-agent --quiet --batch --decrypt ' + filename
+    output   = subprocess.check_output(command, stderr=subprocess.STDOUT, shell=True).strip()
 
     return output.decode('utf-8')
