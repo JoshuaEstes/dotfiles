@@ -1,12 +1,13 @@
 :verbose: true
 gem: --no-ri --no-rdoc
-#:update_sources: true
-#:sources: 
-#- http://gems.rubyforge.org
-#- http://gems.github.com
-#:backtrace: false
-#:bulk_threshold: 1000
-#:benchmark: false
+:update_sources: true
+:sources: 
+- http://rubygems.org
+- http://gems.rubyforge.org
+- http://gems.github.com
+:backtrace: false
+:bulk_threshold: 1000
+:benchmark: false
 #gempath:
 #- /usr/lib/ruby/gems/1.9.1
 #- /usr/lib/ruby/gems/1.8

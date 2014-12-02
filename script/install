@@ -197,6 +197,7 @@ if [ "$(uname)" == "Darwin" ]; then
     brew install offlineimap
     brew install msmtp
     brew install ispell
+    brew install libiconv
     brew linkapps
     brew cleanup
 fi
