@@ -28,7 +28,7 @@ set certificate_file = "$HOME/.mutt/certificates"
 set alias_file       = "$HOME/.mutt/alias"
 set mailcap_path     = "$HOME/.mutt/mailcap"
 #set tmpdir           = "$HOME/.mutt/tmp"
-set spoolfile        = "+josh\@bitpay.com/INBOX"
+set spoolfile        = "+f1gm3nt@gmail.com/INBOX"
 set signature        = "$HOME/.mutt/signatures/default"
 
 ####
@@ -160,5 +160,4 @@ macro index ~ "<shell-escape>clear; offlineimap<enter>"
 #
 folder-hook "f1gm3nt@gmail.com/*" source "$HOME/.mutt/accounts/personal"
 folder-hook "joshua@dspacelabs.com/*" source "$HOME/.mutt/accounts/dspacelabs"
-folder-hook "josh@bitpay.com/*" source "$HOME/.mutt/accounts/bitpay"
 #### end folder-hook ####

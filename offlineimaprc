@@ -1,6 +1,6 @@
 ; vi: set ft=dosini :
 [general]
-;accounts    = Personal, dSpaceLabs, BitPay
+;accounts    = Personal, dSpaceLabs
 accounts    = Personal
 ;ui          = Basic
 ;ui          = TTYUI
@@ -57,35 +57,6 @@ ssl            = True
 sslcacertfile  = /usr/local/etc/openssl/cert.pem
 remoteuser     = joshua@dspacelabs.com
 remotepasseval = fetch_password('joshua@dspacelabs.com', 'imap.gmail.com')
-realdelete     = no
-readonly       = False
-folderfilter   = lambda folder: folder not in ['[Gmail]/Important', '[Gmail]/Spam', '[Gmail]/Trash']
-nametrans      = lambda folder: {
-    '[Gmail]/All Mail':  'archive',
-    '[Gmail]/Drafts':    'drafts',
-    '[Gmail]/Sent Mail': 'sent',
-    '[Gmail]/Starred':   'starred', }.get(folder, folder)
-
-[Account BitPay]
-localrepository  = BitPay-Local
-remoterepository = BitPay-Remote
-
-[Repository BitPay-Local]
-type         = Maildir
-localfolders = ~/Mail/josh@bitpay.com
-nametrans    = lambda folder: {
-    'archive':   '[Gmail]/All Mail',
-    'drafts':    '[Gmail]/Drafts',
-    'sent':      '[Gmail]/Sent Mail',
-    'starred':   '[Gmail]/Starred', }.get(folder, folder)
-
-[Repository BitPay-Remote]
-maxconnections = 1
-type           = Gmail
-ssl            = True
-sslcacertfile  = /usr/local/etc/openssl/cert.pem
-remoteuser     = josh@bitpay.com
-remotepasseval = fetch_password('josh@bitpay.com', 'imap.gmail.com')
 realdelete     = no
 readonly       = False
 folderfilter   = lambda folder: folder not in ['[Gmail]/Important', '[Gmail]/Spam', '[Gmail]/Trash']
