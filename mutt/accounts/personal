@@ -13,5 +13,16 @@ set pgp_sign_as              = 7D66AAB0
 set pgp_encrypt_only_command = "pgpewrap gpg --batch --quiet --no-verbose --output - --encrypt --textmode --armor --always-trust --encrypt-to 7D66AAB0 -- -r %r -- %f"
 set pgp_encrypt_sign_command = "pgpewrap gpg --batch --quiet --no-verbose --textmode --output - --encrypt --sign %?a?-u %a? --armor --always-trust --encrypt-to 7D66AAB0 -- -r %r -- %f"
 
+####
+#
+# Headers
+#
+set my_hdr="X-PGP-Key: https://keybase.io/joshuaestes/key.asc"
+#### end headers ####
+
+####
+#
+# Macros
+#
 macro index ~ "<shell-escape>clear; offlineimap -a Personal<enter>"
 #### end macros ####
