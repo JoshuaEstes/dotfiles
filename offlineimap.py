@@ -10,7 +10,7 @@ import subprocess
 # Path to store various keys
 password_storage_path = '~/.pw'
 
-def fetch_password(account, server, algo='ripemd160'):
+def fetch_password(account, server, algo='ripemd160', local_user=None):
     """
     Takes a hash of the account and server and uses that as the filename
     for which the password is contained within. The file must already be
@@ -19,8 +19,13 @@ def fetch_password(account, server, algo='ripemd160'):
     h = hashlib.new(algo)
     h.update(bytearray(account + server, 'utf-8'))
     filename = os.path.expanduser(password_storage_path) + '/' + h.hexdigest() + '.gpg'
-    command  = 'gpg --no-verbose --output - --use-agent --quiet --batch --decrypt ' + filename
-    output   = subprocess.check_output(command, stderr=subprocess.STDOUT, shell=True).strip()
+    if local_user is not None:
+        command = 'gpg --local-user ' + local_user + ' --no-verbose --output - --use-agent --quiet --batch --decrypt ' + filename
+    else:
+        command = 'gpg --no-verbose --output - --use-agent --quiet --batch --decrypt ' + filename
+
+    output = subprocess.check_output(command, stderr=subprocess.STDOUT, shell=True).strip()
+    #print(output.decode('utf-8'))
 
     return output.decode('utf-8')
 

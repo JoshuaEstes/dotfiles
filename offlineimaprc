@@ -1,7 +1,6 @@
 ; vi: set ft=dosini :
 [general]
-;accounts    = Personal, dSpaceLabs
-accounts    = Personal
+accounts    = Personal, dSpaceLabs
 ;ui          = Basic
 ;ui          = TTYUI
 fsync       = False
@@ -55,8 +54,8 @@ maxconnections = 1
 type           = Gmail
 ssl            = True
 sslcacertfile  = /usr/local/etc/openssl/cert.pem
-remoteuser     = joshua@dspacelabs.com
-remotepasseval = fetch_password('joshua@dspacelabs.com', 'imap.gmail.com')
+remoteuser     = joshua.estes@sceniccitylabs.com
+remotepasseval = fetch_password('joshua@dspacelabs.com', 'imap.gmail.com', local_user='479BDD6A')
 realdelete     = no
 readonly       = False
 folderfilter   = lambda folder: folder not in ['[Gmail]/Important', '[Gmail]/Spam', '[Gmail]/Trash']
