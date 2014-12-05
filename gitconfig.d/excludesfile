@@ -42,6 +42,8 @@
 !.scrutinizer.yml
 !.placeholder
 !.npmrc
+!.kitchen.yml
+!.slugignore
 *~
 
 # KDE
