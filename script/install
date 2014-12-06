@@ -199,6 +199,7 @@ if [ "$(uname)" == "Darwin" ]; then
     brew install ispell
     brew install libiconv
     brew install s3cmd
+    brew install mcrypt
     brew linkapps
     brew cleanup
 fi
