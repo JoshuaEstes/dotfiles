@@ -200,6 +200,7 @@ if [ "$(uname)" == "Darwin" ]; then
     brew install libiconv
     brew install s3cmd
     brew install mcrypt
+    brew install postgresql
     brew linkapps
     brew cleanup
 fi
