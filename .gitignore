@@ -19,3 +19,4 @@ bash.d/functions.d/enabled/*
 /node_modules/
 /vim/bundle/
 !vim/bundle/Vundle.vim
+npm-debug.log

@@ -9,12 +9,12 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'https://github.com/scrooloose/nerdtree.git', {'name': 'nerdtree'}
-Plugin 'https://github.com/Valloric/YouCompleteMe.git', {'name': 'YouCompleteMe'}
+"Plugin 'https://github.com/Valloric/YouCompleteMe.git', {'name': 'YouCompleteMe'}
 Plugin 'https://github.com/jlanzarotta/bufexplorer.git', {'name': 'bufexplorer'}
 Plugin 'https://github.com/scrooloose/nerdcommenter.git', {'name': 'nerdcommenter'}
 Plugin 'https://github.com/scrooloose/syntastic', {'name': 'syntastic'}
 Plugin 'https://github.com/godlygeek/tabular.git', {'name': 'tabular'}
-Plugin 'https://github.com/SirVer/ultisnips.git', {'name': 'ultisnips'}
+"Plugin 'https://github.com/SirVer/ultisnips.git', {'name': 'ultisnips'}
 Plugin 'https://github.com/altercation/vim-colors-solarized.git', {'name': 'vim-colors-solarized'}
 Plugin 'https://github.com/tpope/vim-fugitive.git', {'name': 'vim-fugitive'}
 Plugin 'https://github.com/bling/vim-airline.git', {'name': 'vim-airline'}
@@ -167,8 +167,8 @@ nnoremap <Leader>a: :Tabularize /:\zs<CR>
 " end Tabularize key mappings
 
 " YouCompleteMe
-let g:ycm_server_keep_logfiles = 1
-let g:ycm_server_log_level = 'debug'
+"let g:ycm_server_keep_logfiles = 1
+"let g:ycm_server_log_level = 'debug'
 " end YouCompleteMe
 
 " GnuPG
