@@ -126,9 +126,9 @@
 ;  remote = origin
 ;  merge = refs/heads/develop
 [hooks "phpcs"]
-	enabled = yes
+	enabled = no
     options = --ignore=*.dist --standard=PSR1,PSR2 -n
 [hooks "phpmd"]
-    enabled = yes
+    enabled = no
     report = text
     ruleset = cleancode,codesize,design,naming,unusedcode

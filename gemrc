@@ -8,8 +8,8 @@
 :backtrace: false
 :bulk_threshold: 1000
 :benchmark: false
-gemhome: /usr/local/lib/ruby
-:gempath:
-- /usr/lib/ruby
+#gemhome: /usr/local/lib/ruby
+#:gempath:
+#- /usr/lib/ruby
 #- /usr/lib/ruby/gems/1.9.1
 #- /usr/lib/ruby/gems/1.8
