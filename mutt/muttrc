@@ -75,7 +75,9 @@ unset confirmappend
 #unset help
 unset mark_old
 unset markers
-unset mime_forward
+#unset mime_forward
+set mime_forward=yes
+set mime_forward_rest=yes
 unset move
 unset record
 #### end
