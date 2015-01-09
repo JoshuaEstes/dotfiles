@@ -55,7 +55,7 @@ set edit_headers
 set envelope_from
 set fast_reply
 set fcc_attach
-set forward_decode
+unset forward_decode
 set forward_quote
 set include
 set narrow_tree
