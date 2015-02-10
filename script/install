@@ -4,6 +4,8 @@
 # install dotfiles
 #
 
+set -e
+
 # Location where the dotfiles will live
 DOTFILES_HOME="$HOME/dotfiles"
 source $DOTFILES_HOME/lib/colours

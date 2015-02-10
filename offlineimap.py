@@ -1,5 +1,5 @@
 """
-This file uses GnuGPG to encrypt and decrypt passwords
+Uses GnuGPG to encrypt and decrypt information for use with offlineimap.
 """
 
 import hashlib
@@ -7,34 +7,30 @@ import logging
 import os
 import subprocess
 
-# Path to store various keys
-password_storage_path = '~/.pw'
+"""
+Storage path is the location where this information is stored. This is a private
+git repository in my case, however it can be just a directory
+"""
+storage_path = '~/.pw'
 
-def fetch_password(account, server, algo='ripemd160', local_user=None):
+def get_username(account, user_id):
     """
-    Takes a hash of the account and server and uses that as the filename
-    for which the password is contained within. The file must already be
-    encrypted using GPG
+    account is the account name, can be anything
+    user_id is the gpg user id to use to encrypt/decrypt the file contents
     """
-    h = hashlib.new(algo)
-    h.update(bytearray(account + server, 'utf-8'))
-    filename = os.path.expanduser(password_storage_path) + '/' + h.hexdigest() + '.gpg'
-    if local_user is not None:
-        command = 'gpg --local-user ' + local_user + ' --no-verbose --output - --use-agent --quiet --batch --decrypt ' + filename
-    else:
-        command = 'gpg --no-verbose --output - --use-agent --quiet --batch --decrypt ' + filename
-
-    output = subprocess.check_output(command, stderr=subprocess.STDOUT, shell=True).strip()
-    #print(output.decode('utf-8'))
+    filename = os.path.expanduser(storage_path) + '/' + account.lower() + '.username.gpg'
+    command  = 'gpg --local-user ' + user_id + ' --no-verbose --output - --use-agent --quiet --batch --decrypt ' + filename
+    output   = subprocess.check_output(command, stderr=subprocess.STDOUT, shell=True).strip()
 
     return output.decode('utf-8')
 
-def retrieve_password(filename, user_id):
+
+def get_password(account, user_id):
     """
-    filename is the filename located in `password_storage_path` minus `.gpg` and user_id
-    is the GPG user id to use for decryption
+    account is the account name, can be anything
+    user_id is the gpg user id to use to encrypt/decrypt the file contents
     """
-    filename = os.path.expanduser(password_storage_path) + '/' + filename + '.gpg'
+    filename = os.path.expanduser(storage_path) + '/' + account.lower() + '.password.gpg'
     command  = 'gpg --local-user ' + user_id + ' --no-verbose --output - --use-agent --quiet --batch --decrypt ' + filename
     output   = subprocess.check_output(command, stderr=subprocess.STDOUT, shell=True).strip()
 

@@ -25,7 +25,7 @@ set folder           = "$HOME/Mail"
 set header_cache     = "$HOME/.mutt/cache/headers"
 set message_cachedir = "$HOME/.mutt/cache/messages"
 set certificate_file = "$HOME/.mutt/certificates"
-set alias_file       = "$HOME/.mutt/alias"
+set alias_file       = "$HOME/.mutt/aliases"
 set mailcap_path     = "$HOME/.mutt/mailcap"
 #set tmpdir           = "$HOME/.mutt/tmp"
 set spoolfile        = "+f1gm3nt@gmail.com/INBOX"
@@ -97,6 +97,14 @@ set index_format   = "[%Z] %D %-20.20F %s"
 set status_chars   = "*%A"
 set status_format  = "--[ Folder: %f ]--[ %r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]--%>--%?p?( %p postponed )?--"
 #### end visual configuration ####
+
+
+####
+#
+# External Applications
+#
+
+#### end external applications ####
 
 ####
 #

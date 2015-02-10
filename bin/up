@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # vim: set ft=sh
+set -e
 ####
 #
 # First figure out what box it is and run the main dependency managers

@@ -1,7 +1,4 @@
 #!/usr/bin/env bash
-# The individual per-interactive-shell startup file
-
-#echo "DEBUG::basrc"
 ####
 #
 # include system wide bashrc files
@@ -17,7 +14,6 @@ if [ -e /etc/bashrc ]; then
     source /etc/bashrc
 fi
 #### end system bashrc files ####
-
 
 ####
 #
@@ -72,13 +68,52 @@ export IRC_CLIENT="irssi"
 # Don't check for mail
 unset MAILCHECK
 
-# Put a space before a command to exclude it from the history file
-# Pressing up will not store the previous cmd in the history
-# Only stores one of any given command
-export HISTCONTROL="ignoreboth:erasedups"
-
-# These will be ignored and not place in the HISTFILE
+# A colon-separated list of values controlling how commands are saved on the
+# history list.  If the list of values includes ignorespace, lines  which
+# begin  with  a  space character are not saved in the history list.  A value
+# of ignoredups causes lines matching the previous history entry to not be
+# saved.  A value of ignoreboth is shorthand for ignorespace and ignoredups.  A
+# value of erasedups causes all previous lines matching the current line to be
+# removed from the history list before that line is  saved.  Any  value  not
+# in  the  above list is ignored.  If HISTCONTROL is unset, or does not include
+# a valid value, all lines read by the shell parser are saved on the history
+# list, subject to the value of HISTIGNORE.  The second and subsequent lines of
+# a multi-line compound command are not tested, and are added to the  history
+# regardless  of the value of HISTCONTROL.
+export HISTCONTROL="ignorespace"
+# A  colon-separated  list  of  patterns used to decide which command lines
+# should be saved on the history list.  Each pattern is anchored at the
+# beginning of the line and must match the complete line (no implicit `*' is
+# appended).  Each pattern is tested against the line after the checks
+# specified by HISTCONTROL are applied.  In  addition to the normal shell
+# pattern matching characters, `&' matches the previous history line.  `&' may
+# be escaped using a backslash; the backslash is removed before attempting a
+# match.  The second and subsequent lines of a multi-line compound command are
+# not tested, and are added to the history regardless of the value of
+# HISTIGNORE.
 export HISTIGNORE="pwd:clear:exit:history"
+# The number of commands to remember in the command history (see HISTORY
+# below).  If the value is 0, commands are not saved in the history list.
+# Numeric values less  than zero result in every command being saved on the
+# history list (there is no limit).  The shell sets the default value to 500
+# after reading any startup files.
+export HISTSIZE=
+# The maximum number of lines contained in the history file.  When this
+# variable is assigned a value, the history file is truncated, if necessary, to
+# contain no more  than that  number  of lines by removing the oldest entries.
+# The history file is also truncated to this size after writing it when a shell
+# exits.  If the value is 0, the his- tory file is truncated to zero size.
+# Non-numeric values and numeric values less than zero inhibit truncation.  The
+# shell sets the default value to the value of HISTSIZE after reading any
+# startup files.
+export HISTFILESIZE=
+# If  this  variable  is set and not null, its value is used as a format string
+# for strftime(3) to print the time stamp associated with each history entry
+# displayed by the history builtin.  If this variable is set, time stamps are
+# written to the history file so they may be preserved across shell sessions.
+# This  uses  the  history  comment character to distinguish timestamps from
+# other history lines.
+export HISTTIMEFORMAT="%Y-%m-%d %H:%M "
 
 ####
 #
