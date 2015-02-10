@@ -104,6 +104,9 @@ set status_format  = "--[ Folder: %f ]--[ %r%m messages%?n? (%n new)?%?d? (%d to
 # External Applications
 #
 
+# use `ppl` to search for contacts
+set query_command = "ppl mutt '%s'"
+
 #### end external applications ####
 
 ####
