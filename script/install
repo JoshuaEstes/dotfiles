@@ -1,24 +1,32 @@
 #!/usr/bin/env bash
-####
-#
-# install dotfiles
-#
-
+# vi: set ft=sh :
 set -e
 
-# Location where the dotfiles will live
-DOTFILES_HOME="$HOME/dotfiles"
-source $DOTFILES_HOME/lib/colours
+cd "$(dirname "$0")/.."
+DOTFILES_ROOT=$(pwd)
+IS_DARWIN=false
+if [ "$(uname)" == "Darwin" ]; then
+    IS_DARWIN=true
+fi
 
-####
-#
-# Ask user yes/no question
-#
-function _ask_yes_no()
-{
+function info() {
+    printf "\r[\033[00;34m..\033[0m] $1\n"
+}
+
+function success() {
+    printf "\r\[\033[00;32msuccess\033[0m ] $1\n"
+}
+
+function fail() {
+    printf "\r[\033[0;31mfail\033[0m] $1\n\n"
+    exit
+}
+
+function _ask_yes_no() {
     local answer
 
-    read -r -p "$1 [Y/n]: " -n 1 answer
+    printf "\r[\033[0;33m?\033[0m] $1 [Y/n]: "
+    read -n 1 answer
     echo
 
     if [[ $answer = [nN] ]]; then
@@ -28,19 +36,10 @@ function _ask_yes_no()
     return 0
 }
 
-echo "This install script may override some files that you already have in place."
-if  ! _ask_yes_no "Do you want to continue?"; then
-    exit 1
-fi
-
-####
-#
-# Ask user to make directory
-#
 function _mkdir()
 {
     if [ -d $1 ]; then
-        echo "Directory \"$1\" has already been created."
+        info "Directory \"$1\" has already been created."
         return 0
     fi
 
@@ -49,124 +48,185 @@ function _mkdir()
     fi
 }
 
-####
-#
-# Asks user if they want to symlink a dotfile if not already symlinked
-#
-# Usage: _symlink "bashrc"
-#
-function _symlink()
-{
-    if [ -h $HOME/.$1 ]; then
-        echo "\"$1\" has already been symlinked"
-        return 1
-    fi
-
-    if _ask_yes_no "Symlink: \"$1\"?"; then
-        ln -fvs $DOTFILES_HOME/$1 $HOME/.$1
+function link_file() {
+    if [ ! -h $2 ]; then
+        ln -Fvs $1 $2
+    elif [ -h $2 ]; then
+        info "$2 is already a symlink"
     fi
 }
 
-function _chmod()
-{
-    echo "$1 = mode"
-    echo "$2 = file/directory"
-}
-
-####
-# Symlink a dotfile from the ~/.dotfiles directory to where
-# it needs to go in the home directory
-#
-# Usage: symlink_dotfile "bashrc"
-#
-# @param string $1 Filename to symlink
-#
-function symlink_dotfile()
-{
-    if [ -z "$1" ]; then
-        echo "You must pass a filename to this function"
-        return 1
-    fi
-
-    # Not not a symlink, link it
-    if [ ! -h $HOME/.$1 ]; then
-        ln -Fvs $DOTFILES_HOME/$1 $HOME/.$1
-    else
-        echo "Could not symlink $HOME/.$1"
+function setup_git() {
+    info "Setting up Git"
+    link_file $DOTFILES_ROOT/gitconfig $HOME/.gitconfig
+    link_file gitconfig.d $HOME/.gitconfig.d
+    if [ $IS_DARWIN == "true" ]; then
+        brew install git
     fi
 }
 
-# Install git submodules
-git submodule update --init --recursive
+function setup_mail() {
+    info "These dotfiles use Mutt as an email client"
+    _mkdir $HOME/Mail/
+    link_file mutt $HOME/.mutt
+    link_file $DOTFILES_ROOT/msmtprc $HOME/.msmtprc && chmod 0600 $HOME/.msmtprc
+    link_file $DOTFILES_ROOT/offlineimaprc $HOME/.offlineimaprc
+    link_file $DOTFILES_ROOT/offlineimap.py $HOME/.offlineimap.py # Maybe move this into the lib directory?
 
-_mkdir $HOME/Mail/        # Mutt
-_mkdir $HOME/Projects/    # Where projects are stored
-_mkdir $HOME/Virtualenvs/ # Python
-_mkdir $HOME/.composer/   # PHP
-_mkdir $HOME/.pw/         # Location where I keep encrypted passwords
+    if [ $IS_DARWIN == "true" ]; then
+        brew install mutt
+        brew install offlineimap
+        brew install msmtp
+    fi
+}
 
-# Create symlinks
-symlink_dotfile "ackrc"
-symlink_dotfile "bash_logout"
-symlink_dotfile "bash_profile"
-symlink_dotfile "bashrc"
-symlink_dotfile "gemrc"
-symlink_dotfile "gitconfig"
-symlink_dotfile "inputrc"
-symlink_dotfile "msmtprc"
-chmod 0600 ~/.msmtprc # Fails to run unless has this permission
-symlink_dotfile "offlineimaprc"
-symlink_dotfile "offlineimap.py"
-if [ "$(uname)" == "Darwin" ]; then
-    symlink_dotfile "osx"
-fi
-symlink_dotfile "taskrc"
-symlink_dotfile "tmux.conf"
-symlink_dotfile "vimrc"
-symlink_dotfile "zlogin"
-symlink_dotfile "zlogout"
-symlink_dotfile "zprofile"
-symlink_dotfile "zshenv"
-symlink_dotfile "zshrc"
-symlink_dotfile "bash.d"
+function setup_pw() {
+    info "Setting up gpg encrypted passwords"
+    _mkdir $HOME/.pw/
+}
 
-if [ ! -h $HOME/bin ]; then
-    ln -Fvs $DOTFILES_HOME/bin $HOME/bin
-fi
+function setup_address_book() {
+    info "Setting up cli Address Book"
+    _mkdir $HOME/.AddressBook
+}
 
-symlink_dotfile "composer/composer.json"
-symlink_dotfile "gitconfig.d"
-symlink_dotfile "irssi"
-symlink_dotfile "mutt"
-symlink_dotfile "vim"
-symlink_dotfile "zsh.d"
+function setup_tmux() {
+    info "Installing and configuring tmux"
+    link_file $DOTFILES_ROOT/tmux.conf $HOME/.tmux.conf
+}
 
-# Install php stuff
-if [ $(command -v php) ]; then
-    PHP_BIN=$(command -v php)
-    # PHP is installed. Install composer and
-    # install some apps
+function setup_composer() {
+    local PHP_BIN=$(command -v php)
+
+    info "Installing and setting up composer"
+
+    if [ ! $PHP_BIN ]; then
+        fail "PHP does not appear to be installed"
+    fi
+
+    _mkdir $HOME/.composer/
+    link_file composer/composer.json $HOME/.composer/composer.json
+
     if [ -f $HOME/bin/composer.phar ]; then
         $PHP_BIN $HOME/bin/composer.phar selfupdate
     else
         curl -sS https://getcomposer.org/installer | $PHP_BIN -- --install-dir=$HOME/bin
     fi
     $PHP_BIN $HOME/bin/composer.phar global update
+}
+
+function setup_vim() {
+    info "Setting up Vim"
+    link_file vim $HOME/.vim
+    link_file $DOTFILES_ROOT/vimrc $HOME/.vimrc
+    if [ $IS_DARWIN == "true" ]; then
+        brew install vim --with-lua
+    fi
+    vim +PluginInstall +qall
+    cd vim/bundle/YouCompleteMe
+    ./install.sh
+}
+
+function setup_taskwarrior() {
+    info "setting up task warrior"
+    link_file $DOTFILES_ROOT/taskrc $HOME/.taskrc
+}
+
+function setup_irssi() {
+    info "Install and setup irssi"
+    link_file irssi $HOME/.irssi
+    if [ $IS_DARWIN == "true" ]; then
+        brew install irssi --with-openssl
+    fi
+}
+
+function setup_php() {
+    info "php"
+    setup_composer && echo
+}
+
+function setup_python() {
+    info "python"
+    _mkdir $HOME/Virtualenvs/
+    if [ $(command -v pip) ]; then
+        info "Installing virtualenv"
+        pip install virtualenv
+        info "Installing pep8"
+        pip install pep8
+    fi
+}
+
+function setup_ruby() {
+    info "ruby"
+    link_file $DOTFILES_ROOT/gemrc $HOME/.gemrc
+    if [ $(command -v gem) ]; then
+        gem install puppet-lint
+        gem install scss-lint
+        gem install rubocop
+        gem install compass
+    fi
+}
+
+function setup_node() {
+    info "node"
+    if [ $(command -v npm) ]; then
+        npm install -g jshint
+        npm install -g grunt-cli
+        npm install -g gulp
+        npm install -g keybase-installer
+        keybase-installer
+    fi
+}
+
+function install_dotfiles() {
+    info "Installing dotfiles"
+
+    _mkdir $HOME/Projects/
+    link_file $DOTFILES_ROOT/bin $HOME/bin
+    link_file $DOTFILES_ROOT/ackrc $HOME/.ackrc
+    link_file $DOTFILES_ROOT/bash_logout $HOME/.bash_logout
+    link_file $DOTFILES_ROOT/bash_profile $HOME/.bash_profile
+    link_file $DOTFILES_ROOT/bashrc $HOME/.bashrc
+    link_file $DOTFILES_ROOT/inputrc $HOME/.inputrc
+    link_file $DOTFILES_ROOT/bash.d $HOME/.bash.d
+
+    if [ $IS_DARWIN == "true" ]; then
+        link_file $DOTFILES_ROOT/osx $HOME/.osx
+    fi
+
+    git submodule update --init --recursive
+
+    setup_git && echo
+    setup_mail && echo
+    setup_vim && echo
+    setup_irssi && echo
+    setup_tmux && echo
+
+
+    link_file $DOTFILES_ROOT/zlogin $HOME/.zlogin
+    link_file $DOTFILES_ROOT/zlogout $HOME/.zlogout
+    link_file $DOTFILES_ROOT/zprofile $HOME/.zprofile
+    link_file $DOTFILES_ROOT/zshenv $HOME/.zshenv
+    link_file $DOTFILES_ROOT/zshrc $HOME/.zshrc
+    link_file $DOTFILES_ROOT/zsh.d $HOME/.zsh.d
+}
+
+info "This install script may override some files that you already have in place."
+if  ! _ask_yes_no "Do you want to continue?"; then
+    exit 1
 fi
 
-# Install OSX stuff
-if [ "$(uname)" == "Darwin" ]; then
+if [ $IS_DARWIN == "true" ]; then
     if [ ! $(command -v brew) ]; then
         echo "Installing homebrew"
         ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     fi
-
     brew update
     brew tap homebrew/dupes
-    brew install coreutils
-    brew install findutils
-    brew install bash
-    brew install grep
+    #brew install coreutils
+    #brew install findutils
+    #brew install bash
+    #brew install grep
     #brew install graphicsmagick
     #brew install webkit2png
     #brew install rename
@@ -175,87 +235,47 @@ if [ "$(uname)" == "Darwin" ]; then
     #brew install python
     #brew install sshfs
     #brew install trash
-    brew install node
-    brew install tree
-    brew install ack
+    #brew install node
+    #brew install tree
+    #brew install ack
     #brew install hub
-    brew install git
-    brew install bash-completion
-    brew install ssh-copy-id
-    brew install wget
-    brew install python3
-    brew install ruby
-    brew install rbenv
+    #brew install bash-completion
+    #brew install ssh-copy-id
+    #brew install wget
+    #brew install python3
+    #brew install ruby
+    #brew install rbenv
     #brew install ruby-build
-    brew install irssi --with-openssl
-    brew install mutt
+    #brew install irssi --with-openssl
+    #brew install mutt
     #brew install fetchmail
-    brew install autoenv
-    brew install vim --with-lua # I dig the lua
-    brew install lbzip2
+    #brew install autoenv
+    #brew install vim --with-lua # I dig the lua
+    #brew install lbzip2
     #brew install php56 --with-gmp
     #brew install php56-mcrypt
     #brew install php56-xdebug
-    brew install colordiff
-    brew install mu
-    brew install offlineimap
-    brew install msmtp
-    brew install ispell
-    brew install libiconv
-    brew install s3cmd
-    brew install mcrypt
-    brew install postgresql
+    #brew install colordiff
+    #brew install mu
+    #brew install offlineimap
+    #brew install msmtp
+    #brew install ispell
+    #brew install libiconv
+    #brew install s3cmd
+    #brew install mcrypt
+    #brew install postgresql
+fi
+
+install_dotfiles && echo
+setup_php && echo
+setup_python && echo
+setup_ruby && echo
+setup_node && echo
+
+if [ $IS_DARWIN == "true" ]; then
     brew linkapps
     brew cleanup
 fi
 
-####
-#
-# install stuff with pip
-#
-if [ $(command -v pip) ]; then
-    echo "Installing virtualenv"
-    pip install virtualenv
-    # Used to check python files to make sure then conform to the language
-    # standards
-    echo "Installing pep8"
-    pip install pep8
-fi
-#### end python ####
-
-####
-#
-# install stuff with npm
-#
-if [ $(command -v npm) ]; then
-    npm install -g jshint
-    npm install -g grunt-cli
-    npm install -g gulp
-    npm install -g keybase-installer
-    keybase-installer
-fi
-#### end nodejs ####
-
-####
-#
-# Install stuff with gem
-#
-if [ $(command -v gem) ]; then
-    # Used in git pre-commit hook to lint puppet files
-    gem install puppet-lint
-    gem install scss-lint
-    gem install rubocop
-    gem install compass
-fi
-#### end ruby ####
-
-# Once all the dependencies are install this should run since it runs
-# a compile script
-vim +PluginInstall +qall
-cd vim/bundle/YouCompleteMe
-./install.sh
-cd -
-
-# Reload
-echo "DEBUG::source $HOME/.bashrc"
+info "DEBUG::source $HOME/.bashrc"
 source $HOME/.bashrc
