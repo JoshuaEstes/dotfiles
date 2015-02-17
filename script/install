@@ -17,8 +17,12 @@ function success() {
     printf "\r\[\033[00;32msuccess\033[0m ] $1\n"
 }
 
+function warn() {
+    printf "\r[\033[0;31mWARNING\033[0m] $1\n\n"
+}
+
 function fail() {
-    printf "\r[\033[0;31mfail\033[0m] $1\n\n"
+    printf "\r[\033[0;31mFAILURE\033[0m] $1\n\n"
     exit
 }
 
@@ -67,12 +71,12 @@ function setup_git() {
 
 function setup_mail() {
     info "These dotfiles use Mutt as an email client"
+    _mkdir $HOME/Mail/
     if [ $IS_DARWIN == "true" ]; then
         brew install mutt
         brew install offlineimap
         brew install msmtp
     fi
-    _mkdir $HOME/Mail/
     link_file mutt $HOME/.mutt
     link_file pplconfig $HOME/.pplconfig
     link_file $DOTFILES_ROOT/msmtprc $HOME/.msmtprc && chmod 0600 $HOME/.msmtprc
@@ -84,6 +88,7 @@ function setup_mail() {
 function setup_pw() {
     info "Setting up gpg encrypted passwords"
     _mkdir $HOME/.pw/
+    # Should keys be generated here if none are found?
 }
 
 function setup_address_book() {
@@ -143,6 +148,14 @@ function setup_irssi() {
 
 function setup_php() {
     info "php"
+
+    curl -L -O https://github.com/phpbrew/phpbrew/raw/master/phpbrew
+    chmod +x phpbrew
+    mv phpbrew $HOME/bin/phpbrew
+    # Should a php version be installed here?
+
+    # Need to install phpenv
+
     setup_composer && echo
 }
 
@@ -175,16 +188,15 @@ function setup_ruby() {
 
 function setup_node() {
     info "node"
+    if [ $IS_DARWIN == "true" ]; then
+        brew install node
+    fi
     if [ $(command -v npm) ]; then
         npm install -g jshint
         npm install -g grunt-cli
         npm install -g gulp
         npm install -g keybase-installer
         keybase-installer
-    fi
-
-    if [ $IS_DARWIN == "true" ]; then
-        brew install node
     fi
 }
 

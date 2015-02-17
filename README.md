@@ -44,6 +44,16 @@ OS that you are running.
 
 # bash
 
+## aliases
+
+Aliases are located in the bash.d/aliases.d directory. It will load all files in
+the enabled directory.
+
+## completions
+
+Completions are located in bash.d/completions.d/ and will load all files located
+in the enabled directory.
+
 # Git
 ## Configuration
 
@@ -82,3 +92,11 @@ msmtp is used to send emails.
 
 GnuPG is used to store credentials and these credentials are stored in
 `$HOME/.pw` and can be setup to be a git repository.
+
+# IRC
+
+irssi is used to connect to IRC.
+
+# tmux
+
+tmux is used for various things. Use it and love it.
