@@ -56,7 +56,18 @@ unset PATH_ARRAY
 #
 # Edit some variables
 #
-DOTFILES_HOME=$HOME/dotfiles
+#### snippet to figure out where symlink file is located ####
+# @see http://stackoverflow.com/questions/59895/can-a-bash-script-tell-what-directory-its-stored-in
+SOURCE="${BASH_SOURCE[0]}"
+while [ -h "$SOURCE" ]; do
+    DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+    SOURCE="$(readlink "$SOURCE")"
+    [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE"
+done
+DOTFILES_ROOT="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+#### snippet to figure out where symlink file is located ####
+
+DOTFILES_HOME=$DOTFILES_ROOT
 export DEBUG=0
 export ARCHFLAGS="-arch x86_64"
 export EDITOR="vim"
