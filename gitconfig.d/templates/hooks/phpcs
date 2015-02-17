@@ -20,6 +20,7 @@ else
 fi
 FILES=$(git diff --cached --name-only --diff-filter=ACMR $against | grep \.php)
 echo $FILES
+echo
 for f in $FILES; do
     $PHPCS_BIN $(git config hooks.phpcs.options) $f
     #if [ $? != 0 ]; then
