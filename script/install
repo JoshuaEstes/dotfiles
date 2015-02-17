@@ -265,10 +265,9 @@ if [ $IS_DARWIN == "true" ]; then
     brew install ssh-copy-id
     brew install wget
     #brew install python3
-    #brew install fetchmail
     #brew install autoenv
     #brew install lbzip2
-    #brew install colordiff
+    brew install colordiff
     #brew install mu
     #brew install ispell
     #brew install libiconv
@@ -288,5 +287,4 @@ if [ $IS_DARWIN == "true" ]; then
     brew cleanup
 fi
 
-info "DEBUG::source $HOME/.bashrc"
 source $HOME/.bashrc
