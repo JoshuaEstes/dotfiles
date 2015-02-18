@@ -152,7 +152,17 @@ function setup_php() {
     curl -L -O https://github.com/phpbrew/phpbrew/raw/master/phpbrew
     chmod +x phpbrew
     mv phpbrew $HOME/bin/phpbrew
+    phpbrew init # make config directory and such
+    if [ $IS_DARWIN == "true" ]; then
+        brew install icu4c # Required for some intl stuff
+        brew tap homebrew/php
+        brew install enchant # required for some php stuff
+        brew install postgresql # Needed to install some php extensions
+        brew install gd --with-libvpx
+        #brew install gcc
+    fi
     # Should a php version be installed here?
+    #phpbrew install 5.6 +default +mb
 
     # Need to install phpenv
 
@@ -247,6 +257,7 @@ if [ $IS_DARWIN == "true" ]; then
     brew update
     brew tap homebrew/dupes
     brew install gpg2
+    brew install ctags
     brew install coreutils
     brew install findutils
     brew install bash
@@ -274,7 +285,6 @@ if [ $IS_DARWIN == "true" ]; then
     brew install libiconv
     brew install s3cmd
     brew install mcrypt
-    #brew install postgresql
 fi
 
 install_dotfiles && echo
