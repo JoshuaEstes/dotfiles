@@ -96,6 +96,7 @@ function setup_address_book() {
 function setup_tmux() {
     info "Installing and configuring tmux"
     link_file $DOTFILES_ROOT/tmux.conf $HOME/.tmux.conf
+    brew install tmux
 }
 
 function setup_composer() {
@@ -237,8 +238,9 @@ fi
 
 if [ $IS_DARWIN == "true" ]; then
     if [ ! $(command -v brew) ]; then
-        echo "Installing homebrew"
+        info "Installing homebrew"
         ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+        brew doctor
     fi
     brew update
     brew tap homebrew/dupes
