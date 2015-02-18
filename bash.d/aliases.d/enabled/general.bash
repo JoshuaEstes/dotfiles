@@ -12,7 +12,8 @@ alias cl="clear"
 
 # Specific for platform
 if [ $(uname) == "Linux" ]; then
-    alias ls="ls -hF --color"
+    #alias ls="ls -hF --color"
+    alias ls="ls -hF"
     alias apt-get="sudo apt-get"
 else
     # Should be Darwin
