@@ -125,6 +125,7 @@ function setup_vim() {
     link_file $DOTFILES_ROOT/vimrc $HOME/.vimrc
     if [ $IS_DARWIN == "true" ]; then
         brew install vim --with-lua
+        brew install cmake # required for YouCompleteMe
     fi
     vim +PluginInstall +qall
     cd $DOTFILES_ROOT/vim/bundle/YouCompleteMe
