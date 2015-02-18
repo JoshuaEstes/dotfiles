@@ -12,13 +12,12 @@ alias cl="clear"
 
 # Specific for platform
 if [ $(uname) == "Linux" ]; then
-    #alias ls="ls -hF --color"
-    alias ls="ls -hF"
+    alias ls="ls -hF --color"
     alias apt-get="sudo apt-get"
 else
     # Should be Darwin
-    #alias ls="ls -hFG"
-    alias ls="ls -hFG --color"
+    alias ls="ls -hFG"
+    #alias ls="ls -hFG --color"
     alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl"
 fi
 
