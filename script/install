@@ -109,7 +109,7 @@ function setup_composer() {
     fi
 
     _mkdir $HOME/.composer/
-    link_file composer/composer.json $HOME/.composer/composer.json
+    link_file $DOTFILES_ROOT/composer/composer.json $HOME/.composer/composer.json
 
     if [ -f $HOME/bin/composer.phar ]; then
         $PHP_BIN $HOME/bin/composer.phar selfupdate
