@@ -140,7 +140,7 @@ function setup_taskwarrior() {
 
 function setup_irssi() {
     info "Install and setup irssi"
-    link_file irssi $HOME/.irssi
+    link_file $DOTFILES_ROOT/irssi $HOME/.irssi
     if [ $IS_DARWIN == "true" ]; then
         brew install irssi --with-openssl
     fi
@@ -197,6 +197,7 @@ function setup_ruby() {
 }
 
 function setup_node() {
+    # @TODO install nvm
     info "node"
     if [ $IS_DARWIN == "true" ]; then
         brew install node
