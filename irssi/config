@@ -10,7 +10,7 @@ servers = (
   }
 );
 
-chatnets = {
+chatnets = { 
   freenode = { type = "IRC"; autosendcmd = "/MODE nick -i"; };
 };
 
@@ -216,6 +216,10 @@ settings = {
     theme = "default";
     autocreate_own_query = "yes";
     autoclose_windows = "yes";
+    timestamps = "yes";
+    hide_text_style = "no";
+    show_nickmode = "yes";
+    show_nickmode_empty = "yes";
   };
   "perl/core/scripts" = {
     awl_display_key = "= $N$H$C$S";
