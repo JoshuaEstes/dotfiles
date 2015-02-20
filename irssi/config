@@ -10,11 +10,8 @@ servers = (
   }
 );
 
-chatnets = {
-  freenode = {
-    type = "IRC";
-    autosendcmd = "/MODE nick -i";
-  };
+chatnets = { 
+  freenode = { type = "IRC"; autosendcmd = "/MODE nick -i"; };
 };
 
 channels = (
@@ -218,6 +215,7 @@ settings = {
     beep_msg_level = "MSGS NOTICES DCC DCCMSGS HILIGHT";
     theme = "default";
     autocreate_own_query = "yes";
+    autoclose_windows = "yes";
   };
   "perl/core/scripts" = {
     awl_display_key = "= $N$H$C$S";
