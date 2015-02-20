@@ -80,8 +80,8 @@ function setup_mail() {
         brew install msmtp
     fi
     # Should ppl be setup/installed here as well?
-    link_file mutt $HOME/.mutt
-    link_file pplconfig $HOME/.pplconfig
+    link_file $DOTFILES_ROOT/mutt $HOME/.mutt
+    link_file $DOTFILES_ROOT/pplconfig $HOME/.pplconfig
     link_file $DOTFILES_ROOT/msmtprc $HOME/.msmtprc && chmod 0600 $HOME/.msmtprc
     link_file $DOTFILES_ROOT/offlineimaprc $HOME/.offlineimaprc
     link_file $DOTFILES_ROOT/offlineimap.py $HOME/.offlineimap.py # Maybe move this into the lib directory?

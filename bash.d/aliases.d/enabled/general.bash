@@ -17,7 +17,9 @@ if [ $(uname) == "Linux" ]; then
 else
     # Should be Darwin
     alias ls="ls -hFG"
-    #alias ls="ls -hFG --color"
+    if [ $(command -v dircolors) ]; then
+        alias ls="ls -hFG --color"
+    fi
     alias emptytrash="sudo rm -rfv /Volumes/*/.Trashes; sudo rm -rfv ~/.Trash; sudo rm -rfv /private/var/log/asl/*.asl"
 fi
 
