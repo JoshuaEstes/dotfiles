@@ -20,3 +20,4 @@ bash.d/functions.d/enabled/*
 /vim/bundle/
 !vim/bundle/Vundle.vim
 npm-debug.log
+irssi/logs/
