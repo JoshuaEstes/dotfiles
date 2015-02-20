@@ -197,28 +197,6 @@ statusbar = {
       };
     };
   };
-  settings = {
-    core = {
-      real_name = "f1gm3nt";
-      user_name = "joshua";
-      nick = "f1gm3nt";
-    };
-    "fe-text" = { actlist_sort = "refnum"; term_force_colors = "no"; };
-    "fe-common/core" = {
-      beep_when_window_active = "yes";
-      beep_when_away = "yes";
-      bell_beeps = "yes";
-      beep_msg_level = "MSGS NOTICES DCC DCCMSGS HILIGHT";
-      theme = "default";
-    };
-    "perl/core/scripts" = {
-      awl_display_key = "= $N$H$C$S";
-      awl_display_nokey = "= $N$H$C$S";
-      nicklist_automode = "fifo";
-      nicklist_width = "29";
-      nicklist_height = "57";
-    };
-  };
 };
 settings = {
   core = {
@@ -227,5 +205,24 @@ settings = {
     nick = "joshuaestes";
     timestamp_format = "%H:%M:%S";
   };
-  "fe-text" = { actlist_sort = "refnum"; };
+  "fe-text" = {
+      actlist_sort = "refnum";
+      term_force_colors = "no";
+  };
+  "fe-common/core" = {
+        use_status_window = "yes";
+        autolog = "no";
+        beep_when_window_active = "yes";
+        beep_when_away = "yes";
+        bell_beeps = "yes";
+        beep_msg_level = "MSGS NOTICES DCC DCCMSGS HILIGHT";
+        theme = "default";
+  };
+    "perl/core/scripts" = {
+        awl_display_key = "= $N$H$C$S";
+        awl_display_nokey = "= $N$H$C$S";
+        nicklist_automode = "fifo";
+        nicklist_width = "29";
+        nicklist_height = "57";
+    };
 };
