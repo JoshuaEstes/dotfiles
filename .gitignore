@@ -12,6 +12,7 @@ bash.d/functions.d/enabled/*
 /bin/composer.phar
 /bin/n98-magerun.phar
 /bin/phpbrew
+/bin/symfony.phar
 /bin/virtphp.phar
 /mutt/aliases
 /mutt/cache
