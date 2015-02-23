@@ -9,12 +9,12 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'https://github.com/scrooloose/nerdtree.git', {'name': 'nerdtree'}
-"Plugin 'https://github.com/Valloric/YouCompleteMe.git', {'name': 'YouCompleteMe'}
+Plugin 'https://github.com/Valloric/YouCompleteMe.git', {'name': 'YouCompleteMe'}
 Plugin 'https://github.com/jlanzarotta/bufexplorer.git', {'name': 'bufexplorer'}
 Plugin 'https://github.com/scrooloose/nerdcommenter.git', {'name': 'nerdcommenter'}
 Plugin 'https://github.com/scrooloose/syntastic', {'name': 'syntastic'}
 Plugin 'https://github.com/godlygeek/tabular.git', {'name': 'tabular'}
-"Plugin 'https://github.com/SirVer/ultisnips.git', {'name': 'ultisnips'}
+Plugin 'https://github.com/SirVer/ultisnips.git', {'name': 'ultisnips'}
 Plugin 'https://github.com/altercation/vim-colors-solarized.git', {'name': 'vim-colors-solarized'}
 Plugin 'https://github.com/tpope/vim-fugitive.git', {'name': 'vim-fugitive'}
 Plugin 'https://github.com/bling/vim-airline.git', {'name': 'vim-airline'}
@@ -141,10 +141,15 @@ nnoremap <f1> :BufExplorer<cr>
 
 " NERDTree settings
 " Open NERDTree if no files are selected
-autocmd vimenter * if !argc() | NERDTree | endif
-let g:NERDTreeMouseMode=2
-let g:NERDTreeWinSize=40
-nnoremap <silent> <F2> :NERDTreeToggle<CR>
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" I do not use a mouse
+"let g:NERDTreeMouseMode=2
+let g:NERDTreeWinSize=40 " default is 31
+" ctrl+n opens NerdTree
+map <C-n> :NERDTreeToggle<CR>
+" Closes NerdTree if trying to quit vim and this is the only window left open
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 " End NERDTree settings
 
 " Syntastic settings

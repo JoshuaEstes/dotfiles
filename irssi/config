@@ -221,6 +221,7 @@ settings = {
     show_nickmode = "yes";
     show_nickmode_empty = "yes";
     autolog_path = " ~/.irssi/logs/$tag/$0.log";
+    window_history = "yes";
   };
   "perl/core/scripts" = {
     awl_display_key = "= $N$H$C$S";
