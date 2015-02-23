@@ -10,7 +10,7 @@ servers = (
   }
 );
 
-chatnets = { 
+chatnets = {
   freenode = { type = "IRC"; autosendcmd = "/MODE nick -i"; };
 };
 
@@ -222,6 +222,7 @@ settings = {
     show_nickmode_empty = "yes";
     autolog_path = "~/.irssi/logs/$tag/$0.log";
     window_history = "yes";
+    awaylog_colors = "no";
   };
   "perl/core/scripts" = {
     awl_display_key = "= $N$H$C$S";
