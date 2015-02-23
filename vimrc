@@ -86,18 +86,19 @@ endif
 set laststatus=2
 "hi StatusLine ctermfg=cyan
 "hi StatusLineNC cterm=none
-"set statusline=%{fugitive#statusline()}                     " Display current bracn
-"set statusline+=\ %F                                        " Full filename
-"set statusline+=%m                                          " modified
-"set statusline+=%r                                          " Read only
-"set statusline+=%y                                          " File type
-"set statusline+=%{&paste?'[paste]':''}                      " Let me know if we are in paste mode
-"set statusline+=%#warningmsg#%{SyntasticStatuslineFlag()}%* " File Errors/Warnings
-"set statusline+=%=Line:
-"set statusline+=\ %l                                        " current line
-"set statusline+=/%L                                         " total lines
-"set statusline+=:%c                                         " current column
+set statusline=%{fugitive#statusline()}                     " Display current bracn
+set statusline+=\ %F                                        " Full filename
+set statusline+=%m                                          " modified
+set statusline+=%r                                          " Read only
+set statusline+=%y                                          " File type
+set statusline+=%{&paste?'[paste]':''}                      " Let me know if we are in paste mode
+set statusline+=%#warningmsg#%{SyntasticStatuslineFlag()}%* " File Errors/Warnings
+set statusline+=%=Line:
+set statusline+=\ %l                                        " current line
+set statusline+=/%L                                         " total lines
+set statusline+=:%c                                         " current column
 let g:airline#extensions#tabline#enabled = 1
+" End statusline format
 
 " When vimrc is edited, reload it
 autocmd! bufwritepost vimrc source ~/.vimrc
@@ -136,7 +137,7 @@ colorscheme solarized
 " End color scheme
 
 " BuffExplorer
-nnoremap <f1> :BufExplorer<cr>
+nnoremap <f1> :BufExplorerHorizontalSplit<cr>
 " end
 
 " NERDTree settings
@@ -153,9 +154,11 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 " End NERDTree settings
 
 " Syntastic settings
+"let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_check_on_wq=0
 let g:syntastic_check_on_open=1
 let g:syntastic_auto_loc_list=2
-let g:syntastic_php_checkers = ['php', 'phpmd', 'phpcs']
+let g:syntastic_php_checkers=['php', 'phpmd', 'phpcs']
 let g:syntastic_php_phpcs_args="-n --standard=PSR1,PSR2 --report=full"
 let g:syntastic_php_phpmd_post_args="text cleancode,codesize,design,naming,unusedcode"
 " End syntastic settings
