@@ -21,6 +21,7 @@ Plugin 'https://github.com/bling/vim-airline.git', {'name': 'vim-airline'}
 Plugin 'https://github.com/rodjek/vim-puppet.git', {'name': 'vim-puppet'}
 Plugin 'https://github.com/evidens/vim-twig.git', {'name': 'vim-twig'}
 Plugin 'https://github.com/jamessan/vim-gnupg.git', {'name': 'vim-gnupg'}
+Plugin 'https://github.com/joonty/vdebug.git', {'name': 'vdebug'}
 call vundle#end()
 filetype plugin indent on
 
