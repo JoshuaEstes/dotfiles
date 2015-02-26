@@ -10,7 +10,7 @@ servers = (
   }
 );
 
-chatnets = {
+chatnets = { 
   freenode = { type = "IRC"; autosendcmd = "/MODE nick -i"; };
 };
 
@@ -234,3 +234,4 @@ settings = {
   "irc/core" = { skip_motd = "yes"; };
 };
 logs = { };
+ignores = ( { level = "JOINS PARTS QUITS"; } );
