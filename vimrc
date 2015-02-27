@@ -35,7 +35,7 @@ set cmdheight=1
 set cindent
 set encoding=utf-8
 set fileencodings=utf-8
-set expandtab
+"set expandtab " Expand tabs to spaces
 set ffs=unix,mac,dos
 set foldmethod=indent "fold based on indent
 set foldnestmax=3 "deepest fold is 3 levels
