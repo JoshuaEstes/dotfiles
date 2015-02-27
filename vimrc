@@ -26,6 +26,10 @@ call vundle#end()
 filetype plugin indent on
 
 set autoindent
+"indent	allow backspacing over autoindent
+"eol	allow backspacing over line breaks (join lines)
+"start	allow backspacing over the start of insert; CTRL-W and CTRL-U
+"         stop once at the start of insert.
 set backspace=start,indent,eol "allow backspacing over everything in insert mode
 "set backupcopy=yes
 "set backupdir=~/.vim.d/backup
