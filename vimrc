@@ -22,6 +22,7 @@ Plugin 'https://github.com/rodjek/vim-puppet.git', {'name': 'vim-puppet'}
 Plugin 'https://github.com/evidens/vim-twig.git', {'name': 'vim-twig'}
 Plugin 'https://github.com/jamessan/vim-gnupg.git', {'name': 'vim-gnupg'}
 Plugin 'https://github.com/joonty/vdebug.git', {'name': 'vdebug'}
+Plugin 'https://github.com/editorconfig/editorconfig-vim.git', {'name': 'editorconfig'}
 call vundle#end()
 filetype plugin indent on
 
@@ -39,7 +40,7 @@ set cmdheight=1
 set cindent
 set encoding=utf-8
 set fileencodings=utf-8
-"set expandtab " Expand tabs to spaces
+set expandtab " Expand tabs to spaces
 set ffs=unix,mac,dos
 set foldmethod=indent "fold based on indent
 set foldnestmax=3 "deepest fold is 3 levels
