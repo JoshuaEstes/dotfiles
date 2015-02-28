@@ -214,7 +214,7 @@ function setup_node() {
 function install_dotfiles() {
     info "Installing dotfiles"
 
-    _mkdir $HOME/Projects/
+    _mkdir $HOME/Code/
     link_file $DOTFILES_ROOT/bin $HOME/bin
     link_file $DOTFILES_ROOT/ackrc $HOME/.ackrc
     link_file $DOTFILES_ROOT/bash_logout $HOME/.bash_logout
