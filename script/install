@@ -267,7 +267,7 @@ if [ $IS_DARWIN == "true" ]; then
     #brew install webkit2png
     #brew install rename
     #brew install zopfli
-    #brew install ffmpeg --with-openssl
+    brew install ffmpeg --with-openssl --with-faac
     #brew install python
     brew install sshfs
     #brew install trash
