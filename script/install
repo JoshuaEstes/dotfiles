@@ -286,6 +286,12 @@ if [ $IS_DARWIN == "true" ]; then
     brew install libiconv
     brew install s3cmd
     brew install mcrypt
+
+    # CLI Music player
+    #brew install cmus --with-ffmpeg
+
+    # CLI pandora client
+    #brew install pianobar
 fi
 
 install_dotfiles && echo
