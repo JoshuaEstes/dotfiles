@@ -211,6 +211,15 @@ function setup_node() {
     fi
 }
 
+function instal_pianobar() {
+    info "Installing Pianobar"
+    link_file $DOTFILES_ROOT/config $HOME/.config
+
+    if [ $IS_DARWIN == "true" ]; then
+        brew install pianobar
+    fi
+}
+
 function install_dotfiles() {
     info "Installing dotfiles"
 
@@ -292,6 +301,7 @@ if [ $IS_DARWIN == "true" ]; then
 
     # CLI pandora client
     #brew install pianobar
+    install_pianobar
 fi
 
 install_dotfiles && echo
