@@ -200,10 +200,10 @@ nnoremap <C-L> :nohls<CR><C-L>   " ctrl + l will clear the highlighted search re
 inoremap <C-L> <C-O>:nohls<CR>
 
 " MAP THOSE F KEYS!
-nnoremap <silent> <F11> :bp<CR> " Previous Buffer
-nnoremap <silent> <F12> :bn<CR> " Next Buffer
-nnoremap <silent> <S-F11> :tabp<CR> " Previous Tab
-nnoremap <silent> <S-F12> :tabn<CR> " Next Tab
+"nnoremap <silent> <F11> :bp<CR> " Previous Buffer
+"nnoremap <silent> <F12> :bn<CR> " Next Buffer
+"nnoremap <silent> <S-F11> :tabp<CR> " Previous Tab
+"nnoremap <silent> <S-F12> :tabn<CR> " Next Tab
 
 " Disable up, down, left, right keys
 nnoremap <up> <nop>
