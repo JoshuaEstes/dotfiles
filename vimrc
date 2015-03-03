@@ -46,7 +46,7 @@ set foldmethod=indent "fold based on indent
 set foldnestmax=3 "deepest fold is 3 levels
 set nofoldenable "dont fold by default
 set spell
-set hidden "hide buffers when not displayed
+"set hidden "hide buffers when not displayed
 set history=1000 "store lots of :cmdline history
 set hlsearch "hilight searches by default
 set incsearch "find the next match as we type the search
@@ -143,7 +143,7 @@ colorscheme solarized
 " End color scheme
 
 " BuffExplorer
-nnoremap <f1> :BufExplorerHorizontalSplit<cr>
+"nnoremap <f1> :BufExplorerHorizontalSplit<cr>
 " end
 
 " NERDTree settings
