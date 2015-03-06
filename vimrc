@@ -112,6 +112,7 @@ autocmd! bufwritepost vimrc source ~/.vimrc
 " Enable syntax highlighting
 syntax on
 au BufNewFile,BufRead *.xml.dist set filetype=xml
+au BufNewFile,BufRead *.yml.dist set filetype=yaml
 "au BufNewFile,BufRead *.twig set filetype=twig
 "au BufNewFile,BufRead *.twig set filetype=htmljinja
 au BufNewFile,BufRead *.md set filetype=markdown
@@ -196,10 +197,14 @@ let g:GPGPreferSign=1
 " end GnuPG
 
 " Remap keys
-nnoremap <C-L> :nohls<CR><C-L>   " ctrl + l will clear the highlighted search results
+" ctrl + l will clear the highlighted search results
+nnoremap <C-L> :nohls<CR><C-L>
 inoremap <C-L> <C-O>:nohls<CR>
 
-" MAP THOSE F KEYS!
+" In normal mode map tab to buffer next
+nmap <silent> <Tab> :bn<CR>
+" In normal mode map shift + tab to previous buffer
+nmap <silent> <S-Tab> :bp<CR>
 "nnoremap <silent> <F11> :bp<CR> " Previous Buffer
 "nnoremap <silent> <F12> :bn<CR> " Next Buffer
 "nnoremap <silent> <S-F11> :tabp<CR> " Previous Tab
