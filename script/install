@@ -211,7 +211,7 @@ function setup_node() {
     fi
 }
 
-function instal_pianobar() {
+function install_pianobar() {
     info "Installing Pianobar"
     link_file $DOTFILES_ROOT/config $HOME/.config
 
