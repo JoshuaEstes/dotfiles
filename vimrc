@@ -11,14 +11,18 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'https://github.com/scrooloose/nerdtree.git', {'name': 'nerdtree'}
 Plugin 'https://github.com/Valloric/YouCompleteMe.git', {'name': 'YouCompleteMe'}
 Plugin 'https://github.com/jlanzarotta/bufexplorer.git', {'name': 'bufexplorer'}
+Plugin 'bling/vim-bufferline'
+Plugin 'bling/vim-airline'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-easytags'
 Plugin 'https://github.com/scrooloose/nerdcommenter.git', {'name': 'nerdcommenter'}
 Plugin 'https://github.com/scrooloose/syntastic', {'name': 'syntastic'}
 Plugin 'https://github.com/godlygeek/tabular.git', {'name': 'tabular'}
-Plugin 'https://github.com/SirVer/ultisnips.git', {'name': 'ultisnips'}
+"Plugin 'https://github.com/SirVer/ultisnips.git', {'name': 'ultisnips'}
 Plugin 'https://github.com/altercation/vim-colors-solarized.git', {'name': 'vim-colors-solarized'}
 Plugin 'https://github.com/tpope/vim-fugitive.git', {'name': 'vim-fugitive'}
-Plugin 'https://github.com/bling/vim-airline.git', {'name': 'vim-airline'}
-Plugin 'https://github.com/rodjek/vim-puppet.git', {'name': 'vim-puppet'}
+"Plugin 'https://github.com/bling/vim-airline.git', {'name': 'vim-airline'}
+"Plugin 'https://github.com/rodjek/vim-puppet.git', {'name': 'vim-puppet'}
 "Plugin 'https://github.com/evidens/vim-twig.git', {'name': 'vim-twig'}
 Plugin 'https://github.com/jamessan/vim-gnupg.git', {'name': 'vim-gnupg'}
 Plugin 'https://github.com/joonty/vdebug.git', {'name': 'vdebug'}
@@ -47,7 +51,7 @@ set foldnestmax=3 "deepest fold is 3 levels
 set nofoldenable "dont fold by default
 set spell
 "set hidden "hide buffers when not displayed
-set history=1000 "store lots of :cmdline history
+set history=200 "store lots of :cmdline history
 set hlsearch "hilight searches by default
 set incsearch "find the next match as we type the search
 set ignorecase
@@ -92,18 +96,17 @@ endif
 set laststatus=2
 "hi StatusLine ctermfg=cyan
 "hi StatusLineNC cterm=none
-set statusline=%{fugitive#statusline()}                     " Display current bracn
-set statusline+=\ %F                                        " Full filename
-set statusline+=%m                                          " modified
-set statusline+=%r                                          " Read only
-set statusline+=%y                                          " File type
-set statusline+=%{&paste?'[paste]':''}                      " Let me know if we are in paste mode
-set statusline+=%#warningmsg#%{SyntasticStatuslineFlag()}%* " File Errors/Warnings
-set statusline+=%=Line:
-set statusline+=\ %l                                        " current line
-set statusline+=/%L                                         " total lines
-set statusline+=:%c                                         " current column
-let g:airline#extensions#tabline#enabled = 1
+"set statusline=%{fugitive#statusline()}                     " Display current bracn
+"set statusline+=\ %F                                        " Full filename
+"set statusline+=%m                                          " modified
+"set statusline+=%r                                          " Read only
+"set statusline+=%y                                          " File type
+"set statusline+=%{&paste?'[paste]':''}                      " Let me know if we are in paste mode
+"set statusline+=%#warningmsg#%{SyntasticStatuslineFlag()}%* " File Errors/Warnings
+"set statusline+=%=Line:
+"set statusline+=\ %l                                        " current line
+"set statusline+=/%L                                         " total lines
+"set statusline+=:%c                                         " current column
 " End statusline format
 
 " When vimrc is edited, reload it
@@ -195,6 +198,15 @@ let g:GPGPreferSign=1
 "autocmd User GnuPG set foldopen=insert
 "autocmd CursorHold *.\(gpg\) quit
 " end GnuPG
+
+" airline
+let g:airline#extensions#tabline#enabled = 1
+" end airline
+
+" easytags
+set tags=./.tags;
+let g:easytags_dynamic_files = 1
+" end easytags
 
 " Remap keys
 " ctrl + l will clear the highlighted search results
