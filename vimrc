@@ -19,7 +19,7 @@ Plugin 'https://github.com/altercation/vim-colors-solarized.git', {'name': 'vim-
 Plugin 'https://github.com/tpope/vim-fugitive.git', {'name': 'vim-fugitive'}
 Plugin 'https://github.com/bling/vim-airline.git', {'name': 'vim-airline'}
 Plugin 'https://github.com/rodjek/vim-puppet.git', {'name': 'vim-puppet'}
-Plugin 'https://github.com/evidens/vim-twig.git', {'name': 'vim-twig'}
+"Plugin 'https://github.com/evidens/vim-twig.git', {'name': 'vim-twig'}
 Plugin 'https://github.com/jamessan/vim-gnupg.git', {'name': 'vim-gnupg'}
 Plugin 'https://github.com/joonty/vdebug.git', {'name': 'vdebug'}
 Plugin 'https://github.com/editorconfig/editorconfig-vim.git', {'name': 'editorconfig'}
@@ -114,7 +114,7 @@ syntax on
 au BufNewFile,BufRead *.xml.dist set filetype=xml
 au BufNewFile,BufRead *.yml.dist set filetype=yaml
 "au BufNewFile,BufRead *.twig set filetype=twig
-"au BufNewFile,BufRead *.twig set filetype=htmljinja
+au BufNewFile,BufRead *.twig set filetype=htmljinja
 au BufNewFile,BufRead *.md set filetype=markdown
 
 " Autocompletion for different languages
