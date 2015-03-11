@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 args=("$@")
-#echo ${args[0]} ${args[1]} ${args[2]}
+echo ${args[0]} ${args[1]} ${args[2]}
 
 function dotfiles_help()
 {
@@ -13,6 +13,9 @@ COMMANDS
     
     alias
         Manage aliases
+
+    link
+        Symlink dotfiles to correct locations
 
     reload
         Reloads all the dot files

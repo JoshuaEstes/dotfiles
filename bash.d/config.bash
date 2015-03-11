@@ -19,4 +19,4 @@ shopt -s histappend
 shopt -s hostcomplete
 
 # Dig the vim
-set -o vi
+#set -o vi
