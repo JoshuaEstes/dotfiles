@@ -205,6 +205,7 @@ let g:airline#extensions#tabline#enabled = 1
 
 " easytags
 set tags=./.tags;
+let g:easytags_file = './.tags'
 let g:easytags_dynamic_files = 1
 " end easytags
 
