@@ -12,6 +12,7 @@
         "phpunit/phpunit": "*",
         "phpunit/phpunit-skeleton-generator": "*",
         "daedalus/daedalus": "~1.0@dev",
-        "phpmd/phpmd": "*"
+        "phpmd/phpmd": "*",
+        "phpdocumentor/phpdocumentor": "*"
     }
 }
