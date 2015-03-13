@@ -11,7 +11,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'https://github.com/scrooloose/nerdtree.git', {'name': 'nerdtree'}
 Plugin 'https://github.com/Valloric/YouCompleteMe.git', {'name': 'YouCompleteMe'}
 Plugin 'https://github.com/jlanzarotta/bufexplorer.git', {'name': 'bufexplorer'}
-Plugin 'bling/vim-bufferline'
+"Plugin 'bling/vim-bufferline'
 Plugin 'bling/vim-airline'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-easytags'
