@@ -16,7 +16,8 @@ Plugin 'bling/vim-airline'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-easytags'
 Plugin 'https://github.com/scrooloose/nerdcommenter.git', {'name': 'nerdcommenter'}
-Plugin 'https://github.com/scrooloose/syntastic', {'name': 'syntastic'}
+" Disable because it display way too many for some projects
+"Plugin 'https://github.com/scrooloose/syntastic', {'name': 'syntastic'}
 Plugin 'https://github.com/godlygeek/tabular.git', {'name': 'tabular'}
 "Plugin 'https://github.com/SirVer/ultisnips.git', {'name': 'ultisnips'}
 Plugin 'https://github.com/altercation/vim-colors-solarized.git', {'name': 'vim-colors-solarized'}
@@ -165,12 +166,12 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 
 " Syntastic settings
 "let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_check_on_wq=0
-let g:syntastic_check_on_open=1
-let g:syntastic_auto_loc_list=2
-let g:syntastic_php_checkers=['php', 'phpmd', 'phpcs']
-let g:syntastic_php_phpcs_args="-n --standard=PSR1,PSR2 --report=full"
-let g:syntastic_php_phpmd_post_args="text cleancode,codesize,design,naming,unusedcode"
+"let g:syntastic_check_on_wq=0
+"let g:syntastic_check_on_open=1
+"let g:syntastic_auto_loc_list=2
+"let g:syntastic_php_checkers=['php', 'phpmd', 'phpcs']
+"let g:syntastic_php_phpcs_args="-n --standard=PSR1,PSR2 --report=full"
+"let g:syntastic_php_phpmd_post_args="text cleancode,codesize,design,naming,unusedcode"
 " End syntastic settings
 
 " ultisnips settings
