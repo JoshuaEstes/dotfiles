@@ -11,8 +11,9 @@
         "phing/phing": "*",
         "phpunit/phpunit": "*",
         "phpunit/phpunit-skeleton-generator": "*",
-        "daedalus/daedalus": "~1.0@dev",
+        "daedalus/daedalus": "*@dev",
         "phpmd/phpmd": "*",
-        "phpdocumentor/phpdocumentor": "*"
+        "phpdocumentor/phpdocumentor": "*",
+        "phpunit/test-listener-xhprof": "*@dev"
     }
 }
