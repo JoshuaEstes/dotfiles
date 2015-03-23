@@ -1,7 +1,4 @@
-" ~/.vimrc
-" References
-" https://github.com/scrooloose/vimfiles/blob/master/vimrc
-
+let g:vdebug_options={}
 set nocompatible
 filetype off
 
@@ -209,6 +206,10 @@ set tags=./.tags;
 let g:easytags_file = './.tags'
 let g:easytags_dynamic_files = 1
 " end easytags
+
+" vdebug
+let g:vdebug_options["path_maps"] = {"/var/www/pi":"/Users/jestes/Code/Pardot/pardot"}
+" end vdebug
 
 " Remap keys
 " ctrl + l will clear the highlighted search results
