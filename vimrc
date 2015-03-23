@@ -5,18 +5,18 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
-Plugin 'https://github.com/scrooloose/nerdtree.git', {'name': 'nerdtree'}
-Plugin 'https://github.com/Valloric/YouCompleteMe.git', {'name': 'YouCompleteMe'}
-Plugin 'https://github.com/jlanzarotta/bufexplorer.git', {'name': 'bufexplorer'}
+Plugin 'scrooloose/nerdtree'
+Plugin 'Valloric/YouCompleteMe'
+" Do not use enough
+"Plugin 'jlanzarotta/bufexplorer', {'name': 'bufexplorer'}
 "Plugin 'bling/vim-bufferline'
 Plugin 'bling/vim-airline'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-easytags'
-Plugin 'https://github.com/scrooloose/nerdcommenter.git', {'name': 'nerdcommenter'}
-" Disable because it display way too many for some projects
-"Plugin 'https://github.com/scrooloose/syntastic', {'name': 'syntastic'}
-Plugin 'https://github.com/godlygeek/tabular.git', {'name': 'tabular'}
-"Plugin 'https://github.com/SirVer/ultisnips.git', {'name': 'ultisnips'}
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/syntastic'
+Plugin 'godlygeek/tabular.git'
+Plugin 'SirVer/ultisnips'
 Plugin 'https://github.com/altercation/vim-colors-solarized.git', {'name': 'vim-colors-solarized'}
 Plugin 'https://github.com/tpope/vim-fugitive.git', {'name': 'vim-fugitive'}
 "Plugin 'https://github.com/bling/vim-airline.git', {'name': 'vim-airline'}
@@ -162,10 +162,11 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 " End NERDTree settings
 
 " Syntastic settings
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_check_on_wq=0
-"let g:syntastic_check_on_open=1
-"let g:syntastic_auto_loc_list=2
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_check_on_wq=0
+let g:syntastic_check_on_open=1
+let g:syntastic_auto_loc_list=2
+let g:syntastic_php_checkers=['php']
 "let g:syntastic_php_checkers=['php', 'phpmd', 'phpcs']
 "let g:syntastic_php_phpcs_args="-n --standard=PSR1,PSR2 --report=full"
 "let g:syntastic_php_phpmd_post_args="text cleancode,codesize,design,naming,unusedcode"
@@ -174,6 +175,9 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 " ultisnips settings
 "let g:UltiSnipsUsePythonVersion = 2
 "let g:UltiSnipsListSnippets="<F4>"
+let g:UltiSnipsExpandTrigger="<CR>"
+"let g:UltiSnipsJumpForwardTrigger="<S-Tab>"
+"let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 " end ultisnips settings
 
 " Tabularize key mappings
@@ -203,8 +207,8 @@ let g:airline#extensions#tabline#enabled = 1
 
 " easytags
 set tags=./.tags;
-let g:easytags_file = './.tags'
-let g:easytags_dynamic_files = 1
+let g:easytags_file='./.tags'
+let g:easytags_dynamic_files=1
 " end easytags
 
 " vdebug
