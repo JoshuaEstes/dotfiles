@@ -1,19 +1,18 @@
 {
     "minimum-stability": "stable",
     "require": {
-        "wp-cli/wp-cli": "*",
-        "phploc/phploc": "*",
-        "sebastian/phpdcd": "*",
-        "asm89/twig-lint": "*",
-        "psy/psysh": "*",
-        "fabpot/php-cs-fixer": "*",
-        "squizlabs/php_codesniffer": "*",
-        "phing/phing": "*",
-        "phpunit/phpunit": "*",
-        "phpunit/phpunit-skeleton-generator": "*",
+        "wp-cli/wp-cli": "~0.18.0",
+        "phploc/phploc": "~2.0.0",
+        "sebastian/phpdcd": "~1.0.0",
+        "asm89/twig-lint": "~1.0.0",
+        "psy/psysh": "~0.4.0",
+        "fabpot/php-cs-fixer": "~1.5.0",
+        "squizlabs/php_codesniffer": "~2.3.0",
+        "phing/phing": "~2.10.0",
+        "phpunit/phpunit": "~4.5.0",
         "daedalus/daedalus": "*@dev",
-        "phpmd/phpmd": "*",
-        "phpdocumentor/phpdocumentor": "*",
-        "phpunit/test-listener-xhprof": "*@dev"
+        "phpmd/phpmd": "~2.2.0",
+        "phpdocumentor/phpdocumentor": "~2.8.0",
+        "phpunit/test-listener-xhprof": "~1.0.0"
     }
 }
