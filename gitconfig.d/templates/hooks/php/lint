@@ -4,7 +4,6 @@
 #
 # pre-commit hook to check php syntax
 #
-set -e
 PHP_BIN=$(command -v php)
 if [ ! $PHP_BIN ]; then
     echo "php not found"
