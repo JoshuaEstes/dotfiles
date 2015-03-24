@@ -7,9 +7,11 @@
 set -e
 PHP_BIN=$(command -v php)
 if [ ! $PHP_BIN ]; then
+    echo "php not found"
     exit 0
 fi
 if [ "false" == $(git config --bool hooks.php.lint.enabled) ]; then
+    "php lint not enabled"
     exit 0
 fi
 if git rev-parse --verify HEAD >/dev/null 2>&1
@@ -26,3 +28,4 @@ for f in $FILES; do
         GIT_HOOK_FOUND_ERRORS=1
     fi
 done
+echo "eof"
