@@ -14,6 +14,6 @@ echo "init.templatedir = $(git config --get init.templatedir)"
 FILES=$(git config --path --get init.templatedir)/hooks/*
 for FILE in $FILES
 do
-    cp -v $FILE $PWD/.git/hooks/
+    cp -Rv $FILE $PWD/.git/hooks/
 done
 echo "Done"

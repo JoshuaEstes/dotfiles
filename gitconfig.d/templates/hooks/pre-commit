@@ -7,8 +7,9 @@ GIT_HOOK_DIR="$(dirname "$0")"
 GIT_HOOK_FOUND_ERRORS=0
 
 # Scripts go here
-source $GIT_HOOK_DIR/phpcs
+#source $GIT_HOOK_DIR/phpcs
 #source $GIT_HOOK_DIR/phpmd
+source $GIT_HOOK_DIR/php/lint
 
 # If errors were found, no commit!
 if [ 1 == $GIT_HOOK_FOUND_ERRORS ]; then

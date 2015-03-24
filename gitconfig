@@ -132,3 +132,5 @@
     enabled = no
     report = text
     ruleset = cleancode,codesize,design,naming,unusedcode
+[hooks "php.lint"]
+	enabled = true
