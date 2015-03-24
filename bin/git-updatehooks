@@ -4,7 +4,8 @@
 # Updates hooks from template directory
 # to the current git repo
 #
-if [ ! -d $PWD/.git/hooks ]; then
+set -e
+if [ ! -d $PWD/.git/ ]; then
     echo "Currently not in a git repository"
     exit 1
 fi

@@ -10,7 +10,7 @@
 
   ; Commit
   c  = commit -m
-  ca = commit -am
+  ca = commit --all -m
 
   ; Checkout
   co = checkout

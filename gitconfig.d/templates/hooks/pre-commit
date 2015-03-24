@@ -13,5 +13,6 @@ source $GIT_HOOK_DIR/php/lint
 
 # If errors were found, no commit!
 if [ 1 == $GIT_HOOK_FOUND_ERRORS ]; then
+    echo "errors found"
     exit 1
 fi
