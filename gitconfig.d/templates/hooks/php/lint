@@ -6,11 +6,9 @@
 #
 PHP_BIN=$(command -v php)
 if [ ! $PHP_BIN ]; then
-    echo "php not found"
     exit 0
 fi
 if [ "false" == $(git config --bool hooks.php.lint.enabled) ]; then
-    "php lint not enabled"
     exit 0
 fi
 if git rev-parse --verify HEAD >/dev/null 2>&1
@@ -20,11 +18,10 @@ else
         # Initial commit: diff against an empty tree object
         against=4b825dc642cb6eb9a060e54bf8d69288fbee4904
 fi
-FILES=$(git diff --cached --name-only --diff-filter=ACMR $against | grep \.php)
+FILES=$(git diff --cached --name-only --diff-filter=ACMR $against | grep "\.php")
 for f in $FILES; do
     $PHP_BIN -l $f
     if [ $? != 0 ]; then
         GIT_HOOK_FOUND_ERRORS=1
     fi
 done
-echo "eof"
