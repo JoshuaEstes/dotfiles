@@ -302,6 +302,8 @@ if [ $IS_DARWIN == "true" ]; then
     # CLI pandora client
     #brew install pianobar
     install_pianobar
+
+    brew install osquery
 fi
 
 install_dotfiles && echo
