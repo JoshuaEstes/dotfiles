@@ -175,7 +175,7 @@ let g:syntastic_php_checkers=['php']
 " ultisnips settings
 "let g:UltiSnipsUsePythonVersion = 2
 "let g:UltiSnipsListSnippets="<F4>"
-let g:UltiSnipsExpandTrigger="<CR>"
+let g:UltiSnipsExpandTrigger="<S-CR>"
 "let g:UltiSnipsJumpForwardTrigger="<S-Tab>"
 "let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 " end ultisnips settings
