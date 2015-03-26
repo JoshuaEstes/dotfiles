@@ -134,3 +134,5 @@
     ruleset = cleancode,codesize,design,naming,unusedcode
 [hooks "php.lint"]
 	enabled = true
+[hooks "php.composer"]
+    bin = ~/bin/composer.phar
