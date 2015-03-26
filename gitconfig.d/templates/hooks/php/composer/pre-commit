@@ -5,7 +5,6 @@
 # pre-commit hook to validate composer.json
 #
 COMPOSER_BIN=$(git config --path hooks.php.composer.bin)
-echo $COMPOSER_BIN
 if git rev-parse --verify HEAD >/dev/null 2>&1
 then
         against=HEAD
@@ -13,8 +12,8 @@ else
         # Initial commit: diff against an empty tree object
         against=4b825dc642cb6eb9a060e54bf8d69288fbee4904
 fi
-CHANGED=`git diff-index --name-status $against -- composer.json | wc -l`
-if [ $CHANGED > 0 ] && [ -e composer.json ]; then
+COMPOSER_JSON_FOUND=$(git diff-index --name-status $against -- composer.json | wc -l)
+if [[ $COMPOSER_JSON_FOUND > 0 && -e "$(pwd)/composer.json" ]]; then
     if [ -e $(git config --path hooks.php.composer.bin) ]; then
         $COMPOSER_BIN validate
         if [ $? != 0 ]; then

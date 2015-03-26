@@ -1,8 +1,14 @@
-#!/usr/bin/env bash
+#!/bin/sh
 # vi: set ft=sh :
 ####
 #
-# pre-commit hook to check php syntax
+# PHP pre-commit hook
+#
+source $GIT_HOOK_DIR/php/composer/pre-commit
+
+####
+#
+# syntax check
 #
 PHP_BIN=$(command -v php)
 if [ ! $PHP_BIN ]; then
