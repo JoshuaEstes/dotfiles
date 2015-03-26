@@ -3,4 +3,7 @@
 ####
 #
 #
-source $GIT_DIR/hooks/php/post-checkout
+#
+if [ "true" == $(git config --bool hooks.php.enabled) ]; then
+    source $GIT_DIR/hooks/php/post-checkout
+fi

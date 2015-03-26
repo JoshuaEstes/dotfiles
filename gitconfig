@@ -125,14 +125,22 @@
 ;[branch "develop"]
 ;  remote = origin
 ;  merge = refs/heads/develop
-[hooks "phpcs"]
+
+; Enable PHP lanaguage
+[hooks "php"]
+	enabled = yes
+[hooks "php.phpcs"]
 	enabled = no
+    bin = phpcs
     options = --ignore=*.dist --standard=PSR1,PSR2 -n
-[hooks "phpmd"]
+[hooks "php.phpmd"]
     enabled = no
+    bin = phpmd
     report = text
     ruleset = cleancode,codesize,design,naming,unusedcode
 [hooks "php.lint"]
 	enabled = true
+    bin = php
 [hooks "php.composer"]
+    enabled = true
     bin = ~/bin/composer.phar

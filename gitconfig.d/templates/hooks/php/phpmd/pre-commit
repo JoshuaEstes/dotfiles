@@ -3,13 +3,6 @@
 #
 # Runs phpmd to check for violations
 #
-PHPMD_BIN=$(command -v phpmd)
-if [ ! $PHPMD_BIN ]; then
-    exit 0
-fi
-if [ "false" == $(git config --bool hooks.phpmd) ]; then
-    exit 0
-fi
 if git rev-parse --verify HEAD >/dev/null 2>&1
 then
         against=HEAD
@@ -17,9 +10,10 @@ else
         # Initial commit: diff against an empty tree object
         against=4b825dc642cb6eb9a060e54bf8d69288fbee4904
 fi
+PHPMD_BIN=$(command -v phpmd)
 FILES=$(git diff --cached --name-only --diff-filter=ACMR $against | grep \.php)
 for f in $FILES; do
-    $PHPMD_BIN $f $(git config hooks.phpmd.report) $(git config hooks.phpmd.ruleset)
+    $PHPMD_BIN $f $(git config hooks.php.phpmd.report) $(git config hooks.php.phpmd.ruleset)
     if [ $? != 0 ]; then
         exit $?
     fi

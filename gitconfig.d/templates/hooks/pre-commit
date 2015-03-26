@@ -5,8 +5,15 @@
 # Runs various scripts to check the quality of code being checked in
 #
 
-# Scripts go here
-source $GIT_DIR/hooks/php/pre-commit
+# Is language X enabled?
+if [ "true" == $(git config --bool hooks.php.enabled) ]; then
+    source $GIT_DIR/hooks/php/pre-commit
+fi
+
+####
+#
+# Various other languages can be setup and ran the same way
+#
 #source $GIT_HOOK_DIR/ruby/pre-commit
 #source $GIT_HOOK_DIR/python/pre-commit
 #source $GIT_HOOK_DIR/javascript/pre-commit

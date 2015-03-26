@@ -3,13 +3,6 @@
 #
 # Runs phpcs to check for violations
 #
-PHPCS_BIN=$(command -v phpcs)
-if [ ! $PHPCS_BIN ]; then
-    exit 0
-fi
-if [ "false" == $(git config --bool hooks.phpcs.enabled) ]; then
-    exit 0
-fi
 if git rev-parse --verify HEAD >/dev/null 2>&1
 then
         against=HEAD
@@ -17,6 +10,7 @@ else
         # Initial commit: diff against an empty tree object
         against=4b825dc642cb6eb9a060e54bf8d69288fbee4904
 fi
+PHPCS_BIN=$(command -v phpcs)
 FILES=$(git diff --cached --name-only --diff-filter=ACMR $against | grep \.php)
 for f in $FILES; do
     $PHPCS_BIN $(git config hooks.phpcs.options) $f

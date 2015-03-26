@@ -1,6 +1,5 @@
 #!/bin/sh
 # vi: set ft=sh :
-####
-#
-#
-source $GIT_DIR/hooks/php/composer/post-checkout
+if [ "true" == $(git config --bool hooks.php.composer.enabled) ]; then
+    source $GIT_DIR/hooks/php/composer/post-checkout
+fi
