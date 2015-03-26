@@ -4,20 +4,12 @@
 #
 # Runs various scripts to check the quality of code being checked in
 #
-GIT_HOOK_DIR="$(dirname "$0")"
-GIT_HOOK_FOUND_ERRORS=0
 
 # Scripts go here
-source $GIT_HOOK_DIR/php/pre-commit
+source $GIT_DIR/hooks/php/pre-commit
 #source $GIT_HOOK_DIR/ruby/pre-commit
 #source $GIT_HOOK_DIR/python/pre-commit
 #source $GIT_HOOK_DIR/javascript/pre-commit
 #source $GIT_HOOK_DIR/css/pre-commit
 #source $GIT_HOOK_DIR/html/pre-commit
 #source $GIT_HOOK_DIR/twig/pre-commit
-
-# If errors were found, no commit!
-if [ 1 == $GIT_HOOK_FOUND_ERRORS ]; then
-    echo "errors found"
-    exit 1
-fi

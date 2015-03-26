@@ -2,11 +2,11 @@
 # vi: set ft=sh :
 ####
 #
-# PHP pre-commit hook
+# PHP tools pre-commit hooks
 #
-#source $GIT_HOOK_DIR/php/phpcs/pre-commit
-#source $GIT_HOOK_DIR/php/phpmd/pre-commit
-source $GIT_HOOK_DIR/php/composer/pre-commit
+source $GIT_DIR/hooks/php/phpcs/pre-commit
+source $GIT_DIR/hooks/php/phpmd/pre-commit
+source $GIT_DIR/hooks/php/composer/pre-commit
 
 ####
 #
@@ -30,6 +30,6 @@ FILES=$(git diff --cached --name-only --diff-filter=ACMR $against | grep "\.php"
 for f in $FILES; do
     $PHP_BIN -l $f
     if [ $? != 0 ]; then
-        GIT_HOOK_FOUND_ERRORS=1
+        exit $?
     fi
 done
