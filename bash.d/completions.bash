@@ -5,24 +5,22 @@ if [ -f /etc/bash_completion ]; then
   source /etc/bash_completion
 fi
 
-if [ -f /usr/local/etc/bash_completion ]; then
-    #echo "source: /usr/local/etc/bash_completion"
-    source /usr/local/etc/bash_completion
-fi
+#if [ -f /usr/local/etc/bash_completion ]; then
+#    source /usr/local/etc/bash_completion
+#fi
 
 #if [ -d "/usr/local/etc/bash_completion.d" ]; then
 #    for FILE in /usr/local/etc/bash_completion.d/*; do
-#        echo "DEBUG::completes.bash::source $FILE"
 #        source $FILE
 #    done
 #fi
 
 # If brew is installed
-if [ $(command -v brew) ]; then
-    if [ -f $(brew --prefix)/etc/bash_completion ]; then
-        source $(brew --prefix)/etc/bash_completion
-    fi
-fi
+#if [ $(command -v brew) ]; then
+#    if [ -f $(brew --prefix)/etc/bash_completion ]; then
+#        source $(brew --prefix)/etc/bash_completion
+#    fi
+#fi
 
 # make sure our directories exist first
 if [ ! -d $HOME/.bash.d/completions.d/available ]; then
@@ -34,7 +32,6 @@ fi
 
 # All the completion scripts that are enabled will get sourced
 for FILE in $HOME/.bash.d/completions.d/enabled/*; do
-    #echo "DEBUG::completes.bash::source $FILE"
     source $FILE
 done
 

@@ -1,28 +1,36 @@
 #!/usr/bin/env bash
 # vi: set ft=sh :
 set -e
+source $DOTFILES_ROOT/lib/bash/functions.sh
+
 ####
 #
 # First figure out what box it is and run the main dependency managers
 #
 if [ $(uname) == "Linux" ]; then
     if [ $(command -v apt-get) ]; then
-        echo 'Running apt-get update and upgrade'
+        log_info '>> sudo apt-get update'
         sudo apt-get update
+        log_info '>> sudo apt-get upgrade'
         sudo apt-get upgrade
     fi
 else
     if [ $(command -v brew) ]; then
-        echo 'Running brew update'
+        log_info '>> brew update'
         brew update
-        echo 'Running brew upgrade'
+        log_debug 'Done'
+        log_info '>> brew upgrade'
         brew upgrade
-        echo "Running brew linkapps"
+        log_debug 'Done'
+        log_info '>> brew linkapps'
         brew linkapps
-        echo 'Cleaning up after self'
+        log_debug 'Done'
+        log_info '>> brew cleanup'
         brew cleanup
-        echo 'Running brew prune'
+        log_debug 'Done'
+        log_info '>> brew prune'
         brew prune
+        log_debug 'Done'
     fi
 fi
 
@@ -31,8 +39,9 @@ fi
 # Python Stuff
 #
 if [ $(command -v pip3) ]; then
-    echo "Upgrading pip"
+    log_info "Upgrading pip"
     pip3 install --upgrade pip
+    log_debug 'Done'
 fi
 
 ####
@@ -40,8 +49,9 @@ fi
 # Vim
 #
 if [ $(command -v vim) ]; then
-    echo 'Updating Vundle bundles'
+    log_info 'Updating Vundle bundles'
     vim +PluginUpdate +qall
+    log_debug 'Done'
 fi
 #### end vim ####
 
@@ -51,23 +61,27 @@ fi
 #
 # composer
 if [ $(command -v composer.phar) ]; then
-    echo 'Updating composer.phar'
+    log_info 'Updating composer.phar'
     composer.phar selfupdate
+    log_debug 'Done'
 
-    echo 'Updating composer global dependencies'
+    log_info 'Updating composer global dependencies'
     composer.phar global update
+    log_debug 'Done'
 fi
 
 # phpbrew
 if [ $(command -v phpbrew) ]; then
-    echo "Updating phpbrew"
+    log_info '>> phpbrew self-update'
     phpbrew self-update
+    log_debug 'Done'
 fi
 
 # Magento
 if [ $(command -v n98-magerun.phar) ]; then
-    echo "Updating magerun"
+    log_info '>> n98-magerun.phar self-update'
     n98-magerun.phar self-update
+    log_debug 'Done'
 fi
 #### end php ####
 
@@ -76,9 +90,15 @@ fi
 # Ruby
 #
 if [ $(command -v gem) ]; then
+    log_debug '>> gem update --system'
     gem update --system
+    log_debug 'Done'
+    log_debug '>> gem update'
     gem update
+    log_debug 'Done'
+    log_debug '>> gem cleanup'
     gem cleanup
+    log_debug 'Done'
 fi
 #### end ruby ####
 
@@ -87,7 +107,11 @@ fi
 # Node
 #
 if [ $(command -v npm) ]; then
+    log_debug '>> npm install -g npm@latest'
     npm install -g npm@latest
+    log_debug 'Done'
+    log_debug '>> npm update -g'
     npm update -g
+    log_debug 'Done'
 fi
 #### end node ####

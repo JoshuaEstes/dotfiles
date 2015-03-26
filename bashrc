@@ -1,19 +1,21 @@
 #!/usr/bin/env bash
-####
-#
-# include system wide bashrc files
-#
+#### snippet to figure out where symlink file is located ####
+# @see http://stackoverflow.com/questions/59895/can-a-bash-script-tell-what-directory-its-stored-in
+SOURCE="${BASH_SOURCE[0]}"
+while [ -h "$SOURCE" ]; do
+    DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+    SOURCE="$(readlink "$SOURCE")"
+    [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE"
+done
+export DOTFILES_ROOT="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+#### snippet to figure out where symlink file is located ####
+
 if [ -e /etc/bash.bashrc ]; then
-    #echo "DEBUG::source /etc/bash.bashrc"
-    # system wide bashrc file
     source /etc/bash.bashrc
 fi
 if [ -e /etc/bashrc ]; then
-    #echo "DEBUG::srouce /etc/bashrc"
-    # system wide bashrc file
     source /etc/bashrc
 fi
-#### end system bashrc files ####
 
 ####
 #
@@ -56,17 +58,6 @@ unset PATH_ARRAY
 #
 # Edit some variables
 #
-#### snippet to figure out where symlink file is located ####
-# @see http://stackoverflow.com/questions/59895/can-a-bash-script-tell-what-directory-its-stored-in
-SOURCE="${BASH_SOURCE[0]}"
-while [ -h "$SOURCE" ]; do
-    DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
-    SOURCE="$(readlink "$SOURCE")"
-    [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE"
-done
-DOTFILES_ROOT="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
-#### snippet to figure out where symlink file is located ####
-
 DOTFILES_HOME=$DOTFILES_ROOT
 export DEBUG=0
 export ARCHFLAGS="-arch x86_64"
@@ -159,24 +150,24 @@ if [ -f /usr/local/opt/autoenv/activate.sh ]; then
 fi
 
 # Default functions
-if [ -f $DOTFILES_HOME/bash.d/functions.bash ]; then
-  source $DOTFILES_HOME/bash.d/functions.bash
+if [ -f $DOTFILES_ROOT/bash.d/functions.bash ]; then
+    source $DOTFILES_ROOT/bash.d/functions.bash
 fi
 
 # Default completions
-if [ -f $DOTFILES_HOME/bash.d/completions.bash ]; then
-  source $DOTFILES_HOME/bash.d/completions.bash
+if [ -f $DOTFILES_ROOT/bash.d/completions.bash ]; then
+    source $DOTFILES_ROOT/bash.d/completions.bash
 fi
 
 # Default aliases
-if [ -f $DOTFILES_HOME/bash.d/aliases.bash ]; then
-  source $DOTFILES_HOME/bash.d/aliases.bash
+if [ -f $DOTFILES_ROOT/bash.d/aliases.bash ]; then
+    source $DOTFILES_ROOT/bash.d/aliases.bash
 fi
 
 # Load some defaults
-source $DOTFILES_HOME/lib/colours
-source $DOTFILES_HOME/bash.d/config.bash
-source $DOTFILES_HOME/bash.d/base.bash
+source $DOTFILES_ROOT/lib/colours
+source $DOTFILES_ROOT/bash.d/config.bash
+source $DOTFILES_ROOT/bash.d/base.bash
 #### end ####
 
 #### gpg ####
