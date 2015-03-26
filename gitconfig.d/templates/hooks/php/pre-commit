@@ -4,6 +4,8 @@
 #
 # PHP pre-commit hook
 #
+#source $GIT_HOOK_DIR/php/phpcs/pre-commit
+#source $GIT_HOOK_DIR/php/phpmd/pre-commit
 source $GIT_HOOK_DIR/php/composer/pre-commit
 
 ####

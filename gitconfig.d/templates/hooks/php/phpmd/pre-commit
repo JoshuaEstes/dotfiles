@@ -7,7 +7,7 @@ PHPMD_BIN=$(command -v phpmd)
 if [ ! $PHPMD_BIN ]; then
     exit 0
 fi
-if [ ! $(git config --bool hooks.phpmd.enabled) ]; then
+if [ "false" == $(git config --bool hooks.phpmd) ]; then
     exit 0
 fi
 echo "Starting PHP Mess Detector"
