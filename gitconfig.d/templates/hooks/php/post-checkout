@@ -1,0 +1,6 @@
+#!/bin/sh
+# vi: set ft=sh :
+####
+#
+#
+source $GIT_DIR/hooks/php/composer/post-checkout
