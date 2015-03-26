@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+###
+#
+# Updates hooks from template directory
+# to the current git repo
+#
+set -e
+
+case "$1" in
+    update)
+        if [ ! -d $PWD/.git/ ]; then
+            echo "Currently not in a git repository"
+            exit 1
+        fi
+
+        #echo "init.templatedir = $(git config --get init.templatedir)"
+        FILES=$(git config --path --get init.templatedir)/hooks/*
+        for FILE in $FILES
+        do
+            cp -Rv $FILE $PWD/.git/hooks/
+        done
+        ;;
+    *)
+        echo $"Usage: git hooks {update}"
+        exit 1
+esac
