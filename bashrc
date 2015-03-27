@@ -10,11 +10,16 @@ done
 export DOTFILES_ROOT="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 #### snippet to figure out where symlink file is located ####
 
+# Include global functions to use
+source $DOTFILES_ROOT/lib/bash/functions.sh
+
 if [ -e /etc/bash.bashrc ]; then
     source /etc/bash.bashrc
+    log_debug '>> source /etc/bash.bashrc'
 fi
 if [ -e /etc/bashrc ]; then
     source /etc/bashrc
+    log_debug '>> source /etc/bashrc'
 fi
 
 ####
@@ -52,13 +57,14 @@ done
 PATH="${PATH:1:${#PATH}}"
 export PATH
 unset PATH_ARRAY
+log_debug "PATH => $PATH"
 #### end PATH ####
 
 ####
 #
 # Edit some variables
+# @TODO Move these to config file
 #
-DOTFILES_HOME=$DOTFILES_ROOT
 export DEBUG=0
 export ARCHFLAGS="-arch x86_64"
 export EDITOR="vim"
@@ -123,6 +129,7 @@ export HISTTIMEFORMAT="%Y-%m-%d %H:%M "
 #
 if [ -f "$HOME/.bash.local" ]; then
     source $HOME/.bash.local
+    log_debug ">> source $HOME/.bash.local"
 fi
 #### end bash.local ####
 
@@ -137,6 +144,7 @@ fi
 if [ -e $HOME/.phpbrew/bashrc ]; then
     PHPBREW_SET_PROMPT=1
     source $HOME/.phpbrew/bashrc
+    log_debug ">> source $HOME/.phpbrew/bashrc"
 fi
 #### end php ####
 #### python ####
@@ -147,34 +155,42 @@ export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 
 if [ -f /usr/local/opt/autoenv/activate.sh ]; then
     source /usr/local/opt/autoenv/activate.sh
+    log_debug '>> source /usr/local/opt/autoenv/activate.sh'
 fi
 
 # Default functions
 if [ -f $DOTFILES_ROOT/bash.d/functions.bash ]; then
     source $DOTFILES_ROOT/bash.d/functions.bash
+    log_debug ">> source $DOTFILES_ROOT/bash.d/functions.bash"
 fi
 
 # Default completions
 if [ -f $DOTFILES_ROOT/bash.d/completions.bash ]; then
     source $DOTFILES_ROOT/bash.d/completions.bash
+    log_debug ">> source $DOTFILES_ROOT/bash.d/completions.bash"
 fi
 
 # Default aliases
 if [ -f $DOTFILES_ROOT/bash.d/aliases.bash ]; then
     source $DOTFILES_ROOT/bash.d/aliases.bash
+    log_debug ">> source $DOTFILES_ROOT/bash.d/aliases.bash"
 fi
 
 # Load some defaults
 source $DOTFILES_ROOT/lib/colours
+log_debug ">> source $DOTFILES_ROOT/lib/colours"
 source $DOTFILES_ROOT/bash.d/config.bash
+log_debug ">> source $DOTFILES_ROOT/bash.d/config.bash"
 source $DOTFILES_ROOT/bash.d/base.bash
+log_debug ">> source $DOTFILES_ROOT/bash.d/base.bash"
 #### end ####
 
 #### gpg ####
 GPG_TTY=$(tty)
 export GPG_TTY
-if [ -f "${HOME}/.gpg-agent-info" ]; then
-    source "${HOME}/.gpg-agent-info"
+if [ -f $HOME/.gpg-agent-info ]; then
+    source $HOME/.gpg-agent-info
+    log_debug ">> source $HOME/.gpg-agent-info"
     export GPG_AGENT_INFO
     export SSH_AUTH_SOCK
 fi

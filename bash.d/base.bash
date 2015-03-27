@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-# @see lib/colours
 
 case $TERM in
   xterm | xterm-color)
