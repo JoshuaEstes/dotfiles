@@ -130,11 +130,11 @@
 [hooks "php"]
 	enabled = yes
 [hooks "php.phpcs"]
-	enabled = no
+	enabled = yes
     bin = phpcs
     options = --ignore=*.dist --standard=PSR1,PSR2 -n
 [hooks "php.phpmd"]
-    enabled = no
+    enabled = yes
     bin = phpmd
     report = text
     ruleset = cleancode,codesize,design,naming,unusedcode
