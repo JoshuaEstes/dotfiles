@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # @see lib/colours
 
-# Still playing around with title bars
 case $TERM in
   xterm | xterm-color)
       TITLE_BAR="\[\e]0;\w\a\]"

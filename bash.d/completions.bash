@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-# If there is a default file, then load that one first
 if [ -f /etc/bash_completion ]; then
   source /etc/bash_completion
 fi
