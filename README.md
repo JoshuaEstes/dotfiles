@@ -5,7 +5,7 @@ These are my dotfiles. There are many others like it, but this one is mine. My
 dotfiles is my best friend. It is my life. I must master it as I must master
 my life. Without me, my dotfiles are useless. Without my dotfiles, I am useless.
 
-# Installation
+## Installation
 
 ```bash
 cd $HOME
@@ -13,13 +13,7 @@ git clone git://github.com/JoshuaEstes/dotfiles.git .dotfiles
 cd .dotfiles
 ./script/install
 ```
-
-NOTE: These files MUST be installed into this directory, if files are not stored
-in this director, some parts my not work correctly. This library is installed by
-symlinking files to the corresponding dotfile. For example, `$HOME/.bashrc` is
-symlinked to `$HOME/.dotfiles/bashrc`.
-
-# Updating
+## Updating
 
 Just run the [up](https://github.com/JoshuaEstes/dotfiles/blob/master/bin/up) command
 and it will update based on OS.
@@ -28,53 +22,30 @@ and it will update based on OS.
 up
 ```
 
-# Extras
+## Extras
 
 * [Cheat Sheets](https://gist.github.com/JoshuaEstes/2627607)
    * Cheat sheets for bash, tmux, vim, git, etc.
 
-# Configuration
+## Configuration
 
 Edit `~/.gitconfig` to your liking
 
-# bin
 
-* `up` - Runs system updates based on what you have installed and the
-OS that you are running.
+## Git Commands Added
 
-# bash
+* `git hooks update` - Updates the hooks you have in your template directory to the current
+repository you are working in. See the file `bin/git-hooks` for more
+information.
 
-## aliases
+## Git Hooks
 
-Aliases are located in the bash.d/aliases.d directory. It will load all files in
-the enabled directory.
+I have various hooks that will run when various events happen. These hooks work
+for me and I have setup a framework around using them which others might find
+useful. Some documentation can be found in
+`gitconfig.d/templates/hooks/README.md`.
 
-## completions
-
-Completions are located in bash.d/completions.d/ and will load all files located
-in the enabled directory.
-
-# Git
-## Configuration
-
-This project features various hooks that will lint check and run code analysis
-on a code base. These can be globally or locally configured. Please see the
-hooks section for more information.
-
-## Commands
-
-* `git updatehooks` - Updates the hooks you have in your template directory to the current
-repository you are working in.
-
-## Hooks
-
-As previously stated, hooks exist to run code analysis tools. These can be used
-to block a commit if they do not meet various coding standards.
-
-### phpcs
-### phpmd
-
-# Email
+## Email
 
 Mutt is used for email along with `ppl` for the address book part in which
 contact information is store. The address book is configured to keep files in
@@ -88,15 +59,15 @@ to the internet to read email, however you must be connected to sync email.
 
 msmtp is used to send emails.
 
-## Security
+### Security
 
 GnuPG is used to store credentials and these credentials are stored in
 `$HOME/.pw` and can be setup to be a git repository.
 
-# IRC
+## IRC
 
 irssi is used to connect to IRC.
 
-# tmux
+## tmux
 
 tmux is used for various things. Use it and love it.
