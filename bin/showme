@@ -1,0 +1,25 @@
+#!/usr/bin/env sh
+set -e
+
+function showme_colors() {
+    for BG in $(seq 40 47); do
+        printf "${BG}"
+        for FG in $(seq 30 37); do
+            printf "\033[${BG}m\033[${FG}m  ${FG}m  \033[0m"
+        done
+        echo
+    done
+}
+
+function showme_help() {
+    echo $"Usage: showme {colors}"
+}
+
+case "$1" in
+    colors)
+        showme_colors
+        ;;
+    *)
+        showme_help
+        exit 1
+esac

@@ -1,7 +1,6 @@
 # Individual readline initialization file
 
-# Dig the vim
-#set editing-mode vi
+set editing-mode emacs
 
 $if mode=vi
 #set keymap vi-command

@@ -65,7 +65,6 @@ log_debug "PATH => $PATH"
 # Edit some variables
 # @TODO Move these to config file
 #
-export DEBUG=0
 export ARCHFLAGS="-arch x86_64"
 export EDITOR="vim"
 export GIT_EDITOR="vim"
