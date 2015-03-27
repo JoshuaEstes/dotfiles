@@ -39,7 +39,7 @@ fi
 # Python Stuff
 #
 if [ $(command -v pip3) ]; then
-    log_info "Upgrading pip"
+    log_info '>> pip3 install --upgrade pip'
     pip3 install --upgrade pip
     log_debug 'Done'
 fi
@@ -49,7 +49,7 @@ fi
 # Vim
 #
 if [ $(command -v vim) ]; then
-    log_info 'Updating Vundle bundles'
+    log_info 'vim +PluginUpdate +qall'
     vim +PluginUpdate +qall
     log_debug 'Done'
 fi
@@ -61,11 +61,11 @@ fi
 #
 # composer
 if [ $(command -v composer.phar) ]; then
-    log_info 'Updating composer.phar'
+    log_info '>> composer.phar selfupdate'
     composer.phar selfupdate
     log_debug 'Done'
 
-    log_info 'Updating composer global dependencies'
+    log_info '>> composer.phar global update'
     composer.phar global update
     log_debug 'Done'
 fi
