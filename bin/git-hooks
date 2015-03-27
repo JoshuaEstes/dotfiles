@@ -13,7 +13,7 @@ case "$1" in
             exit 1
         fi
 
-        #echo "init.templatedir = $(git config --get init.templatedir)"
+        # Could this be rsynced instead?
         FILES=$(git config --path --get init.templatedir)/hooks/*
         for FILE in $FILES
         do
