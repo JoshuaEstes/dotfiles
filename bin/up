@@ -49,7 +49,7 @@ fi
 # Vim
 #
 if [ $(command -v vim) ]; then
-    log_info 'vim +PluginUpdate +qall'
+    log_info '>> vim +PluginUpdate +qall'
     vim +PluginUpdate +qall
     log_debug 'Done'
 fi
