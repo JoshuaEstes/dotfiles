@@ -295,6 +295,7 @@ if [ $IS_DARWIN == "true" ]; then
     brew install libiconv
     brew install s3cmd
     brew install mcrypt
+    brew install zsh
 
     # CLI Music player
     #brew install cmus --with-ffmpeg

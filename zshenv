@@ -1,1 +1,1 @@
-echo "DEBUG::zshenv"
+#!/usr/bin/env zsh

@@ -1,1 +1,1 @@
-echo "DEBUG::zlogin"
+#!/usr/bin/env zsh

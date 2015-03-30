@@ -1,1 +1,1 @@
-echo "DEBUG::zlogout"
+#!/usr/bin/env zsh

@@ -1,1 +1,2 @@
-echo "DEBUG::zprofile"
+#!/usr/bin/env zsh
+# Login Shell
