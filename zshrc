@@ -7,8 +7,6 @@ while [ -h "$SOURCE" ]; do
 done
 export DOTFILES_ROOT="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
-autoload -U colors
-colors
 if [ $(command -v dircolors) ]; then
     eval "$(dircolors $DOTFILES_ROOT/lib/dircolors/dircolors.ansi-dark)"
 fi
@@ -20,6 +18,7 @@ fi
 alias c='composer'
 alias d='docker'
 alias g='git'
+alias gd='git diff'
 alias gs='git status'
 alias h='history'
 alias n='npm'
@@ -52,6 +51,7 @@ setopt hist_verify
 setopt inc_append_history
 unsetopt menu_complete
 setopt monitor
+setopt multibyte
 setopt multios
 setopt no_beep
 setopt prompt_subst
@@ -61,9 +61,9 @@ setopt share_history
 #setopt verbose
 setopt vi
 
-# Variables
-HISTSIZE=1000
-SAVEHIST=1000
+# Variables, get lots of stats
+HISTSIZE=10000
+SAVEHIST=10000
 
 # git
 # get the name of the branch we are on
@@ -71,7 +71,7 @@ function git_prompt_info() {
   if [[ "$(command git config --get oh-my-zsh.hide-status 2>/dev/null)" != "1" ]]; then
     ref=$(command git symbolic-ref HEAD 2> /dev/null) || \
     ref=$(command git rev-parse --short HEAD 2> /dev/null) || return 0
-    echo "${ref#refs/heads/}$(parse_git_dirty)"
+    echo "(${ref#refs/heads/}$(parse_git_dirty))"
   fi
 }
 
@@ -91,9 +91,9 @@ parse_git_dirty() {
     STATUS=$(command git status ${FLAGS} 2> /dev/null | tail -n1)
   fi
   if [[ -n $STATUS ]]; then
-    echo "d"
+    echo "[dirty]"
   else
-    echo "c"
+    echo "[clean]"
   fi
 }
 
@@ -219,6 +219,7 @@ unset -f git_compare_version
 # end git
 
 # Prompt
-PS1=$'%F{magenta}%n@%m%F{$reset_color} %F{cyan}$(git_prompt_info)
+autoload -U colors && colors
+PS1=$'%F{magenta}%n@%m%{$reset_color%} %F{cyan}$(git_prompt_info)
 %F{white}$ %F{$reset_color%}'
-RPS1='%F{yellow}%~%F{$reset_color}'
+RPS1='%F{yellow}%~%{$reset_color%}'
