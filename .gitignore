@@ -9,7 +9,7 @@ bash.d/completions.d/enabled/*
 !bash.d/completions.d/enabled/vagrant
 bash.d/functions.d/enabled/*
 !bash.d/functions.d/enabled/general
-/bin/composer.phar
+/bin/composer*
 /bin/n98-magerun.phar
 /bin/phpbrew
 /bin/symfony.phar
