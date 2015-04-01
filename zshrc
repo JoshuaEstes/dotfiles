@@ -17,6 +17,34 @@ fi
 cdpath=(~/Code)
 bindkey -v
 
+PATH_ARRAY=(
+    $HOME/bin.local
+    $HOME/bin
+    $HOME/.composer/vendor/bin
+    $(brew --prefix homebrew/php/php56)/bin
+    /usr/local/Cellar/ruby/2.2.0/bin
+    /usr/local/heroku/bin
+    /opt/local/bin
+    /usr/local/bin
+    /usr/local/sbin
+    /usr/local/MacGPG2/bin
+    /usr/local/opt/coreutils/libexec/gnubin
+    /usr/bin
+    /bin
+    /usr/X11/bin
+    /usr/sbin
+    /sbin
+)
+PATH=""
+for p in ${PATH_ARRAY[*]}; do
+    if [ -d $p ]; then
+        PATH=$PATH:$p
+    fi
+done
+PATH="${PATH:1:${#PATH}}"
+export PATH
+unset PATH_ARRAY
+
 # Aliases
 alias -- -='cd -'
 alias c='composer'
