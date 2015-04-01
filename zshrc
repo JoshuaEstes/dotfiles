@@ -14,16 +14,28 @@ if [ -z "$HISTFILE" ]; then
     HISTFILE=$HOME/.zsh_history
 fi
 
+cdpath=(~/Code)
+bindkey -v
+
 # Aliases
+alias -- -='cd -'
 alias c='composer'
 alias d='docker'
 alias g='git'
 alias gd='git diff'
 alias gs='git status'
 alias h='history'
+alias j='jobs'
 alias n='npm'
 alias ls='ls -G'
-alias ll='ls -alh -G'
+alias l='ls'
+alias ll='ls -alh'
+alias la='ls -a'
+alias lsa='ls -ls .*'
+alias lsd='ls -ld *(-/DN)'
+alias du1='du -hs *(/)'
+alias v='vim'
+alias vi='vim'
 alias vup='vagrant up'
 alias vhalt='vagrant halt'
 alias mkdir='mkdir -p'
@@ -64,6 +76,8 @@ setopt vi
 # Variables, get lots of stats
 HISTSIZE=10000
 SAVEHIST=10000
+export EDITOR="`whence vim`"
+export KEYTIMEOUT=1 # 0.1 second delay
 
 # git
 # get the name of the branch we are on
@@ -220,6 +234,13 @@ unset -f git_compare_version
 
 # Prompt
 autoload -U colors && colors
-PS1=$'%F{magenta}%n@%m%{$reset_color%} %F{cyan}$(git_prompt_info)
+source $HOME/.phpbrew/bashrc
+PS1=$'%F{magenta}%n@%m %F{blue}$(phpbrew_current_php_version) %F{cyan}$(git_prompt_info)
 %F{white}$ %F{$reset_color%}'
 RPS1='%F{yellow}%~%{$reset_color%}'
+
+clear
+uptime
+log
+from 2>/dev/null
+msgs
