@@ -9,9 +9,6 @@ export DOTFILES_ROOT="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 fpath=($DOTFILES_ROOT/lib/zsh "${fpath[@]}")
 autoload -U ${fpath[1]}/*(:t)
 
-if [ $(command -v dircolors) ]; then
-    eval "$(dircolors $DOTFILES_ROOT/lib/dircolors/dircolors.ansi-dark)"
-fi
 if [ -z "$HISTFILE" ]; then
     HISTFILE=$HOME/.zsh_history
 fi
@@ -54,10 +51,11 @@ alias d='docker'
 alias g='git'
 alias gd='git diff'
 alias gs='git status'
+alias gr='git remote -v'
 alias h='history'
 alias j='jobs'
 alias n='npm'
-alias ls='ls -G'
+alias ls='ls --color=auto'
 alias l='ls'
 alias ll='ls -alh'
 alias la='ls -a'
@@ -102,7 +100,6 @@ setopt share_history
 #setopt verbose
 setopt vi
 
-autoload -U colors && colors
 
 # Variables, get lots of stats
 HISTSIZE=10000
@@ -265,9 +262,13 @@ unset -f git_compare_version
 
 # Prompt
 source $HOME/.phpbrew/bashrc
-PS1=$'%F{magenta}%n@%m %F{blue}$(phpbrew_current_php_version) %F{cyan}$(git_prompt_info)
+PS1=$'%F{magenta}%n@%m %F{blue}$(phpbrew_current_php_version) %F{cyan}$(git_prompt_info)%F{$reset_color}
 %F{white}$ %F{$reset_color%}'
 RPS1='%F{yellow}%~%{$reset_color%}'
+
+autoload -U colors && colors
+eval `dircolors $DOTFILES_ROOT/lib/dircolors/dircolors.ansi-dark`
+export ZLS_COLORS=LS_COLORS
 
 clear
 uptime

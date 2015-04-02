@@ -60,13 +60,13 @@ fi
 # PHP
 #
 # composer
-if [ $(command -v composer.phar) ]; then
-    log_info '>> composer.phar selfupdate'
-    composer.phar selfupdate
+if [ $(command -v composer) ]; then
+    log_info '>> composer selfupdate'
+    composer selfupdate
     log_debug 'Done'
 
-    log_info '>> composer.phar global update'
-    composer.phar global update
+    log_info '>> composer global update'
+    composer global update
     log_debug 'Done'
 fi
 
