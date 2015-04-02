@@ -1,0 +1,8 @@
+#!/usr/bin/env zsh
+####
+#
+# Reloads all files
+#
+function reload() {
+    source $HOME/.zshrc
+}

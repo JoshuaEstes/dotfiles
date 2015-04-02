@@ -1,0 +1,8 @@
+#!/usr/bin/env zsh
+####
+#
+# Displays stats on various usage patterns
+#
+function statistics() {
+    history 0 | awk "{print \$2}" | sort | uniq -c | sort -n -r | head
+}

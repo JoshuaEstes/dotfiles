@@ -6,6 +6,8 @@ while [ -h "$SOURCE" ]; do
     [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE"
 done
 export DOTFILES_ROOT="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+fpath=($DOTFILES_ROOT/lib/zsh "${fpath[@]}")
+autoload -U ${fpath[1]}/*(:t)
 
 if [ $(command -v dircolors) ]; then
     eval "$(dircolors $DOTFILES_ROOT/lib/dircolors/dircolors.ansi-dark)"
@@ -64,11 +66,10 @@ alias lsd='ls -ld *(-/DN)'
 alias du1='du -hs *(/)'
 alias v='vim'
 alias vi='vim'
+alias vs='vagrant status'
 alias vup='vagrant up'
 alias vhalt='vagrant halt'
-alias mkdir='mkdir -p'
-alias reload="source $HOME/.zshrc"
-alias history-stat="history 0 | awk '{print \$2}' | sort | uniq -c | sort -n -r | head"
+alias mkdir='mkdir -vp'
 
 # Options
 setopt always_to_end
@@ -85,7 +86,7 @@ setopt correct_all
 setopt extended_history
 unsetopt flowcontrol
 setopt hist_expire_dups_first
-setopt hist_ignore_dups
+#setopt hist_ignore_dups
 setopt hist_ignore_space
 setopt hist_verify
 setopt inc_append_history
@@ -100,6 +101,8 @@ setopt pushdminus
 setopt share_history
 #setopt verbose
 setopt vi
+
+autoload -U colors && colors
 
 # Variables, get lots of stats
 HISTSIZE=10000
@@ -261,7 +264,6 @@ unset -f git_compare_version
 # end git
 
 # Prompt
-autoload -U colors && colors
 source $HOME/.phpbrew/bashrc
 PS1=$'%F{magenta}%n@%m %F{blue}$(phpbrew_current_php_version) %F{cyan}$(git_prompt_info)
 %F{white}$ %F{$reset_color%}'
