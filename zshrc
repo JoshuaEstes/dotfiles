@@ -1,4 +1,5 @@
 #!/usr/bin/env zsh
+bindkey -v # Use vim key bindings
 SOURCE="$HOME/.zshrc"
 while [ -h "$SOURCE" ]; do
     DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
@@ -8,13 +9,6 @@ done
 export DOTFILES_ROOT="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 fpath=($DOTFILES_ROOT/lib/zsh "${fpath[@]}")
 autoload -U ${fpath[1]}/*(:t)
-
-if [ -z "$HISTFILE" ]; then
-    HISTFILE=$HOME/.zsh_history
-fi
-
-cdpath=(~/Code)
-bindkey -v
 
 PATH_ARRAY=(
     $HOME/bin.local
@@ -48,7 +42,8 @@ unset PATH_ARRAY
 alias -- -='cd -'
 alias c='composer'
 alias d='docker'
-alias g='git'
+# Sometimes zsh tries to correct some of my git aliases
+alias g='nocorrect git'
 alias gd='git diff'
 alias gs='git status'
 alias gr='git remote -v'
@@ -69,43 +64,72 @@ alias vup='vagrant up'
 alias vhalt='vagrant halt'
 alias mkdir='mkdir -vp'
 
-# Options
-setopt always_to_end
-setopt append_history
+# Parameters (man zshparam)
+cdpath=(~/Code)
+DIRSTACKSIZE=10
+FCEDITOR=vim
+export EDITOR=$FCEDITOR
+HISTFILE=$HOME/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+KEYTIMEOUT=1 # 0.1 second delay
+watch=(notme)
+ZLE_RPROMPT_INDENT=0
+
+if [ -z "$HISTFILE" ]; then
+    HISTFILE=$HOME/.zsh_history
+fi
+
+# Options (man zshoptions)
+## Changing Directories
 setopt auto_cd
-setopt auto_continue
-setopt auto_menu
 setopt auto_pushd
 setopt cdablevars
 setopt chase_dots
 setopt chase_links
+setopt pushd_ignore_dups
+setopt pushd_minus
+## Completion
+setopt always_to_end
+setopt auto_menu
 setopt complete_in_word
-setopt correct_all
+unsetopt menu_complete
+## Expansion and Globbing
+setopt multibyte
+## History
+setopt append_history
 setopt extended_history
-unsetopt flowcontrol
-setopt hist_expire_dups_first
-#setopt hist_ignore_dups
+#setopt hist_expire_dups_first
+setopt hist_ignore_dups
 setopt hist_ignore_space
+setopt hist_no_store
+setopt hist_reduce_blanks
 setopt hist_verify
 setopt inc_append_history
-unsetopt menu_complete
-setopt monitor
-setopt multibyte
-setopt multios
-setopt no_beep
-setopt prompt_subst
-setopt pushd_ignore_dups
-setopt pushdminus
 setopt share_history
+## Initialisation
+## Input/Output
+setopt correct
+setopt correct_all
+unsetopt flowcontrol
+## Job Control
+setopt auto_continue
+setopt hup
+setopt long_list_jobs
+setopt monitor
+setopt no_check_jobs
+## Prompting
+setopt prompt_subst
+## Scripts and Functions
+setopt c_bases
+setopt multios
 #setopt verbose
+#setopt xtrace
+## Shell Emulation
+## Shell State
+## Zle
+setopt no_beep
 setopt vi
-
-
-# Variables, get lots of stats
-HISTSIZE=10000
-SAVEHIST=10000
-export EDITOR="`whence vim`"
-export KEYTIMEOUT=1 # 0.1 second delay
 
 # git
 # get the name of the branch we are on
@@ -262,8 +286,8 @@ unset -f git_compare_version
 
 # Prompt
 source $HOME/.phpbrew/bashrc
-PS1=$'%F{magenta}%n@%m %F{blue}$(phpbrew_current_php_version) %F{cyan}$(git_prompt_info)%F{$reset_color}
-%F{white}$ %F{$reset_color%}'
+PS1=$'%F{green}[%F{magenta}%n@%m%F{green}] %F{green}[%F{blue}%j%F{green}] %F{green}[%F{blue}$(phpbrew_current_php_version)%F{green}] %F{cyan}$(git_prompt_info)
+%F{green}[%F{blue}%?%F{green}] %F{green}[%F{blue}%h%F{green}] %F{white}%# %F{$reset_color%}'
 RPS1='%F{yellow}%~%{$reset_color%}'
 
 autoload -U colors && colors
