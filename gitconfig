@@ -9,8 +9,8 @@
   br = branch
 
   ; Commit
-  c  = commit -m
-  ca = commit --all -m
+  c  = commit
+  ca = commit --all
 
   ; Checkout
   co = checkout

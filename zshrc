@@ -292,7 +292,7 @@ RPS1='%F{yellow}%~%{$reset_color%}'
 
 autoload -U colors && colors
 eval `dircolors $DOTFILES_ROOT/lib/dircolors/dircolors.ansi-dark`
-export ZLS_COLORS=LS_COLORS
+export ZLS_COLORS=$LS_COLORS
 
 clear
 uptime
