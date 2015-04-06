@@ -115,3 +115,5 @@ if [ $(command -v npm) ]; then
     log_debug 'Done'
 fi
 #### end node ####
+
+exit 0
