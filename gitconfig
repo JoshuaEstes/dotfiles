@@ -144,4 +144,4 @@
     bin = php
 [hooks "php.composer"]
     enabled = true
-    bin = ~/bin/composer.phar
+    bin = ~/bin/composer
