@@ -208,7 +208,7 @@ settings = {
   "fe-text" = { actlist_sort = "refnum"; term_force_colors = "no"; };
   "fe-common/core" = {
     use_status_window = "yes";
-    autolog = "yes";
+    autolog = "no";
     beep_when_window_active = "yes";
     beep_when_away = "yes";
     bell_beeps = "yes";
