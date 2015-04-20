@@ -77,6 +77,13 @@ if [ $(command -v phpbrew) ]; then
     log_debug 'Done'
 fi
 
+# symfony installer
+if [ $(command -v symfony) ]; then
+    log_info '>> symfony self-update'
+    symfony self-update
+    log_debug 'Done'
+fi
+
 # Magento
 if [ $(command -v n98-magerun.phar) ]; then
     log_info '>> n98-magerun.phar self-update'
