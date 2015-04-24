@@ -16,6 +16,7 @@ chatnets = {
 
 channels = (
   { name = "#nashvillephp"; chatnet = "freenode"; autojoin = "Yes"; },
+  { name = "#dspacelabs"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "#bitcoin"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "#symfony"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "#composer"; chatnet = "freenode"; autojoin = "Yes"; },
