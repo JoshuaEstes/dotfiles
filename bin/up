@@ -19,8 +19,8 @@ else
         log_info '>> brew update'
         brew update
         log_debug 'Done'
-        log_info '>> brew upgrade'
-        brew upgrade
+        log_info '>> brew upgrade --all'
+        brew upgrade --all
         log_debug 'Done'
         log_info '>> brew linkapps'
         brew linkapps
