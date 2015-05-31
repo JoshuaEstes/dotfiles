@@ -285,7 +285,7 @@ unset -f git_compare_version
 # end git
 
 # Prompt
-#source $HOME/.phpbrew/bashrc
+source $HOME/.phpbrew/bashrc
 PS1=$'%F{green}[%F{magenta}%n@%m%F{green}] %F{green}[%F{blue}%j%F{green}] %F{green}[%F{blue}$(phpbrew_current_php_version)%F{green}] %F{cyan}$(git_prompt_info)
 %F{green}[%F{blue}%?%F{green}] %F{green}[%F{blue}%h%F{green}] %F{white}%# %F{$reset_color%}'
 RPS1='%F{yellow}%~%{$reset_color%}'
