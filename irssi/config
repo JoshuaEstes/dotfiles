@@ -22,7 +22,8 @@ channels = (
   { name = "#symfony"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "#composer"; chatnet = "freenode"; autojoin = "Yes"; },
   { name = "#browscap"; chatnet = "freenode"; autojoin = "Yes"; },
-  { name = "#phpfig"; chatnet = "freenode"; autojoin = "Yes"; }
+  { name = "#phpfig"; chatnet = "freenode"; autojoin = "Yes"; },
+  { name = "#heroku"; chatnet = "freenode"; autojoin = "Yes"; }
 );
 
 aliases = {
