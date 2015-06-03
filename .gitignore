@@ -15,6 +15,8 @@ bash.d/functions.d/enabled/*
 /bin/symfony.phar
 /bin/symfony
 /bin/virtphp.phar
+# This is a symlink to gsed
+/bin/sed
 /mutt/aliases
 /mutt/cache
 /mutt/certificates
