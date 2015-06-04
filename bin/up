@@ -97,13 +97,13 @@ fi
 # Ruby
 #
 if [ $(command -v gem) ]; then
-    log_debug '>> gem update --system'
+    log_info '>> gem update --system'
     gem update --system
     log_debug 'Done'
-    log_debug '>> gem update'
+    log_info '>> gem update'
     gem update
     log_debug 'Done'
-    log_debug '>> gem cleanup'
+    log_info '>> gem cleanup'
     gem cleanup
     log_debug 'Done'
 fi
@@ -114,10 +114,10 @@ fi
 # Node
 #
 if [ $(command -v npm) ]; then
-    log_debug '>> npm install -g npm@latest'
+    log_info '>> npm install -g npm@latest'
     npm install -g npm@latest
     log_debug 'Done'
-    log_debug '>> npm update -g'
+    log_info '>> npm update -g'
     npm update -g
     log_debug 'Done'
 fi
@@ -128,7 +128,7 @@ fi
 # Heroku
 #
 if [ $(command -v heroku) ]; then
-    log_debug '>> heroku update'
+    log_info '>> heroku update'
     heroku update
     log_debug 'Done'
 fi
