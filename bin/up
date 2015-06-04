@@ -123,4 +123,15 @@ if [ $(command -v npm) ]; then
 fi
 #### end node ####
 
+####
+#
+# Heroku
+#
+if [ $(command -v heroku) ]; then
+    log_debug '>> heroku update'
+    heroku update
+    log_debug 'Done'
+fi
+#### end heroku ####
+
 exit 0
