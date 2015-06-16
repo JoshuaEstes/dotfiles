@@ -106,7 +106,7 @@ setopt hist_no_store
 setopt hist_reduce_blanks
 setopt hist_verify
 setopt inc_append_history
-setopt share_history
+#setopt share_history
 ## Initialisation
 ## Input/Output
 setopt correct
