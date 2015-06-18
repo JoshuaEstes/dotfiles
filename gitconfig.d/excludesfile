@@ -41,6 +41,8 @@
 !.slugignore
 !.bowerrc
 !.chefignore
+!.env
+!.env.dist
 *~
 
 # KDE
