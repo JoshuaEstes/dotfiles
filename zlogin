@@ -1,4 +1,9 @@
 #!/usr/bin/env zsh
+####
+#
+# executes last if shell is login shell
+#
+
 #clear # Clear Screen
 #biff  # Notify on new email messages
 #mesg y # Display notifications from other users

@@ -1,4 +1,8 @@
 #!/usr/bin/env zsh
+####
+#
+# executes third if shell is interactive
+#
 bindkey -v # Use vim key bindings
 SOURCE="$HOME/.zshrc"
 while [ -h "$SOURCE" ]; do
