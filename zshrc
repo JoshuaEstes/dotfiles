@@ -68,22 +68,6 @@ alias vup='vagrant up'
 alias vhalt='vagrant halt'
 alias mkdir='mkdir -vp'
 
-# Parameters (man zshparam)
-cdpath=(~/Code)
-DIRSTACKSIZE=10
-FCEDITOR=vim
-export EDITOR=$FCEDITOR
-HISTFILE=$HOME/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
-KEYTIMEOUT=1 # 0.1 second delay
-watch=(notme)
-ZLE_RPROMPT_INDENT=0
-
-if [ -z "$HISTFILE" ]; then
-    HISTFILE=$HOME/.zsh_history
-fi
-
 # Options (man zshoptions)
 ## Changing Directories
 setopt auto_cd
@@ -133,7 +117,7 @@ setopt multios
 ## Shell State
 ## Zle
 setopt no_beep
-setopt vi
+setopt vi # use bindkey -v instead
 
 # git
 # get the name of the branch we are on
@@ -291,7 +275,7 @@ unset -f git_compare_version
 # Prompt
 source $HOME/.phpbrew/bashrc
 PS1=$'%F{green}[%F{magenta}%n@%m%F{green}] %F{green}[%F{blue}%j%F{green}] %F{green}[%F{blue}$(phpbrew_current_php_version)%F{green}] %F{cyan}$(git_prompt_info)
-%F{green}[%F{blue}%?%F{green}] %F{green}[%F{blue}%h%F{green}] %F{white}%# %F{$reset_color%}'
+%F{green}[%F{blue}%?%F{green}] %F{green}[%F{blue}%h%F{green}] %F{white}%%%F{$reset_color} '
 RPS1='%F{yellow}%~%{$reset_color%}'
 
 autoload -U colors && colors
