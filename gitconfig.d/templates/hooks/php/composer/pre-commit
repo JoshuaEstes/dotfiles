@@ -16,8 +16,8 @@ COMPOSER_JSON_FOUND=$(git diff-index --name-status $against -- composer.json | w
 if [[ $COMPOSER_JSON_FOUND > 0 && -e "$(pwd)/composer.json" ]]; then
     if [ -e $(git config --path hooks.php.composer.bin) ]; then
         $COMPOSER_BIN validate
-        if [ $? != 0 ]; then
-            exit $?
-        fi
+        #if [ $? != 0 ]; then
+        #    exit $?
+        #fi
     fi
 fi

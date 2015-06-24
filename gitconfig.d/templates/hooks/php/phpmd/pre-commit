@@ -14,7 +14,7 @@ PHPMD_BIN=$(command -v phpmd)
 FILES=$(git diff --cached --name-only --diff-filter=ACMR $against | grep \.php)
 for f in $FILES; do
     $PHPMD_BIN $f $(git config hooks.php.phpmd.report) $(git config hooks.php.phpmd.ruleset)
-    if [ $? != 0 ]; then
-        exit $?
-    fi
+    #if [ $? != 0 ]; then
+    #    exit $?
+    #fi
 done

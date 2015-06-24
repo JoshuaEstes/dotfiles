@@ -24,8 +24,8 @@ if [ "true" == $(git config --bool hooks.php.lint.enabled) ]; then
     FILES=$(git diff --cached --name-only --diff-filter=ACMR $against | grep "\.php")
     for f in $FILES; do
         $PHP_BIN -l $f
-        if [ $? != 0 ]; then
-            exit $?
-        fi
+        #if [ $? != 0 ]; then
+        #    exit $?
+        #fi
     done
 fi
