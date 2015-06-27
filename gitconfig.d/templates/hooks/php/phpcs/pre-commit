@@ -13,7 +13,7 @@ fi
 PHPCS_BIN=$(command -v phpcs)
 FILES=$(git diff --cached --name-only --diff-filter=ACMR $against | grep \.php)
 for f in $FILES; do
-    $PHPCS_BIN $(git config hooks.phpcs.options) $f
+    $PHPCS_BIN $(git config hooks.php.phpcs.options) $f
     #if [ $? != 0 ]; then
     #    exit $?
     #fi
