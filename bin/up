@@ -38,9 +38,9 @@ fi
 #
 # Python Stuff
 #
-if [ $(command -v pip3) ]; then
-    log_info '>> pip3 install --upgrade pip'
-    pip3 install --upgrade pip
+if [ $(command -v pip) ]; then
+    log_info '>> pip install --upgrade pip'
+    pip install --upgrade pip
     log_debug 'Done'
     log_info '>> pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs pip install -U'
     pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs pip install -U
