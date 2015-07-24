@@ -28,3 +28,4 @@ config/psysh_history
 config/pianobar/state
 config/fish
 config/configstore/
+config/cmus/cache
