@@ -51,22 +51,60 @@ alias g='nocorrect git'
 alias gd='git diff'
 alias gs='git status'
 alias gr='git remote -v'
+alias n='npm'
+
+# System Related Aliases
 alias h='history'
 alias j='jobs'
-alias n='npm'
+alias mkdir='mkdir -vp'
 alias ls='ls --color=auto'
 alias l='ls'
 alias ll='ls -alh'
 alias la='ls -a'
-alias lsa='ls -ls .*'
-alias lsd='ls -ld *(-/DN)'
-alias du1='du -hs *(/)'
-alias v='vim'
-alias vi='vim'
+alias lsa='ls -lsd .*' # List ONLY hidden files/directories
+alias lsd='ls -ld *(-/DN)' # List ONLY Directories, includes hidden directories
+alias du1='du -hs *(/)' # List disk usage for all directories in $PWD
+
+# To be used with taskwarrior
+# Usage:
+# ```
+# tickle monday Takeout trash
+# tickle 2099-12-31 End of the world
+# ```
+function tickle() {
+    local deadline=$1
+    shift
+    task add +in +tickle wait:$deadline $@
+}
+
+function read_and_review() {
+    local link="$1"
+    local title=$(wget -qO- "$link" | hxselect -s '\n' -c  'title' 2>/dev/null)
+    echo $title
+    local descr="\"Read and review: $title\""
+    local id=$(task add +next +rnr "$descr" | sed -n 's/Created task \(.*\)./\1/p')
+    task "$id" annotate "$link"
+}
+
+# Task Warrior Aliases
+alias t='task'
+alias in='task add +in'
+alias think='tickle +1d' # Think it over for one day
+alias rnd='task add +rnd' # Research and Development
+alias rnr=read_and_review # Read and Review
+
+# Mutt Aliases
+alias m='mutt'
+
+# Vagrant Aliases
 alias vs='vagrant status'
 alias vup='vagrant up'
 alias vhalt='vagrant halt'
-alias mkdir='mkdir -vp'
+alias vssh='vagrant ssh --'
+
+# Vim Aliases
+alias v='vim'
+alias vi='vim'
 
 # Options (man zshoptions)
 ## Changing Directories
@@ -274,8 +312,8 @@ unset -f git_compare_version
 
 # Prompt
 source $HOME/.phpbrew/bashrc
-PS1=$'%F{green}[%F{magenta}%n@%m%F{green}] %F{green}[%F{blue}%j%F{green}] %F{green}[%F{blue}$(phpbrew_current_php_version)%F{green}] %F{cyan}$(git_prompt_info)
-%F{green}[%F{blue}%?%F{green}] %F{green}[%F{blue}%h%F{green}] %F{white}%%%F{$reset_color} '
+PS1=$'%F{green}[%F{magenta}%n@%m%F{green}] %F{green}[%F{cyan}inbox $(task +in +PENDING count)%F{green}] %F{green}[%F{blue}$(phpbrew_current_php_version)%F{green}] %F{cyan}$(git_prompt_info)
+%F{yellow}%~%{$reset_color%} %F{white}%%%F{$reset_color} '
 RPS1='%F{yellow}%~%{$reset_color%}'
 
 autoload -U colors && colors

@@ -137,7 +137,7 @@ function setup_taskwarrior() {
     info "setting up task warrior"
     link_file $DOTFILES_ROOT/taskrc $HOME/.taskrc
     if [ $IS_DARWIN == "true" ]; then
-        brew install task
+        brew install task --gnutils
     fi
 }
 
@@ -254,7 +254,6 @@ function install_dotfiles() {
     link_file $DOTFILES_ROOT/zprofile $HOME/.zprofile
     link_file $DOTFILES_ROOT/zshenv $HOME/.zshenv
     link_file $DOTFILES_ROOT/zshrc $HOME/.zshrc
-    link_file $DOTFILES_ROOT/zsh.d $HOME/.zsh.d
 }
 
 info "This install script may override some files that you already have in place."
@@ -309,6 +308,7 @@ if [ $IS_DARWIN == "true" ]; then
     install_pianobar
 
     brew install osquery
+    brew install html-xml-utils # Used in some scripts and functions
 fi
 
 install_dotfiles && echo
