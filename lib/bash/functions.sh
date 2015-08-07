@@ -80,3 +80,9 @@ function ask_yes_or_no() {
 
     return 0
 }
+
+function say_this() {
+    if [ $(command -v say) ]; then
+        say $1
+    fi
+}
