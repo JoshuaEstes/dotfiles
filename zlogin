@@ -11,3 +11,6 @@
 #log
 #from 2>/dev/null # Display new messages
 #msgs
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
