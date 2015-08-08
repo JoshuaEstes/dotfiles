@@ -16,8 +16,8 @@
 data.location=~/.task
 
 # Create a jira field
-#uda.jira.type=string
-#uda.jira.label=Jira Issue
+uda.jira.type=string
+uda.jira.label=Jira Issue
 
 # The default report to run
 #default.command=jira
@@ -29,7 +29,7 @@ data.location=~/.task
 #report.jira.labels=Jira Issue,ID,Project,Description
 #report.jira.sort=jira+
 
-include /usr/local/Cellar/task/2.4.4/share/doc/task/rc/dark-16.theme
+include /usr/local/Cellar/task/2.4.4/share/doc/task/rc/solarized-dark-256.theme
 
 report.in.columns     = id,description
 report.in.description = Inbox
@@ -38,6 +38,7 @@ report.in.labels      = ID,Description
 
 # Contexts
 context.work=+@work or +@computer
+context.home=+@home
 
 # Estimate
 uda.estimate.type  = string
