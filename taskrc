@@ -40,7 +40,7 @@ report.in.labels      = ID,Description
 context.work=+@work or +@computer
 context.home=+@home
 
-# Estimate
-uda.estimate.type  = string
-uda.estimate.label = Estimate
-uda.estimate.values=1,2,3,5,8,13,21,34,55,89,144
+# Effort
+uda.effort.type   = string
+uda.effort.label  = Effort
+uda.effort.values = 1,2,3,5,8,13,21,34,55,89,144
