@@ -281,7 +281,7 @@ if [ $IS_DARWIN == "true" ]; then
     #brew install zopfli
     brew install ffmpeg --with-openssl --with-faac
     #brew install python
-    brew install sshfs
+    #brew install sshfs
     #brew install trash
     brew install tree
     brew install ack
