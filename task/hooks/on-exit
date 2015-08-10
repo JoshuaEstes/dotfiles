@@ -7,7 +7,8 @@ IFS=':' read -ra DATA <<< $5
 IFS=':' read -ra VERSION <<< $5
 DATA_DIR="${DATA[1]}"
 cd $DATA_DIR
-git add -f .gitignore backlog.data completed.data pending.data undo.data
-if [ $(git diff --exit-code --quiet) ]; then
-    git commit -m "${ARGS}"
+git diff --quiet --exit-code
+if [ $? == 1 ]; then
+    git add -f .gitignore backlog.data completed.data pending.data undo.data
+    git commit --quiet -m "${ARGS}"
 fi
