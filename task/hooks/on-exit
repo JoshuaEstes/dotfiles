@@ -1,2 +1,13 @@
 #!/usr/bin/env bash
-
+IFS=':' read -ra API <<< $1
+IFS=':' read -ra ARGS <<< $2
+IFS=':' read -ra COMMAND <<< $3
+IFS=':' read -ra RC <<< $4
+IFS=':' read -ra DATA <<< $5
+IFS=':' read -ra VERSION <<< $5
+DATA_DIR="${DATA[1]}"
+cd $DATA_DIR
+git add -f .gitignore backlog.data completed.data pending.data undo.data
+if [ $(git diff --exit-code --quiet) ]; then
+    git commit -m "${ARGS}"
+fi

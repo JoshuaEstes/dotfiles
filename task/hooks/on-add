@@ -5,4 +5,7 @@ echo "on-add"
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 echo $DIR
 
+echo $1
+echo $2
+
 exit 0
