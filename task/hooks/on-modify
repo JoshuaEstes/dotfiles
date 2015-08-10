@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+echo "on modify"
+
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+echo $DIR
+
+exit 0
