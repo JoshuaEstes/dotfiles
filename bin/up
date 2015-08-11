@@ -55,6 +55,9 @@ fi
 #
 if [ $(command -v vim) ]; then
     say_this "Upgrading vim plugins" &
+    # To update Vundle, should only be the only submodule
+    # Might be worth updating this to subtree instead
+    git submodule foreach git pull origin master
     log_info '>> vim +PluginUpdate +qall'
     vim +PluginUpdate +qall
     log_debug 'Done'
