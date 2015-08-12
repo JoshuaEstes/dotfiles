@@ -3,4 +3,4 @@
 #
 # Used to display the right side of the tmux status line
 #
-uptime
+echo "[$(date +"%a %b %d %I:%M%p %Z %Y")] [Load:$(uptime | awk -F'[a-z]:' '{ print $2 }')]"
