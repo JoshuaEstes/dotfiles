@@ -16,7 +16,7 @@ if [ $(uname) == "Linux" ]; then
     fi
 else
     if [ $(command -v brew) ]; then
-        say_this "Updating brew and installed brew packages" &
+        say_this "Updating brew" &
         log_info '>> brew update'
         brew update
         log_debug 'Done'
@@ -161,7 +161,6 @@ if [ $(command -v tmux) ]; then
     git subtree pull --prefix tmux/plugins/tpm tpm master --squash
 fi
 #### end tmux ####
-
 
 say_this "Updates complete" &
 exit 0
