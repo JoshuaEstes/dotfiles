@@ -29,3 +29,5 @@ config/pianobar/state
 config/fish
 config/configstore/
 config/cmus/cache
+tmux/plugins/*
+!tmux/plugins/tpm/
