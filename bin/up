@@ -40,7 +40,7 @@ fi
 # Python Stuff
 #
 if [ $(command -v pip) ]; then
-    say_this "Running pip commands" &
+    say_this "Updating pip" &
     log_info '>> pip install --upgrade pip'
     pip install --upgrade pip
     log_debug 'Done'
@@ -54,7 +54,7 @@ fi
 # Vim
 #
 if [ $(command -v vim) ]; then
-    say_this "Upgrading vim plugins" &
+    say_this "Updating vim plugins" &
     # To update Vundle, should only be the only submodule
     # Might be worth updating this to subtree instead
     git submodule foreach git pull origin master
@@ -81,7 +81,7 @@ fi
 
 # phpbrew
 if [ $(command -v phpbrew) ]; then
-    say_this "PHP Brew is self updating" &
+    say_this "Updating PHP Brew" &
     log_info '>> phpbrew self-update'
     phpbrew self-update
     log_debug 'Done'
@@ -148,6 +148,20 @@ if [ $(command -v heroku) ]; then
     log_debug 'Done'
 fi
 #### end heroku ####
+
+####
+#
+# tmux
+#
+if [ $(command -v tmux) ]; then
+    say_this "Updating tmux" &
+    log_info ">> Updating tmux plugin manager"
+    cd $DOTFILES_ROOT
+    git fetch tpm master
+    git subtree pull --prefix tmux/plugins/tpm tpm master --squash
+fi
+#### end tmux ####
+
 
 say_this "Updates complete" &
 exit 0

@@ -95,7 +95,9 @@ function setup_address_book() {
 
 function setup_tmux() {
     info "Installing and configuring tmux"
+    git remote add -f -t master --no-tags tpm https://github.com/tmux-plugins/tpm
     link_file $DOTFILES_ROOT/tmux.conf $HOME/.tmux.conf
+    link_file $DOTFILES_ROOT/tmux $HOME/.tmux
     brew install tmux
 }
 
