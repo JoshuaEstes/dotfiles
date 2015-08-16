@@ -88,7 +88,10 @@ function read_and_review() {
 
 # Task Warrior Aliases
 alias t='task'
+#update this alias to be a function, have aruments be optional and if
+# no argument is passed in that it will just print the inbox report
 alias in='task add +in'
+
 alias think='tickle +1d' # Think it over for one day
 alias rnd='task add +rnd' # Research and Development
 alias rnr=read_and_review # Read and Review
