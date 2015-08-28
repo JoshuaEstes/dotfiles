@@ -78,8 +78,8 @@ function tickle() {
 }
 
 function read_and_review() {
-    local link="$1"
-    local title=$(wget -qO- "$link" | hxselect -s '\n' -c  'title' 2>/dev/null)
+    link=$1
+    title=$(wget -qO- "$*" | hxselect -s '\n' -c  'title' 2>/dev/null)
     echo $title
     local descr="\"Read and review: $title\""
     local id=$(task add +next +rnr "$descr" | sed -n 's/Created task \(.*\)./\1/p')
