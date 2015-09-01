@@ -116,7 +116,7 @@ au BufNewFile,BufRead *.xml.dist set filetype=xml
 au BufNewFile,BufRead *.yml.dist set filetype=yaml
 "au BufNewFile,BufRead *.twig set filetype=twig
 au BufNewFile,BufRead *.twig set filetype=htmljinja
-au BufNewFile,BufRead *.md set filetype=markdown
+au BufNewFile,BufRead *.md,*.txt set filetype=markdown
 
 " Autocompletion for different languages
 set omnifunc=syntaxcomplete#Complete
