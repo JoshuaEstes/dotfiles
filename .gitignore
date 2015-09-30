@@ -16,7 +16,11 @@ bash.d/functions.d/enabled/*
 /bin/symfony
 /bin/virtphp.phar
 /bin/vault
+/bin/serf
+/bin/consul
+/bin/otto
 /bin/terraform*
+/bin/packer*
 /mutt/aliases
 /mutt/cache
 /mutt/certificates
