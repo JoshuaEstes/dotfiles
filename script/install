@@ -194,7 +194,7 @@ function setup_ruby() {
     fi
     if [ $(command -v gem) ]; then
         gem install puppet-lint
-        gem install scss-lint
+        gem install scss_lint
         gem install rubocop
         gem install bundler
     fi
