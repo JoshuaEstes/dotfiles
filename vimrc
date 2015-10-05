@@ -216,9 +216,13 @@ let g:vdebug_options["path_maps"] = {"/var/www/pi":"/Users/jestes/Code/Pardot/pa
 " end vdebug
 
 " Remap keys
+" Remap leader key (default `\`) to <SPACE>
+let mapleader = "\<Space>"
 " ctrl + l will clear the highlighted search results
 nnoremap <C-L> :nohls<CR><C-L>
 inoremap <C-L> <C-O>:nohls<CR>
+" jk remaps to ESC key, when in insert mode, type quickly
+inoremap jk <ESC>
 
 " In normal mode map tab to buffer next
 nmap <silent> <Tab> :bn<CR>
