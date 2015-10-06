@@ -43,6 +43,7 @@
 !.chefignore
 !.env
 !.env.dist
+!.ottoid
 *~
 
 # KDE
