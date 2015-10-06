@@ -120,6 +120,8 @@ function setup_composer() {
         curl -sS https://getcomposer.org/installer | $PHP_BIN -- --install-dir=$HOME/bin
     fi
     $PHP_BIN $HOME/bin/composer.phar global update
+
+    mv $HOME/bin/composer.phar $HOME/bin/composer
 }
 
 function setup_vim() {
@@ -194,7 +196,7 @@ function setup_ruby() {
     fi
     if [ $(command -v gem) ]; then
         gem install puppet-lint
-        gem install scss-lint
+        gem install scss_lint
         gem install rubocop
         gem install bundler
     fi
