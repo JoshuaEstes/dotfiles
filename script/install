@@ -226,6 +226,15 @@ function install_pianobar() {
     fi
 }
 
+function setup_and_install_rtorrent() {
+    info "Installing rtorrent"
+    if [ $IS_DARWIN == "true" ]; then
+        brew install gcc rtorrent
+    fi
+
+    link_file $DOTFILES_ROOT/rtorrent.rc $HOME/.rtorrent.rc
+}
+
 function install_dotfiles() {
     info "Installing dotfiles"
 
