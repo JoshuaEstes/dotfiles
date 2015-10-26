@@ -27,9 +27,9 @@ cdpath=(~/Code)
 
 DIRSTACKSIZE=10
 FCEDITOR=vim
-EDITOR=$FCEDITOR
 HISTFILE=$HOME/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 KEYTIMEOUT=1 # 0.1 second delay
 watch=(notme)
+export EDITOR=vim

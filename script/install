@@ -99,6 +99,10 @@ function setup_tmux() {
     link_file $DOTFILES_ROOT/tmux.conf $HOME/.tmux.conf
     link_file $DOTFILES_ROOT/tmux $HOME/.tmux
     brew install tmux
+
+    if [ $(command -v gem) ]; then
+        gem install tmuxinator
+    fi
 }
 
 function setup_composer() {
