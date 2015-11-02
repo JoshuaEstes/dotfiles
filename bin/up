@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # vi: set ft=sh :
 set -e
-set -x
+#set -x
 source $DOTFILES_ROOT/lib/bash/functions.sh
 
 ####
