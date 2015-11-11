@@ -42,7 +42,9 @@ PATH="${PATH:1:${#PATH}}"
 export PATH
 unset PATH_ARRAY
 
-plugins=(cd composer docker du git history jobs ls mkdir mutt npm phpbrew symfony2 taskwarrior tmux vagrant vim)
+# Some of the plugins are required for core functionality, others
+# can be removed
+plugins=(cd composer docker du git history jobs ls mkdir mutt npm phpbrew symfony2 tmux vagrant vim)
 for plugin ($plugins); do
     if [ -f $DOTFILES_ROOT/lib/shell/plugins/$plugin/$plugin.plugin.zsh ]; then
         source $DOTFILES_ROOT/lib/shell/plugins/$plugin/$plugin.plugin.zsh
@@ -50,14 +52,6 @@ for plugin ($plugins); do
 done
 
 # Options (man zshoptions)
-## Changing Directories
-setopt auto_cd
-setopt auto_pushd
-setopt cdablevars
-setopt chase_dots
-setopt chase_links
-setopt pushd_ignore_dups
-setopt pushd_minus
 ## Completion
 setopt always_to_end
 setopt auto_menu
@@ -66,27 +60,12 @@ unsetopt menu_complete
 ## Expansion and Globbing
 setopt multibyte
 ## History
-setopt append_history
-setopt extended_history
-#setopt hist_expire_dups_first
-setopt hist_ignore_dups
-setopt hist_ignore_space
-setopt hist_no_store
-setopt hist_reduce_blanks
-setopt hist_verify
-setopt inc_append_history
-#setopt share_history
 ## Initialisation
 ## Input/Output
 setopt correct
 setopt correct_all
 unsetopt flowcontrol
 ## Job Control
-setopt auto_continue
-setopt hup
-setopt long_list_jobs
-setopt monitor
-setopt no_check_jobs
 ## Prompting
 setopt prompt_subst
 ## Scripts and Functions
@@ -99,7 +78,6 @@ setopt multios
 ## Zle
 setopt no_beep
 setopt vi # use bindkey -v instead
-
 
 # Prompt
 PS1=$'%F{green}[%F{magenta}%n@%m%F{green}] %F{green}[%F{blue}$(phpbrew_current_php_version)%F{green}] %F{cyan}$(git_prompt_info)
