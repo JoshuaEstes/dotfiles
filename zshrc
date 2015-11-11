@@ -44,7 +44,7 @@ unset PATH_ARRAY
 
 # Some of the plugins are required for core functionality, others
 # can be removed
-plugins=(cd composer docker du git history jobs ls mkdir mutt npm phpbrew symfony2 tmux vagrant vim)
+plugins=(cd composer docker du git history jobs ls mkdir mutt npm phpbrew symfony2 tmux vagrant vim vcs)
 for plugin ($plugins); do
     if [ -f $DOTFILES_ROOT/lib/shell/plugins/$plugin/$plugin.plugin.zsh ]; then
         source $DOTFILES_ROOT/lib/shell/plugins/$plugin/$plugin.plugin.zsh
@@ -79,10 +79,13 @@ setopt multios
 setopt no_beep
 setopt vi # use bindkey -v instead
 
+
 # Prompt
-PS1=$'%F{green}[%F{magenta}%n@%m%F{green}] %F{green}[%F{blue}$(phpbrew_current_php_version)%F{green}] %F{cyan}$(git_prompt_info)
+# http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
+PS1=$'%F{green}[%F{magenta}%n@%m%F{green}] %F{green}[%F{blue}$(phpbrew_current_php_version)%F{green}] %F{cyan}${vcs_info_msg_0_}
 %F{yellow}%~%{$reset_color%} %F{white}%%%F{$reset_color} '
-RPS1='%F{yellow}%~%{$reset_color%}'
+#RPS1='%F{cyan}${vcs_info_msg_0_}%{$reset_color%}'
+RPS1='%{$reset_color%}'
 
 autoload -U colors && colors
 eval `dircolors $DOTFILES_ROOT/lib/dircolors/dircolors.ansi-dark`
