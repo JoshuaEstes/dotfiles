@@ -10,10 +10,12 @@ precmd() { vcs_info }
 zstyle ':vcs_info:git:*' check-for-changes true
 zstyle ':vcs_info:git:*' check-for-staged-changes true
 zstyle ':vcs_info:git+*:*' debug false
-zstyle ':vcs_info:git:*' formats '(%b [%c])'
+zstyle ':vcs_info:git:*' get-revision true
+zstyle ':vcs_info:git:*' formats '%b (%7.7i) %u%c'
 zstyle ':vcs_info:git+set-message:*' hooks git-untracked
 +vi-git-untracked() {
-    if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]]; then
-        hook_com[staged]='dirty'
+    if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
+        git status --porcelain | grep '??' &> /dev/null ; then
+        hook_com[staged]='T'
     fi
 }

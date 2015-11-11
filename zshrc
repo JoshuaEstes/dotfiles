@@ -82,7 +82,7 @@ setopt vi # use bindkey -v instead
 
 # Prompt
 # http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
-PS1=$'%F{green}[%F{magenta}%n@%m%F{green}] %F{green}[%F{blue}$(phpbrew_current_php_version)%F{green}] %F{cyan}${vcs_info_msg_0_}
+PS1=$'%F{green}[%F{magenta}%n@%m%F{green}][%F{blue}$(phpbrew_current_php_version)%F{green}][%F{cyan}${vcs_info_msg_0_}%F{green}]%F{$reset_color}
 %F{yellow}%~%{$reset_color%} %F{white}%%%F{$reset_color} '
 #RPS1='%F{cyan}${vcs_info_msg_0_}%{$reset_color%}'
 RPS1='%{$reset_color%}'
