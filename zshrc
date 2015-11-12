@@ -14,8 +14,8 @@ while [ -h "$SOURCE" ]; do
     [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE"
 done
 export DOTFILES_ROOT="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
-fpath=($DOTFILES_ROOT/lib/zsh "${fpath[@]}")
-autoload -U ${fpath[1]}/*(:t)
+#fpath=($DOTFILES_ROOT/lib/zsh "${fpath[@]}")
+#autoload -U ${fpath[1]}/*(:t)
 
 PATH_ARRAY=(
     $HOME/bin.local
