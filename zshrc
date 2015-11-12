@@ -82,13 +82,13 @@ setopt multios
 setopt no_beep
 setopt vi # use bindkey -v instead
 
-
 # Prompt
 # http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
 PS1=$'%F{green}[%F{magenta}%n@%m%F{green}][%F{blue}$(phpbrew_current_php_version)%F{green}][%F{cyan}${vcs_info_msg_0_}%F{green}]%F{$reset_color}
 %F{yellow}%~%{$reset_color%} %F{white}%%%F{$reset_color} '
 #RPS1='%F{cyan}${vcs_info_msg_0_}%{$reset_color%}'
 RPS1='%{$reset_color%}'
+RPS2='%{$reset_color%}'
 
 #eval `dircolors $DOTFILES_ROOT/lib/dircolors/dircolors.ansi-dark`
 #export ZLS_COLORS=$LS_COLORS
@@ -98,3 +98,17 @@ uptime
 log
 from 2>/dev/null
 msgs
+
+# Let's use VIM
+bindkey -v # viins
+function zle-line-init zle-keymap-select {
+    case $KEYMAP in
+        (main|viins) RPS1='%F{cyan%}INSERT%{$reset_color%}';;
+        (vicmd) RPS1='%F{red%}NORMAL%{$reset_color%}';;
+        (*) RPS1='%F{white%}%K{red}${KEYMAP}%{$reset_color%}';;
+    esac
+    RPS2='%{$reset_color%}'
+    zle reset-prompt
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
