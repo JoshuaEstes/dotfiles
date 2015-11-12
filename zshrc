@@ -50,6 +50,7 @@ unset PATH_ARRAY
 plugins=(brew cd composer docker du git history jobs ls mkdir mutt npm phpbrew symfony2 tmux vagrant vim vim-mode vcs)
 for plugin ($plugins); do
     if [ -f $DOTFILES_ROOT/lib/shell/plugins/$plugin/$plugin.plugin.zsh ]; then
+        fpath=($DOTFILES_ROOT/lib/shell/plugins/$plugin $fpath)
         source $DOTFILES_ROOT/lib/shell/plugins/$plugin/$plugin.plugin.zsh
     fi
 done
