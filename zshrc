@@ -3,8 +3,6 @@
 #
 # executes third if shell is interactive
 #
-autoload -U colors && colors
-
 SOURCE="$HOME/.zshrc"
 while [ -h "$SOURCE" ]; do
     DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
@@ -14,6 +12,8 @@ done
 export DOTFILES_ROOT="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 fpath=($DOTFILES_ROOT/lib/shell/zsh $fpath)
 autoload -U $DOTFILES_ROOT/lib/shell/zsh/*(:t)
+autoload -U colors && colors
+autoload -U compaudit compinit
 
 PATH_ARRAY=(
     $HOME/bin.local
