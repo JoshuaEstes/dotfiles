@@ -3,6 +3,8 @@
 #
 # executes third if shell is interactive
 #
+autoload -U compaudit compinit
+
 bindkey -v # Use vim key bindings
 SOURCE="$HOME/.zshrc"
 while [ -h "$SOURCE" ]; do
