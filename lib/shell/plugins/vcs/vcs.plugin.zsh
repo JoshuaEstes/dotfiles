@@ -21,10 +21,6 @@ zstyle ':vcs_info:*+no-vcs:*' hooks no-vcs-detected
         hook_com[staged]+='T'
     fi
 
-    echo "${hook_com[staged]}"
-    echo "${hook_com[unstaged]}"
-    echo "${hook_com[misc]}"
-
     if [[ $hook_com[staged] == '' && $hook_com[unstaged] == '' ]]; then
         hook_com[misc]+='clean'
     fi
