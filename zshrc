@@ -100,6 +100,7 @@ from 2>/dev/null
 msgs
 
 # Let's use VIM
+# Move to `vim-mode` plugin, can reuse for bash and zsh
 bindkey -v # viins
 function zle-line-init zle-keymap-select {
     case $KEYMAP in
