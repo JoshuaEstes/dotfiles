@@ -44,7 +44,7 @@ unset PATH_ARRAY
 
 # Some of the plugins are required for core functionality, others
 # can be removed
-plugins=(cd composer docker du git history jobs ls mkdir mutt npm phpbrew symfony2 tmux vagrant vim vcs)
+plugins=(brew cd composer docker du git history jobs ls mkdir mutt npm phpbrew symfony2 tmux vagrant vim vcs)
 for plugin ($plugins); do
     if [ -f $DOTFILES_ROOT/lib/shell/plugins/$plugin/$plugin.plugin.zsh ]; then
         source $DOTFILES_ROOT/lib/shell/plugins/$plugin/$plugin.plugin.zsh
