@@ -20,6 +20,14 @@ zstyle ':vcs_info:*+no-vcs:*' hooks no-vcs-detected
         git status --porcelain | grep '??' &> /dev/null ; then
         hook_com[staged]+='T'
     fi
+
+    echo "${hook_com[staged]}"
+    echo "${hook_com[unstaged]}"
+    echo "${hook_com[misc]}"
+
+    if [[ $hook_com[staged] == '' && $hook_com[unstaged] == '' ]]; then
+        hook_com[misc]+='clean'
+    fi
 }
 +vi-no-vcs-detected() {
     vcs_info_msg_0_='no vcs'
