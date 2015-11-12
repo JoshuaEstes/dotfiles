@@ -4,6 +4,7 @@
 # executes third if shell is interactive
 #
 autoload -U compaudit compinit
+autoload -U colors && colors
 
 bindkey -v # Use vim key bindings
 SOURCE="$HOME/.zshrc"
@@ -89,9 +90,8 @@ PS1=$'%F{green}[%F{magenta}%n@%m%F{green}][%F{blue}$(phpbrew_current_php_version
 #RPS1='%F{cyan}${vcs_info_msg_0_}%{$reset_color%}'
 RPS1='%{$reset_color%}'
 
-autoload -U colors && colors
-eval `dircolors $DOTFILES_ROOT/lib/dircolors/dircolors.ansi-dark`
-export ZLS_COLORS=$LS_COLORS
+#eval `dircolors $DOTFILES_ROOT/lib/dircolors/dircolors.ansi-dark`
+#export ZLS_COLORS=$LS_COLORS
 
 clear
 uptime
