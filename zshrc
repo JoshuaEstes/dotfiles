@@ -47,7 +47,7 @@ unset PATH_ARRAY
 
 # Some of the plugins are required for core functionality, others
 # can be removed
-plugins=(brew cd composer docker du git history jobs ls mkdir mutt npm phpbrew symfony2 tmux vagrant vim vcs)
+plugins=(brew cd composer docker du git history jobs ls mkdir mutt npm phpbrew symfony2 tmux vagrant vim vim-mode vcs)
 for plugin ($plugins); do
     if [ -f $DOTFILES_ROOT/lib/shell/plugins/$plugin/$plugin.plugin.zsh ]; then
         source $DOTFILES_ROOT/lib/shell/plugins/$plugin/$plugin.plugin.zsh
@@ -80,7 +80,6 @@ setopt multios
 ## Shell State
 ## Zle
 setopt no_beep
-setopt vi # use bindkey -v instead
 
 # Prompt
 # http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
@@ -98,18 +97,3 @@ uptime
 log
 from 2>/dev/null
 msgs
-
-# Let's use VIM
-# Move to `vim-mode` plugin, can reuse for bash and zsh
-bindkey -v # viins
-function zle-line-init zle-keymap-select {
-    case $KEYMAP in
-        (main|viins) RPS1='%F{cyan%}INSERT%{$reset_color%}';;
-        (vicmd) RPS1='%F{red%}NORMAL%{$reset_color%}';;
-        (*) RPS1='%F{white%}%K{red}${KEYMAP}%{$reset_color%}';;
-    esac
-    RPS2='%{$reset_color%}'
-    zle reset-prompt
-}
-zle -N zle-line-init
-zle -N zle-keymap-select
