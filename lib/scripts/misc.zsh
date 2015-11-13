@@ -30,7 +30,7 @@ setopt no_beep
 alias cl="clear"
 
 # Specific for platform
-if [ $(uname) == "Linux" ]; then
+if [[ "$(uname)" == "Linux" ]]; then
     alias ls="ls -hF --color"
     alias apt-get="sudo apt-get"
 else
