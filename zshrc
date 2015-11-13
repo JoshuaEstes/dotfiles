@@ -48,6 +48,7 @@ PATH="${PATH:1:${#PATH}}"
 export PATH
 unset PATH_ARRAY
 
+# Selectively source scripts
 scripts=(misc)
 for script ($scripts); do
     if [ -f $DOTFILES_ROOT/lib/scripts/$script.zsh ]; then
