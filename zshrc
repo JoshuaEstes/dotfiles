@@ -3,6 +3,7 @@
 #
 # executes third if shell is interactive
 #
+autoload -U colors && colors
 SOURCE="$HOME/.zshrc"
 while [ -h "$SOURCE" ]; do
     DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
@@ -18,11 +19,6 @@ for directory in $(ls $DOTFILES_ROOT/lib/zsh/functions); do
         autoload -U $directory
     fi
 done
-#fpath=($DOTFILES_ROOT/lib/shell/zsh $fpath)
-#autoload -U $DOTFILES_ROOT/lib/shell/zsh/*(:t)
-
-autoload -U colors && colors
-autoload -U compaudit compinit
 
 PATH_ARRAY=(
     $HOME/bin.local
@@ -52,6 +48,13 @@ PATH="${PATH:1:${#PATH}}"
 export PATH
 unset PATH_ARRAY
 
+scripts=(misc)
+for script ($scripts); do
+    if [ -f $DOTFILES_ROOT/lib/scripts/$script.zsh ]; then
+        source $DOTFILES_ROOT/lib/scripts/$script.zsh
+    fi
+done
+
 # Some of the plugins are required for core functionality, others
 # can be removed
 plugins=(brew cd composer docker du git history jobs ls mkdir mutt npm phpbrew symfony2 tmux vagrant vim vim-mode vcs)
@@ -62,32 +65,6 @@ for plugin ($plugins); do
     fi
 done
 
-# Options (man zshoptions)
-## Completion
-setopt always_to_end
-setopt auto_menu
-setopt complete_in_word
-unsetopt menu_complete
-## Expansion and Globbing
-setopt multibyte
-## History
-## Initialisation
-## Input/Output
-setopt correct
-setopt correct_all
-unsetopt flowcontrol
-## Job Control
-## Prompting
-setopt prompt_subst
-## Scripts and Functions
-setopt c_bases
-setopt multios
-#setopt verbose
-#setopt xtrace
-## Shell Emulation
-## Shell State
-## Zle
-setopt no_beep
 
 # Prompt
 # http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html

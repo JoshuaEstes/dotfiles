@@ -1,5 +1,4 @@
-#autoload
-
+# vim: set ft=zsh et sw=2 sts=2:
 ####
 #
 # Displays stats on various usage patterns
