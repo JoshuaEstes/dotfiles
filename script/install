@@ -132,9 +132,12 @@ function setup_vim() {
     info "Setting up Vim"
     link_file $DOTFILES_ROOT/vim $HOME/.vim
     link_file $DOTFILES_ROOT/vimrc $HOME/.vimrc
+    git clone https://github.com/VundleVim/Vundle.vim.git $DOTFILES_ROOT/vim/bundle/Vundle.vim
     if [ $IS_DARWIN == "true" ]; then
         brew install vim --with-lua
         brew install cmake # required for YouCompleteMe
+    else
+        sudo apt-get install vim
     fi
     vim +PluginInstall +qall
     cd $DOTFILES_ROOT/vim/bundle/YouCompleteMe
@@ -245,11 +248,7 @@ function install_dotfiles() {
     _mkdir $HOME/Code/
     link_file $DOTFILES_ROOT/bin $HOME/bin
     link_file $DOTFILES_ROOT/ackrc $HOME/.ackrc
-    link_file $DOTFILES_ROOT/bash_logout $HOME/.bash_logout
-    link_file $DOTFILES_ROOT/bash_profile $HOME/.bash_profile
-    link_file $DOTFILES_ROOT/bashrc $HOME/.bashrc
     link_file $DOTFILES_ROOT/inputrc $HOME/.inputrc
-    link_file $DOTFILES_ROOT/bash.d $HOME/.bash.d
 
     if [ $IS_DARWIN == "true" ]; then
         link_file $DOTFILES_ROOT/osx $HOME/.osx
@@ -289,7 +288,7 @@ if [ $IS_DARWIN == "true" ]; then
     brew install ctags
     brew install coreutils
     brew install findutils
-    brew install bash
+    #brew install bash
     brew install grep
     #brew install graphicsmagick
     #brew install webkit2png
@@ -302,7 +301,7 @@ if [ $IS_DARWIN == "true" ]; then
     brew install tree
     brew install ack
     #brew install hub
-    brew install bash-completion
+    #brew install bash-completion
     brew install ssh-copy-id
     brew install wget
     #brew install python3
@@ -338,4 +337,4 @@ if [ $IS_DARWIN == "true" ]; then
     brew cleanup
 fi
 
-source $HOME/.bashrc
+source $HOME/.zshrc
