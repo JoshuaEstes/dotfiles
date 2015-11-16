@@ -74,8 +74,8 @@ PS1='%F{green}[%F{magenta}%n@%m%F{green}][%F{blue}$(phpbrew_current_php_version)
 RPS1='%{$reset_color%}'
 RPS2='%{$reset_color%}'
 
-#eval `dircolors $DOTFILES_ROOT/lib/dircolors/dircolors.ansi-dark`
-#export ZLS_COLORS=$LS_COLORS
+eval `dircolors $DOTFILES_ROOT/lib/dircolors/dircolors.ansi-dark`
+export ZLS_COLORS=$LS_COLORS
 
 clear
 uptime
