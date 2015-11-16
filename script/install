@@ -96,7 +96,9 @@ function setup_address_book() {
 function setup_tmux() {
     info "Installing and configuring tmux"
     #git remote add -f -t master --no-tags tpm https://github.com/tmux-plugins/tpm
-    git clone https://github.com/tmux-plugins/tpm $DOTFILES_ROOT/tmux/plugins/tpm
+    if [ ! -d $DOTFILES_ROOT/tmux/plugins/tpm ]; then
+        git clone https://github.com/tmux-plugins/tpm $DOTFILES_ROOT/tmux/plugins/tpm
+    fi
     link_file $DOTFILES_ROOT/tmux.conf $HOME/.tmux.conf
     link_file $DOTFILES_ROOT/tmux $HOME/.tmux
     brew install tmux
@@ -133,11 +135,14 @@ function setup_vim() {
     info "Setting up Vim"
     link_file $DOTFILES_ROOT/vim $HOME/.vim
     link_file $DOTFILES_ROOT/vimrc $HOME/.vimrc
-    git clone https://github.com/VundleVim/Vundle.vim.git $DOTFILES_ROOT/vim/bundle/Vundle.vim
+    if [ ! -d $DOTFILES_ROOT/vim/bundle/Vundle.vim ]; then
+        git clone https://github.com/VundleVim/Vundle.vim.git $DOTFILES_ROOT/vim/bundle/Vundle.vim
+    fi
     if [ $IS_DARWIN == "true" ]; then
         brew install vim --with-lua
         brew install cmake # required for YouCompleteMe
     else
+        echo 'Running sudo apt-get install vim'
         sudo apt-get install vim
     fi
     vim +PluginInstall +qall
