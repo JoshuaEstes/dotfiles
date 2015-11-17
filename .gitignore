@@ -12,6 +12,7 @@ bash.d/functions.d/enabled/*
 /bin/nomad
 /bin/composer*
 /bin/n98-magerun.phar
+/bin/mage
 /bin/phpbrew
 /bin/symfony.phar
 /bin/symfony
