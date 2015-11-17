@@ -2,7 +2,7 @@
 # vi: set ft=sh :
 set -e
 #set -x
-source $DOTFILES_ROOT/lib/bash/functions.sh
+#source $DOTFILES_ROOT/lib/bash/functions.sh
 
 ####
 #
@@ -10,9 +10,9 @@ source $DOTFILES_ROOT/lib/bash/functions.sh
 #
 if [ $(uname) == "Linux" ]; then
     if [ $(command -v apt-get) ]; then
-        log_info '>> sudo apt-get update'
+        #log_info '>> sudo apt-get update'
         sudo apt-get update
-        log_info '>> sudo apt-get upgrade'
+        #log_info '>> sudo apt-get upgrade'
         sudo apt-get upgrade
     fi
 else
