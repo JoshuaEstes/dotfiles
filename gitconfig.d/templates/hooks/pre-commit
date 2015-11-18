@@ -6,7 +6,7 @@
 #
 
 # Is language X enabled?
-if [ "true" == $(git config --bool hooks.php.enabled) ]; then
+if [[ "true" == $(git config --bool hooks.php.enabled) ]]; then
     source $GIT_DIR/hooks/php/pre-commit
 fi
 
