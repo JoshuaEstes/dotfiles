@@ -129,7 +129,7 @@ function setup_composer() {
     else
         curl -sS https://getcomposer.org/installer | $PHP_BIN -- --install-dir=$HOME/bin
     fi
-    $PHP_BIN $HOME/bin/composer.phar global update
+    $PHP_BIN $HOME/bin/composer.phar global install
 
     mv $HOME/bin/composer.phar $HOME/bin/composer
 }
@@ -346,4 +346,6 @@ if [ $IS_DARWIN == "true" ]; then
     brew cleanup
 fi
 
-source $HOME/.zshrc
+if [ "/bin/zsh" == $SHELL ]; then
+    source $HOME/.zshrc
+fi
