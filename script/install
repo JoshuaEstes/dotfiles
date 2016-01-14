@@ -176,7 +176,7 @@ function setup_php() {
     curl -L -O https://github.com/phpbrew/phpbrew/raw/master/phpbrew
     chmod +x phpbrew
     mv phpbrew $HOME/bin/phpbrew
-    phpbrew init # make config directory and such
+    $HOME/bin/phpbrew init # make config directory and such
     if [ $IS_DARWIN == "true" ]; then
         brew install icu4c # Required for some intl stuff
         brew tap homebrew/php
