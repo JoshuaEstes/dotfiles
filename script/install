@@ -4,9 +4,9 @@ set -e
 
 cd "$(dirname "$0")/.."
 DOTFILES_ROOT=$(pwd)
-IS_DARWIN=false
+IS_DARWIN=0
 if [ "$(uname)" == "Darwin" ]; then
-    IS_DARWIN=true
+    IS_DARWIN=1
 fi
 
 function info() {
@@ -114,7 +114,10 @@ function setup_composer() {
     info "Installing and setting up composer"
 
     if [ ! $PHP_BIN ]; then
-        fail "PHP does not appear to be installed"
+        warn "PHP does not appear to be installed"
+        if [ ! $IS_DARWIN ]; then
+            sudo apt-get install php5-cli
+        fi
     fi
 
     _mkdir $HOME/.composer/
