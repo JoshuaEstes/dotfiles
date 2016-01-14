@@ -8,9 +8,8 @@ my life. Without me, my dotfiles are useless. Without my dotfiles, I am useless.
 ## Installation
 
 ```bash
-cd $HOME
-git clone git://github.com/JoshuaEstes/dotfiles.git .dotfiles
-cd .dotfiles
+git clone git://github.com/JoshuaEstes/dotfiles.git $HOME/.dotfiles
+cd $HOME/.dotfiles
 ./script/install
 ```
 ## Updating
