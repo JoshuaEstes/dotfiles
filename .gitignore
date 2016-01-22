@@ -23,6 +23,7 @@ bash.d/functions.d/enabled/*
 /bin/otto
 /bin/terraform*
 /bin/packer*
+/bin/modman
 /mutt/aliases
 /mutt/cache
 /mutt/certificates
