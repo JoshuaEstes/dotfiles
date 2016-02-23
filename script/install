@@ -62,7 +62,7 @@ function link_file() {
 
 function setup_git() {
     info "Setting up Git"
-    if [ $IS_DARWIN == "true" ]; then
+    if [ $IS_DARWIN == 1 ]; then
         brew install git
     fi
     link_file $DOTFILES_ROOT/gitconfig $HOME/.gitconfig
@@ -74,7 +74,7 @@ function setup_mail() {
     _mkdir $HOME/.AddressBook/
     _mkdir $HOME/.pw/ # Should this be moved to it's own section for setting up encryption?
     _mkdir $HOME/Mail/
-    if [ $IS_DARWIN == "true" ]; then
+    if [ $IS_DARWIN == 1 ]; then
         brew install mutt
         brew install offlineimap
         brew install msmtp
@@ -115,7 +115,7 @@ function setup_composer() {
 
     if [ ! $PHP_BIN ]; then
         warn "PHP does not appear to be installed"
-        if [ ! $IS_DARWIN ]; then
+        if [ $IS_DARWIN == 1 ]; then
             sudo apt-get install php5-cli
         fi
     fi
@@ -141,7 +141,7 @@ function setup_vim() {
     if [ ! -d $DOTFILES_ROOT/vim/bundle/Vundle.vim ]; then
         git clone https://github.com/VundleVim/Vundle.vim.git $DOTFILES_ROOT/vim/bundle/Vundle.vim
     fi
-    if [ $IS_DARWIN == "true" ]; then
+    if [ $IS_DARWIN == 1 ]; then
         brew install vim --with-lua
         brew install cmake # required for YouCompleteMe
     else
@@ -157,7 +157,7 @@ function setup_vim() {
 function setup_taskwarrior() {
     info "setting up task warrior"
     link_file $DOTFILES_ROOT/taskrc $HOME/.taskrc
-    if [ $IS_DARWIN == "true" ]; then
+    if [ $IS_DARWIN == 1 ]; then
         brew install task --gnutils
     fi
 }
@@ -165,7 +165,7 @@ function setup_taskwarrior() {
 function setup_irssi() {
     info "Install and setup irssi"
     link_file $DOTFILES_ROOT/irssi $HOME/.irssi
-    if [ $IS_DARWIN == "true" ]; then
+    if [ $IS_DARWIN == 1 ]; then
         brew install irssi --with-openssl
     fi
 }
@@ -177,7 +177,7 @@ function setup_php() {
     chmod +x phpbrew
     mv phpbrew $HOME/bin/phpbrew
     $HOME/bin/phpbrew init # make config directory and such
-    if [ $IS_DARWIN == "true" ]; then
+    if [ $IS_DARWIN == 1 ]; then
         brew install icu4c # Required for some intl stuff
         brew tap homebrew/php
         brew install enchant # required for some php stuff
@@ -205,7 +205,7 @@ function setup_python() {
 function setup_ruby() {
     info "ruby"
     link_file $DOTFILES_ROOT/gemrc $HOME/.gemrc
-    if [ $IS_DARWIN == "true" ]; then
+    if [ $IS_DARWIN == 1 ]; then
         brew install ruby
         brew install rbenv
         brew install ruby-build
@@ -221,7 +221,7 @@ function setup_ruby() {
 function setup_node() {
     # @TODO install nvm
     info "node"
-    if [ $IS_DARWIN == "true" ]; then
+    if [ $IS_DARWIN == 1 ]; then
         brew install node
     fi
     if [ $(command -v npm) ]; then
@@ -237,14 +237,14 @@ function install_pianobar() {
     info "Installing Pianobar"
     link_file $DOTFILES_ROOT/config $HOME/.config
 
-    if [ $IS_DARWIN == "true" ]; then
+    if [ $IS_DARWIN == 1 ]; then
         brew install pianobar
     fi
 }
 
 function setup_and_install_rtorrent() {
     info "Installing rtorrent"
-    if [ $IS_DARWIN == "true" ]; then
+    if [ $IS_DARWIN == 1 ]; then
         brew install gcc rtorrent
     fi
 
@@ -259,7 +259,7 @@ function install_dotfiles() {
     link_file $DOTFILES_ROOT/ackrc $HOME/.ackrc
     link_file $DOTFILES_ROOT/inputrc $HOME/.inputrc
 
-    if [ $IS_DARWIN == "true" ]; then
+    if [ $IS_DARWIN == 1 ]; then
         link_file $DOTFILES_ROOT/osx $HOME/.osx
     fi
 
@@ -285,7 +285,7 @@ if  ! _ask_yes_no "Do you want to continue?"; then
     exit 1
 fi
 
-if [ $IS_DARWIN == "true" ]; then
+if [ $IS_DARWIN == 1 ]; then
     if [ ! $(command -v brew) ]; then
         info "Installing homebrew"
         ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -341,7 +341,7 @@ setup_python && echo
 setup_ruby && echo
 setup_node && echo
 
-if [ $IS_DARWIN == "true" ]; then
+if [ $IS_DARWIN == 1 ]; then
     brew linkapps
     brew cleanup
 fi
