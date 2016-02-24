@@ -141,6 +141,7 @@ let g:solarized_visiblity='normal'
 " Color scheme stuff
 set background=dark
 "set background=light
+let g:solarized_termcolors=256
 colorscheme solarized
 " End color scheme
 
