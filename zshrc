@@ -24,6 +24,7 @@ PATH_ARRAY=(
     $HOME/bin.local
     $HOME/bin
     $HOME/.composer/vendor/bin
+    $HOME/.chefdk/gem/ruby/2.1.0/bin
     /usr/local/Cellar/ruby/2.2.0/bin
     /usr/local/heroku/bin
     /opt/local/bin
