@@ -38,3 +38,4 @@ config/fish
 config/configstore/
 config/cmus/cache
 tmux/plugins/*
+tmux/resurrect/
