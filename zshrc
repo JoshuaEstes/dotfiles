@@ -58,7 +58,7 @@ done
 
 # Some of the plugins are required for core functionality, others
 # can be removed
-plugins=(aws brew cd composer du git history jobs knife ls mkdir mutt npm phpbrew symfony2 tmux vagrant vim vim-mode vcs)
+plugins=(aws brew cd composer du docker git history jobs knife ls mkdir mutt npm phpbrew symfony2 tmux vagrant vim vim-mode vcs)
 for plugin ($plugins); do
     if [ -f $DOTFILES_ROOT/lib/plugins/$plugin/$plugin.plugin.zsh ]; then
         fpath=($DOTFILES_ROOT/lib/plugins/$plugin $fpath)
