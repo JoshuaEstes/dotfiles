@@ -1,0 +1,14 @@
+# vi: set ft=muttrc :
+####
+set spoolfile   = "+joshua.estes@allycommerce.com/INBOX"
+set mbox        = "+joshua.estes@allycommerce.com/archive"
+set postponed   = "+joshua.estes@allycommerce.com/drafts"
+set record      = "+joshua.estes@allycommerce.com/sent"
+set signature   = "$HOME/.mutt/signatures/ally"
+set realname    = 'Joshua Estes'
+set from        = 'joshua.estes@allycommerce.com.com'
+set sendmail    = 'msmtp -a Ally'
+set pgp_sign_as = 1DB5E4E8
+
+set pgp_encrypt_only_command = "pgpewrap gpg --batch --quiet --no-verbose --output - --encrypt --textmode --armor --always-trust --encrypt-to 1DB5E4E8 -- -r %r -- %f"
+set pgp_encrypt_sign_command = "pgpewrap gpg --passphrase-fd 0 --batch --quiet --no-verbose --textmode --output - --encrypt --sign %?a?-u %a? --armor --always-trust --encrypt-to 1DB5E4E8 -- -r %r -- %f"
