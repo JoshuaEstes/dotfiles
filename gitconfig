@@ -89,7 +89,7 @@
   excludesfile = ~/.gitconfig.d/excludesfile
   mergeoptions = --no-ff
   whitespace = trailing-space,space-before-tab
-	autocrlf = input
+  autocrlf = input
 [diff]
 ;  external = diff
 [gc]
