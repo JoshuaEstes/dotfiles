@@ -10,27 +10,27 @@ set -e
 #
 if [ $(uname) == "Linux" ]; then
     if [ $(command -v apt-get) ]; then
-        #log_info '>> sudo apt-get update'
+        #echo '>> sudo apt-get update'
         sudo apt-get update
-        #log_info '>> sudo apt-get upgrade'
+        #echo '>> sudo apt-get upgrade'
         sudo apt-get upgrade
     fi
 else
     if [ $(command -v brew) ]; then
-        say_this "Updating brew" &
-        log_info '>> brew update'
+        echo "Updating brew" &
+        echo '>> brew update'
         brew update
         log_debug 'Done'
-        log_info '>> brew upgrade --all'
+        echo '>> brew upgrade --all'
         brew upgrade --all
         log_debug 'Done'
-        log_info '>> brew linkapps'
+        echo '>> brew linkapps'
         brew linkapps
         log_debug 'Done'
-        log_info '>> brew cleanup'
+        echo '>> brew cleanup'
         brew cleanup
         log_debug 'Done'
-        log_info '>> brew prune'
+        echo '>> brew prune'
         brew prune
         log_debug 'Done'
     fi
@@ -41,11 +41,11 @@ fi
 # Python Stuff
 #
 if [ $(command -v pip) ]; then
-    say_this "Updating pip" &
-    log_info '>> pip install --upgrade pip'
+    echo "Updating pip" &
+    echo '>> pip install --upgrade pip'
     pip install --upgrade pip
     log_debug 'Done'
-    log_info '>> pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs pip install -U'
+    echo '>> pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs pip install -U'
     pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs pip install -U
     log_debug 'Done'
 fi
@@ -55,11 +55,11 @@ fi
 # Vim
 #
 if [ $(command -v vim) ]; then
-    say_this "Updating vim plugins" &
+    echo "Updating vim plugins" &
     # To update Vundle, should only be the only submodule
     # Might be worth updating this to subtree instead
     git submodule foreach git pull origin master
-    log_info '>> vim +PluginUpdate +qall'
+    echo '>> vim +PluginUpdate +qall'
     vim +PluginUpdate +qall
     log_debug 'Done'
 fi
@@ -71,35 +71,35 @@ fi
 #
 # composer
 if [ $(command -v composer) ]; then
-    say_this "Updating composer and global composer dependencies" &
-    log_info '>> composer selfupdate'
+    echo "Updating composer and global composer dependencies" &
+    echo '>> composer selfupdate'
     composer selfupdate
     log_debug 'Done'
-    log_info '>> composer global update'
+    echo '>> composer global update'
     composer global update
     log_debug 'Done'
 fi
 
 # phpbrew
 if [ $(command -v phpbrew) ]; then
-    say_this "Updating PHP Brew" &
-    log_info '>> phpbrew self-update'
+    echo "Updating PHP Brew" &
+    echo '>> phpbrew self-update'
     phpbrew self-update
     log_debug 'Done'
 fi
 
 # symfony installer
 if [ $(command -v symfony) ]; then
-    say_this "Updating symfony installer" &
-    log_info '>> symfony self-update'
+    echo "Updating symfony installer" &
+    echo '>> symfony self-update'
     symfony self-update
     log_debug 'Done'
 fi
 
 # Magento
 if [ $(command -v n98-magerun.phar) ]; then
-    say_this "Updating Mage run for magento" &
-    log_info '>> n98-magerun.phar self-update'
+    echo "Updating Mage run for magento" &
+    echo '>> n98-magerun.phar self-update'
     n98-magerun.phar self-update
     log_debug 'Done'
 fi
@@ -110,14 +110,14 @@ fi
 # Ruby
 #
 if [ $(command -v gem) ]; then
-    say_this "Updating ruby gems" &
-    log_info '>> gem update --system'
+    echo "Updating ruby gems" &
+    echo '>> gem update --system'
     gem update --system
     log_debug 'Done'
-    log_info '>> gem update'
+    echo '>> gem update'
     gem update
     log_debug 'Done'
-    log_info '>> gem cleanup'
+    echo '>> gem cleanup'
     gem cleanup
     log_debug 'Done'
 fi
@@ -128,11 +128,11 @@ fi
 # Node
 #
 if [ $(command -v npm) ]; then
-    say_this "Updating NPM and NPM dependencies" &
-    log_info '>> npm install -g npm@latest'
+    echo "Updating NPM and NPM dependencies" &
+    echo '>> npm install -g npm@latest'
     npm install -g npm@latest
     log_debug 'Done'
-    log_info '>> npm update -g'
+    echo '>> npm update -g'
     npm update -g
     log_debug 'Done'
 fi
@@ -143,8 +143,8 @@ fi
 # Heroku
 #
 if [ $(command -v heroku) ]; then
-    say_this "Updating heroku toolbelt" &
-    log_info '>> heroku update'
+    echo "Updating heroku toolbelt" &
+    echo '>> heroku update'
     heroku update
     log_debug 'Done'
 fi
@@ -155,8 +155,8 @@ fi
 # tmux
 #
 if [ $(command -v tmux) ]; then
-    say_this "Updating tmux" &
-    log_info ">> Updating tmux plugin manager"
+    echo "Updating tmux" &
+    echo ">> Updating tmux plugin manager"
     cd $DOTFILES_ROOT
     git fetch tpm master
     git subtree pull --prefix tmux/plugins/tpm tpm master --squash
@@ -167,5 +167,5 @@ if [ $(command -v tmux) ]; then
 fi
 #### end tmux ####
 
-say_this "Updates complete" &
+echo "Updates complete" &
 exit 0
