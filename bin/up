@@ -20,19 +20,19 @@ else
         echo "Updating brew" &
         echo '>> brew update'
         brew update
-        log_debug 'Done'
+        echo 'Done'
         echo '>> brew upgrade --all'
         brew upgrade --all
-        log_debug 'Done'
+        echo 'Done'
         echo '>> brew linkapps'
         brew linkapps
-        log_debug 'Done'
+        echo 'Done'
         echo '>> brew cleanup'
         brew cleanup
-        log_debug 'Done'
+        echo 'Done'
         echo '>> brew prune'
         brew prune
-        log_debug 'Done'
+        echo 'Done'
     fi
 fi
 
@@ -44,10 +44,10 @@ if [ $(command -v pip) ]; then
     echo "Updating pip" &
     echo '>> pip install --upgrade pip'
     pip install --upgrade pip
-    log_debug 'Done'
+    echo 'Done'
     echo '>> pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs pip install -U'
     pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs pip install -U
-    log_debug 'Done'
+    echo 'Done'
 fi
 
 ####
@@ -61,7 +61,7 @@ if [ $(command -v vim) ]; then
     git submodule foreach git pull origin master
     echo '>> vim +PluginUpdate +qall'
     vim +PluginUpdate +qall
-    log_debug 'Done'
+    echo 'Done'
 fi
 #### end vim ####
 
@@ -74,10 +74,10 @@ if [ $(command -v composer) ]; then
     echo "Updating composer and global composer dependencies" &
     echo '>> composer selfupdate'
     composer selfupdate
-    log_debug 'Done'
+    echo 'Done'
     echo '>> composer global update'
     composer global update
-    log_debug 'Done'
+    echo 'Done'
 fi
 
 # phpbrew
@@ -85,7 +85,7 @@ if [ $(command -v phpbrew) ]; then
     echo "Updating PHP Brew" &
     echo '>> phpbrew self-update'
     phpbrew self-update
-    log_debug 'Done'
+    echo 'Done'
 fi
 
 # symfony installer
@@ -93,7 +93,7 @@ if [ $(command -v symfony) ]; then
     echo "Updating symfony installer" &
     echo '>> symfony self-update'
     symfony self-update
-    log_debug 'Done'
+    echo 'Done'
 fi
 
 # Magento
@@ -101,7 +101,7 @@ if [ $(command -v n98-magerun.phar) ]; then
     echo "Updating Mage run for magento" &
     echo '>> n98-magerun.phar self-update'
     n98-magerun.phar self-update
-    log_debug 'Done'
+    echo 'Done'
 fi
 #### end php ####
 
@@ -113,13 +113,13 @@ if [ $(command -v gem) ]; then
     echo "Updating ruby gems" &
     echo '>> gem update --system'
     gem update --system
-    log_debug 'Done'
+    echo 'Done'
     echo '>> gem update'
     gem update
-    log_debug 'Done'
+    echo 'Done'
     echo '>> gem cleanup'
     gem cleanup
-    log_debug 'Done'
+    echo 'Done'
 fi
 #### end ruby ####
 
@@ -131,10 +131,10 @@ if [ $(command -v npm) ]; then
     echo "Updating NPM and NPM dependencies" &
     echo '>> npm install -g npm@latest'
     npm install -g npm@latest
-    log_debug 'Done'
+    echo 'Done'
     echo '>> npm update -g'
     npm update -g
-    log_debug 'Done'
+    echo 'Done'
 fi
 #### end node ####
 
@@ -146,7 +146,7 @@ if [ $(command -v heroku) ]; then
     echo "Updating heroku toolbelt" &
     echo '>> heroku update'
     heroku update
-    log_debug 'Done'
+    echo 'Done'
 fi
 #### end heroku ####
 
