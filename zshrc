@@ -83,3 +83,8 @@ uptime
 log
 from 2>/dev/null
 #msgs
+
+
+# Automatically added by Platform.sh CLI installer
+export PATH="/Users/joshua/.platformsh/bin:$PATH"
+. '/Users/joshua/.platformsh/shell-config.rc' 2>/dev/null

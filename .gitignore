@@ -41,3 +41,4 @@ tmux/plugins/*
 tmux/resurrect/
 bin/ngrok
 config/gtk-2.0/
+irssi/config.autosave
