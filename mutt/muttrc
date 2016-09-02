@@ -173,4 +173,5 @@ macro index ~ "<shell-escape>clear; offlineimap<enter>"
 #
 folder-hook "f1gm3nt@gmail.com/*" source "$HOME/.mutt/accounts/personal"
 folder-hook "joshua@dspacelabs.com/*" source "$HOME/.mutt/accounts/dspacelabs"
+folder-hook "joshua.estes@allycommerce.com/*" source "$HOME/.mutt/accounts/ally"
 #### end folder-hook ####

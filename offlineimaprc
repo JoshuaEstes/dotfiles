@@ -1,6 +1,6 @@
 ; vi: set ft=dosini :
 [general]
-accounts    = Personal, dSpaceLabs
+accounts    = Personal, dSpaceLabs, AllyCommerce
 ;ui          = Basic
 ;ui          = TTYUI
 fsync       = False
@@ -56,6 +56,35 @@ ssl            = True
 sslcacertfile  = /usr/local/etc/openssl/cert.pem
 remoteusereval = get_username('dspacelabs', '479BDD6A')
 remotepasseval = get_password('dspacelabs', '479BDD6A')
+realdelete     = no
+readonly       = False
+folderfilter   = lambda folder: folder not in ['[Gmail]/Important', '[Gmail]/Spam', '[Gmail]/Trash']
+nametrans      = lambda folder: {
+    '[Gmail]/All Mail':  'archive',
+    '[Gmail]/Drafts':    'drafts',
+    '[Gmail]/Sent Mail': 'sent',
+    '[Gmail]/Starred':   'starred', }.get(folder, folder)
+
+[Account AllyCommerce]
+localrepository  = AllyCommerce-Local
+remoterepository = AllyCommerce-Remote
+
+[Repository AllyCommerce-Local]
+type         = Maildir
+localfolders = ~/Mail/joshua.estes@allycommerce.com
+nametrans    = lambda folder: {
+    'archive':   '[Gmail]/All Mail',
+    'drafts':    '[Gmail]/Drafts',
+    'sent':      '[Gmail]/Sent Mail',
+    'starred':   '[Gmail]/Starred', }.get(folder, folder)
+
+[Repository AllyCommerce-Remote]
+maxconnections = 1
+type           = Gmail
+ssl            = True
+sslcacertfile  = /usr/local/etc/openssl/cert.pem
+remoteusereval = get_username('ally', '7D66AAB0')
+remotepasseval = get_password('ally', '7D66AAB0')
 realdelete     = no
 readonly       = False
 folderfilter   = lambda folder: folder not in ['[Gmail]/Important', '[Gmail]/Spam', '[Gmail]/Trash']

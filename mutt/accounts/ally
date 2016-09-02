@@ -6,7 +6,7 @@ set postponed   = "+joshua.estes@allycommerce.com/drafts"
 set record      = "+joshua.estes@allycommerce.com/sent"
 set signature   = "$HOME/.mutt/signatures/ally"
 set realname    = 'Joshua Estes'
-set from        = 'joshua.estes@allycommerce.com.com'
+set from        = 'joshua.estes@allycommerce.com'
 set sendmail    = 'msmtp -a Ally'
 set pgp_sign_as = 1DB5E4E8
 
