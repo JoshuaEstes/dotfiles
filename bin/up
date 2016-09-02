@@ -1,8 +1,27 @@
-#!/usr/bin/env bash
-# vi: set ft=sh :
+#!/usr/bin/env zsh
+# vi: set ft=zsh:
+####
+#
+# Need to figure out a way to break this up similar to the way "plugins" are
+# installed
+#
+#####
 set -e
 #set -x
 #source $DOTFILES_ROOT/lib/bash/functions.sh
+
+echo ">> Starting Updates"
+source $DOTFILES_ROOT/plugins.zsh
+for plugin ($plugins); do
+    if [ -f $DOTFILES_ROOT/lib/plugins/$plugin/$plugin.update.zsh ]; then
+        echo ">> Updating $plugin"
+        source $DOTFILES_ROOT/lib/plugins/$plugin/$plugin.update.zsh
+    else
+        echo ">> No update script for \"$plugin\" found"
+    fi
+done
+echo ">> Updates complete"
+exit
 
 ####
 #
@@ -71,7 +90,7 @@ fi
 #
 # composer
 if [ $(command -v composer) ]; then
-    echo "Updating composer and global composer dependencies" &
+    echo 'Updating composer and global composer dependencies'
     echo '>> composer selfupdate'
     composer selfupdate
     echo 'Done'
@@ -82,7 +101,7 @@ fi
 
 # phpbrew
 if [ $(command -v phpbrew) ]; then
-    echo "Updating PHP Brew" &
+    echo 'Updating PHP Brew'
     echo '>> phpbrew self-update'
     phpbrew self-update
     echo 'Done'
@@ -90,7 +109,7 @@ fi
 
 # symfony installer
 if [ $(command -v symfony) ]; then
-    echo "Updating symfony installer" &
+    echo 'Updating symfony installer' &
     echo '>> symfony self-update'
     symfony self-update
     echo 'Done'
