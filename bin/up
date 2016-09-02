@@ -17,7 +17,7 @@ if [ $(uname) == "Linux" ]; then
     fi
 else
     if [ $(command -v brew) ]; then
-        echo "Updating brew" &
+        echo 'Updating brew'
         echo '>> brew update'
         brew update
         echo 'Done'
@@ -41,7 +41,7 @@ fi
 # Python Stuff
 #
 if [ $(command -v pip) ]; then
-    echo "Updating pip" &
+    echo 'Updating pip'
     echo '>> pip install --upgrade pip'
     pip install --upgrade pip
     echo 'Done'
@@ -55,7 +55,7 @@ fi
 # Vim
 #
 if [ $(command -v vim) ]; then
-    echo "Updating vim plugins" &
+    echo 'Updating vim plugins'
     # To update Vundle, should only be the only submodule
     # Might be worth updating this to subtree instead
     git submodule foreach git pull origin master
