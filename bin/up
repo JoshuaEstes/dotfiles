@@ -7,19 +7,24 @@
 #
 #####
 set -e
-#set -x
-#source $DOTFILES_ROOT/lib/bash/functions.sh
 
 echo ">> Starting Updates"
-source $DOTFILES_ROOT/plugins.zsh
-for plugin ($plugins); do
+if [ -n "$1" ]; then
+    plugin=$1
     if [ -f $DOTFILES_ROOT/lib/plugins/$plugin/$plugin.update.zsh ]; then
-        echo ">> Updating $plugin"
         source $DOTFILES_ROOT/lib/plugins/$plugin/$plugin.update.zsh
     else
         echo ">> No update script for \"$plugin\" found"
     fi
-done
+else
+    source $DOTFILES_ROOT/plugins.zsh
+    for plugin ($plugins); do
+        if [ -f $DOTFILES_ROOT/lib/plugins/$plugin/$plugin.update.zsh ]; then
+            echo ">> Updating $plugin"
+            source $DOTFILES_ROOT/lib/plugins/$plugin/$plugin.update.zsh
+        fi
+    done
+fi
 echo ">> Updates complete"
 exit
 
@@ -34,85 +39,6 @@ if [ $(uname) == "Linux" ]; then
         #echo '>> sudo apt-get upgrade'
         sudo apt-get upgrade
     fi
-else
-    if [ $(command -v brew) ]; then
-        echo 'Updating brew'
-        echo '>> brew update'
-        brew update
-        echo 'Done'
-        echo '>> brew upgrade --all'
-        brew upgrade --all
-        echo 'Done'
-        echo '>> brew linkapps'
-        brew linkapps
-        echo 'Done'
-        echo '>> brew cleanup'
-        brew cleanup
-        echo 'Done'
-        echo '>> brew prune'
-        brew prune
-        echo 'Done'
-    fi
-fi
-
-###
-#
-# Python Stuff
-#
-if [ $(command -v pip) ]; then
-    echo 'Updating pip'
-    echo '>> pip install --upgrade pip'
-    pip install --upgrade pip
-    echo 'Done'
-    echo '>> pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs pip install -U'
-    pip freeze --local | grep -v '^\-e' | cut -d = -f 1  | xargs pip install -U
-    echo 'Done'
-fi
-
-####
-#
-# Vim
-#
-if [ $(command -v vim) ]; then
-    echo 'Updating vim plugins'
-    # To update Vundle, should only be the only submodule
-    # Might be worth updating this to subtree instead
-    git submodule foreach git pull origin master
-    echo '>> vim +PluginUpdate +qall'
-    vim +PluginUpdate +qall
-    echo 'Done'
-fi
-#### end vim ####
-
-####
-#
-# PHP
-#
-# composer
-if [ $(command -v composer) ]; then
-    echo 'Updating composer and global composer dependencies'
-    echo '>> composer selfupdate'
-    composer selfupdate
-    echo 'Done'
-    echo '>> composer global update'
-    composer global update
-    echo 'Done'
-fi
-
-# phpbrew
-if [ $(command -v phpbrew) ]; then
-    echo 'Updating PHP Brew'
-    echo '>> phpbrew self-update'
-    phpbrew self-update
-    echo 'Done'
-fi
-
-# symfony installer
-if [ $(command -v symfony) ]; then
-    echo 'Updating symfony installer' &
-    echo '>> symfony self-update'
-    symfony self-update
-    echo 'Done'
 fi
 
 # Magento
@@ -144,21 +70,6 @@ fi
 
 ####
 #
-# Node
-#
-if [ $(command -v npm) ]; then
-    echo "Updating NPM and NPM dependencies" &
-    echo '>> npm install -g npm@latest'
-    npm install -g npm@latest
-    echo 'Done'
-    echo '>> npm update -g'
-    npm update -g
-    echo 'Done'
-fi
-#### end node ####
-
-####
-#
 # Heroku
 #
 if [ $(command -v heroku) ]; then
@@ -168,23 +79,3 @@ if [ $(command -v heroku) ]; then
     echo 'Done'
 fi
 #### end heroku ####
-
-####
-#
-# tmux
-#
-if [ $(command -v tmux) ]; then
-    echo "Updating tmux" &
-    echo ">> Updating tmux plugin manager"
-    cd $DOTFILES_ROOT
-    git fetch tpm master
-    git subtree pull --prefix tmux/plugins/tpm tpm master --squash
-    # Update all tmux plugins
-    $HOME/.tmux/plugins/tpm/bin/update_plugins all
-    # Remove plugins not on the plugin list
-    $HOME/.tmux/plugins/tpm/bin/clean_plugins
-fi
-#### end tmux ####
-
-echo "Updates complete" &
-exit 0
