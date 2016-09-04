@@ -1,8 +1,5 @@
 #!/usr/bin/env zsh
-####
-#
-#
-#
+# vi: set ft=zsh:
 
 # If a command is issued that can’t be executed as a normal command, and the
 # command is the name of a directory, perform the cd command to that directory.
@@ -44,7 +41,7 @@ setopt PUSHD_IGNORE_DUPS
 
 # Exchanges the meanings of ‘+’ and ‘-’ when used with a number to specify a
 # directory in the stack.
-setopt PUSHD_MINUS
+#setopt PUSHD_MINUS
 
 # Do not print the directory stack after pushd or popd.
 #setopt PUSHD_SILENT
