@@ -12,13 +12,16 @@ plugins=(
     composer
     du
     docker
+    gem
     git
+    heroku
     history
     jobs
     knife
     ls
     mkdir
     mutt
+    n98-magerun
     npm
     phpbrew
     pip
