@@ -18,7 +18,7 @@ plugins=(
     knife
     ls
     mkdir
-    mutt 
+    mutt
     npm
     phpbrew
     pip

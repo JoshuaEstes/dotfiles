@@ -2,8 +2,15 @@
 # vi: set ft=zsh:
 ####
 #
-# Need to figure out a way to break this up similar to the way "plugins" are
-# installed
+# Update script for the dotfiles
+#
+# This will update the plugins that are installed. You can update a specific
+# plugin by specifying the name of the plugin. For example, to update brew
+# just type `up brew` and ONLY brew will be updated
+#
+# @TODO if something goes wrong during an update, should everything fail or
+# should we just skip the failed plugin and continue with a message at the end
+# that the plugin failed?
 #
 #####
 set -e
@@ -27,19 +34,6 @@ else
 fi
 echo ">> Updates complete"
 exit
-
-####
-#
-# First figure out what box it is and run the main dependency managers
-#
-if [ $(uname) == "Linux" ]; then
-    if [ $(command -v apt-get) ]; then
-        #echo '>> sudo apt-get update'
-        sudo apt-get update
-        #echo '>> sudo apt-get upgrade'
-        sudo apt-get upgrade
-    fi
-fi
 
 # Magento
 if [ $(command -v n98-magerun.phar) ]; then
