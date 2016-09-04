@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
-# vi: set ft=sh :
+# vi: set ft=sh:
+####
+#
+# @TODO refactor this script to use the plugins that are enabled
+#
+####
 set -e
 
 cd "$(dirname "$0")/.."
