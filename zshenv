@@ -8,7 +8,6 @@
 
 # An array (colon-separated list) of directories specifying the search path for
 # the cd command.
-setopt auto_cd
 cdpath=($HOME/Code)
 
 # If  set,  is  treated as a pattern during spelling correction.  Any potential
