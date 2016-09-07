@@ -20,9 +20,10 @@ def get_username(account, user_id):
     """
     filename = os.path.expanduser(storage_path) + '/' + account.lower() + '.username.gpg'
     command  = 'gpg --local-user ' + user_id + ' --no-verbose --output - --use-agent --quiet --batch --decrypt ' + filename
-    output   = subprocess.check_output(command, stderr=subprocess.STDOUT, shell=True).strip()
+    # output   = subprocess.check_output(command, stderr=subprocess.STDOUT, shell=True).strip()
+    output   = subprocess.check_output(command, stderr=subprocess.STDOUT, shell=True).split("\n")
 
-    return output.decode('utf-8')
+    return output[0].decode('utf-8')
 
 
 def get_password(account, user_id):
