@@ -1,4 +1,6 @@
 #!/usr/bin/env zsh
 # vi: set ft=zsh:
 
-n98-magerun.phar self-update
+if [ $(command -v n98-magerun.phar) ]; then
+    n98-magerun.phar self-update
+fi

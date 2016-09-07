@@ -19,9 +19,10 @@ echo ">> Starting Updates"
 if [ -n "$1" ]; then
     plugin=$1
     if [ -f $DOTFILES_ROOT/lib/plugins/$plugin/$plugin.update.zsh ]; then
+        echo ">> Running updates for plugin \"$plugin\""
         source $DOTFILES_ROOT/lib/plugins/$plugin/$plugin.update.zsh
     else
-        echo ">> No update script for \"$plugin\" found"
+        echo ">> No update script for plugin \"$plugin\" found"
     fi
 else
     source $DOTFILES_ROOT/plugins.zsh
