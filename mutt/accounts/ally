@@ -1,7 +1,5 @@
 # vi: set ft=muttrc :
 ####
-macro index ~ "<shell-escape>clear; offlineimap -a AllyCommerce<enter>"
-
 set spoolfile   = "+joshua.estes@allycommerce.com/INBOX"
 set mbox        = "+joshua.estes@allycommerce.com/archive"
 set postponed   = "+joshua.estes@allycommerce.com/drafts"
@@ -14,9 +12,12 @@ set pgp_sign_as = A3C56024
 set pgp_encrypt_only_command = "pgpewrap gpg --quiet --no-verbose --output - --encrypt --textmode --armor --always-trust --encrypt-to A3C56024 -- -r %r -- %f"
 set pgp_encrypt_sign_command = "pgpewrap gpg --quiet --no-verbose --textmode --output - --encrypt --sign %?a?-u %a? --armor --always-trust --encrypt-to A3C56024 -- -r %r -- %f"
 
-# Muggles
+# Do not want to sign and encrypt messages
 set crypt_autoencrypt        = no
 set crypt_autosign           = no
 set crypt_replyencrypt       = no
 set crypt_replysign          = no
 set crypt_replysignencrypted = no
+
+# Macros
+macro index ~ "<shell-escape>clear; offlineimap -a AllyCommerce<enter>"
