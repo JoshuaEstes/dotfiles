@@ -1,8 +1,12 @@
-; vi: set ft=dosini :
+; vi: set ft=dosini:
 [general]
-accounts    = Personal, dSpaceLabs, AllyCommerce
-;ui          = Basic
-ui          = ttyui
+accounts = Personal, dSpaceLabs, AllyCommerce
+; ui is one of machineui, syslog, quiet, ttyui, basic
+;ui          = machineui
+;ui         = syslog
+;ui         = quiet
+;ui         = ttyui
+ui         = basic
 fsync       = False
 socktimeout = 30
 pythonfile  = ~/.offlineimap.py
