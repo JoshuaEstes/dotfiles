@@ -142,7 +142,10 @@ set pgp_good_sign            = "^gpg: Good signature from"
 #
 bind index gg first-entry
 bind index G  last-entry
-#bind index R  group-reply
+
+# reply-all for emails
+# Previously mapped to `recall-message` "recall a postponed message"
+bind pager R  group-reply
 
 # use $ to sync mailboxes
 #bind index <tab>   sync-mailbox
