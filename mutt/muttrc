@@ -43,11 +43,9 @@ set pager_context     = 3
 set pager_index_lines = 10
 set sendmail_wait     = 0
 
-# Make sure the emails are ordered from oldest at top to 
-# newest at the bottom
-#set sort = threads
-set sort = date-sent
 # can set folder-hook so "archive" can be sorted differently than INBOX
+set sort = threads
+#set sort = date-sent
 
 # defines how threads are sorted
 set sort_aux = reverse-last-date-received
