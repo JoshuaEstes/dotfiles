@@ -2,11 +2,11 @@
 [general]
 accounts = Personal, dSpaceLabs, AllyCommerce
 ; ui is one of machineui, syslog, quiet, ttyui, basic
-;ui          = machineui
-;ui         = syslog
-;ui         = quiet
-;ui         = ttyui
-ui         = basic
+;u           = machineui
+;ui          = syslog
+;ui          = quiet
+ui          = ttyui
+;ui          = basic
 fsync       = False
 socktimeout = 30
 pythonfile  = ~/.offlineimap.py
@@ -77,10 +77,12 @@ remoterepository = AllyCommerce-Remote
 type         = Maildir
 localfolders = ~/Mail/joshua.estes@allycommerce.com
 nametrans    = lambda folder: {
-    'archive':   '[Gmail]/All Mail',
-    'drafts':    '[Gmail]/Drafts',
-    'sent':      '[Gmail]/Sent Mail',
-    'starred':   '[Gmail]/Starred', }.get(folder, folder)
+        'archive': '[Gmail]/All Mail',
+        'drafts':  '[Gmail]/Drafts',
+        'sent':    '[Gmail]/Sent Mail',
+        'starred': '[Gmail]/Starred',
+        'trash':   '[Gmail]/Trash',
+    }.get(folder, folder)
 
 [Repository AllyCommerce-Remote]
 maxconnections = 1
@@ -91,9 +93,15 @@ remoteusereval = get_username('ally', 'A3C56024')
 remotepasseval = get_password('ally', 'A3C56024')
 realdelete     = no
 readonly       = False
-folderfilter   = lambda folder: folder not in ['[Gmail]/Important', '[Gmail]/Spam', '[Gmail]/Trash']
-nametrans      = lambda folder: {
-    '[Gmail]/All Mail':  'archive',
-    '[Gmail]/Drafts':    'drafts',
-    '[Gmail]/Sent Mail': 'sent',
-    '[Gmail]/Starred':   'starred', }.get(folder, folder)
+folderfilter   = lambda folder: folder not in [
+        '[Gmail]/Important',
+        '[Gmail]/Spam',
+        '[Gmail]/Trash',
+    ]
+nametrans = lambda folder: {
+        '[Gmail]/All Mail':  'archive',
+        '[Gmail]/Drafts':    'drafts',
+        '[Gmail]/Sent Mail': 'sent',
+        '[Gmail]/Starred':   'starred',
+        '[Gmail]/Trash':     'trash',
+    }.get(folder, folder)

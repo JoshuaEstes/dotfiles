@@ -48,6 +48,9 @@ set timeout           = 3
 set wait_key          = no
 set wrap              = 80
 
+set menu_scroll
+set pipe_decode
+set thorough_search
 set arrow_cursor
 set beep_new
 set delete
@@ -55,7 +58,7 @@ set edit_headers
 set envelope_from
 set fast_reply
 set fcc_attach
-unset forward_decode
+set forward_decode
 set forward_quote
 set include
 set narrow_tree
@@ -64,7 +67,7 @@ set pipe_decode
 set quit
 set reply_to
 set reverse_name
-set sig_dashes
+unset sig_dashes
 set sort_re
 set status_on_top
 set thorough_search
@@ -75,9 +78,8 @@ unset confirmappend
 #unset help
 unset mark_old
 unset markers
-#unset mime_forward
-set mime_forward=yes
-set mime_forward_rest=yes
+unset mime_forward
+#set mime_forward_rest=yes
 unset move
 unset record
 #### end
@@ -94,7 +96,7 @@ set date_format    = "%m/%d/%Y"
 set folder_format  = "%2C %f %t %N"
 set forward_format = "Fwd: %s"
 set index_format   = "[%Z] %D %-20.20F %s"
-set status_chars   = "*%A"
+set status_chars   = " *%A"
 set status_format  = "--[ Folder: %f ]--[ %r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]--%>--%?p?( %p postponed )?--"
 #### end visual configuration ####
 
