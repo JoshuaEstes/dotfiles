@@ -106,17 +106,6 @@ set status_chars   = " *%A"
 set status_format  = "--[ Folder: %f ]--[ %r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]--%>--%?p?( %p postponed )?--"
 #### end visual configuration ####
 
-
-####
-#
-# External Applications
-#
-
-# use `ppl` to search for contacts
-set query_command = "ppl mutt '%s'"
-
-#### end external applications ####
-
 ####
 #
 # Crypto, more crypto configuration settings are in the accounts directory
@@ -141,6 +130,16 @@ set pgp_list_pubring_command = "gpg --no-verbose --batch --with-colons --list-ke
 set pgp_list_secring_command = "gpg --no-verbose --batch --with-colons --list-secret-keys %r"
 set pgp_good_sign            = "^gpg: Good signature from"
 #### end crypto ####
+
+####
+#
+# Address Book stuff
+#
+set query_command = "abook --mutt-query '%s'"
+bind editor <Tab> complete-query
+bind editor ^T complete
+# Add person to address book and push repo
+macro index,pager a "<pipe-message>abook --add-email<return>"
 
 ####
 #
