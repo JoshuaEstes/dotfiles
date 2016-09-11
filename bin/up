@@ -15,6 +15,13 @@
 #####
 set -e
 
+if [ -z ${DEBUG+x} ]; then
+    echo ">>>>"
+    echo ">>>> Debug Enabled"
+    echo ">>>>"
+    set -x
+fi
+
 echo ">> Starting Updates"
 if [ -n "$1" ]; then
     plugin=$1
