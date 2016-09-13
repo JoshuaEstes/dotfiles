@@ -138,8 +138,9 @@ set pgp_good_sign            = "^gpg: Good signature from"
 set query_command = "ppl mutt '%s'"
 bind editor <Tab> complete-query
 bind editor ^T complete
-# Add person to address book and push repo
-macro index,pager a "<pipe-message>ppl scrape --sender;ppl push<return>"
+
+# Add all emails to address book without asking and push the repo up
+macro index,pager a "<pipe-message>ppl scrape --quiet;ppl push<return>"
 
 ####
 #
