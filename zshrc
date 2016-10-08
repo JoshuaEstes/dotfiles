@@ -83,6 +83,6 @@ export ZLS_COLORS=$LS_COLORS
 
 clear
 uptime
-log
+#log
 from 2>/dev/null
 #msgs
