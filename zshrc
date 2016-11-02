@@ -33,6 +33,7 @@ PATH_ARRAY=(
     /usr/local/bin
     /usr/local/sbin
     /usr/local/MacGPG2/bin
+    /usr/local/opt/ruby/bin
     /usr/local/opt/coreutils/libexec/gnubin
     /usr/bin
     /bin
