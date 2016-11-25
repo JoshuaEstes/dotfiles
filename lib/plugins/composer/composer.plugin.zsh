@@ -4,3 +4,4 @@
 # Composer Plugin
 #
 alias c='composer'
+alias cup='composer update --ignore-platform-reqs'
