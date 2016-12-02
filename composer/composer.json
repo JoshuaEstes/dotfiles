@@ -9,7 +9,7 @@
         "fabpot/php-cs-fixer": "~1.5.0",
         "squizlabs/php_codesniffer": "~2.3.0",
         "phing/phing": "~2.10.0",
-        "phpunit/phpunit": "~4.5.0",
+        "phpunit/phpunit": "*",
         "phpunit/phpcov": "~2.0.0",
         "daedalus/daedalus": "*@dev",
         "phpmd/phpmd": "~2.2.0",
