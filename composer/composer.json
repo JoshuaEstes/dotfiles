@@ -13,7 +13,7 @@
         "phpunit/phpcov": "~2.0.0",
         "daedalus/daedalus": "*@dev",
         "phpmd/phpmd": "~2.2.0",
-        "phpdocumentor/phpdocumentor": "~2.8.0",
+        "phpdocumentor/phpdocumentor": "*",
         "sebastian/phpcpd": "^2.0"
     }
 }
