@@ -215,7 +215,6 @@ settings = {
     autolog = "no";
     beep_when_window_active = "yes";
     beep_when_away = "yes";
-    bell_beeps = "yes";
     beep_msg_level = "MSGS NOTICES DCC DCCMSGS HILIGHT";
     theme = "default";
     autocreate_own_query = "yes";
