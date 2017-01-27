@@ -2,6 +2,6 @@
 # vi: set ft=zsh:
 brew update
 brew upgrade
-brew linkapps
+#brew linkapps
 brew cleanup
 brew prune
