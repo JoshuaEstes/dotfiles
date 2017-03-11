@@ -15,7 +15,7 @@ setopt AUTO_PUSHD
 # If the argument to a cd command (or an implied cd with the AUTO_CD option
 # set) is not a directory, and does not begin with a slash, try to expand the
 # expression as if it were preceded by a ‘~’ (see Filename Expansion).
-setopt CDABLEVARS
+setopt CDABLE_VARS
 
 # When changing to a directory containing a path segment ‘..’ which would
 # otherwise be treated as canceling the previous segment in the path (in other

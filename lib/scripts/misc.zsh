@@ -1,3 +1,6 @@
+#!/usr/bin/env zsh
+# vi: set ft=zsh:
+
 # Options (man zshoptions)
 ## Completion
 setopt always_to_end

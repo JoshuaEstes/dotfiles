@@ -22,6 +22,10 @@ for directory in $(ls $DOTFILES_ROOT/lib/zsh/functions); do
     fi
 done
 
+####
+#
+# Highest priority is top of list
+#
 PATH_ARRAY=(
     $HOME/bin.local
     $HOME/bin
@@ -69,11 +73,10 @@ for plugin ($plugins); do
     fi
 done
 
-
 # Prompt
 # http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
-PS1='%F{green}[%F{magenta}%n@%m%F{green}][%F{blue}$(phpbrew_current_php_version)%F{green}][%F{cyan}${vcs_info_msg_0_}%F{green}]%F{$reset_color%}
-%F{yellow}%~%{$reset_color%} %F{white}%%%F{$reset_color%} '
+PS1='%f%k%F{green}%F{magenta}%n%F{cyan}@%F{yellow}%m %F{green}[%F{blue}$(phpbrew_current_php_version)%F{green}][%F{cyan}${vcs_info_msg_0_}%F{green}]%F{$reset_color%}
+%F{green}%~%{$reset_color%} %F{white}▶%f%k '
 #RPS1='%F{cyan}${vcs_info_msg_0_}%{$reset_color%}'
 RPS1='%{$reset_color%}'
 RPS2='%{$reset_color%}'

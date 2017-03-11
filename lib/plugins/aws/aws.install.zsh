@@ -3,4 +3,6 @@
 #
 # https://aws.amazon.com/cli/
 #
-alias aws="nocorrect aws"
+if [ $(command -v pip) ]; then
+    pip install awscli
+fi
