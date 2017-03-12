@@ -75,18 +75,16 @@ done
 
 # Prompt
 # http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
-PS1='%f%k%F{green}%F{magenta}%n%F{cyan}@%F{yellow}%m %F{green}[%F{blue}$(phpbrew_current_php_version)%F{green}][%F{cyan}${vcs_info_msg_0_}%F{green}]%F{$reset_color%}
-%F{green}%~%{$reset_color%} %F{white}▶%f%k '
-#RPS1='%F{cyan}${vcs_info_msg_0_}%{$reset_color%}'
-RPS1='%{$reset_color%}'
-RPS2='%{$reset_color%}'
+PS1='%f%k%F{magenta}%n%F{grey}@%F{yellow}%M %F{green}[%F{blue}$(phpbrew_current_php_version)%F{green}][%F{cyan}${vcs_info_msg_0_}%F{green}]%f%k
+%F{green}%~%f%k %F{grey}%#%f%k '
+RPS1='%f%k'
+RPS2='%f%k'
 
 eval `dircolors $DOTFILES_ROOT/lib/dircolors/dircolors.ansi-dark`
 export ZLS_COLORS=$LS_COLORS
 
-
 clear
-uptime
+#uptime
 #log
-from 2>/dev/null
+#from 2>/dev/null
 #msgs
