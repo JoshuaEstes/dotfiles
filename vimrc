@@ -185,6 +185,7 @@ let g:UltiSnipsExpandTrigger="<S-CR>"
 nnoremap <Leader>a= :Tabularize /=<CR>
 nnoremap <Leader>a> :Tabularize /=><CR>
 nnoremap <Leader>a: :Tabularize /:\zs<CR>
+nnoremap <Leader>a<SPACE> :Tabularize / <CR>
 " end Tabularize key mappings
 
 " YouCompleteMe
