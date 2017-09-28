@@ -39,6 +39,9 @@ PATH_ARRAY=(
     /usr/local/MacGPG2/bin
     /usr/local/opt/ruby/bin
     /usr/local/opt/coreutils/libexec/gnubin
+    /usr/local/opt/icu4c/bin
+    /usr/local/opt/icu4c/sbin
+    /usr/local/opt/gettext/bin
     /usr/bin
     /bin
     /usr/X11/bin
