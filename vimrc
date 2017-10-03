@@ -4,9 +4,9 @@ filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
-"Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/YouCompleteMe'
 " Do not use enough
 "Plugin 'jlanzarotta/bufexplorer', {'name': 'bufexplorer'}
 "Plugin 'bling/vim-bufferline'
