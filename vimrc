@@ -8,8 +8,8 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Valloric/YouCompleteMe'
 " Do not use enough
-"Plugin 'jlanzarotta/bufexplorer', {'name': 'bufexplorer'}
-"Plugin 'bling/vim-bufferline'
+Plugin 'jlanzarotta/bufexplorer', {'name': 'bufexplorer'}
+Plugin 'bling/vim-bufferline'
 Plugin 'bling/vim-airline'
 Plugin 'xolox/vim-misc'
 "Plugin 'xolox/vim-easytags'
