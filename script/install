@@ -297,7 +297,6 @@ if [ $IS_DARWIN == 1 ]; then
         brew doctor
     fi
     brew update
-    brew tap homebrew/dupes
     brew install gpg2
     brew install ctags
     brew install coreutils
