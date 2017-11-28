@@ -346,7 +346,7 @@ setup_ruby && echo
 setup_node && echo
 
 if [ $IS_DARWIN == 1 ]; then
-    brew linkapps
+    brew cask
     brew cleanup
 fi
 
