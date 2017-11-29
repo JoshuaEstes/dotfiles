@@ -31,6 +31,7 @@ PATH_ARRAY=(
     $HOME/bin
     $HOME/.composer/vendor/bin
     $HOME/.chefdk/gem/ruby/2.1.0/bin
+    $HOME/Library/Python/3.6/bin
     /usr/local/Cellar/ruby/2.2.0/bin
     /usr/local/heroku/bin
     /opt/local/bin
