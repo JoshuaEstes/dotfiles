@@ -1,4 +1,7 @@
 #!/usr/bin/env zsh
 # vi: set ft=zsh:
-composer selfupdate
-composer global update
+
+if [ $(command -v composer) ]; then
+    composer selfupdate
+    composer global update
+fi
