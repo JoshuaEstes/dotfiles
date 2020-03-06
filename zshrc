@@ -92,3 +92,4 @@ clear
 #log
 #from 2>/dev/null
 #msgs
+export PATH="/usr/local/opt/mysql-client/bin:$PATH"
