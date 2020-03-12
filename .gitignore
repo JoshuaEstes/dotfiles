@@ -30,6 +30,7 @@ bash.d/functions.d/enabled/*
 /node_modules/
 /vim/bundle/
 !vim/bundle/Vundle.vim
+vim/spell/
 npm-debug.log
 irssi/logs/
 config/psysh_history
