@@ -47,3 +47,4 @@ config/htop/
 config/heroku/config.json
 config/wireshark/
 config/filezilla/
+config/stripe/config.toml
