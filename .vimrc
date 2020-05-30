@@ -6,7 +6,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 " Do not use enough
 Plugin 'jlanzarotta/bufexplorer', {'name': 'bufexplorer'}
 Plugin 'bling/vim-bufferline'
@@ -23,7 +23,7 @@ Plugin 'https://github.com/tpope/vim-fugitive.git', {'name': 'vim-fugitive'}
 "Plugin 'https://github.com/rodjek/vim-puppet.git', {'name': 'vim-puppet'}
 "Plugin 'https://github.com/evidens/vim-twig.git', {'name': 'vim-twig'}
 Plugin 'https://github.com/jamessan/vim-gnupg.git', {'name': 'vim-gnupg'}
-Plugin 'https://github.com/joonty/vdebug.git', {'name': 'vdebug'}
+"Plugin 'https://github.com/joonty/vdebug.git', {'name': 'vdebug'}
 Plugin 'https://github.com/editorconfig/editorconfig-vim.git', {'name': 'editorconfig'}
 call vundle#end()
 filetype plugin indent on
