@@ -14,3 +14,19 @@ Code/
 
 # Popular 3rd party folders
 Dropbox/
+
+# Other directories I could care less about
+.berkshelf/
+.bundle/cache/
+.cache/
+.chef/cache/
+.composer/cache/
+.composer/vendor/
+
+# files that need to be ignored
+.aws/credentials
+.composer/*.phar
+.composer/auth.json
+.composer/cacert.pem
+.composer/keys.dev.pub
+.composer/keys.tags.pub
