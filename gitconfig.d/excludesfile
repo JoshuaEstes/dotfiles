@@ -48,6 +48,7 @@
 !.ignore
 !.dockerignore
 *~
+!.yarnrc
 
 # KDE
 .directory

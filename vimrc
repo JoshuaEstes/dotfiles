@@ -106,6 +106,8 @@ set laststatus=2
 "set statusline+=/%L                                         " total lines
 "set statusline+=:%c                                         " current column
 " End statusline format
+set cursorline
+set cursorcolumn
 
 " When vimrc is edited, reload it
 autocmd! bufwritepost vimrc source ~/.vimrc
