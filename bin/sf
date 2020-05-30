@@ -1,8 +1,0 @@
-#!/bin/bash
-if [ -f $PWD/symfony ]; then
-  php $PWD/symfony "$@"
-elif [ -f $PWD/app/console ]; then
-  php $PWD/app/console "$@"
-else
-  echo "symfony file could not be found"
-fi
