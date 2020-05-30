@@ -14,9 +14,9 @@ Plugin 'bling/vim-airline'
 Plugin 'xolox/vim-misc'
 "Plugin 'xolox/vim-easytags'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/syntastic'
+"Plugin 'scrooloose/syntastic'
 Plugin 'godlygeek/tabular.git'
-Plugin 'SirVer/ultisnips'
+"Plugin 'SirVer/ultisnips'
 Plugin 'https://github.com/altercation/vim-colors-solarized.git', {'name': 'vim-colors-solarized'}
 Plugin 'https://github.com/tpope/vim-fugitive.git', {'name': 'vim-fugitive'}
 "Plugin 'https://github.com/bling/vim-airline.git', {'name': 'vim-airline'}
@@ -106,8 +106,10 @@ set laststatus=2
 "set statusline+=/%L                                         " total lines
 "set statusline+=:%c                                         " current column
 " End statusline format
-set cursorline
-set cursorcolumn
+
+" This will set some cross-hairs
+"set cursorline
+"set cursorcolumn
 
 " When vimrc is edited, reload it
 autocmd! bufwritepost vimrc source ~/.vimrc
