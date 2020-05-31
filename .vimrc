@@ -1,11 +1,16 @@
-let g:vdebug_options={}
-set nocompatible
-filetype off
+"let g:vdebug_options={}
+" :help 'nocompatible'
+set nocompatible " be IMproved, required for Vundle
+filetype off     " disable filetype detection, required for Vundle
 
+" set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+" let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
+
+" @see https://github.com/preservim/nerdtree
+Plugin 'preservim/nerdtree'
 "Plugin 'Valloric/YouCompleteMe'
 " Do not use enough
 Plugin 'jlanzarotta/bufexplorer', {'name': 'bufexplorer'}
@@ -26,27 +31,47 @@ Plugin 'https://github.com/jamessan/vim-gnupg.git', {'name': 'vim-gnupg'}
 "Plugin 'https://github.com/joonty/vdebug.git', {'name': 'vdebug'}
 Plugin 'https://github.com/editorconfig/editorconfig-vim.git', {'name': 'editorconfig'}
 call vundle#end()
-filetype plugin indent on
+filetype plugin indent on " required for Vundle
 
-set autoindent
+" :help 'autoindent'
+set autoindent " Copy indent from current line when starting new line
+
+" :help 'backspace'
+"start	allow backspacing over the start of insert; CTRL-W and CTRL-U stop once at start of insert
 "indent	allow backspacing over autoindent
 "eol	allow backspacing over line breaks (join lines)
-"start	allow backspacing over the start of insert; CTRL-W and CTRL-U
-"         stop once at the start of insert.
 set backspace=start,indent,eol "allow backspacing over everything in insert mode
+
 "set backupcopy=yes
 "set backupdir=~/.vim.d/backup
-set cf
-set cm=blowfish
+
+" :help 'confirm'
+" Instead of failing when certain commands are run, vim will ask confirmations
+" on what you want to do
+set confirm
+
+set cryptmethod=blowfish
+
+" Number of screen lines used for the command-line
 set cmdheight=1
-set cindent
+
+" Enables automatic C program indenting
+"set cindent
+
 set encoding=utf-8
+
 set fileencodings=utf-8
-set expandtab " Expand tabs to spaces
-set ffs=unix,mac,dos
-set foldmethod=indent "fold based on indent
-set foldnestmax=3 "deepest fold is 3 levels
-set nofoldenable "dont fold by default
+
+" Expand tabs to spaces
+set expandtab
+
+" deals with EOL formats
+set fileformats=unix,mac,dos
+
+" fold based on indent
+set foldmethod=indent
+set foldnestmax=3 " deepest fold is 3 levels
+set nofoldenable " don't fold by default
 set spell
 "set hidden "hide buffers when not displayed
 set history=200 "store lots of :cmdline history
@@ -113,6 +138,9 @@ set laststatus=2
 
 " When vimrc is edited, reload it
 autocmd! bufwritepost vimrc source ~/.vimrc
+
+" Automatically remove all trailing whitespace
+autocmd BufWritePre * %s/\s\+$//e
 
 " Enable syntax highlighting
 syntax on
@@ -218,7 +246,7 @@ let g:easytags_dynamic_files=1
 " end easytags
 
 " vdebug
-let g:vdebug_options["path_maps"] = {"/var/www/pi":"/Users/jestes/Code/Pardot/pardot"}
+"let g:vdebug_options["path_maps"] = {"/var/www/pi":"/Users/jestes/Code/Pardot/pardot"}
 " end vdebug
 
 " Remap keys
