@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-# vi: set ft=sh :
-####
-#
-#
-#
-if [ "true" == $(git config --bool hooks.php.enabled) ]; then
-    source $GIT_DIR/hooks/php/post-checkout
-fi
