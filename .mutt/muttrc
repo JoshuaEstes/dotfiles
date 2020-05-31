@@ -21,7 +21,7 @@ alternative_order text/plain text/enriched text/html
 #
 # Directories and defaults
 #
-set folder           = "$HOME/Mail"
+set folder           = "$HOME/mail"
 set header_cache     = "$HOME/.mutt/cache/headers"
 set message_cachedir = "$HOME/.mutt/cache/messages"
 set certificate_file = "$HOME/.mutt/certificates"
