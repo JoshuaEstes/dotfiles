@@ -11,10 +11,17 @@ Plugin 'VundleVim/Vundle.vim'
 
 " @see https://github.com/preservim/nerdtree
 Plugin 'preservim/nerdtree'
-"Plugin 'Valloric/YouCompleteMe'
-" Do not use enough
+
+" @see https://github.com/ycm-core/YouCompleteMe
+Plugin 'Valloric/YouCompleteMe'
+
+" @see https://github.com/jlanzarotta/bufexplorer
 Plugin 'jlanzarotta/bufexplorer', {'name': 'bufexplorer'}
+
+" @see https://github.com/bling/vim-bufferline
 Plugin 'bling/vim-bufferline'
+
+" @see https://github.com/bling/vim-airline
 Plugin 'bling/vim-airline'
 Plugin 'xolox/vim-misc'
 "Plugin 'xolox/vim-easytags'
@@ -234,6 +241,11 @@ let g:GPGPreferSign=1
 "autocmd User GnuPG set foldopen=insert
 "autocmd CursorHold *.\(gpg\) quit
 " end GnuPG
+
+" bufferline
+"let g:bufferline_rotate = 1
+"let g:bufferline_fixed_index = 0 " always first
+" endbufferline
 
 " airline
 let g:airline#extensions#tabline#enabled = 1
