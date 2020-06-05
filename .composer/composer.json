@@ -1,19 +1,6 @@
 {
-    "minimum-stability": "dev",
     "require": {
-        "wp-cli/wp-cli": "*",
-        "phploc/phploc": "*",
-        "sebastian/phpdcd": "*",
-        "asm89/twig-lint": "*",
-        "psy/psysh": "*",
-        "friendsofphp/php-cs-fixer": "*",
-        "squizlabs/php_codesniffer": "*",
-        "phing/phing": "*",
-        "phpunit/phpunit": "*",
-        "phpunit/phpcov": "*",
-        "phpmd/phpmd": "*",
-        "phpdocumentor/phpdocumentor": "*",
-        "sebastian/phpcpd": "*"
+        "joshuaestes/thoth": "dev-master"
     },
     "config": {
         "sort-packages": true
