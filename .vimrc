@@ -1,4 +1,4 @@
-"let g:vdebug_options={}
+let g:vdebug_options={}
 " :help 'nocompatible'
 set nocompatible " be IMproved, required for Vundle
 filetype off     " disable filetype detection, required for Vundle
@@ -34,8 +34,8 @@ Plugin 'https://github.com/tpope/vim-fugitive.git', {'name': 'vim-fugitive'}
 "Plugin 'https://github.com/bling/vim-airline.git', {'name': 'vim-airline'}
 "Plugin 'https://github.com/rodjek/vim-puppet.git', {'name': 'vim-puppet'}
 "Plugin 'https://github.com/evidens/vim-twig.git', {'name': 'vim-twig'}
-Plugin 'https://github.com/jamessan/vim-gnupg.git', {'name': 'vim-gnupg'}
-"Plugin 'https://github.com/joonty/vdebug.git', {'name': 'vdebug'}
+"Plugin 'https://github.com/jamessan/vim-gnupg.git', {'name': 'vim-gnupg'}
+Plugin 'https://github.com/joonty/vdebug.git', {'name': 'vdebug'}
 Plugin 'https://github.com/editorconfig/editorconfig-vim.git', {'name': 'editorconfig'}
 call vundle#end()
 filetype plugin indent on " required for Vundle
