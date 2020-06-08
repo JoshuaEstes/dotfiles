@@ -7,10 +7,14 @@ filetype off     " disable filetype detection, required for Vundle
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " let Vundle manage Vundle, required
+" @see https://github.com/VundleVim/Vundle.vim
 Plugin 'VundleVim/Vundle.vim'
 
 " @see https://github.com/preservim/nerdtree
 Plugin 'preservim/nerdtree'
+
+" @see https://github.com/preservim/nerdcommenter
+Plugin 'preservim/nerdcommenter'
 
 " @see https://github.com/ycm-core/YouCompleteMe
 Plugin 'Valloric/YouCompleteMe'
@@ -23,20 +27,37 @@ Plugin 'bling/vim-bufferline'
 
 " @see https://github.com/bling/vim-airline
 Plugin 'bling/vim-airline'
+
+" @see https://github.com/xolox/vim-misc
 Plugin 'xolox/vim-misc'
+
+" @see https://github.com/xolox/vim-easytags
 "Plugin 'xolox/vim-easytags'
-Plugin 'scrooloose/nerdcommenter'
-"Plugin 'scrooloose/syntastic'
+
+" @see https://github.com/vim-syntastic/syntastic
+"Plugin 'vim-syntastic/syntastic'
+
+" @see https://github.com/godlygeek/tabular
 Plugin 'godlygeek/tabular.git'
+
 "Plugin 'SirVer/ultisnips'
+
 Plugin 'https://github.com/altercation/vim-colors-solarized.git', {'name': 'vim-colors-solarized'}
+
 Plugin 'https://github.com/tpope/vim-fugitive.git', {'name': 'vim-fugitive'}
+
 "Plugin 'https://github.com/bling/vim-airline.git', {'name': 'vim-airline'}
 "Plugin 'https://github.com/rodjek/vim-puppet.git', {'name': 'vim-puppet'}
 "Plugin 'https://github.com/evidens/vim-twig.git', {'name': 'vim-twig'}
 "Plugin 'https://github.com/jamessan/vim-gnupg.git', {'name': 'vim-gnupg'}
+
 Plugin 'https://github.com/joonty/vdebug.git', {'name': 'vdebug'}
-Plugin 'https://github.com/editorconfig/editorconfig-vim.git', {'name': 'editorconfig'}
+
+"Plugin 'https://github.com/editorconfig/editorconfig-vim.git', {'name': 'editorconfig'}
+
+" @see https://github.com/vimwiki/vimwiki
+Plugin 'vimwiki/vimwiki'
+let g:vimwiki_list = [{'path':'~/.wiki', 'ext':'.md'}]
 call vundle#end()
 filetype plugin indent on " required for Vundle
 
@@ -262,7 +283,7 @@ let g:easytags_dynamic_files=1
 " end vdebug
 
 " Remap keys
-" Remap leader key (default `\`) to <SPACE>
+" Remap leader key (default `\`) to `,`
 let mapleader = ','
 " ctrl + l will clear the highlighted search results
 nnoremap <C-L> :nohls<CR><C-L>
