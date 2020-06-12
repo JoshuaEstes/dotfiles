@@ -35,7 +35,7 @@ Plugin 'xolox/vim-misc'
 "Plugin 'xolox/vim-easytags'
 
 " @see https://github.com/vim-syntastic/syntastic
-"Plugin 'vim-syntastic/syntastic'
+Plugin 'vim-syntastic/syntastic'
 
 " @see https://github.com/godlygeek/tabular
 Plugin 'godlygeek/tabular.git'
