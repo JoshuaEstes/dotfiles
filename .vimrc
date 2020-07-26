@@ -56,8 +56,8 @@ Plugin 'https://github.com/joonty/vdebug.git', {'name': 'vdebug'}
 "Plugin 'https://github.com/editorconfig/editorconfig-vim.git', {'name': 'editorconfig'}
 
 " @see https://github.com/vimwiki/vimwiki
-Plugin 'vimwiki/vimwiki'
-let g:vimwiki_list = [{'path':'~/.wiki', 'ext':'.md'}]
+"Plugin 'vimwiki/vimwiki'
+"let g:vimwiki_list = [{'path':'~/.wiki', 'ext':'.md'}]
 call vundle#end()
 filetype plugin indent on " required for Vundle
 
