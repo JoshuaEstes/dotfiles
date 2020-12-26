@@ -30,3 +30,6 @@ Dropbox/
 .composer/cacert.pem
 .composer/keys.dev.pub
 .composer/keys.tags.pub
+
+# Linus stuff
+snap/
