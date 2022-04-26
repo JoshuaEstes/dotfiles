@@ -6,11 +6,13 @@
   a = add
 
   ; Branch
-  br = branch
+  br = branch -vv
 
   ; Commit
-  c  = commit
-  ca = commit --all
+  c   = commit
+  cm  = commit -m
+  ca  = commit --all
+  cam = commit --all -m
 
   ; Checkout
   co = checkout
@@ -41,7 +43,9 @@
   pl = pull
 
   ; Push
-  ps = push
+  p   = push
+  ps  = push
+  psu = push -u
 
   ; Remote
   r = remote -v
@@ -53,7 +57,7 @@
   sd = stash drop
 
   ; Status
-  s = status
+  s = status -sb
 
   ; Tag
   t = tag -n
@@ -97,6 +101,7 @@
 [help]
 ;  autocorrect = 1
 [init]
+	defaultBranch = main
 ; This is used when you git init a directory
 ;  templatedir = ~/.gitconfig.d/templates
 [merge]
@@ -120,28 +125,25 @@
 ; These allow you to just do a git pull and it will pull
 ; from remote origin and merge into you local master
 ; branch, same for develop =)
-;[branch "master"]
+;[branch "main"]
 ;  remote = origin
-;  merge = refs/heads/master
-;[branch "develop"]
-;  remote = origin
-;  merge = refs/heads/develop
+;  merge = refs/heads/main
 
 ; Enable PHP lanaguage
-[hooks "php"]
-    enabled = yes
-[hooks "php.phpcs"]
-    enabled = yes
-    bin = phpcs
-    options = --ignore=*.dist --standard=PSR1,PSR2 -n
-[hooks "php.phpmd"]
-    enabled = yes
-    bin = phpmd
-    report = text
-    ruleset = cleancode,codesize,design,naming,unusedcode
-[hooks "php.lint"]
-    enabled = true
-    bin = php
-[hooks "php.composer"]
-    enabled = true
-    bin = ~/bin/composer
+;[hooks "php"]
+;    enabled = yes
+;[hooks "php.phpcs"]
+;    enabled = yes
+;    bin = phpcs
+;    options = --ignore=*.dist --standard=PSR1,PSR2 -n
+;[hooks "php.phpmd"]
+;    enabled = yes
+;    bin = phpmd
+;    report = text
+;    ruleset = cleancode,codesize,design,naming,unusedcode
+;[hooks "php.lint"]
+;    enabled = true
+;    bin = php
+;[hooks "php.composer"]
+;    enabled = true
+;    bin = ~/bin/composer
