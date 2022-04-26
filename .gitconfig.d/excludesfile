@@ -1,5 +1,5 @@
 # This is a global .gitignore file, it will not be commited with your project
-# 
+#
 # @see http://help.github.com/ignore-files
 # @see https://github.com/github/gitignore/tree/master/Global
 
@@ -49,6 +49,9 @@
 !.dockerignore
 *~
 !.yarnrc
+!.github
+!.terraform.lock.hcl
+!.terraformignore
 
 # KDE
 .directory
