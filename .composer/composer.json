@@ -1,6 +1,5 @@
 {
     "require": {
-        "joshuaestes/thoth": "dev-master"
     },
     "config": {
         "sort-packages": true
