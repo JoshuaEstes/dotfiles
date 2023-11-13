@@ -147,3 +147,5 @@
 ;[hooks "php.composer"]
 ;    enabled = true
 ;    bin = ~/bin/composer
+[credential]
+	helper = store

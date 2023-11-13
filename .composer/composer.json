@@ -1,7 +1,17 @@
 {
-    "require": {
-    },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "vimeo/psalm": true,
+            "psalm/plugin-phpunit": true
+        }
+    },
+    "require": {
+        "psalm/plugin-phpunit": "^0.18",
+        "friendsofphp/php-cs-fixer": "^3.23",
+        "phpunit/phpunit": "^10.3",
+        "vimeo/psalm": "^5.15",
+        "bmitch/churn-php": "^1.7",
+        "deployer/deployer": "^7.3"
     }
 }
