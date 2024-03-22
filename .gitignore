@@ -7,6 +7,7 @@ Library/
 Movies/
 Music/
 Pictures/
+bin/
 
 # These are usually the folders I create
 code/
@@ -22,6 +23,7 @@ Dropbox/
 .chef/cache/
 .composer/cache/
 .composer/vendor/
+node_modules/
 
 # files that need to be ignored
 .aws/credentials

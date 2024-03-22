@@ -3,15 +3,20 @@
         "sort-packages": true,
         "allow-plugins": {
             "vimeo/psalm": true,
-            "psalm/plugin-phpunit": true
+            "psalm/plugin-phpunit": true,
+            "infection/extension-installer": true
         }
     },
     "require": {
-        "psalm/plugin-phpunit": "^0.18",
+        "bmitch/churn-php": "^1.7",
+        "deployer/deployer": "^7.3",
         "friendsofphp/php-cs-fixer": "^3.23",
         "phpunit/phpunit": "^10.3",
-        "vimeo/psalm": "^5.15",
-        "bmitch/churn-php": "^1.7",
-        "deployer/deployer": "^7.3"
+        "psalm/plugin-phpunit": "^0.18.4",
+        "psalm/plugin-symfony": "^5.1",
+        "vimeo/psalm": "^5.21"
+    },
+    "require-dev": {
+        "infection/infection": "^0.27.8"
     }
 }

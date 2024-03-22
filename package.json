@@ -18,5 +18,9 @@
   "homepage": "https://github.com/JoshuaEstes/dotfiles",
   "devDependencies": {
     "grunt": "~0.4.5"
+  },
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.3"
   }
 }

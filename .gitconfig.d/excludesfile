@@ -52,6 +52,7 @@
 !.github
 !.terraform.lock.hcl
 !.terraformignore
+!.php-cs-fixer.dist.php
 
 # KDE
 .directory
