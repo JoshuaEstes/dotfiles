@@ -1,105 +1,106 @@
 ; ~/.gitconfig
 [advice]
-  statusHints = false
+    statusHints = false
 [alias]
-  ; Add
-  a = add
+    ; Add
+    a = add
+    ai = add -i
 
-  ; Branch
-  br = branch -vv
+    ; Branch
+    br = branch -vv
 
-  ; Commit
-  c   = commit
-  cm  = commit -m
-  ca  = commit --all
-  cam = commit --all -m
+    ; Commit
+    c   = commit
+    cm  = commit -m
+    ca  = commit --all
+    cam = commit --all -m
 
-  ; Checkout
-  co = checkout
-  cb = checkout -b
+    ; Checkout
+    co = checkout
+    cb = checkout -b
 
-  ; Cherry Pick
-  cp = cherry-pick
+    ; Cherry Pick
+    cp = cherry-pick
 
-  ; Clone
-  cl = clone
+    ; Clone
+    cl = clone
 
-  ; Diff
-  d  = diff
-  dc = diff --cached
-  cr = diff --no-prefix HEAD~..HEAD
+    ; Diff
+    d  = difftool
+    dc = difftool --cached
+    cr = difftool --no-prefix HEAD~..HEAD
 
-  dft = difftool
+    dft = difftool
 
-  ; Log
-  ; Some of these have come from http://durdn.com/blog/2012/11/22/must-have-git-aliases-advanced-examples
-  ; Usage: git fl path/to/file.ext
-  fl   = "log -u"
-  ld   = "log --pretty=format:'%C(yellow)%h %ad%Cred%d %Creset%s%Cblue [%cn]' --decorate --date=relative"
-  lds  = "log --pretty=format:'%C(yellow)%h %ad%Cred%d %Creset%s%Cblue [%cn]' --decorate --date=short"
-  lg   = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
-  ll   = "log --pretty=format:'%C(yellow)%h%Cred%d %Creset%s%Cblue [%cn]' --decorate --numstat"
-  ls   = "log --pretty=format:'%C(yellow)%h%Cred%d %Creset%s%Cblue [%cn]' --decorate"
-  dlog = "!f() { GIT_EXTERNAL_DIFF=difft git log -p --ext-diff $@; }; f"
+    ; Log
+    ; Some of these have come from http://durdn.com/blog/2012/11/22/must-have-git-aliases-advanced-examples
+    ; Usage: git fl path/to/file.ext
+    fl   = "log -u"
+    ld   = "log --pretty=format:'%C(yellow)%h %ad%Cred%d %Creset%s%Cblue [%cn]' --decorate --date=relative"
+    lds  = "log --pretty=format:'%C(yellow)%h %ad%Cred%d %Creset%s%Cblue [%cn]' --decorate --date=short"
+    lg   = "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative"
+    ll   = "log --pretty=format:'%C(yellow)%h%Cred%d %Creset%s%Cblue [%cn]' --decorate --numstat"
+    ls   = "log --pretty=format:'%C(yellow)%h%Cred%d %Creset%s%Cblue [%cn]' --decorate"
+    dlog = "!f() { GIT_EXTERNAL_DIFF=difft git log -p --ext-diff $@; }; f"
 
-  ; Pull
-  pl = pull
+    ; Pull
+    pl = pull
 
-  ; Push
-  p   = push
-  ps  = push
-  psu = push -u
+    ; Push
+    p   = push
+    ps  = push
+    psu = push -u
 
-  ; Remote
-  r = remote -v
+    ; Remote
+    r = remote -v
 
-  ; Stash
-  ss = stash save
-  sl = stash list
-  sa = stash apply
-  sd = stash drop
+    ; Stash
+    ss = stash save
+    sl = stash list
+    sa = stash apply
+    sd = stash drop
 
-  ; Status
-  s = status -sb
+    ; Status
+    s = status -sb
 
-  ; Tag
-  t = tag -n
+    ; Tag
+    t = tag -n
 [apply]
-  whitespace = nowarn
+    whitespace = nowarn
 [branch]
-  autosetupmerge = true
+    autosetupmerge = true
 [color]
-  ui = true
-  branch = auto
-  diff = auto
-  status = auto
+    ui = true
+    branch = auto
+    diff = auto
+    status = auto
 [color "branch"]
-  current = yellow reverse
-  local = yellow
-  remote = green
+    current = yellow reverse
+    local = yellow
+    remote = green
 [color "diff"]
-  commit = yellow
-  meta = yellow
-  frag = magenta
-  old = red
-  new = green
+    commit = yellow
+    meta = yellow
+    frag = magenta
+    old = red
+    new = green
+    whitespace = red reverse
 [color "status"]
-  added = yellow
-  changed = green
-  untracked = cyan
-  updated = green
+    added = yellow
+    changed = green
+    untracked = cyan
+    updated = green
 [commit]
-;  template = ~/.gitconfig.d/commit.tmpl
+    ;template = ~/.gitconfig.d/commit.tmpl
 [core]
-;  autocrlf = input
-  editor = vim
-  excludesfile = ~/.gitconfig.d/excludesfile
-  mergeoptions = --no-ff
-  whitespace = trailing-space,space-before-tab
-  autocrlf = input
+    editor = vim
+    excludesfile = ~/.gitconfig.d/excludesfile
+    mergeoptions = --no-ff
+    whitespace = blank-at-eol,blank-at-eof,trailing-space,space-before-tab
+    autocrlf = input
 [diff]
-  external = difft
-  tool = difftastic
+    external = difft
+    tool = difftastic
 [difftool]
     prompt = false
 [difftool "difftastic"]
@@ -107,55 +108,44 @@
 [pager]
     difftool = true
 [gc]
-  auto=1
+    auto=1
 [help]
-;  autocorrect = 1
+    ;autocorrect = 1
 [init]
-	defaultBranch = main
-; This is used when you git init a directory
-;  templatedir = ~/.gitconfig.d/templates
+    defaultBranch = main
+    ;This is used when you git init a directory
+    ;templatedir = ~/.gitconfig.d/templates
 [merge]
-  tool = meld
-  summary = true
-  verbosity = 1
+    tool = vimdiff
+    ;tool = meld
+    summary = true
+    verbosity = 1
+[mergetool]
+    prompt = false
+[mergetool "meld"]
+    useAutoMerge = auto
+[mergetool "vimdiff"]
+    layout = "LOCAL,MERGED,REMOTE"
 [push]
-  default = current
+    default = current
 ; @see http://git-scm.com/2010/03/08/rerere.html
 [rerere]
-  enabled = true
-  autoupdate = true
+    enabled = true
+    autoupdate = true
 [user]
-; See the bash.local.example file
-;  Can be overridden by the GIT_AUTHOR_EMAIL, GIT_COMMITTER_EMAIL, and EMAIL environment variables.
-  email = JoshuaEstes@users.noreply.github.com
-;  Can be overridden by the GIT_AUTHOR_NAME and GIT_COMMITTER_NAME environment variables.
-  name = Joshua Estes
-;  signingkey = ''
+    ; See the bash.local.example file
+    ;  Can be overridden by the GIT_AUTHOR_EMAIL, GIT_COMMITTER_EMAIL, and EMAIL environment variables.
+    email = JoshuaEstes@users.noreply.github.com
+    ;  Can be overridden by the GIT_AUTHOR_NAME and GIT_COMMITTER_NAME environment variables.
+    name = Joshua Estes
+    ;signingkey = ''
+    username = JoshuaEstes
 
 ; These allow you to just do a git pull and it will pull
 ; from remote origin and merge into you local master
 ; branch, same for develop =)
-;[branch "main"]
-;  remote = origin
-;  merge = refs/heads/main
-
-; Enable PHP lanaguage
-;[hooks "php"]
-;    enabled = yes
-;[hooks "php.phpcs"]
-;    enabled = yes
-;    bin = phpcs
-;    options = --ignore=*.dist --standard=PSR1,PSR2 -n
-;[hooks "php.phpmd"]
-;    enabled = yes
-;    bin = phpmd
-;    report = text
-;    ruleset = cleancode,codesize,design,naming,unusedcode
-;[hooks "php.lint"]
-;    enabled = true
-;    bin = php
-;[hooks "php.composer"]
-;    enabled = true
-;    bin = ~/bin/composer
+[branch "main"]
+  remote = origin
+  merge = refs/heads/main
 [credential]
-	helper = store
+    helper = store
