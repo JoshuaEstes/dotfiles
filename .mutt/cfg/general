@@ -1,0 +1,11 @@
+# vim: set ft=muttrc:
+
+# show mutt version on startup
+push <show-version>
+
+set charset = "utf-8"
+set send_charset = "utf-8"
+
+set header_cache     = "$HOME/.mutt/cache/headers"
+set message_cachedir = "$HOME/.mutt/cache/messages"
+set certificate_file = "$HOME/.mutt/certificates"

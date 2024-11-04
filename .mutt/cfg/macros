@@ -1,0 +1,4 @@
+# vim: set ft=muttrc:
+
+# Press ~ to run offlineimap to sync email
+macro index ~ "<shell-escape>clear; offlineimap<enter>"

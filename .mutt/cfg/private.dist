@@ -1,0 +1,11 @@
+# vim: set ft=muttrc:
+####
+# All private and sensitive config stuff goes in the "~/.mutt/cfg/private"
+# file. This is an example of that file. You can copy this file to get started
+####
+
+set realname = "FirstName LastName"
+
+alternates = "^(email@domain.com|domain@email.com)$"
+
+set pgp_default_key = "0x000"

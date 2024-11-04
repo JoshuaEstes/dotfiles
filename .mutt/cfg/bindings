@@ -1,0 +1,21 @@
+# vim: set ft=muttrc:
+bind index gg first-entry
+bind index G  last-entry
+
+# reply-all for emails
+# Previously mapped to `recall-message` "recall a postponed message"
+bind pager R  group-reply
+
+# use $ to sync mailboxes
+#bind index <tab>   sync-mailbox
+# Previously mapped to <esc> + v
+#bind index <space> collapse-thread
+
+# Previously mapped to none
+bind pager k previous-line
+# Previously mapped to <return>
+bind pager j next-line
+# Previously mapped to ^
+bind pager gg top
+# Previously mapped to none
+bind pager G bottom

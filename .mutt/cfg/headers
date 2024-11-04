@@ -1,0 +1,20 @@
+# vim: set ft=muttrc:
+set edit_headers
+
+ignore *
+unignore from:
+unignore to:
+unignore reply-to:
+unignore mail-followup-to:
+unignore cc:
+unignore bcc:
+unignore date:
+unignore subject:
+unignore organization:
+unignore newsgroup:
+unignore message-id:
+unignore x-mailer:
+
+unhdr_order *
+
+hdr_order from: to: cc: data: subject:

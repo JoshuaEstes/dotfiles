@@ -1,30 +1,25 @@
-####
-#
-# Mutt configuration file
-#
+# vim: set ft=muttrc:
 
-# Colors
-source "$HOME/.mutt/colors"
+# Copy private.dist to get started
+source ~/.mutt/cfg/private
 
-####
-#
-#
-#
-ignore *
-unignore from: to: cc: date: subject:
-unhdr_order *
-hdr_order from: to: cc: data: subject:
+source ~/.mutt/cfg/bindings
+source ~/.mutt/cfg/colors
+source ~/.mutt/cfg/general
+source ~/.mutt/cfg/gpg
+source ~/.mutt/cfg/headers
+source ~/.mutt/cfg/hooks
+source ~/.mutt/cfg/macros
+source ~/.mutt/cfg/mailboxes
+source ~/.mutt/cfg/sidebar
+
 alternative_order text/plain text/enriched text/html
-####
 
 ####
 #
 # Directories and defaults
 #
 set folder           = "$HOME/mail"
-set header_cache     = "$HOME/.mutt/cache/headers"
-set message_cachedir = "$HOME/.mutt/cache/messages"
-set certificate_file = "$HOME/.mutt/certificates"
 set alias_file       = "$HOME/.mutt/aliases"
 set mailcap_path     = "$HOME/.mutt/mailcap"
 #set tmpdir           = "$HOME/.mutt/tmp"
@@ -34,6 +29,7 @@ set signature        = "$HOME/.mutt/signatures/default"
 ####
 #
 # Configuration Settings
+# @todo Document what all the settings do
 #
 set abort_nosubject   = no
 set editor            = "vim"
@@ -60,7 +56,6 @@ set thorough_search
 set arrow_cursor
 set beep_new
 set delete
-set edit_headers
 set envelope_from
 set fast_reply
 set fcc_attach
@@ -108,31 +103,6 @@ set status_format  = "--[ Folder: %f ]--[ %r%m messages%?n? (%n new)?%?d? (%d to
 
 ####
 #
-# Crypto, more crypto configuration settings are in the accounts directory
-# for each account.
-#
-set crypt_autoencrypt        = yes
-set crypt_autosign           = yes
-set crypt_replyencrypt       = yes
-set crypt_replysign          = yes
-set crypt_replysignencrypted = yes
-set pgp_use_gpg_agent        = yes
-set pgp_timeout              = 1800
-set pgp_decode_command       = "gpg %?p?--passphrase-fd 0? --no-verbose --batch --output - %f"
-set pgp_verify_command       = "gpg --no-verbose --batch --output - --verify %s %f"
-set pgp_decrypt_command      = "gpg --no-verbose --batch --output - %f"
-set pgp_sign_command         = "gpg --no-verbose --batch --output - --armor --detach-sign --textmode %?a?-u %a? %f"
-set pgp_clearsign_command    = "gpg --no-verbose --batch --output - --armor --textmode --clearsign %?a?-u %a? %f"
-set pgp_import_command       = "gpg --no-verbose --import -v %f"
-set pgp_export_command       = "gpg --no-verbose --export --armor %r"
-set pgp_verify_key_command   = "gpg --no-verbose --batch --fingerprint --check-sigs %r"
-set pgp_list_pubring_command = "gpg --no-verbose --batch --with-colons --list-keys %r"
-set pgp_list_secring_command = "gpg --no-verbose --batch --with-colons --list-secret-keys %r"
-set pgp_good_sign            = "^gpg: Good signature from"
-#### end crypto ####
-
-####
-#
 # Address Book stuff
 #
 set query_command = "ppl mutt '%s'"
@@ -141,48 +111,3 @@ bind editor ^T complete
 
 # Add all emails to address book without asking and push the repo up
 macro index,pager a "<pipe-message>ppl scrape --quiet;ppl push<return>"
-
-####
-#
-# Key Bindings
-#
-bind index gg first-entry
-bind index G  last-entry
-
-# reply-all for emails
-# Previously mapped to `recall-message` "recall a postponed message"
-bind pager R  group-reply
-
-# use $ to sync mailboxes
-#bind index <tab>   sync-mailbox
-# Previously mapped to <esc> + v
-#bind index <space> collapse-thread
-
-# Previously mapped to none
-bind pager k previous-line
-# Previously mapped to <return>
-bind pager j next-line
-# Previously mapped to ^
-bind pager gg top
-# Previously mapped to none
-bind pager G bottom
-#### end key bindings ####
-
-####
-#
-# Macros
-#
-
-# Press ~ to run offlineimap to sync email
-macro index ~ "<shell-escape>clear; offlineimap<enter>"
-#### end macros ####
-
-####
-#
-# Folder hooks, when changing to a new folder, this will change some of the
-# mutt configuration to use the correct settings
-#
-#folder-hook "f1gm3nt@gmail.com/*" source "$HOME/.mutt/accounts/personal"
-#folder-hook "joshua@dspacelabs.com/*" source "$HOME/.mutt/accounts/dspacelabs"
-#folder-hook "joshua.estes@allycommerce.com/*" source "$HOME/.mutt/accounts/ally"
-#### end folder-hook ####
