@@ -33,5 +33,10 @@ node_modules/
 .composer/keys.dev.pub
 .composer/keys.tags.pub
 
-# Linus stuff
+# Linux stuff
 snap/
+
+# Others
+.env.local
+.env.bash.local
+.env.zsh.local
