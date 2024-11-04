@@ -28,7 +28,7 @@ set certificate_file = "$HOME/.mutt/certificates"
 set alias_file       = "$HOME/.mutt/aliases"
 set mailcap_path     = "$HOME/.mutt/mailcap"
 #set tmpdir           = "$HOME/.mutt/tmp"
-set spoolfile        = "+f1gm3nt@gmail.com/INBOX"
+#set spoolfile        = "+f1gm3nt@gmail.com/INBOX"
 set signature        = "$HOME/.mutt/signatures/default"
 
 ####
@@ -182,7 +182,7 @@ macro index ~ "<shell-escape>clear; offlineimap<enter>"
 # Folder hooks, when changing to a new folder, this will change some of the
 # mutt configuration to use the correct settings
 #
-folder-hook "f1gm3nt@gmail.com/*" source "$HOME/.mutt/accounts/personal"
-folder-hook "joshua@dspacelabs.com/*" source "$HOME/.mutt/accounts/dspacelabs"
-folder-hook "joshua.estes@allycommerce.com/*" source "$HOME/.mutt/accounts/ally"
+#folder-hook "f1gm3nt@gmail.com/*" source "$HOME/.mutt/accounts/personal"
+#folder-hook "joshua@dspacelabs.com/*" source "$HOME/.mutt/accounts/dspacelabs"
+#folder-hook "joshua.estes@allycommerce.com/*" source "$HOME/.mutt/accounts/ally"
 #### end folder-hook ####

@@ -29,7 +29,7 @@ uda.jira.label=Jira Issue
 #report.jira.labels=Jira Issue,ID,Project,Description
 #report.jira.sort=jira+
 
-include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/solarized-dark-256.theme
+include solarized-dark-256.theme
 
 report.in.columns     = id,description
 report.in.description = Inbox
