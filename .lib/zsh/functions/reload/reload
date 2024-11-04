@@ -1,6 +1,0 @@
-# vim: set ft=zsh et sw=2 sts=2:
-####
-#
-# Reloads all files
-#
-source $HOME/.zshrc

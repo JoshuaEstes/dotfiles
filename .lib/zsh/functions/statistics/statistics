@@ -1,6 +1,0 @@
-# vim: set ft=zsh et sw=2 sts=2:
-####
-#
-# Displays stats on various usage patterns
-#
-history 0 | awk "{print \$2}" | sort | uniq -c | sort -n -r | head
