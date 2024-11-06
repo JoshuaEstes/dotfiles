@@ -53,6 +53,7 @@ report.inbox.filter      = +PENDING and project.none:
 context.work=+@work or +@computer
 context.home=+@home
 context.commercekitty=project:commercekitty
+context.sonsofphp=project:sonsofphp
 #### end: context
 
 ####
