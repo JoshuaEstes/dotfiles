@@ -1,5 +1,4 @@
 ####
-#
 # Taskwarrior program configuration file.
 #
 # For more documentation, see http://taskwarrior.org or try 'man task', 'man task-faq',
@@ -15,39 +14,65 @@
 # This is the default value
 data.location=~/.task
 
-# Create a jira field
-uda.jira.type=string
-uda.jira.label=Jira Issue
+# Colors
+include solarized-dark-256.theme
 
 # The default report to run
 #default.command=jira
 
-# Configure the jira report
-#report.jira.description=Tasks based on issue number in jira
-#report.jira.columns=jira,id,project,description
-#report.jira.filter=status:pending
-#report.jira.labels=Jira Issue,ID,Project,Description
-#report.jira.sort=jira+
+####
+# Jira
+#
+# I use Jira a lot, so it's nice to have this setup so that I can reference the
+# tasks in jira
+####
+uda.jira.type                = string
+uda.jira.label               = Jira Issue
+urgency.uda.jira.coefficient = 0.5
 
-include solarized-dark-256.theme
+# Configure the Jira report
+report.jira.description = Jira Tickets
+report.jira.columns     = jira,id,project,status,description
+report.jira.filter      = jira.not:
+report.jira.sort        = project+\/,jira+
+#### end: jira
 
-report.in.columns     = id,description
-report.in.description = Inbox
-report.in.filter      = status:pending limit:page (+in)
-report.in.labels      = ID,Description
+####
+# Inbox
+#
+# The inbox is used to display new tasks that do not have a home yet
+####
+report.inbox.columns     = id,project,jira,status,description.truncated
+report.inbox.description = Inbox
+report.inbox.filter      = +PENDING and project.none:
+#### end: inbox
 
+####
 # Contexts
+####
 context.work=+@work or +@computer
 context.home=+@home
+context.commercekitty=project:commercekitty
+#### end: context
 
+####
 # Effort
-uda.effort.type   = string
-uda.effort.label  = Effort
-uda.effort.values = 1,2,3,5,8,13,21,34,55,89,144
+####
+uda.effort.type                  = numeric
+uda.effort.label                 = Effort
+uda.effort.values                = 1,2,3,5,8,13,21,34,55,89,144
+urgency.uda.effort.1.coefficient = 6.9
+#### end: effort
+
+####
+# Other settings
+####
 uda.reviewed.type=date
 uda.reviewed.label=Reviewed
+
 report._reviewed.description=Tasksh review report.  Adjust the filter to your needs.
 report._reviewed.columns=uuid
 report._reviewed.sort=reviewed+,modified+
 report._reviewed.filter=( reviewed.none: or reviewed.before:now-6days ) and ( +PENDING or +WAITING )
+
 news.version=3.1.0
