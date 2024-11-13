@@ -125,7 +125,7 @@
 [difftool]
     prompt = false
 [difftool "difftastic"]
-    cmd = difft --color=always --display=side-by-side --ignore-comments "$LOCAL" "$REMOTE" | less -R
+    cmd = difft --color=always "$LOCAL" "$REMOTE"
 [fetch]
     prune = true
     pruneTags = true
@@ -151,8 +151,8 @@
     useAutoMerge = auto
 [mergetool "vimdiff"]
     layout = "LOCAL,MERGED,REMOTE"
-;[pager]
-;    difftool = true
+[pager]
+    difftool = true
 [push]
     autoSetupRemote = true
     default = current
