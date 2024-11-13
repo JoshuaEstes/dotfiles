@@ -3,111 +3,12 @@
 # Copy private.dist to get started
 source ~/.mutt/cfg/private
 
+source ~/.mutt/cfg/general
+source ~/.mutt/cfg/hooks
 source ~/.mutt/cfg/bindings
 source ~/.mutt/cfg/colors
-source ~/.mutt/cfg/general
 source ~/.mutt/cfg/gpg
 source ~/.mutt/cfg/headers
-source ~/.mutt/cfg/hooks
 source ~/.mutt/cfg/macros
 source ~/.mutt/cfg/mailboxes
 source ~/.mutt/cfg/sidebar
-
-alternative_order text/plain text/enriched text/html
-
-####
-#
-# Directories and defaults
-#
-set folder           = "$HOME/mail"
-set alias_file       = "$HOME/.mutt/aliases"
-set mailcap_path     = "$HOME/.mutt/mailcap"
-#set tmpdir           = "$HOME/.mutt/tmp"
-#set spoolfile        = "+f1gm3nt@gmail.com/INBOX"
-set signature        = "$HOME/.mutt/signatures/default"
-
-####
-#
-# Configuration Settings
-# @todo Document what all the settings do
-#
-set abort_nosubject   = no
-set editor            = "vim"
-set mail_check        = 0
-set mbox_type         = Maildir
-set pager_context     = 3
-set pager_index_lines = 10
-set sendmail_wait     = 0
-
-# can set folder-hook so "archive" can be sorted differently than INBOX
-set sort = threads
-#set sort = date-sent
-
-# defines how threads are sorted
-set sort_aux = reverse-last-date-received
-
-set timeout  = 3
-set wait_key = no
-set wrap     = 80
-
-set menu_scroll
-set pipe_decode
-set thorough_search
-set arrow_cursor
-set beep_new
-set delete
-set envelope_from
-set fast_reply
-set fcc_attach
-set forward_decode
-set forward_quote
-set include
-set narrow_tree
-set pager_stop
-set pipe_decode
-set quit
-set reply_to
-set reverse_name
-unset sig_dashes
-set sort_re
-set status_on_top
-set thorough_search
-set tilde
-set uncollapse_jump
-
-unset confirmappend
-#unset help
-unset mark_old
-unset markers
-unset mime_forward
-#set mime_forward_rest=yes
-unset move
-unset record
-#### end
-
-####
-#
-# Change the way things look
-#
-set alias_format   = "%4n %2f %t %-10a   %r"
-set attach_format  = "%u%D%I %t%4n %T%.40d%> [%.7m/%.10M, %.6e%?C?, %C?, %s]"
-set attribution    = "On %d, %n wrote:"
-set compose_format = "-- Compose  [Approx. msg size: %l   Atts: %a]%>-"
-set date_format    = "%m/%d/%Y"
-set folder_format  = "%2C %f %t %N"
-set forward_format = "Fwd: %s"
-set index_format   = "[%Z] %D %-20.20F %s"
-set status_chars   = " *%A"
-set status_format  = "--[ Folder: %f ]--[ %r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]--%>--%?p?( %p postponed )?--"
-#### end visual configuration ####
-
-####
-#
-# Address Book stuff
-#
-set query_command = "ppl mutt '%s'"
-bind editor <Tab> complete-query
-bind editor ^T complete
-
-# Add all emails to address book without asking and push the repo up
-macro index,pager a "<pipe-message>ppl scrape --quiet;ppl push<return>"

@@ -10,21 +10,21 @@ servers = (
   }
 );
 
-chatnets = { 
+chatnets = {
   freenode = { type = "IRC"; autosendcmd = "/MODE nick -i"; };
 };
 
 channels = (
-  { name = "#nashvillephp"; chatnet = "freenode"; autojoin = "Yes"; },
-  { name = "#chef"; chatnet = "freenode"; autojoin = "Yes"; },
-  { name = "#magento"; chatnet = "freenode"; autojoin = "Yes"; },
-  { name = "#shopify"; chatnet = "freenode"; autojoin = "Yes"; },
-  { name = "#bitcoin"; chatnet = "freenode"; autojoin = "Yes"; },
-  { name = "#symfony"; chatnet = "freenode"; autojoin = "Yes"; },
-  { name = "#composer"; chatnet = "freenode"; autojoin = "Yes"; },
-  { name = "#browscap"; chatnet = "freenode"; autojoin = "Yes"; },
-  { name = "#phpfig"; chatnet = "freenode"; autojoin = "Yes"; },
-  { name = "#heroku"; chatnet = "freenode"; autojoin = "Yes"; }
+  #{ name = "#nashvillephp"; chatnet = "freenode"; autojoin = "Yes"; },
+  #{ name = "#chef"; chatnet = "freenode"; autojoin = "Yes"; },
+  #{ name = "#magento"; chatnet = "freenode"; autojoin = "Yes"; },
+  #{ name = "#shopify"; chatnet = "freenode"; autojoin = "Yes"; },
+  #{ name = "#bitcoin"; chatnet = "freenode"; autojoin = "Yes"; },
+  #{ name = "#symfony"; chatnet = "freenode"; autojoin = "Yes"; },
+  #{ name = "#composer"; chatnet = "freenode"; autojoin = "Yes"; },
+  #{ name = "#browscap"; chatnet = "freenode"; autojoin = "Yes"; },
+  #{ name = "#phpfig"; chatnet = "freenode"; autojoin = "Yes"; },
+  #{ name = "#heroku"; chatnet = "freenode"; autojoin = "Yes"; }
 );
 
 aliases = {

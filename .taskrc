@@ -11,14 +11,22 @@
 
 # Use the command 'task show' to see all defaults and overrides
 
-# This is the default value
-data.location=~/.task
+########## -=[ Settings ]=- ##########
+news.version=3.1.0
+
+# Where to store the task database
+#data.location=~/.task
 
 # Colors
 include solarized-dark-256.theme
+#include dark-red-256.theme
 
 # The default report to run
-#default.command=ready
+#default.command=next
+
+########## -=[ UDAs ]=- ##########
+uda.reviewed.type=date
+uda.reviewed.label=Reviewed
 
 ####
 # Jira
@@ -30,50 +38,70 @@ uda.jira.type                = string
 uda.jira.label               = Jira Issue
 urgency.uda.jira.coefficient = 0.5
 
-# Configure the Jira report
-report.jira.description = Jira Tickets
-report.jira.columns     = jira,id,project,status,description
-report.jira.filter      = jira.not:
+####
+# Effort
+#
+# The idea is that the ones that take the most effort need to be broken up so
+# they are pushed down. The tasks that are low effort should bubble up because
+# they do not take much effort to complete
+####
+uda.effort.type                    = numeric
+uda.effort.label                   = Effort
+uda.effort.values                  = 1,2,3,5,8,13,21,34,55,89,144
+urgency.uda.effort.1.coefficient   = 0.144
+urgency.uda.effort.2.coefficient   = 0.089
+urgency.uda.effort.3.coefficient   = 0.055
+urgency.uda.effort.5.coefficient   = 0.034
+urgency.uda.effort.8.coefficient   = 0.021
+urgency.uda.effort.13.coefficient  = 0.013
+urgency.uda.effort.21.coefficient  = 0.008
+urgency.uda.effort.34.coefficient  = 0.005
+urgency.uda.effort.55.coefficient  = 0.003
+urgency.uda.effort.89.coefficient  = 0.002
+urgency.uda.effort.144.coefficient = 0.001
+
+####
+# Eisenhower Matrix
+####
+# This is used for not import and not urgent
+urgency.user.tag.unimportant.coefficient = -25
+urgency.user.tag.important.coefficient   = 15
+urgency.user.tag.urgent.coefficient      = 15
+
+#uda.is_important.type   = string
+#uda.is_important.label  = Is Important
+#uda.is_important.values = yes,no
+#uda.is_urgent.type   = string
+#uda.is_urgent.label  = Is Urgent
+#uda.is_urgent.values = yes,no
+
+########## -=[ Reports ]=- ##########
+# Displays all the tasks that are associated with a Jira issue
+report.jira.description = Displays taks that have Jira Issue assigned to them
+report.jira.columns     = jira,id,project,status,description.truncated
+report.jira.filter      = jira.not: limit:page -COMPLETED
 report.jira.sort        = project+\/,jira+
-#### end: jira
+
+#report.next.columns = id,project,description.truncated
+#report.next.labels  = ID,Project,Description
 
 ####
 # Inbox
 #
-# The inbox is used to display new tasks that do not have a home yet
+# The inbox is used to display new tasks that do not have a home yet. They will
+# need additional details before they are moved into the "backlog"
 ####
-report.inbox.columns     = id,project,jira,status,description.truncated
+report.inbox.columns     = id,project,jira,effort,description.truncated
 report.inbox.description = Inbox
-report.inbox.filter      = +PENDING and project.none:
-#### end: inbox
+report.inbox.filter      = +PENDING and -ACTIVE and ( -PROJECT or effort.none: ) and ( -important and -unimportant and -urgent )
 
-####
-# Contexts
-####
-context.work=+@work or +@computer
-context.home=+@home
+report._reviewed.description = Tasksh review report. Adjust the filter to your needs.
+report._reviewed.columns     = uuid
+report._reviewed.sort        = reviewed+,modified+
+report._reviewed.filter      = ( reviewed.none: or reviewed.before:now-6days ) and ( +PENDING or +WAITING )
+
+########## -=[ Contexts ]=- ##########
+# @see https://taskwarrior.org/docs/context/
+context.konnektive=project:konnektive
 context.commercekitty=project:commercekitty
 context.sonsofphp=project:sonsofphp
-#### end: context
-
-####
-# Effort
-####
-uda.effort.type                  = numeric
-uda.effort.label                 = Effort
-uda.effort.values                = 1,2,3,5,8,13,21,34,55,89,144
-urgency.uda.effort.1.coefficient = 6.9
-#### end: effort
-
-####
-# Other settings
-####
-uda.reviewed.type=date
-uda.reviewed.label=Reviewed
-
-report._reviewed.description=Tasksh review report.  Adjust the filter to your needs.
-report._reviewed.columns=uuid
-report._reviewed.sort=reviewed+,modified+
-report._reviewed.filter=( reviewed.none: or reviewed.before:now-6days ) and ( +PENDING or +WAITING )
-
-news.version=3.1.0

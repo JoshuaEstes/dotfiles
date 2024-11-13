@@ -1,4 +1,11 @@
 # vim: set ft=muttrc:
+################################################################################
+# Macros
+################################################################################
 
 # Press ~ to run offlineimap to sync email
-macro index ~ "<shell-escape>clear; offlineimap<enter>"
+#macro index ~ "<shell-escape>clear; offlineimap<enter>"
+
+macro index <f1> "<enter-command>source ~/.mutt/accounts/account1<enter><change-folder>!<enter>" "Switch to $my_account1_from"
+macro index <f2> "<enter-command>source ~/.mutt/accounts/account2<enter><change-folder>!<enter>" "Switch to $my_account2_from"
+macro index <f3> "<enter-command>source ~/.mutt/accounts/account3<enter><change-folder>!<enter>" "Switch to $my_account3_from"

@@ -1,11 +1,191 @@
 # vim: set ft=muttrc:
+################################################################################
+# General Configuration
+# =====================
+#
+# Settings that don't really fit into any other file
+#
+# @todo Document each setting
+################################################################################
 
 # show mutt version on startup
 push <show-version>
 
+# order to display in mailtype mail
+alternative_order text/plain text/enriched text/html
+auto_view text/plain text/html text/enriched image/gif application/pdf
+
+# personal variables, starts with my_
+# to display variable value on mutt:
+# type : set ?my_variable_name
+set my_test = "hihi"
+
+# -=[ Configuration ]=-
+unset abort_nosubject
+
+set alias_file = ~/.mutt/cfg/aliases
+source $alias_file
+
+#set alias_format = "%4n %2f %t %-10a   %r"
+
+#set attach_format = "%u%D%I %t%4n %T%.40d%> [%.7m/%.10M, %.6e%?C?, %C?, %s]"
+
+set arrow_cursor
+
+unset askcc
+
+# %d = date
+# %n = author
+set attribution = "On %d, %n wrote:"
+
+unset auto_tag
+
+unset beep
+
+set beep_new
+
+set certificate_file = ~/.mutt/certificates
+
 set charset = "utf-8"
+
+set compose_format = "-- Compose  [Approx. msg size: %l   Atts: %a]%>-"
+
+unset confirmappend
+
+set date_format = "%m/%d/%Y"
+
+set delete
+
+set editor = "vim"
+
+set envelope_from
+
+set fast_reply
+
+set fcc_attach
+
+set folder = ~/Mail
+cd $folder
+
+set folder_format  = "%2C %f %t %N"
+
+set forward_decode
+
+set forward_format = "Fwd: %s"
+
+set forward_quote
+
+set header_cache = ~/.mutt/cache/headers
+
+#unset help
+
+set hdr_format = "%4C %Z %{%b %d} %-15.15n (%4l) %s"
+
+# Do not automatically poll subscribed mailboxes for new mail
+#unset imap_check_subscribed
+
+# Allow Mutt to open a new IMAP connection automatically.
+unset imap_passive
+
+# Keep the IMAP connection alive by polling intermittently (time in seconds).
+#set imap_keepalive = 60
+
+set include
+
+#set index_format = "[%Z] %D %-20.20F %s"
+
+#set mailcap_path = "~/.mailcap:~/.mutt/mailcap"
+set mailcap_path = "~/.mutt/mailcap"
+
+unset markers
+
+#set mbox_type = Maildir
+
+set menu_scroll
+
+set message_cachedir = ~/.mutt/cache/messages
+
+# How often to check for new mail (time in seconds).
+set mail_check = 120
+
+set mail_check_stats
+
+# 60 seconds
+set mail_check_stats_interval = 60
+
+# If you start mutt and several new messages are in your inbox and you close
+# mutt before you have read them, then those messages will get flagged as old
+# (by default). The behavior can be controlled via the mark_old configuration
+# variable.
+unset mark_old
+
+unset mime_forward
+
+#set mime_forward_rest=yes
+
+# this prevents Mutt from endlessly asking when you quit:
+# "Move read messages to ~/mbox? ([no]/yes):
+unset move
+
+set narrow_tree
+
+set pager_stop
+
+set pipe_decode
+
+set quit
+
+unset record
+
+set reply_to
+
+set reverse_name
+
 set send_charset = "utf-8"
 
-set header_cache     = "$HOME/.mutt/cache/headers"
-set message_cachedir = "$HOME/.mutt/cache/messages"
-set certificate_file = "$HOME/.mutt/certificates"
+#set signature = "$HOME/.mutt/signatures/default"
+
+unset sig_dashes
+
+set sort_re
+
+# can set folder-hook so "archive" can be sorted differently than INBOX
+set sort = threads
+#set sort = date-sent
+
+set sort_alias = alias
+
+set status_chars = " *%A"
+
+set status_format = "--[ Folder: %f ]--[ %r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]--%>--%?p?( %p postponed )?--"
+
+set status_on_top
+
+set ssl_force_tls
+
+set ssl_starttls
+
+# defines how threads are sorted
+set sort_aux = reverse-last-date-received
+
+set thorough_search
+
+set tilde
+
+#set tmpdir = "$HOME/.mutt/tmp"
+
+set user_agent
+
+set pager_context = 3
+
+set pager_index_lines = 10
+
+set sendmail_wait = 0
+
+set timeout = 3
+
+set uncollapse_jump
+
+unset wait_key
+
+set wrap = 80

@@ -1,18 +1,14 @@
 # vim: set ft=muttrc:
 
 ####
-account-hook . 'unset imap_user; unset imap_pass'
-account-hook 'user@email.com' 'set imap_user="user@email.com"; set imap_pass = "`path/to/getpass.sh imap username`"'
-####
+#account-hook . 'unset imap_user; unset imap_pass'
 
 ####
-folder-hook 'user@email.com/*' 'source ~/.mutt/cfg/accts/personal; set from="user@email.com"'
-####
+#folder-hook 'default/*' 'source ~/.mutt/accounts/default'
+
 
 ####
-send2-hook . 'unset smtp_url; unset imap_pass; unset hostname'
-####
+#send2-hook . 'unset smtp_url; unset imap_pass; unset hostname'
 
 ####
-reply-hook . 'unset from'
-####
+#reply-hook . 'unset from'

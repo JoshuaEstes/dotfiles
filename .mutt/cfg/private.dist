@@ -4,8 +4,23 @@
 # file. This is an example of that file. You can copy this file to get started
 ####
 
+#
 set realname = "FirstName LastName"
 
-alternates = "^(email@domain.com|domain@email.com)$"
+#
+#alternates "^(email@domain.com|domain@email.com)$"
 
-set pgp_default_key = "0x000"
+#
+#set pgp_default_key = "0x000"
+
+set my_account1_imap_user = ""
+set my_account1_imap_pass = ""
+set my_account1_smtp_url  = ""
+set my_account1_smtp_pass = "$my_account1_imap_pass"
+set my_account1_folder    = ""
+set my_account1_spoolfile = ""
+set my_account1_trash     = ""
+set my_account1_postponed = ""
+set my_account1_realname  = "$realname"
+set my_account1_from      = "$realname <$my_account1_imap_user>"
+set my_account1_signature = "~/.mutt/signatures/account1"

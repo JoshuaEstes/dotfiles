@@ -1,4 +1,4 @@
 # vim: set ft=muttrc:
-set sidebar_visible
-set sidebar_format = '%B?F? [%F]?%* %?N?%N/?%S'
-set sidebar_short_path
+#set sidebar_visible
+#set sidebar_format = '%B [%F]%* %?N?%N/?%S'
+#set sidebar_short_path

@@ -1,10 +1,11 @@
 # vim: filetype=muttrc
-
+################################################################################
+# Colors
 #
-#
+# @see https://github.com/altercation/mutt-colors-solarized
+################################################################################
 # make sure that you are using mutt linked against slang, not ncurses, or
 # suffer the consequences of weird color issues. use "mutt -v" to check this.
-
 # custom body highlights -----------------------------------------------
 # highlight my name and other personally relevant strings
 #color body          yellow          default         "(ethan|schoonover)"

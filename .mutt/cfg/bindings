@@ -1,21 +1,41 @@
 # vim: set ft=muttrc:
-bind index gg first-entry
-bind index G  last-entry
-
-# reply-all for emails
-# Previously mapped to `recall-message` "recall a postponed message"
-bind pager R  group-reply
-
-# use $ to sync mailboxes
-#bind index <tab>   sync-mailbox
-# Previously mapped to <esc> + v
-#bind index <space> collapse-thread
-
-# Previously mapped to none
-bind pager k previous-line
-# Previously mapped to <return>
-bind pager j next-line
-# Previously mapped to ^
-bind pager gg top
-# Previously mapped to none
-bind pager G bottom
+################################################################################
+# Key Bindings
+# ============
+#
+# This changes a lot of different key bindings and is setup to be similar to
+# Vim
+#
+# @see https://ryanlue.com/posts/2017-05-21-mutt-the-vim-way
+################################################################################
+#bind generic             z         noop
+#bind index,pager,attach  g         noop
+#bind index,pager         d         noop
+#bind index,pager         s         noop
+#bind index,pager         c         noop
+#bind generic,pager       t         noop
+bind generic,index,pager \Cf       next-page
+bind generic,index,pager \Cb       previous-page
+bind generic,index       gg        first-entry
+bind generic,index       G         last-entry
+bind pager               gg        top
+bind pager               G         bottom
+bind generic,pager       k         previous-line
+bind generic,index,pager j         next-line
+bind browser             k         previous-entry
+bind browser             j         next-entry
+bind generic,index,pager \Cd       half-down
+bind generic,index,pager \Cu       half-up
+bind generic             zt        current-top
+bind generic             zz        current-middle
+bind generic             zb        current-bottom
+bind index               za        collapse-thread
+bind index               zA        collapse-all
+bind index,pager         N         search-opposite
+bind index               <Backtab> previous-new-then-unread
+bind index,pager         a         group-reply
+bind generic             tt        tag-entry
+bind index               tat       tag-thread
+bind pager               tt        tag-message
+bind editor              \Cp       history-up
+bind editor              \Cn       history-down

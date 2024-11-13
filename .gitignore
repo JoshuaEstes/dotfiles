@@ -1,20 +1,20 @@
 # Folders that are usually in $HOME
+bin/
+code/
 Applications/
 Desktop/
 Documents/
 Downloads/
 Library/
+Mail/
 Movies/
 Music/
 Pictures/
-bin/
-
-# These are usually the folders I create
-code/
-Code/
 
 # Popular 3rd party folders
 Dropbox/
+Postman/
+Public/
 
 # Other directories I could care less about
 .berkshelf/
