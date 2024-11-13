@@ -1,0 +1,42 @@
+# Text files (use less for terminal-based viewing)
+text/plain; less %s
+
+# HTML files (use Safari or lynx)
+#text/html; open -a Safari %s; nametemplate=%s.html
+#text/html; lynx -dump %s; nametemplate=%s.html
+text/html; lynx -dump %s; copiousoutput
+
+# PDF files (use Preview)
+#application/pdf; open -a Preview %s; nametemplate=%s.pdf
+
+# Image files (use Preview)
+#image/*; open -a Preview %s; nametemplate=%s.png
+
+# Audio files (use QuickTime Player)
+#audio/*; open -a "QuickTime Player" %s; nametemplate=%s.mp3
+
+# Video files (use QuickTime Player)
+#video/*; open -a "QuickTime Player" %s; nametemplate=%s.mp4
+
+# Word documents (use Microsoft Word or Pages if available)
+#application/msword; open -a "Microsoft Word" %s; nametemplate=%s.doc
+#application/msword; open -a Pages %s; nametemplate=%s.doc
+
+# Excel files (use Microsoft Excel or Numbers)
+#application/vnd.ms-excel; open -a "Microsoft Excel" %s; nametemplate=%s.xls
+#application/vnd.ms-excel; open -a Numbers %s; nametemplate=%s.xls
+
+# OpenOffice and LibreOffice files (use LibreOffice if installed)
+#application/vnd.oasis.opendocument.text; open -a LibreOffice %s; nametemplate=%s.odt
+#application/vnd.oasis.opendocument.spreadsheet; open -a LibreOffice %s; nametemplate=%s.ods
+
+# Compressed archives (use Archive Utility to extract)
+#application/zip; open %s; copiousoutput
+#application/x-gzip; open %s; copiousoutput
+#application/x-bzip2; open %s; copiousoutput
+
+# Shell scripts (use less for safety)
+#application/x-sh; less %s
+
+# XML files (use less for terminal-based viewing)
+#application/xml; less %s; nametemplate=%s.xml
