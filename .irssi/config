@@ -10,7 +10,7 @@ servers = (
   }
 );
 
-chatnets = {
+chatnets = { 
   freenode = { type = "IRC"; autosendcmd = "/MODE nick -i"; };
 };
 
