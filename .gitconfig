@@ -64,14 +64,20 @@
     sd = stash drop
 
     ; Status
-    s = status -sb
+    s = status --short --branch --show-stash
 
     ; Tag
     t = tag -n
 [apply]
     whitespace = nowarn
 [branch]
-    autosetupmerge = true
+    autoSetupMerge = true
+    autoSetupRebase = always
+[branch "main"]
+    remote = origin
+    merge = refs/heads/main
+[checkout]
+    defaultRemote = origin
 [color]
     ui = true
     branch = auto
@@ -93,35 +99,51 @@
     changed = green
     untracked = cyan
     updated = green
+;[column]
+;    ui = always
 [commit]
     ;template = ~/.gitconfig.d/commit.tmpl
 [core]
+    ; ~/.config/git/attributes
+    ;attributesFile = ~/.gitconfig.d/attributes
+    autocrlf = input
     editor = vim
+    eol = lf
+    ; ~/.config/git/ignore
     excludesfile = ~/.gitconfig.d/excludesfile
     mergeoptions = --no-ff
-    whitespace = blank-at-eol,blank-at-eof,trailing-space,space-before-tab
-    autocrlf = input
-;[diff]
-;    external = difft
-;    tool = difftastic
-;[difftool]
-;    prompt = false
-;[difftool "difftastic"]
-;    cmd = difft "$LOCAL" "$REMOTE"
-;[pager]
-;    difftool = true
+    pager = less -+F
+    whitespace = blank-at-eol,blank-at-eof,space-before-tab
+[credential]
+    ; @see https://git-scm.com/doc/credential-helpers
+    helper = osxkeychain
+[diff]
+    ;external = difft
+    ;mnemonicPrefix = true
+    noPrefix = true
+    tool = difftastic
+[difftool]
+    prompt = false
+[difftool "difftastic"]
+    cmd = difft --color=always --display=side-by-side --ignore-comments "$LOCAL" "$REMOTE" | less -R
+[fetch]
+    prune = true
+    pruneTags = true
 [gc]
-    auto=1
+    auto = 6700
+[grep]
+    lineNumber = true
+    threads = 0
 [help]
-    ;autocorrect = 1
+    autocorrect = prompt
 [init]
     defaultBranch = main
     ;This is used when you git init a directory
     ;templatedir = ~/.gitconfig.d/templates
 [merge]
-    tool = vimdiff
-    ;tool = meld
+    autoStash = true
     summary = true
+    tool = vimdiff
     verbosity = 1
 [mergetool]
     prompt = false
@@ -129,12 +151,17 @@
     useAutoMerge = auto
 [mergetool "vimdiff"]
     layout = "LOCAL,MERGED,REMOTE"
+;[pager]
+;    difftool = true
 [push]
+    autoSetupRemote = true
     default = current
+[rebase]
+    autoSquash = ture
 ; @see http://git-scm.com/2010/03/08/rerere.html
 [rerere]
+    autoUpdate = true
     enabled = true
-    autoupdate = true
 [user]
     ; See the bash.local.example file
     ;  Can be overridden by the GIT_AUTHOR_EMAIL, GIT_COMMITTER_EMAIL, and EMAIL environment variables.
@@ -143,12 +170,3 @@
     name = Joshua Estes
     ;signingkey = ''
     username = JoshuaEstes
-
-; These allow you to just do a git pull and it will pull
-; from remote origin and merge into you local master
-; branch, same for develop =)
-[branch "main"]
-  remote = origin
-  merge = refs/heads/main
-[credential]
-    helper = store
