@@ -157,7 +157,7 @@
     autoSetupRemote = true
     default = current
 [rebase]
-    autoSquash = ture
+    autoSquash = true
 ; @see http://git-scm.com/2010/03/08/rerere.html
 [rerere]
     autoUpdate = true
