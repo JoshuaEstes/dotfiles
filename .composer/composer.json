@@ -1,4 +1,5 @@
 {
+    "minimum-stability": "dev",
     "config": {
         "sort-packages": true,
         "allow-plugins": {
@@ -6,7 +7,6 @@
         }
     },
     "require": {
-    },
-    "require-dev": {
+        "phpactor/phpactor": "master"
     }
 }
