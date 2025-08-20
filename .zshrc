@@ -22,4 +22,8 @@
 [[ -f ~/.env.local ]] && source ~/.env.local
 [[ -f ~/.env.zsh.local ]] && source ~/.env.zsh.local
 
-source $PMS/pms.sh zsh
+if [[ -n "$PMS" && -f "$PMS/pms.sh" ]]; then
+    source "$PMS/pms.sh" zsh
+else
+    print -u2 "Warning: PMS script not found; skipping PMS integration"
+fi
