@@ -70,3 +70,18 @@ dotfiles config --local status.showUntrackedFiles no
 
 * Vundle
 * TPM (Tmux Plugin Manager)
+
+# Key Files and Directories
+
+* `.tmux.conf` – Configures tmux key bindings, the status line, and plugins.
+* `.zshrc` – Defines the Z shell environment, including aliases and plugin loading.
+* `.vimrc` – Sets Vim options, mappings, and plugin configuration.
+* `bin/` – Contains executable scripts that are added to your `PATH`.
+* `.gitconfig.d/` – Holds additional Git configuration snippets sourced by `.gitconfig`.
+
+# Customization
+
+Tailor these files to match your workflow. Update the configuration files directly or add
+new scripts to `bin/` to introduce custom commands. Drop extra Git configuration files
+into `.gitconfig.d/` to extend your Git setup. When adjusting tmux, Zsh, or Vim settings,
+follow the plugin installation steps above to keep everything in sync across machines.
