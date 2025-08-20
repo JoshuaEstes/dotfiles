@@ -3,9 +3,6 @@
   "version": "0.0.0",
   "description": "personal dotfiles",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/JoshuaEstes/dotfiles.git"
@@ -16,9 +13,6 @@
     "url": "https://github.com/JoshuaEstes/dotfiles/issues"
   },
   "homepage": "https://github.com/JoshuaEstes/dotfiles",
-  "devDependencies": {
-    "grunt": "~0.4.5"
-  },
   "dependencies": {
     "@popperjs/core": "^2.11.8",
     "bootstrap": "^5.3.3"
