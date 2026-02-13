@@ -106,11 +106,11 @@
 [core]
     ; ~/.config/git/attributes
     ;attributesFile = ~/.gitconfig.d/attributes
-    autocrlf = input
+    ;autocrlf = input
     editor = vim
-    eol = lf
-    ; ~/.config/git/ignore
-    excludesfile = ~/.gitconfig.d/excludesfile
+    ;eol = lf
+    ; ~/.gitconfig.d/excludesfile
+	excludesFile = /Users/joshua/.config/git/ignore
     mergeoptions = --no-ff
     pager = less -+F
     whitespace = blank-at-eol,blank-at-eof,space-before-tab
